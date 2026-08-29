@@ -1,0 +1,159 @@
+/* --------------------------------------------
+    Template Default Fonts & Fonts Styles
+ ---------------------------------------------- */
+ 
+@import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&display=swap');
+
+$gt-heading-font: 'Kanit', sans-serif;
+$gt-body-font: "Archivo", sans-serif;
+//font-family: "Font Awesome 6 Free";
+$fa: "Font Awesome 6 Pro";
+
+body {
+    font-family: $gt-body-font;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 28px;
+    color: $gt-text-color;
+    background-color: $gt-white;
+	padding: 0;
+	margin: 0;
+	overflow-x: hidden;
+}
+
+ul {
+	padding: 0;
+	margin: 0;
+	list-style: none;
+}
+
+button {
+    border: none;
+    background-color: transparent;
+	padding: 0;
+}
+
+input:focus{
+	color: $gt-white;
+	outline: none;
+}
+
+input{
+	color: $gt-white;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: $gt-heading-font;
+    margin: 0px;
+	padding: 0;
+    color: $gt-header-color;
+	@include transition;
+	text-transform: capitalize;
+}
+
+h1 {
+	font-size: 100px;
+	font-weight: 700;
+	line-height: 108%;
+
+	@include breakpoint(max-xxxl){
+		font-size: 88px;
+	}
+
+	@include breakpoint(max-xxl){
+		font-size: 75px;
+	}
+
+	@include breakpoint(max-xl){
+		font-size: 65px;
+	}
+
+	@include breakpoint(max-md){
+		font-size: 55px;
+	}
+
+	@include breakpoint(max-sm){
+		font-size: 43px;
+	}
+
+	@include breakpoint(max-xxs){
+		font-size: 32px;
+	}
+}
+
+h2 {
+	font-size: 48px;
+	font-weight: 700;
+	line-height: 117%;
+
+	@include breakpoint(max-xxl){
+		font-size: 44px;
+	}
+
+	@include breakpoint(max-xl){
+		font-size: 40px;
+	}
+
+	@include breakpoint(max-lg){
+		font-size: 36px;
+	}
+
+	@include breakpoint(max-md){
+		font-size: 32px;
+	}
+
+	@include breakpoint(max-sm){
+		font-size: 28px;
+	}
+}
+
+h3 {
+	font-size: 24px;
+	font-weight: 700;
+	line-height: 134%;
+
+	@include breakpoint(max-sm){
+		font-size: 20px;
+	}
+}
+
+h4 {
+	font-size: 20px;
+	font-weight: 700;
+}
+
+h5 {
+	font-size: 18px;
+	font-weight: 700;
+}
+
+h6 {
+	font-size: 16px;
+	font-weight: 700;
+}
+
+a {
+    text-decoration: none;
+    outline: none !important;
+    cursor: pointer;
+    color: $gt-header-color;
+	@include transition;
+}
+
+p {
+    margin: 0px;
+	@include transition;
+}
+
+span {
+	margin: 0px;
+	// @include transition;
+}
+

@@ -1,0 +1,379 @@
+.gt-about-wrapper {
+    .gt-about-image {
+        margin-left: -160px;
+        position: relative;
+
+        @include breakpoint (max-xxxl){
+            margin-left: -80px;
+        }
+
+        @include breakpoint (max-lg){
+            margin-left: 0;
+        }
+
+        .gt-gym-logo {
+            position: absolute;
+            top: 50px;
+            right: 50px;
+
+             @include breakpoint (max-lg){
+               display: none;
+            }
+
+            img {
+                width: initial;
+                height: initial;
+            }
+        }
+
+        img {
+            @include imgw;
+        }
+    }
+
+    .gt-about-content {
+        .gt-text {
+            margin-top: 25px;
+        }
+
+        .gt-icon-wrap {
+            margin-top: 30px;
+            @include flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+
+            @include breakpoint (max-xl){
+                flex-wrap: wrap;
+                gap: 20px;
+            }
+
+            @include breakpoint (max-sm){
+                display: block;
+            }
+
+            ul {
+                li {
+                   display: flex;
+                   gap: 19px;
+
+                   &:not(:last-child){
+                        margin-bottom: 24px;
+                        border-bottom: 1px solid rgba(89, 99, 93, 0.16);
+                        padding-bottom: 24px;
+                    }
+
+                    .gt-icon {
+                        font-size: 56px;
+                        color: $gt-theme-color;
+                    }
+
+                    .gt-content {
+                        max-width: 280px;
+
+                        h4 {
+                            margin-bottom: 7px;
+                            line-height: 1;
+                        }
+                    }
+                }
+            }
+
+            .gt-video-thumb {
+                position: relative;
+
+                @include breakpoint (max-sm){
+                    margin-top: 25px;
+                    
+                    img {
+                        @include imgw;
+                    }
+                }
+
+                .video-btn {
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%,-50%);
+                    width: 65px;
+                    height: 65px;
+                    line-height: 65px;
+                    text-align: center;
+                    border-radius: 50%;
+                    display: inline-block;
+                    background-color: $gt-header-color;
+                    color: $gt-white;
+
+                    &.ripple {
+                        &::before,&::after {
+                        
+                            width: 66px;
+                            height: 66px;
+                            box-shadow: 0 0 0 0 rgba(29, 34, 31, 0.5);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.gt-about-section {
+    position: relative;
+
+    .gt-vec-shape {
+        position: absolute;
+        top: 75px;
+        left: 85px;
+        z-index: -1;
+    }
+
+    
+    .gt-trans-text {
+        -webkit-text-stroke-width: 3px;
+        -webkit-text-stroke-color: #86888D;
+        font-family: $gt-heading-font;
+        font-size: 200px;
+        font-weight: 700;
+        letter-spacing: 0.5px;
+        -webkit-text-fill-color: transparent;
+        opacity: 0.16;
+        position: absolute;
+        bottom: 40px;
+        right: 0;
+        line-height: 1;
+        z-index: -1;
+
+        @include breakpoint (max-xl){
+            display: none;
+        }
+    }
+}
+
+.gt-about-section {
+    position: relative;
+
+    .gt-vec-shape {
+        position: absolute;
+        top: 75px;
+        left: 85px;
+        z-index: -1;
+    }
+}
+
+.gt-about-wrapper-2 {
+
+    .gt-about-content {
+
+        .gt-text {
+            max-width: 628px;
+            font-weight: 400;
+            margin-top: 20px;
+        }
+
+        .gt-about-main-item {
+            @include flex;
+            justify-content: space-between;
+            margin-top: 30px;
+            border-bottom: 1px solid #CDCED0;
+            padding-bottom: 24px;
+            margin-bottom: 16px;
+            position: relative;
+
+             @include breakpoint (max-xl) {
+                flex-wrap: wrap;
+                gap: 30px;
+
+                img {
+                    @include imgw;
+                }
+             }
+
+            &::before {
+                position: absolute;
+                content: "";
+                left: 45%;
+                width: 72px;
+                height: 1px;
+                background-color: rgba(155, 155, 155, 0.32);
+                transform: rotate(90deg);
+                top: 37px;
+
+                @include breakpoint (max-xl) {
+                    display: none;
+                }
+            }
+
+            .gt-about-item {
+                display: flex;
+                gap: 12px;
+                
+
+                .gt-number-item {
+                    h4 {
+                        font-weight: 500;
+                        color: $gt-theme-color;
+                    }
+                }
+
+                .gt-content {
+                    h5 {
+                        font-weight: 500;
+                    }
+                }
+            }
+        }
+
+        h6 {
+            font-weight: 500;
+            line-height: 150%;
+            letter-spacing: 0.5px;
+        }
+
+        .text {
+            font-size: 16px;
+            font-weight: 600;
+            font-style: italic;
+            position: relative;
+            padding-left: 40px;
+            margin-top: 10px;
+
+            &::before {
+                position: absolute;
+                content: "";
+                width: 32px;
+                height: 3px;
+                background-color: $gt-theme-color;
+                left: 0;
+                top: 8px;
+            }
+
+            span {
+                font-size: 14px;
+                font-weight: 300;
+                color: $gt-text-color;
+            }
+        }
+
+        .gt-about-button {
+            margin-top: 40px;
+        }
+    }
+
+    .gt-about-image {
+        margin-right: -100px;
+
+        @include breakpoint (max-xxl){
+            margin-right: 0;
+
+            img {
+                @include imgw;
+            }
+        }
+    }
+}
+
+.gt-about-wrapper-3 {
+
+    .gt-about-image {
+        position: relative;
+        z-index: 9;
+        height: 544px;
+
+         @include breakpoint (max-lg) {
+              height: initial;
+        }
+
+        img  {
+            @include imgw;
+        }
+
+        .gt-about-shape {
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            z-index: -1;
+            height: 544px;
+
+             @include breakpoint (max-lg) {
+               display: none;
+            }
+        }
+    }
+
+    .gt-about-content {
+        .gt-text {
+            margin-top: 15px;
+            margin-bottom: 30px;
+        }
+
+        .gt-about-tab {
+            position: relative;
+            margin-bottom: 40px;
+
+            @include breakpoint (max-xl) {
+                margin-bottom: 30px;
+            }
+
+            .nav {
+                @include flex;
+                gap: 0;
+                position: absolute;
+                left: 0;
+                top: 0;
+                z-index: 999;
+    
+                li{
+                    font-size: 16px;
+                    font-weight: 600;
+                
+                    @include breakpoint (max-xl) {
+                      font-size: 16px;
+                    }
+                
+                    .nav-link{
+                        color: $gt-header-color;
+                        @include transition;
+                        padding: 16px 24px;
+                        line-height: 1;
+                        background-color: #F4F4F4;
+
+                        &.active {
+                            position: relative;
+                            background-color: $gt-theme-color;
+                            color: $gt-white;
+                         }
+                    }
+                }
+            }
+
+            .tab-content {
+                background-color: $gt-header-color;
+                padding: 60px 24px 24px;
+                position: relative;
+
+                p {
+                    color: $gt-white;
+                    max-width: 588px;
+                    opacity: 0.7;
+                }
+            }
+        }
+    }
+}
+
+.gt-about-section-3 {
+    position: relative;
+    z-index: 9;
+
+    .gt-right-shape {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        z-index: -1;
+
+         @include breakpoint (max-xl) {
+           display: none;
+        }
+    }
+}

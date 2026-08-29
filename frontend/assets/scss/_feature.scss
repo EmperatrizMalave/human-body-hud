@@ -1,0 +1,738 @@
+.gt-choose-us-wrapper {
+    @include breakpoint (max-xl){
+        padding-bottom: 100px;
+    }
+
+     @include breakpoint (max-lg){
+        padding-bottom: 80px;
+    }
+
+    .gt-choose-us-image {
+        direction: rtl;
+        margin-bottom: -120px;
+
+        @include breakpoint (max-xl){
+            margin-bottom: 0;
+            margin-left: -75%;
+
+            img {
+                @include imgw;
+            }
+        }
+
+        @include breakpoint (max-lg){
+           margin-left: 0;
+        }
+    }
+
+    .gt-choose-us-content {
+        margin-bottom: -50px;
+
+        @include breakpoint (max-xl){
+           margin-bottom: 0;
+        }
+
+        .gt-text {
+            margin-top: 25px;
+            color: $gt-white;
+            opacity: .7;
+        }
+
+        .gt-choose-list-items {
+            @include flex;
+            gap: 70px;
+            margin-top: 30px;
+
+            @include breakpoint (max-xl){
+               flex-wrap: wrap;
+               gap: 20px;
+            }
+
+            ul {
+                li {
+                    font-size: 20px;
+                    font-family: $gt-heading-font;
+                    font-weight: 500;
+                    color: $gt-white;
+
+                    &:not(:last-child){
+                        margin-bottom: 15px;
+                    }
+
+                    i {
+                        color: $gt-theme-color;
+                        margin-right: 10px;
+                    }
+                }
+            }
+        }
+
+        .gt-choose-us-btn {
+            @include flex;
+            gap: 30px;
+            margin-top: 50px;
+
+            @include breakpoint (max-xl){
+               flex-wrap: wrap;
+               gap: 20px;
+            }
+
+            @include breakpoint (max-md){
+              margin-top: 30px;
+            }
+
+            .gt-theme-btn {
+                border: 1px solid transparent;
+
+                &.style-border {
+                    border: 1px solid $gt-white;
+                    background: transparent;
+                }
+            }
+        }
+    }
+    
+}
+
+
+.gt-work-box-items {
+    margin-top: 30px;
+    text-align: center;
+
+    .gt-thumb {
+        width: 188px;
+        height: 188px;
+        text-align: center;
+        margin: 0 auto;
+        position: relative;
+        border: 2px solid $gt-theme-color;
+        border-radius: 50%;
+
+        img {
+            border-radius: 50%;
+            @include imgw;
+            @include transition;
+           
+            filter: blur(2px);
+        }
+
+        .gt-number {
+            font-size: 100px;
+            font-family: $gt-heading-font;
+            line-height: 1;
+            text-align: center;
+            font-weight: 700;
+            color: $gt-white;
+            opacity: 0.32;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+             @include transition;
+        }
+    }
+
+    .gt-content {
+        margin-top: 20px;
+
+        h3 {
+            color: $gt-white;
+            margin-bottom: 13px;
+        }
+
+        p {
+            max-width: 320px;
+            margin: 0 auto;
+            color: rgba(255, 255, 255, .7);
+        }
+    }
+
+    &:hover {
+        .gt-thumb {
+            .gt-number {
+                opacity: 0;
+                visibility: hidden;
+            }
+
+            img {
+                filter: initial;
+            }
+        }
+    }
+}
+
+.gt-work-process-section {
+    position: relative;
+
+    .gt-line-shape {
+        position: absolute;
+        top: 52%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+
+        @include breakpoint (max-xxl){
+            display: none;
+        }
+    }
+}
+
+.marque-wrapper {
+    background-color: $gt-theme-color;
+    padding: 40px 0;
+
+    @include breakpoint (max-sm){
+        padding: 20px 0;
+    }
+
+    .marque-text {
+        font-size: 72px;
+        font-weight: 700;
+        letter-spacing: 0.5px;
+        color: $gt-white;
+        text-transform: uppercase;
+        font-family: $gt-heading-font;
+        line-height: 1;
+
+        @include breakpoint (max-sm){
+            font-size: 46px;
+        }
+    }
+}
+
+.gt-gallery-image {
+    position: relative;
+    z-index: 9;
+    overflow: hidden;
+
+    img {
+        @include imgw;
+    }
+
+    .icon {
+        position: absolute;
+        top: -100px;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        opacity: 0;
+        visibility: hidden;    
+        @include transition;
+        color: $gt-white;
+        z-index: 999;
+        font-size: 40px;
+    }
+
+    &:before, &:after {
+        content: '';
+        position: absolute;
+        height: 100%;
+        width: 50%;
+        // z-index: -1;
+        top:0;
+        left: 0;
+        background: rgba(244, 30, 30, 0.50);
+        transform: translateX(-100%) rotate(15deg);
+        @include transition;
+        opacity: 0;
+        visibility: hidden;
+    }
+
+    &:after {
+        left: auto;
+        right: 0;
+        transform: translateX(100%) rotate(-15deg);
+    }
+
+    &:hover {
+        .icon {
+            top: 50%;
+            opacity: 1;
+            visibility: visible;
+        }
+
+        &:before, &:after {
+            transform: none;
+            opacity: 1;
+            visibility: visible;
+        }
+    }
+}
+
+.gt-choose-us-wrapper-2 {
+
+    .gt-choose-us-image {
+        position: relative;
+        z-index: 9;
+
+        img {
+            @include imgw;
+        }
+
+        .video-button {
+            top: 140px;
+            right: 15px;
+            position: absolute;
+            width: 190px;
+            height: 190px;
+            border-radius: 100%;
+            background-color: $gt-header-color;
+
+             @include breakpoint (max-md) {
+               width: 110px;
+               height: 110px;
+               right: 10px;
+            }
+
+            .video-btn {
+                width: 88px;
+                height: 88px;
+                line-height: 88px;
+                display: inline-block;
+                background-color: $gt-theme-color;
+                color: $gt-white;
+                text-align: center;
+                border-radius: 50%;
+                position: absolute;
+                font-size: 30px;
+                left: 50%;
+                top: 50%;
+                transform: translate(-50%, -50%);
+            }
+        }
+        
+        .gt-circle-image {
+            position: absolute;
+            bottom: 140px;
+            left: 0;
+            border: 12px solid $gt-theme-color;
+            border-radius: 100%;
+
+             @include breakpoint (max-md) {
+                bottom: 95px;
+                border: 12px none;
+            }
+
+            img {
+                 @include imgw;
+                 border-radius: 100%;
+            }
+        }
+
+        .gt-left-shape {
+            position: absolute;
+            bottom: 0;
+            left: -90px;
+            z-index: -1;
+
+             @include breakpoint (max-xl) {
+                display: none;
+            }
+        }
+
+        .gt-right-shape {
+            position: absolute;
+            right: -62px;
+            top: 40px;
+
+            @include breakpoint (max-xl) {
+                display: none;
+            }
+        }
+    }
+
+    .gt-choose-us-content {
+        margin-left: 40px;
+
+         @include breakpoint (max-xl) {
+            margin-left: 0;
+         }
+
+        .gt-text {
+            max-width: 615px;
+            color: $gt-white;
+            margin-top: 20px;
+            opacity: 0.7;
+        }
+
+        .gt-choose-us-item {
+            @include flex;
+            gap: 70px;
+            margin-top: 30px;
+            border-bottom: 1px solid rgba(205, 206, 208, 0.24);
+            padding-bottom: 30px;
+
+             @include breakpoint (max-xl) {
+                flex-wrap: wrap;
+                gap: 30px;
+            }
+
+            .gt-choose-us-icon-item {
+                 @include flex;
+                 gap: 16px;
+
+                 .gt-icon {
+                    width: 56px;
+                    height: 56px;
+                    line-height: 56px;
+                    text-align: center;
+                    background: rgba(255, 255, 255, 0.12);
+                 }
+
+                 .gt-content {
+                    h4 {
+                        color: $gt-white;
+                    }
+
+                    p {
+                        color: $gt-white;
+                        opacity: 0.7;
+                    }
+                 }
+            }
+        }
+
+        .gt-choose-us-button {
+            @include flex;
+            gap: 30px;
+            margin-top: 40px;
+
+            @include breakpoint (max-xl) {
+                margin-top: 30px;
+                flex-wrap: wrap;
+                gap: 20px;
+            }
+
+            .gt-theme-btn {
+                border: 1px solid transparent;
+
+                &.style-border {
+                    border: 1px solid $gt-white;
+                    background: transparent;
+                }
+            }
+        }
+    }
+}
+
+.gt-why-choose-us-section {
+    position: relative;
+    z-index: 9;
+
+    .gt-dot-shape {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: -1;
+    }
+
+    .gt-right-shape {
+        position: absolute;
+        right: 0;
+        top: 30px;
+
+        @include breakpoint (max-xl) {
+            display: none;
+        }
+    }
+}
+
+
+.gt-why-coose-us-wrapper-3 {
+    position: relative;
+
+    .gt-choose-us-image {
+        position: relative;
+
+        img {
+            @include imgw;
+        }
+
+         .video-button {
+            right: 24px;
+            bottom: 24px;
+            position: absolute;
+            width: 190px;
+            height: 190px;
+            border-radius: 100%;
+            background-color: $gt-header-color;
+
+            @include breakpoint (max-xl) {
+               width: 150px;
+               height: 150px;
+            }
+
+             @include breakpoint (max-md) {
+               width: 110px;
+               height: 110px;
+            }
+
+            .video-btn {
+                width: 88px;
+                height: 88px;
+                line-height: 88px;
+                display: inline-block;
+                background-color: $gt-theme-color;
+                color: $gt-white;
+                text-align: center;
+                border-radius: 50%;
+                position: absolute;
+                font-size: 30px;
+                left: 50%;
+                top: 50%;
+                transform: translate(-50%, -50%);
+            }
+        }
+
+        .gt-choose-us-count {
+            background-color: $gt-header-color;
+            padding: 10px 79px;
+            display: inline-block;
+             display: inline-flex;
+            align-items: center;
+            height: 102px;
+            width: 340px;
+            overflow: hidden;
+            will-change: transform;
+            backface-visibility: hidden;
+            gap: 16px;
+            transform: rotate(-90deg);
+            position: absolute;
+            left: 8px;
+            bottom: 8px;
+            transform: rotate(-90deg) translate(0%, 100%);
+            transform-origin: bottom left;
+            margin: 0;
+            border-bottom: 8px solid $gt-white;
+
+            @include breakpoint (max-xl) {
+                 left: 4px;
+                 bottom: 4px;
+            }
+
+            @include breakpoint (max-sm) {
+                 width: 240px;
+                 padding: 10px 22px;
+                 left: 4px;
+                 bottom: 4px;
+            }
+
+              h2 {
+                color: $gt-white;
+                font-size: 64px;
+                line-height: 1;
+                min-width: 100px;
+                margin: 0;
+
+                @include breakpoint (max-sm) {
+                    font-size: 55px;
+                }
+            }
+
+           p {
+                color: $gt-white;
+                margin: 0;
+                line-height: 1.2;
+            }
+        }
+
+        .gt-clip-shape {
+            position: absolute;
+            left: 0;
+            top: 70px;
+
+             @include breakpoint (max-xl) {
+               display: none;
+            }
+        }
+    }
+
+    .gt-choose-us-content {
+        margin-left: 20px;
+
+         @include breakpoint (max-xl) {
+            margin-left: 0;
+        }
+
+        .choose-us-main-item {
+            margin-top: 30px;
+
+             .gt-choose-us-item {
+                @include flex;
+                gap: 24px;
+                margin-bottom: 24px;
+
+                @include breakpoint (max-lg) {
+                    flex-wrap: wrap;
+                    gap: 24px;
+                }
+
+                .gt-number {
+                    width: 64px;
+                    line-height: 64px;
+                    line-height: 64px;
+                    text-align: center;
+                    background: rgba(255, 255, 255, 0.12);
+                    font-size: 32px;
+                    color: $gt-white;
+                    @include transition;
+
+                     @include breakpoint (max-xl) {
+                        font-size: 25px;
+                    }
+
+                    &:hover {
+                        background-color: $gt-theme-color;
+                    }
+                }
+
+                .gt-content {
+                    h3 {
+                        color: $gt-white;
+                    }
+
+                    p {
+                        color: $gt-white;
+                        opacity: 0.7;
+                    }
+                }
+            }
+        }
+
+        .gt-choose-us-button {
+            margin-top: 50px;
+        }
+    }
+}
+
+.gt-why-choose-us-section-3 {
+    position: relative;
+    z-index: 9;
+
+    &::before {
+        @include before;
+        background: linear-gradient(
+        77deg,
+        rgba(244, 30, 30, 0.4) -12.78%,
+        rgba(29, 34, 41, 0.4) 64.79%
+        ),
+        #1D2229;
+        z-index: -1;
+    }
+
+    .gt-left-shape {
+        position: absolute;
+        left: 0;
+        top: 0;
+        z-index: -1;
+
+        @include breakpoint (max-xl) {
+            display: none;
+        }
+    }
+
+    .gt-right-shape {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        z-index: -1;
+
+        @include breakpoint (max-xl) {
+            display: none;
+        }
+    }
+
+    .gt-top-shape {
+        position: absolute;
+        top: 0;
+        left: 130px;
+
+         @include breakpoint (max-xxxl) {
+            display: none;
+        }
+    }
+}
+
+.gt-how-work-items {
+    margin-top: 30px;
+    text-align: center;
+
+    .gt-how-work-icon {
+        width: 88px;
+        height: 88px;
+        line-height: 88px;
+        text-align: center;
+        background: rgba(255, 255, 255, 0.12);
+        font-size: 48px;
+        color: $gt-white;
+        margin: 0 auto;
+        position: relative;
+
+        h6 {
+            background-color: $gt-theme-color;
+            color: $gt-white;
+            position: absolute;
+            border-radius: 100px;
+            right: -15px;
+            top: -15px;
+            width: 36px;
+            height: 36px;
+            line-height: 32px;
+            border-radius: 100px;
+            border: 2px solid $gt-header-color;
+        }
+    }
+
+    .gt-how-work-content {
+        margin-top: 24px;
+
+        h3 {
+            color: $gt-white;
+            margin-bottom: 5px;
+        }
+
+        p {
+            color: $gt-white;
+        }
+    }
+}
+
+.gt-how-it-work-section {
+    position: relative;
+
+    .gt-line-shape {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 8%;
+        z-index: -1;
+
+        @include breakpoint (max-xl) {
+            display: none;
+        }
+    }
+
+    .gt-arrow-shape {
+        position: absolute;
+        top: 47%;
+        left: 34%;
+
+         @include breakpoint (max-xl) {
+            display: none;
+        }
+    }
+
+    .gt-arrow-shape-2 {
+        position: absolute;
+        top: 47%;
+        left: 57%;
+
+         @include breakpoint (max-xl) {
+            display: none;
+        }
+    }
+} 
+
+.header-bg {
+	background-color: $gt-header-color;
+}

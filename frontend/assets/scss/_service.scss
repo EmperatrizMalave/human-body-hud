@@ -1,0 +1,447 @@
+.gt-service-details-wrapper {
+    .gt-details-thumb {
+        img {
+            @include imgw;
+        }
+    }
+
+    .gt-details-content {
+        margin-top: 25px;
+
+        h2 {
+            font-weight: 600;
+        }
+
+        .gt-box {
+            font-size: 20px;
+            font-weight: 500;
+            color: $gt-header-color;
+            font-family: $gt-heading-font;
+            border-radius: 8px;
+            border-left: 5px solid $gt-theme-color;
+            background: #FFECE7;
+            display: inline-block;
+            padding: 24px 32px;
+            font-style: italic;
+            margin-top: 30px;
+        }
+
+        .gt-list-content {
+            margin-top: 32px;
+            margin-bottom: 40px;
+
+            h3 {
+                margin-bottom: 20px;
+            }
+
+            ul {
+                li {
+                    span {
+                        font-size: 18px;
+                        color: $gt-header-color;
+                        font-weight: 500;
+                        @include flex;
+                        gap: 10px;
+                        margin-bottom: 10px;
+                    }
+
+                    &:not(:last-child){
+                        margin-bottom: 20px;
+                    }
+                }
+            }
+        }
+
+        .details-thumb {
+            img {
+                @include imgw;
+            }
+        }
+
+        .faq-content {
+                margin-top: 40px;
+
+                h3 {
+                    font-size: 32px;
+                    margin-bottom: 30px;
+
+                    @include breakpoint (max-xl) {
+                        font-size: 25px;
+                    }
+                }
+
+                .accordion-item {
+                    border: none !important;
+                    background: $gt-bg-color;
+            
+                    .accordion-header { 
+                        .accordion-button { 
+                            font-weight: 500;
+                            color: $gt-header-color;
+                            letter-spacing: -.2px;
+                            border: none !important;
+                            border-radius: 0;
+                            box-shadow: none;
+                            background: $gt-bg-color-2;
+                            padding: 20px 30px 0;
+                            text-transform: capitalize;
+                            font-size: 20px;
+            
+                            @include breakpoint (max-xl){
+                                font-size: 18px;
+                            }
+            
+                            @include breakpoint (max-sm){
+                                font-size: 18px;
+                                padding: 20px 20px 0;
+                            }
+            
+                            &::after {
+                                font-weight: 500;
+                                transition: all 0.3s ease-in-out !important;
+                                background-image: url(../../assets/img/inner-page/chervon-up.svg);
+                                color: $gt-theme-color;
+                            }
+                            &:not(.collapsed)::after {
+                                background-image: url(../../assets/img/inner-page/chervon-down.svg);
+                                font-weight: 500;
+                                color: $gt-theme-color;
+                                transform: rotate(0);
+                            }
+            
+                            &.collapsed {
+                                background: $gt-bg-color-2;
+                                padding: 22px 30px;
+                                color: $gt-header-color;
+                            }
+                        }
+                    }
+            
+                    .accordion-collapse { 
+                        .accordion-body {
+                            padding-left: 33px;
+                            padding-top: 15px;
+                            padding-right: 40px;
+                            color: $gt-text-color;
+                            background: $gt-bg-color-2;
+                            padding-bottom: 28px;
+            
+                            @include breakpoint (max-md){
+                                padding-left: 60px;
+                            }
+            
+                            @include breakpoint (max-sm){
+                                padding-left: 20px;
+                                padding-bottom: 20px;
+                            }
+                        }
+                    }
+                }
+            }
+    }
+}
+
+.gt-services-box-item {
+    padding: 72px 45px 30px;
+    background-color: #F4F4F4;
+    margin-top: 70px;
+    @include transition;
+
+    @include breakpoint (max-xl) {
+        margin-top: 30px;
+    }
+
+     @include breakpoint (max-sm) {
+        padding: 30px 30px 10px;
+    }
+
+    .gt-number {
+        font-size: 40px;
+        color: $gt-white;
+        width: 88px;
+        height: 88px;
+        line-height: 88px;
+        text-align: center;
+        background-color: $gt-header-color;
+        opacity: 0.30;
+        margin-bottom: 25px;
+        @include transition;
+    }
+
+    h3 {
+        margin-bottom: 15px;
+
+        a {
+            background-position: 0 95%;
+            background-repeat: no-repeat;
+            background-size: 0% 2px;
+            display: inline;
+            
+            &:hover {
+                color: $gt-theme-color;
+                background-size: 100% 2px;
+                background-image: linear-gradient(180deg, $gt-theme-color 0%, $gt-theme-color 100%);
+            }
+        }
+    }
+
+    p {
+        max-width: 344px;
+    }
+
+    .gt-link-btn {
+        opacity: 0;
+        visibility: hidden;
+    }
+
+    &.gt-active {
+         background-color: $gt-header-color;
+         padding: 70px 45px 50px;
+         margin-top: 40px;
+
+         .gt-number {
+            color: $gt-theme-color;
+            background: rgba(255, 255, 255, 0.05);
+            opacity: 1;
+        }
+
+        h3 {
+            a {
+                color: $gt-white;
+            }
+        }
+
+        p {
+            color: $gt-white;
+        }
+
+        .gt-link-btn {
+            opacity: 1;
+            visibility: visible;
+            margin-top: 30px;
+        }
+    }
+
+    &:hover {
+         background-color: $gt-header-color;
+         padding: 70px 45px 50px;
+         margin-top: 40px;
+
+          @include breakpoint (max-sm) {
+            padding: 40px 30px 30px;
+        }
+      
+        .gt-number {
+             color: $gt-theme-color;
+            background: rgba(255, 255, 255, 0.05);
+            opacity: 1;
+        }
+
+        h3 {
+            a {
+                color: $gt-white;
+            }
+        }
+
+        p {
+            color: $gt-white;
+        }
+
+        .gt-link-btn {
+            opacity: 1;
+            visibility: visible;
+            margin-top: 30px;
+        }
+    }
+}
+
+.gt-service-section-2 {
+    position: relative;
+
+    .gt-service-sahpe {
+        position: absolute;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        z-index: -1;
+
+        @include breakpoint (max-xl) {
+            display: none;
+        }
+    }
+}
+
+.gt-service-offer-item-2 {
+    margin-top: 30px;
+
+    .gt-service-offer-image {
+        img {
+            @include imgw;
+        }
+    }
+
+    .gt-service-offer-content {
+        background-color: $gt-white;
+        padding: 0 0 24px;
+        position: relative;
+
+        .gt-post {
+            background-color: $gt-theme-color;
+            color: $gt-text-color;
+            display: inline-block;
+            padding: 10px 44px;
+            transform: rotate(-90deg);
+            position: absolute;
+            left: 0;
+            transform: rotate(-90deg) translate(-100%, 0%);
+            transform-origin: top left;
+            margin: 0;
+            line-height: 1;
+            z-index: 999;
+            border-radius: 8px 0px 0px 0px;
+            background-color: #F4F4F4;
+            @include transition;
+            z-index: 9;
+
+            &::before {
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                width: 100%;
+                height: 0px;
+                content: "";
+                background-color: $gt-header-color;
+                @include transition;
+                z-index: -1;
+            }
+        }
+
+        .gt-service-icon-item {
+            display: flex;
+            gap: 16px;
+            margin-left: 35px;
+
+            .gt-icon {
+                width: 80px;
+                height: 80px;
+                line-height: 80px;
+                text-align: center;
+                background-color: #F4F4F4;
+                border-left: 4px solid $gt-header-color;
+                font-size: 40px;
+                color: $gt-theme-color;
+                @include transition;
+                 position: relative;
+                 z-index: 9;
+
+                 &::before {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    right: 0;
+                    width: 100%;
+                    height: 0px;
+                    content: "";
+                    background-color: $gt-theme-color;
+                    @include transition;
+                    z-index: -1;
+                }
+
+                 i {
+                    @include transition;
+                    display: inline-block;
+                }
+            }
+
+            .gt-content {
+                margin-top: 15px;
+
+                 h3 {
+
+                    a {
+                        background-position: 0 95%;
+                        background-repeat: no-repeat;
+                        background-size: 0% 2px;
+                        display: inline;
+                        
+                        &:hover {
+                            color: $gt-theme-color;
+                            background-size: 100% 2px;
+                            background-image: linear-gradient(180deg, $gt-theme-color 0%, $gt-theme-color 100%);
+                        }
+                    }
+                }
+
+                p {
+                    max-width: 275px;
+                    margin-bottom: 15px;
+                }
+
+                .gt-link-btn {
+                    color: $gt-header-color;
+                    i {
+                        color: $gt-header-color;
+                    }
+                }
+            }
+        }
+    }
+
+    &:hover {
+
+        .gt-service-offer-content {
+            .gt-post {
+                background-color: $gt-header-color;
+                color: $gt-white;
+
+                 &::before {
+                    bottom: 0;
+                    height: 100%;
+                }
+            }
+
+            .gt-service-icon-item {
+                .gt-icon {
+                    background-color: $gt-theme-color;
+                    color: $gt-white;
+                    border-left: 4px solid $gt-theme-color;
+
+                     &::before {
+                        bottom: 0;
+                        height: 100%;
+                    }
+
+                    i {
+                        transform: scaleX(-1) !important;
+                    }
+                }
+
+                .gt-content {
+                     .gt-link-btn {
+                        color: $gt-theme-color;
+                        i {
+                            color: $gt-theme-color;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.gt-service-offer-section {
+    position: relative;
+    z-index: 9;
+
+    .gt-man-shape {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        z-index: -1;
+
+        @include breakpoint (max-xl) {
+            display: none;
+        }
+    }
+}

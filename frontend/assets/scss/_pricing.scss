@@ -1,0 +1,100 @@
+.pricing-card-item-3 {
+    padding: 40px 30px;
+    background-color: #F4F4F4;
+    margin-top: 30px;
+    position: relative;
+    overflow: hidden;
+    @include transition;
+    border: 1px solid #F4F4F4;
+
+    .post {
+        position: absolute;
+        font-size: 14px;
+        font-weight: 400;
+        color: $gt-white;
+        background-color: $gt-header-color;
+        transform: rotate(40.012deg);
+        padding: 2px 30px;
+        right: -33px;
+        top: 27px;
+    }
+
+    .pricing-header {
+        border-bottom: 1px solid #CDCED0;
+        padding-bottom: 24px;
+        margin-bottom: 24px;
+    }
+
+    .pricing-button {
+
+        .gt-theme-btn {
+            border: 1px solid transparent;
+            width: 100%;
+
+            &.style-border {
+                border: 1px solid $gt-theme-color;
+                background: transparent;
+                color: $gt-header-color;
+
+                &:hover {
+                    .shotfit-btn__text {
+                        color: $gt-white;
+                    }
+                }
+            }
+        }
+    }
+
+    .gt-pricing-list {
+        margin-top: 30px;
+        margin-bottom: 25px;
+
+        li {
+            color: $gt-header-color;
+
+            i {
+                margin-right: 10px;
+                transform: rotate(45deg);
+            }
+
+            &:not(:last-child) {
+                margin-bottom: 12px;
+            }
+        }
+    }
+
+    .pricing-price {
+        h2 {
+            color: $gt-theme-color;
+
+            span {
+                color: $gt-text-color;
+                font-weight: 400;
+                font-size: 16px;
+            }
+        }
+    }
+
+    &:hover {
+        border: 1px solid $gt-theme-color;
+    }
+}
+
+.gt-pricing-section-3 {
+    position: relative;
+
+    .gt-pricing-image {
+        position: absolute;
+        right: 0;
+        top: 0;
+        bottom: 0;
+
+          @include breakpoint (max-xl) {
+            display: none;
+        }
+
+        img {
+            @include imgw;
+        }
+    }
+}

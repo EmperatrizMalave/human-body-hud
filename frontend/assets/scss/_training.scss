@@ -1,0 +1,1009 @@
+.gt-training-box-items {
+    margin-top: 30px;
+    @include flex;
+    gap: 32px;
+    background-color: $gt-white;
+    padding: 32px 24px;
+    position: relative;
+    z-index: 9;
+
+    @include breakpoint (max-xl){
+        display: block;
+    }
+
+    .gt-bg-shape {
+        position: absolute;
+        top: 0;
+        right: 0;
+        z-index: -1;
+    }
+
+    .gt-training-thumb {
+        position: relative;
+        max-width: 332px;
+        width: 100%;
+
+        @include breakpoint (max-xxl){
+            max-width: initial;
+            margin-bottom: 25px;
+        }
+
+        .gt-icon {
+            width: 76px;
+            height: 76px;
+            line-height: 80px;
+            text-align: center;
+            background-color: $gt-theme-color;
+            font-size: 36px;
+            color: $gt-white;
+            position: absolute;
+            left: 50%;
+            bottom: 30px;
+            transform: translateX(-50%)
+        }
+
+        img {
+            @include imgw;
+        }
+    }
+
+    .gt-training-content {
+        max-width: 435px;
+
+        h3 {
+            margin-bottom: 8px;
+
+             a {
+                background-position: 0 95%;
+                background-repeat: no-repeat;
+                background-size: 0% 2px;
+                display: inline;
+                
+                &:hover {
+                    color: $gt-theme-color;
+                    background-size: 100% 2px;
+                    background-image: linear-gradient(180deg, $gt-theme-color 0%, $gt-theme-color 100%);
+                }
+            }
+        }
+
+        .gt-train-thumb-item {
+            @include flex;
+            gap: 12px;
+            margin-top: 22px;
+            border-bottom: 1px solid rgba(205, 206, 208, 0.32);
+            padding-bottom: 24px;
+
+            .gt-content {
+                h6 {
+                    font-size: 16px;
+                    font-weight: 600;
+                }
+            }
+        }
+
+        .gt-info-items {
+            @include flex;
+            gap: 30px;
+            margin-top: 40px;
+
+            @include breakpoint (max-xl){
+                margin-top: 25px;
+                gap: 15px;
+               flex-wrap: wrap;
+            }
+
+            .gt-theme-btn {
+                background-color: $gt-header-color;
+                padding: 18px 26px;
+
+                .shotfit-btn__hover {
+                    background-color: $gt-theme-color;
+                }
+            }
+
+            .gt-info {
+                h5 {
+                    font-size: 16px;
+                    font-weight: 600;
+                }
+            }
+        }
+    }
+}
+
+.gt-training-wrapper {
+    margin-left: -19%;
+    margin-right: -20%;
+
+    @include breakpoint (max-xxxl){
+        margin-left: -32%;
+        margin-right: -32%;
+    }
+
+
+    @include breakpoint (max-xl){
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .swiper-slide.swiper-slide-active {
+        .gt-training-box-items {
+           background-color: #1D2229;
+
+            .gt-training-content {
+               
+                h3 {
+                    a {
+                        color: $gt-white;
+                        &:hover {
+                            color: $gt-theme-color;
+                            background-size: 100% 2px;
+                            background-image: linear-gradient(180deg, $gt-theme-color 0%, $gt-theme-color 100%);
+                        }
+                    }
+                }
+
+                p {
+                    color: rgba(255, 255, 255, 0.7);
+                }
+
+                .gt-train-thumb-item {
+                    .gt-content {
+                        h6 {
+                           color: $gt-white
+                        }
+
+                        span {
+                             color: rgba(255, 255, 255, 0.7);
+                        }
+                    }
+                }
+
+                .gt-info-items {
+                    .gt-theme-btn {
+                        background-color: $gt-theme-color;
+
+                        .shotfit-btn__hover {
+                            background-color: $gt-white;
+                        }
+
+                        &:hover {
+                            color: $gt-header-color;
+                        }
+                    }
+
+                    .gt-info {
+                        h5 {
+                           a {
+                                color: $gt-white;
+                           }
+                        }
+
+                        span {
+                             color: rgba(255, 255, 255, 0.7);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.gt-training-section {
+    position: relative;
+    z-index: 9;
+
+    .nav {
+        @include flex;
+        gap: 30px;
+        justify-content: center;
+        margin-top: 30px;
+        margin-bottom: 30px;
+        border-top: 1px solid rgba(205, 206, 208, 0.32);
+        padding-top: 30px;
+
+        
+        @include breakpoint (max-xl){
+            justify-content: start;
+        }
+
+        @include breakpoint (max-md){
+            padding-top: 30px;
+            margin-top: 30px;
+        }
+
+        .nav-item {
+            .nav-link {
+                font-size: 24px;
+                font-weight: 600;
+                font-family: $gt-heading-font;
+                color: $gt-header-color;
+                background-color: $gt-white;
+                padding: 24px 32px;
+                line-height: 1;
+
+                @include breakpoint (max-xxl){
+                    font-size: 16px;
+                    padding: 18px 24px;
+                }
+
+                &.active {
+                    background-color: $gt-theme-color;
+                    color: $gt-white;
+                }
+            }
+        }
+    }
+
+    .gt-left-shape{
+        position: absolute;
+        left: 0;
+        top: 70px;
+        z-index: -1;
+    }
+}
+
+.gt-weekly-schedule-wrapper {
+    @include breakpoint (max-xl){
+        max-width: 100%;
+		overflow-x: auto;
+    }
+
+    .gt-weekly-schedule-items {
+        background-color: #F4F4F4;
+        padding: 0 0;
+
+         @include breakpoint (max-xl){
+           min-width: 1100px;
+        }
+
+        .gt-weekly-schedule-list {
+            border-right: 1px solid rgba(205, 206, 208, .48);
+            padding: 40px 0;
+            
+            .gt-name-list {
+                li {
+                    &:not(:last-child){
+                        border-bottom: 1px solid rgba(205, 206, 208, .48);
+                        padding-bottom: 30px;
+                        margin-bottom: 25px;
+                    }
+
+                    .gt-title-name {
+                        padding-left: 40px;
+                        span {
+                            display: inline-block;
+                            margin-bottom: 5px;
+                        }
+
+                        h4 {
+                            font-size: 20px;
+                            font-weight: 500;
+                        }
+                    }
+                }
+            }
+
+            .gt-button {
+                .gt-theme-btn {
+                    padding: 0 32px;
+                    height: 56px;
+                    line-height: 53px;
+                    background: transparent;
+                    border: 1px solid $gt-theme-color;
+                    color: $gt-theme-color;
+
+                    .shotfit-btn__hover {
+                       background-color: $gt-theme-color;
+                    }
+
+                    &:hover {
+                        color: $gt-white;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.gt-weekly-schedule-section {
+     .nav {
+        @include flex;
+        gap: 20px;
+        justify-content: center;
+        margin-top: 60px;
+        margin-bottom: 60px;
+        border-top: 1px solid rgba(205, 206, 208, 0.32);
+        padding-top: 60px;
+
+        @include breakpoint (max-xl){
+            justify-content: start;
+        }
+
+        @include breakpoint (max-md){
+            padding-top: 30px;
+            margin-top: 30px;
+        }
+
+        .nav-item {
+            .nav-link {
+                font-size: 20px;
+                font-weight: 500;
+                font-family: $gt-heading-font;
+                color: $gt-header-color;
+                background-color: #F4F4F4;
+                padding: 19px 36px;
+                line-height: 1;
+
+                @include breakpoint (max-xxl){
+                    font-size: 16px;
+                    padding: 18px 24px;
+                }
+
+                &.active {
+                    background-color: $gt-theme-color;
+                    color: $gt-white;
+                }
+            }
+        }
+    }
+}
+
+.gt-weekly-schedule-section {
+    position: relative;
+    z-index: 9;
+
+    .gt-left-shape {
+        left: 34px;
+        top: 130px;
+        position: absolute;
+        z-index: -1;
+    }
+
+    .gt-right-shape {
+        position: absolute;
+        right: 37px;
+        bottom: 140px;
+        z-index: -1;
+    }
+}
+
+.schedule_table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: center;
+  margin-top: 30px;
+
+  th, td {
+    padding: 30px 15px;
+    border: 1px solid #e0e0e0;
+    vertical-align: middle;
+  }
+
+  thead {
+    background-color: #f5f5f5;
+
+    th {
+      font-weight: 700;
+      font-size: 16px;
+      color: $gt-text-color;
+      text-transform: uppercase;
+    }
+  }
+
+  tbody {
+    tr {
+      &:nth-child(even) {
+        background-color: #fafafa;
+      }
+
+      &:hover {
+        background-color: #f0f8ff;
+      }
+
+      td {
+        min-width: 150px;
+
+        &.active {
+            background-color: #1D2229;
+            padding: 0;
+
+            .class_name {
+                color: $gt-white !important;
+            }
+
+             .trainer_name {
+                color: $gt-white !important;
+                opacity: .7 !important;
+             }
+        }
+
+
+        .time {
+          font-weight: 400;
+          font-size: 16px;
+          color: $gt-text-color;
+        }
+
+        .schedule_item {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+
+          .class_name {
+            font-size: 18px;
+            font-weight: 600;
+            font-family: $gt-heading-font;
+            color: $gt-header-color;
+            text-transform: uppercase;
+            max-width: 155px;
+          }
+
+          .trainer_name {
+            font-size: 16px;
+            color: $gt-text-color;
+            margin-top: 4px;
+          }
+          &.rowspan {
+            height: 100%;
+            justify-content: center;
+          }
+        }
+      }
+    }
+  }
+}
+
+
+.gt-clases-details-wrapper {
+    .gt-details-image {
+        img {
+            @include imgw;
+        }
+    }
+
+    .gt-details-content {
+        margin-top: 30px;
+
+        h2 {
+            font-weight: 700;
+        }
+
+        .gt-list-items {
+            margin-top: 40px;
+            margin-bottom: 40px;
+
+            ul {
+                li {
+                    color: $gt-header-color;
+                    font-size: 18px;
+
+                    &:not(:last-child){
+                        margin-bottom: 15px;
+                    }
+
+                    i {
+                        color: $gt-theme-color;
+                        font-size: 18px;
+                        margin-right: 10px;
+                    }
+                }
+            }
+        }
+
+        .gt-list-wrap {
+            margin-top: 40px;
+            margin-bottom: 40px;
+
+            .gt-list-content {
+                h3 {
+                    margin-bottom: 20px;
+                }
+
+                ul {
+                    li {
+                        span {
+                            font-size: 18px;
+                            color: $gt-header-color;
+                            font-weight: 500;
+                            @include flex;
+                            gap: 10px;
+                            margin-bottom: 10px;
+                        }
+
+                        &:not(:last-child){
+                            margin-bottom: 20px;
+                        }
+                    }
+                }
+            }
+
+            .gt-thumb {
+                position: relative;
+
+                img {
+                    @include imgw;
+                }
+
+                 .video-btn {
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%,-50%);
+                    width: 88px;
+                    height: 88px;
+                    line-height: 88px;
+                    text-align: center;
+                    border-radius: 50%;
+                    display: inline-block;
+                    background-color: $gt-theme-color;
+                    color: $gt-white;
+
+                    &.ripple {
+                        &::before,&::after {
+                        
+                            width: 88px;
+                            height: 88px;
+                            box-shadow: 0 0 0 0 rgba(244, 30, 30, 0.5);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.gt-traning-card-item-2 {
+    margin-top: 30px;
+    background-color: $gt-header-color;
+    
+    .gt-traning-image {
+        position: relative;
+
+        img {
+            @include imgw;
+        }
+
+        .gt-arrow-icon {
+            width: 56px;
+            height: 56px;
+            background-color: $gt-header-color;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: -30px;
+            border-radius: 100%;
+
+            &::before {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                height: 50%;
+                background: linear-gradient(to right, #1D2229, #CDCED0);
+                border-top-left-radius: 100px;
+                border-top-right-radius: 100px;
+                z-index: -1;
+            }
+
+             .gt-arrow {
+                width: 48px;
+                height: 48px;
+                line-height: 48px;
+                text-align: center;
+                border-radius: 100px;
+                background-color: $gt-white;
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                transform: translate(-50%,-50%);
+
+                i {
+                    transform: rotate(0deg);
+                }
+            }
+        }
+    }
+
+    .gt-training-content {
+        padding: 40px 40px;
+        text-align: center;
+
+        h3 {
+            margin-bottom: 10px;
+
+            a {
+                background-position: 0 95%;
+                background-repeat: no-repeat;
+                background-size: 0% 2px;
+                display: inline;
+                color: $gt-white;
+                
+                &:hover {
+                    color: $gt-theme-color;
+                    background-size: 100% 2px;
+                    background-image: linear-gradient(180deg, $gt-theme-color 0%, $gt-theme-color 100%);
+                }
+            }
+        }
+
+        p {
+            max-width: 339px;
+            color: $gt-white;
+        }
+    }
+}
+
+.gt-portfolio-card-item-2 {
+    margin-top: 30px;
+    
+    .gt-portfolio-image {
+        img {
+            @include imgw;
+        }
+    }
+
+    .gt-portfolio-content {
+        @include flex;
+        justify-content: space-between;
+        padding: 24px;
+        background-color: $gt-white;
+        border-bottom-left-radius: 16px;
+        border-bottom-right-radius: 16px;
+
+        .gt-content {
+            p {
+                margin-bottom: 8px;
+            }
+
+            h3 {
+
+                a {
+                    background-position: 0 95%;
+                    background-repeat: no-repeat;
+                    background-size: 0% 2px;
+                    display: inline;
+                    
+                    &:hover {
+                        color: $gt-theme-color;
+                        background-size: 100% 2px;
+                        background-image: linear-gradient(180deg, $gt-theme-color 0%, $gt-theme-color 100%);
+                    }
+                }
+            }
+        }
+
+        .gt-number {
+            font-size: 56px;
+            color: $gt-header-color;
+            opacity: 0.16;
+
+            @include breakpoint (max-xl) {
+                font-size: 40px;
+            }
+        }
+    }
+}
+
+.gt-traning-section-2 {
+    position: relative;
+
+    .array-buttons {
+
+        @include breakpoint (max-xxl){
+            display: none;
+        }
+      
+        .array-prev {
+            border-radius: 100%;
+            background-color: $gt-theme-color;
+            color: $gt-white;
+            position: absolute;
+            top: 16%;
+            z-index: 999;
+
+             &:hover {
+                background-color: $gt-white;
+            color: $gt-header-color;
+            }
+        }
+
+        .array-next {
+            border-radius: 100%;
+            background-color: $gt-white;
+            color: $gt-header-color;
+            right: 17%;
+            top: 16%;
+            position: absolute;
+            z-index: 999;
+
+            &:hover {
+                 background-color: $gt-theme-color;
+                color: $gt-white;
+            }
+
+            @include breakpoint (max-xxxl){
+                right: 5%;
+            }
+        }
+    }
+
+    .swiper-slide.swiper-slide-active{
+        .gt-traning-card-item-2 {
+           border: 1px solid $gt-theme-color;
+        
+            .gt-traning-image {
+
+                .gt-arrow-icon {
+                    &::before {
+                        background: linear-gradient(to right, #1D2229, #F41E1E);
+                  }
+
+                  .gt-arrow {
+                     background-color: $gt-theme-color;
+                     color: $gt-white;
+                  }
+                }
+            }
+        }
+    }
+}
+
+.gt-trainer-card-item-3 {
+    margin-top: 30px;
+
+    .gt-trainer-image {
+        position: relative;
+        overflow: hidden;
+
+        img {
+            @include imgw;
+            transform: scale(1.02);
+            transition: all 1.5s ease-out;
+        }
+
+        .gt-social-icon {
+            display: grid;
+            align-items: center;
+            position: absolute;
+            right: -100px;
+            bottom: 19.8%;
+            opacity: 0;
+            @include transition;
+            z-index: 99;
+
+            a {
+                width: 48px;
+                height: 48px;
+                line-height: 48px;
+                text-align: center;
+                background-color: $gt-theme-color;
+                color: $gt-white;
+                text-align: center;
+                align-items: center;
+                position: relative;
+                z-index: 99;
+
+                &:hover {
+                    background-color: $gt-white;
+                    color: $gt-header-color;
+                }
+            }
+        }
+
+         .gt-trainer-content {
+            background-color: $gt-header-color;
+            padding: 16px 24px;
+            @include flex;
+            justify-content: space-between;
+            clip-path: polygon(50% 0%, 100% 0, 100% 43%, 100% 78%, 100% 100%, 0 100%, 0 77%, 0 151%, 20% 0);
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            margin-left: 30px;
+            padding-left: 90px;
+
+            @include breakpoint (max-xl){
+                padding-left: 30px;
+                clip-path: none;
+            }
+
+
+            .gt-trainer-title {
+                h3 {
+                    a {
+                        background-position: 0 95%;
+                        background-repeat: no-repeat;
+                        background-size: 0% 2px;
+                        display: inline;
+                        color: $gt-white;
+                        
+                        &:hover {
+                            color: $gt-theme-color;
+                            background-size: 100% 2px;
+                            background-image: linear-gradient(180deg, $gt-theme-color 0%, $gt-theme-color 100%);
+                        }
+                    }
+                }
+
+                p {
+                    color: #FCFCFC;
+                    opacity: .7;
+                }
+            }
+
+            .arrow-icon {
+                font-size: 24px;
+                color: $gt-white;
+            }
+        }
+    }
+
+     &:hover {
+
+        .gt-trainer-image {
+            img {
+                -webkit-transform: scale3d(1.1, 1.1, 1);
+                transform: scale3d(1.1, 1.1, 1);
+            }
+
+            .gt-social-icon {
+                opacity: 1;
+                right: 0;
+            }
+        }
+
+        .gt-trainer-content {
+            .arrow-icon {
+                transform: rotate(-90deg);
+                color: $gt-theme-color;
+            }
+        }
+    }
+}
+
+.gt-trainer-section-3 {
+    position: relative;
+    z-index: 9;
+
+    .gt-left-shape {
+        position: absolute;
+        left: 0;
+        top: 0;
+        z-index: -1;
+
+         @include breakpoint (max-xl) {
+            display: none;
+        }
+    }
+     .gt-right-shape {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        z-index: -1;
+
+         @include breakpoint (max-xl) {
+            display: none;
+        }
+    }
+}
+
+.gt-training-box-wrapper-3 {
+    margin-left: -30%;
+    margin-right: -15%;
+
+    @include breakpoint (max-xl) {
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .gt-training-box-item-3 {
+        margin-top: 30px;
+
+        .gt-training-image {
+            position: relative;
+            height: 506px;
+
+             @include breakpoint (max-xl) {
+                height: initial;
+            }
+            img {
+              @include imgw;
+              object-fit: cover;
+            }
+
+            .gt-training-content {
+                background-color: $gt-white;
+                padding: 24px 24px 0;
+                position: absolute;
+                left: 32px;
+                bottom: 32px;
+
+                  @include breakpoint (max-xxxl) {
+                    left: 30px;
+                    bottom: 30px;
+                    width: 400px;
+                }
+
+                 @include breakpoint (max-xl) {
+                    left: 20px;
+                    bottom: 20px;
+                    width: 400px;
+                }
+
+                 @include breakpoint (max-lg) {
+                    left: 20px;
+                    bottom: 20px;
+                    width: 328px;
+                }
+
+                 @include breakpoint (max-md) {
+                    left: 10px;
+                    bottom: 10px;
+                    width: 350px;
+                }
+
+                 h3 {
+
+                    a {
+                        background-position: 0 95%;
+                        background-repeat: no-repeat;
+                        background-size: 0% 2px;
+                        display: inline;
+                        
+                        &:hover {
+                            color: $gt-theme-color;
+                            background-size: 100% 2px;
+                            background-image: linear-gradient(180deg, $gt-theme-color 0%, $gt-theme-color 100%);
+                        }
+                    }
+                }
+
+                p {
+                    max-width: 460px;
+                }
+
+                .gt-link-btn {
+                    color: $gt-header-color;
+                    opacity: 0;
+                    visibility: hidden;
+                    transform: translateY(5px);
+                    margin-top: 0;
+                    @include transition;
+
+                    i {
+                         color: $gt-header-color;
+                    }
+
+                    &:hover {
+                        color: $gt-theme-color;
+
+                        i {
+                             color: $gt-theme-color;
+                        }
+                    }
+                }
+            }
+        }
+
+        &:hover {
+
+            .gt-training-image {
+
+                .gt-training-content {
+                    padding: 24px;
+
+                    .gt-link-btn {
+                       opacity: 1;
+                       visibility: visible;
+                        transform: translateY(0);
+                        margin-top: 10px;
+                    }
+                }
+            }
+        }
+    }
+}

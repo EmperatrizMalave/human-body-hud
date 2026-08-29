@@ -1,0 +1,376 @@
+.gt-bmi-wrapper {
+    background-color: #F4F4F4;
+    padding: 72px 48px;
+    position: relative;
+    z-index: 99;
+
+    @include breakpoint (max-xl){
+        padding: 50px 40px;
+    }
+
+    @include breakpoint (max-sm){
+        padding: 40px 30px;
+    }
+
+    .form-clt {
+        margin-top: 30px;
+
+        input {
+            outline: none;
+            border: none;
+            width: 100%;
+            background-color: $gt-white;
+            color: $gt-text-color;
+            line-height: 1;
+            padding: 21px 20px;
+        }
+
+        .form {
+            .single-select {
+                border-radius: 0;
+                border: none;
+                 padding: 21px 20px;
+                 height: initial;
+                 line-height: 1;
+
+                 &::after {
+                    right: 20px;
+                    width: 8px;
+                    height: 8px;
+                 }
+
+                .list {
+                    width: 100%;
+                }
+            }
+        }
+    }
+}
+
+.gt-bmi-section {
+    position: relative;
+
+    &::before {
+        @include before;
+        background-color: $gt-white;
+       height: 50%;
+    }
+}
+
+.gt-contact-inner-wrapper {
+    @include breakpoint (max-lg){
+        margin-top: 70px;
+    }
+    .gt-conatct-left-items {
+        h3 {
+            font-size: 40px;
+            font-weight: 700;
+
+            @include breakpoint (max-xxs){
+                font-size: 28px;
+            }
+        }
+
+        .gt-contact-contact-list {
+            margin-top: 24px;
+            max-width: 460px;
+
+            li {
+                @include flex;
+                gap: 20px;
+
+                &:not(:last-child){
+                    margin-bottom: 30px;
+                }
+
+                .gt-icon {
+                    max-width: 56px;
+                    width: 100%;
+                    height: 56px;
+                    line-height: 56px;
+                    text-align: center;
+                    background-color: $gt-theme-color;
+                    color: $gt-white;
+                    font-size: 20px;
+                    position: relative;
+                }
+
+                .gt-content {
+                    h4 {
+                        font-weight: 500;
+                        margin-bottom: 5px;
+                    }
+
+                    a {
+                        color: $gt-text-color;
+                    }
+                }
+            }
+        }
+    }
+
+    .googpemap {
+        margin-right: -48%;
+
+        @include breakpoint (max-xxxl){
+            margin-right: -12%;
+        }
+
+        @include breakpoint (max-xxl){
+            margin-right: 0;
+        }
+
+        iframe {
+            width: 100%;
+            height: 800px;
+            
+            @include breakpoint (max-md){
+               height: 500px;
+            }
+
+             @include breakpoint (max-sm){
+               height: 400px;
+            }
+        }
+    }
+
+    .gt-contact-box-area {
+        margin-top: 80px;
+        padding: 48px;
+        padding-top: 0;
+        padding-bottom: 0;
+        overflow: hidden;
+
+        @include breakpoint (max-lg){
+            padding-top: 48px;
+
+            .contact-image {
+                img {
+                    @include imgw;
+                }
+            }
+        }
+
+         @include breakpoint (max-sm){
+           padding: 24px;
+        }
+
+        .gt-left-box {
+            h3 {
+                font-size: 30px;
+                line-height: 1;
+            }
+        }
+
+        form {
+            margin-top: 30px;
+        }
+
+         .form-clt {
+
+        input,textarea {
+            outline: none;
+            border: none;
+            width: 100%;
+            background-color: $gt-white;
+            color: $gt-text-color;
+            line-height: 1;
+            padding: 21px 20px;
+        }
+
+        textarea {
+            padding-bottom: 72px;
+        }
+
+        .form {
+            .single-select {
+                border-radius: 0;
+                border: none;
+                 padding: 21px 20px;
+                 height: initial;
+                 line-height: 1;
+
+                 &::after {
+                    right: 20px;
+                    width: 8px;
+                    height: 8px;
+                 }
+
+                .list {
+                    width: 100%;
+                }
+            }
+        }
+    }
+    }
+}
+
+
+.gt-bmi-wrapper-2 {
+    .gt-bmi-content {
+
+        .gt-text {
+            margin-top: 15px;
+        }
+
+        .gt-bmi-list-item {
+            position: relative;
+            margin-top: 30px;
+
+            &::before {
+                @include before;
+                width: 1px;
+                height: 244px;
+                background-color: #CDCED0;
+                opacity: 0.48;
+                left: 50%;
+
+                @include breakpoint (max-xl) {
+                    display: none;
+                }
+            }
+            .gt-bmi-list {
+                @include flex;
+                justify-content: space-between;
+                padding: 10px 30px;
+                border-bottom: 1px solid #CDCED0;
+
+                @include breakpoint (max-xl) {
+                    flex-wrap: wrap;
+                    gap: 20px;
+                    padding: 10px;
+                }
+
+                &.gt-style-none {
+                    border-bottom: 1px none;
+                }
+             
+                li {
+                    span {
+                        font-size: 18px;
+                        font-weight: 500;
+                        color: $gt-header-color;
+                        font-family: $gt-heading-font;
+                    }
+                }
+            }
+
+            h5 {
+                font-weight: 500;
+                margin-top: 20px;
+                margin-left: 30px;
+
+                @include breakpoint (max-xl) {
+                   margin-left: 0;
+                }
+            }
+        }
+    }
+
+    .gt-bmi-book-seat {
+        margin-left: 40px;
+
+        @include breakpoint (max-xl) {
+            margin-left: 0;
+        }
+
+        h2 {
+            color: $gt-white;
+
+            @include breakpoint (max-xl) {
+                color: $gt-header-color;
+            }
+        }
+
+        .form-clt {
+            margin-top: 24px;
+
+            input {
+                outline: none;
+                border: none;
+                width: 100%;
+                background: rgba(255, 255, 255, 0.32);
+                color: $gt-white;
+                line-height: 1;
+                padding: 21px 20px;
+
+                @include breakpoint (max-xl) {
+                    color: $gt-header-color;
+                    background: rgb(245 213 213 / 20%);
+                }
+
+                 &::placeholder {
+                    color: $gt-white;
+
+                    @include breakpoint (max-xl) {
+                        color: $gt-header-color;
+                    }
+                }
+            }
+
+            .form {
+                .single-select {
+                    border-radius: 0;
+                    border: none;
+                    padding: 21px 20px;
+                    height: initial;
+                    line-height: 1;
+                    background: rgba(255, 255, 255, 0.32);
+
+                     @include breakpoint (max-xl) {
+                       background: rgb(245 213 213 / 20%);
+                    }
+
+                    .current {
+                        color: $gt-white;
+
+                        @include breakpoint (max-xl) {
+                           color: $gt-header-color;
+                        }
+                    }
+
+                    &::after {
+                        right: 20px;
+                        width: 8px;
+                        height: 8px;
+                        border-bottom: 2px solid $gt-white;
+                        border-right: 2px solid $gt-white;
+
+                         @include breakpoint (max-xl) {
+                            border-bottom: 2px solid $gt-header-color;
+                            border-right: 2px solid $gt-header-color;
+                        }
+                    }
+
+                    .list {
+                        width: 100%;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.gt-bmi-section-2 {
+    position: relative;
+    z-index: 9;
+
+    @include breakpoint (max-xl) {
+          &::before {
+            @include before;
+            background-color: #F4F4F4;
+            z-index: -1;
+          }
+      }
+
+    .gt-left-shape {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        z-index: -1;
+
+        @include breakpoint (max-xxxl) {
+            display: none;
+        }
+    }
+}

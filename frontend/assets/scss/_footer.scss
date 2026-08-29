@@ -1,0 +1,820 @@
+.footer-wrapper {
+    padding: 80px 0 80px;
+
+    @include breakpoint (max-xxs){
+       padding-bottom: 0;
+    }
+
+    .gt-footer-left-items {
+        h3 {
+            font-size: 40px;
+            font-weight: 700;
+
+            @include breakpoint (max-xxl){
+               color: $gt-white;
+            }
+
+            @include breakpoint (max-xxs){
+                font-size: 28px;
+            }
+        }
+
+        .gt-footer-contact-list {
+            border-top: 1px solid rgba(180, 182, 185, .7);
+            margin-top: 24px;
+            padding-top: 30px;
+            max-width: 460px;
+
+            li {
+                @include flex;
+                gap: 20px;
+
+                @include breakpoint (max-xxl){
+                    color: $gt-white;
+                }
+
+                &:not(:last-child){
+                    margin-bottom: 30px;
+                }
+
+                .gt-icon {
+                    width: 56px;
+                    height: 56px;
+                    line-height: 56px;
+                    text-align: center;
+                    background-color: $gt-theme-color;
+                    color: $gt-white;
+                    font-size: 20px;
+                    position: relative;
+
+                    &::before {
+                        position: absolute;
+                        top: 4px;
+                        left: 4px;
+                        width: 56px;
+                        height: 56px;
+                        content: "";
+                        border: 1px solid rgba(180, 182, 185, .7);
+                        z-index: -1;
+                    }
+                }
+
+                .gt-content {
+                    h4 {
+                        font-weight: 500;
+                        margin-bottom: 5px;
+
+                        @include breakpoint (max-xxl){
+                            color: $gt-white;
+                        }
+                    }
+
+                    a {
+                        color: $gt-text-color;
+
+                        @include breakpoint (max-xxl){
+                            color: $gt-white;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .gt-footer-right-items {
+        .gt-footer-text {
+            margin-top: 20px;
+            color: $gt-white;
+            opacity: .7;
+        }
+
+        .gt-footer-menu-list {
+            border-top: 1px solid rgba(205, 206, 207, .32);
+            border-bottom: 1px solid rgba(205, 206, 207, .32);
+            @include flex;
+            gap: 30px;
+            justify-content: center;
+            padding: 16px 0;
+            margin-top: 30px;
+
+            @include breakpoint (max-xl){
+               flex-wrap: wrap;
+               gap: 20px;
+               justify-content: start;
+            }
+
+            li {
+                a {
+                    color: rgba(255, 255, 255, .7);
+
+                    &:hover {
+                        color: $gt-theme-color;
+                    }
+                }
+            }
+        }
+
+        .gt-newsletter-content {
+            @include flex;
+            width: 100%;
+            justify-content: space-between;
+            margin-top: 48px;
+
+            @include breakpoint (max-xl){
+                flex-wrap: wrap;
+                gap: 20px;
+            }
+
+            .gt-newsletter-text {
+                h3 {
+                    font-size: 22px;
+                    color: $gt-white;
+                }
+
+                p {
+                    color: $gt-white;
+                    opacity: .7;
+                    font-size: 14px;
+                }
+            }
+
+            form {
+                max-width: 400px;
+                width: 100%;
+            }
+
+            .form-clt {
+                position: relative;
+
+                input {
+                    width: 100%;
+                    outline: none;
+                    border: none;
+                    background-color: $gt-white;
+                    line-height: 1;
+                    padding: 24px 20px;
+                    color: $gt-text-color;
+                }
+
+                .gt-theme-btn {
+                    position: absolute;
+                    top: 4px;
+                    right: 4px;
+                    bottom: 4px;
+                    padding: 20px 20px;
+
+                    @include breakpoint (max-xxs){
+                        position: static;
+                        margin-top: 20px;
+                    }
+                }
+            } 
+        }
+
+        .gt-social-icon {
+            @include flex;
+            gap: 12px;
+            margin-top: 40px;
+
+            h6 {
+                color: $gt-white;
+                font-weight: 600;
+                font-size: 18px;
+            }
+
+            a {
+                display: inline-block;
+                width: 40px;
+                height: 40px;
+                line-height: 40px;
+                text-align: center;
+                background: rgba(255, 255, 255, 0.12);
+                color: $gt-white;
+
+                &:hover {
+                    background-color: $gt-theme-color;
+                    color: $gt-white;
+                }
+            }
+        }
+    }
+}
+
+.footer-bottom {
+    padding: 20px 0;
+    border-top: 1px solid rgba(205, 206, 208, 0.24);
+    background: #1D2229;
+
+    p {
+        text-align: center;
+        color: #FCFCFC;
+
+        b {
+            font-weight: 700;
+            color: $gt-theme-color;
+        }
+    }
+
+        
+    .gt-footer-bottom-wrapper {
+        @include flex;
+        justify-content: space-between;
+
+        @include breakpoint (max-xl){
+            flex-wrap: wrap;
+            gap: 25px;
+            justify-content: center;
+        }
+
+        p {
+            text-align: left;
+        }
+
+        .gt-footer-list {
+            @include flex;
+            gap: 30px;
+
+            @include breakpoint (max-sm){
+                flex-wrap: wrap;
+                gap: 20px;
+                justify-content: center;
+            }
+
+            li {
+                font-size: 16px;
+                font-weight: 400;
+
+                a {
+                    color: #fff;
+                    opacity: .7;
+
+                    &:hover {
+                        color: $gt-theme-color;
+                        opacity: 1;
+                    }
+                }
+            }
+        }
+
+        .gt-social-icon {
+            gap: 15px;
+    
+            a {
+                display: inline-block;
+                width: 48px;
+                height: 48px;
+                line-height: 48px;
+                text-align: center;
+                background: rgba(253, 235, 237, 0.08);
+                color: $gt-white;
+                border-radius: 4px;
+    
+                &:hover {
+                    background-color: $gt-theme-color;
+                    color: $gt-white;
+                }
+            }
+        }
+    }
+}
+
+.footer-section {
+    position: relative;
+    z-index: 9;
+
+    &::before {
+        @include before;
+        z-index: -1;
+        background-color: $gt-white;
+        width: 880px;
+
+        @media screen and (max-width: 1600px) {
+            width: 710px;
+        }
+
+        @media screen and (max-width: 1440px) {
+            width: 650px;
+        }
+
+        @include breakpoint (max-xxl){
+            display: none;
+        }
+    }
+}
+
+.gt-footer-info-wrapper {
+    text-align: center;
+    @include flex;
+    justify-content: space-between;
+    border-bottom: 1px solid rgba(205, 206, 208, .24);
+    padding: 0 50px;
+
+     @include breakpoint (max-xl){
+       flex-wrap: wrap;
+       gap: 30px;
+       justify-content: start;
+       text-align: start;
+       padding: 80px 0;
+    }
+
+    .gt-footer-info-items {
+        border-right: 1px solid rgba(205, 206, 208, .24);
+        height: 120px;
+        padding-top: 30px;
+        line-height: 1;
+        padding-right: 80px;
+
+        @include breakpoint (max-xl){
+            padding-right: 0;
+            border-right: none;
+            padding-top: 0;
+            height: initial;
+        }
+
+        p {
+            color: $gt-white;
+            opacity: .7;
+            margin-bottom: 20px;
+        }
+
+        h5 {
+            font-weight: 500;
+
+            a {
+                color: $gt-white;
+            }
+        }
+
+        .social-icon {
+            gap: 10px;
+            justify-content: center;
+
+            a {
+                width: 40px;
+                height: 40px;
+                line-height: 40px;
+                text-align: center;
+                font-size: 16px;
+                display: block;
+                background: rgba(255, 255, 255, 0.12);
+                color: $gt-white;
+                -webkit-transition: all .4s ease-in-out;
+                transition: all .4s ease-in-out;
+                text-align: center;
+
+                &:hover {
+                    background-color: $gt-theme-color;
+                    color: $gt-white;
+                }
+            }
+        }
+
+        img {
+            @include breakpoint (max-md){
+                 @include imgw;
+            }
+        }
+
+        &.border-none {
+            border-right: none;
+            padding-right: 0;
+        }
+    }
+}
+
+.gt-footer-widget-wrapper-3 {
+    padding: 50px 0 80px;
+    position: relative;
+    overflow: hidden;
+
+    .gt-footer-widget-items {
+        margin-top: 30px;
+
+        .gt-widget-head {
+            margin-bottom: 30px;
+
+            h3 {
+                color: $gt-white;
+            }
+        }
+
+        .gt-footer-content {
+            p {
+                color: $gt-white;
+                opacity: .7;
+            }
+
+            .gt-call-info {
+                @include flex;
+                gap: 24px;
+                margin-top: 30px;
+
+                .gt-icon {
+                    width: 56px;
+                    height: 56px;
+                    line-height: 56px;
+                    text-align: center;
+                    background-color: $gt-white;
+                    color: $gt-theme-color;
+                    font-size: 20px;
+                }
+
+                .gt-content {
+                    span {
+                        color: $gt-white;
+                        opacity: .7;
+                    }
+
+                    h4 {
+                        font-weight: 500;
+
+                        a {
+                            color: $gt-white;
+                        }
+                    }
+                }
+            }
+        }
+
+        .gt-list-area {
+            li {
+                @include transition;
+
+                &:not(:last-child){
+                    margin-bottom: 20px;
+                }
+
+                a {
+                    color: #FCFCFC;
+                    opacity: 0.7;
+                }
+
+                &:hover {
+                    margin-left: 5px;
+
+                    a {
+                        color: $gt-theme-color;
+                    }
+                }
+            }
+       }
+
+       .form-clt {
+            position: relative;
+            margin-top: 24px;
+
+            input {
+                width: 100%;
+                outline: none;
+                border: none;
+                background: rgba(255, 255, 255, 0.12);
+                line-height: 1;
+                padding: 0 20px;
+                color: $gt-white;
+                opacity: .7;
+                height: 60px;
+
+                &::placeholder {
+                    color: $gt-white;
+                    opacity: .7;
+                }
+            }
+
+            .gt-theme-btn {
+                margin-top: 20px;
+                height: 56px;
+                line-height: 56px;
+                padding: 0 20px;
+
+                .shotfit-btn__hover {
+                    background-color: $gt-white;
+                }
+
+                &:hover {
+                    color: $gt-header-color;
+                }
+            }
+        } 
+    }
+}
+
+.footer-bottom3 {
+    padding: 20px 0;
+    border-top: 1.5px solid rgba(140, 140, 140, 0.32);
+    background-color: transparent;
+    overflow: hidden;
+
+    p {
+        color: $gt-white;
+        opacity: .7;
+
+        b {
+            color: $gt-theme-color;
+            opacity: 1;
+        }
+    }
+    
+        
+    .gt-footer-bottom-wrapper {
+        @include flex;
+        justify-content: space-between;
+
+        @include breakpoint (max-xl){
+            flex-wrap: wrap;
+            gap: 25px;
+            justify-content: center;
+        }
+
+
+        .gt-footer-list {
+            @include flex;
+            gap: 30px;
+
+            @include breakpoint (max-sm){
+                flex-wrap: wrap;
+                gap: 20px;
+                justify-content: center;
+            }
+
+            li {
+                font-size: 16px;
+                font-weight: 400;
+
+                a {
+                    color: #FCFCFC;
+                    opacity: .7;
+
+                    &:hover {
+                        color: $gt-theme-color;
+                        opacity: 1;
+                    }
+                }
+            }
+        }
+    }
+
+}
+
+.gt-footer-widget-wrapper-2 {
+    padding: 120px 0 0;
+
+    @include breakpoint (max-xl) {
+        padding: 100px 0 0;
+     }
+
+    @include breakpoint (max-lg) {
+        padding: 80px 0 0;
+     }
+
+    .gt-footer-logo {
+        text-align: center;
+        position: relative;
+        padding-left: 25px;
+        padding-right: 25px;
+
+         @include breakpoint (max-xxl) {
+           padding-left: 0;
+           padding-right: 0;
+        }
+
+        &::before {
+            position: absolute;
+            content: "";
+            background: linear-gradient(90deg, #1D2229 0%, #F41E1E 100%);
+            left: -15px;
+            top: 30px;
+            width: 534px;
+            height: 2px;
+
+            @include breakpoint (max-xxl) {
+                display: none;
+            }
+            
+        }
+
+        &::after {
+            position: absolute;
+            content: "";
+            background: linear-gradient(90deg, #F41E1E 0%, #1D2229 100%);
+            right: -12px;
+            top: 30px;
+            width: 534px;
+            height: 2px;
+
+            @include breakpoint (max-xxl) {
+                display: none;
+           }
+        }
+
+        span {
+            position: relative;
+            display: block;
+
+            &::before {
+                position: absolute;
+                content: "";
+                width: 12px;
+                height: 12px;
+                border-radius: 100px;
+                opacity: 0.6;
+                background-color: $gt-white;
+                top: 24px;
+                left: -25px;
+
+                @include breakpoint (max-xl) {
+                   display: none;
+               }
+            }
+
+            &::after {
+                position: absolute;
+                content: "";
+                width: 12px;
+                height: 12px;
+                border-radius: 100px;
+                opacity: 0.6;
+                background-color: $gt-white;
+                top: 24px;
+                right: -50px;
+
+                @include breakpoint (max-xl) {
+                    display: none;
+                }
+            }
+        }
+    }
+
+    .gt-footer-newsletter-wrapper {
+        @include flex;
+        justify-content: space-between;
+        margin-top: 70px;
+        margin-bottom: 48px;
+
+        @include breakpoint (max-xxl) {
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-bottom: 30px;
+            margin-top: 30px;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .gt-footer-social-item {
+
+            h3 {
+                color: $gt-white;
+                margin-bottom: 20px;
+            }
+
+            .gt-social-icon {
+                @include flex;
+                gap: 20px;
+
+                @include breakpoint (max-xl) {
+                    flex-wrap: wrap;
+                    justify-content: center;
+              }  
+
+                li {
+                    a {
+                        padding: 5px 16px 5px 12px;
+                        background: rgba(255, 255, 255, 0.12);
+                        font-weight: 500;
+                        color: $gt-white;
+                        display: inline-block;
+                       
+
+                        i {
+                            margin-right: 10px;
+                        }
+
+                        &:hover {
+                            background-color: $gt-theme-color;
+                        }
+                    }
+                }
+            }
+        }
+
+          form {
+            max-width: 575px;
+            width: 100%;
+
+            h3 {
+                color: $gt-white;
+                margin-bottom: 10px;
+            }
+        }
+
+        .form-clt {
+            position: relative;
+
+            @include breakpoint (max-sm) {
+                position: initial;
+          }
+
+            input {
+                width: 100%;
+                outline: none;
+                border: none;
+                background-color: $gt-white;
+                color: $gt-text-color;
+                line-height: 1;
+                padding: 20px;
+                max-width: 575px;
+
+                &::placeholder {
+                    color: $gt-text-color;
+                }
+            }
+
+            
+            .gt-theme-btn {
+                position: absolute;
+                top: 4px;
+                right: 4px;
+                bottom: 4px;
+                padding: 12px 30px;
+                
+                @include breakpoint (max-sm){
+                    position: static;
+                    margin-top: 20px;
+                    padding: 22px 32px;
+                }
+            }
+        } 
+    }
+
+    .gt-footer-single-list {
+        @include flex;
+        justify-content: center;
+        gap: 48px;
+        border-top: 1px solid rgba(205, 206, 208, 0.32);
+        padding: 16px 0;
+
+        @include breakpoint (max-xl) {
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+        
+
+        li {
+            a {
+                color: rgba(252, 252, 252, 0.7);
+
+                &:hover {
+                    color: $gt-theme-color;
+                }
+            }
+        }
+    }
+}
+
+.gt-footer-bottom-2 {
+    background-color: $gt-header-color;
+    border-top: 1px solid rgba(205, 206, 208, 0.24);
+    padding: 30px 0;
+
+    .gt-footer-wrapper-2 {
+        @include flex;
+        justify-content: space-between;
+
+        @include breakpoint (max-xl) {
+            flex-wrap: wrap;
+            gap: 30px;
+            text-align: center;
+            justify-content: center;
+        }
+
+        p {
+            color: $gt-white;
+
+            span {
+                color: $gt-theme-color;
+            }
+        }
+
+        .gt-footer-list {
+            @include flex;
+            gap: 48px;
+
+            @include breakpoint (max-xl) {
+              flex-wrap: wrap;
+              gap: 20px;
+              justify-content: center;
+        }
+
+
+            li {
+                a {
+                    color: rgba(252, 252, 252, 0.7);
+
+                    &:hover {
+                        color: $gt-theme-color;
+                    }
+                }
+            }
+        }
+    }
+}
