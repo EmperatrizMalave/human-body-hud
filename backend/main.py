@@ -1,9 +1,13 @@
+import json
 import os
 import sqlite3
-from typing import Optional
+from datetime import datetime, timezone
+from typing import Literal, Optional
+
 from fastapi import FastAPI, HTTPException, Query
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
+from pydantic import BaseModel, Field, field_validator
 
 # ==========================================
 # 1. INICIALIZACIÓN DE LA APLICACIÓN FASTAPI
@@ -31,6 +35,7 @@ app.add_middleware(
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 DB_PATH = os.path.abspath(os.path.join(BASE_DIR, "gym.db"))
 FRONTEND_DIR = os.path.abspath(os.path.join(BASE_DIR, "..", "frontend"))
+FEEDBACK_PATH = os.path.abspath(os.path.join(BASE_DIR, "feedback.json"))
 
 
 # ==========================================
@@ -46,6 +51,7 @@ def get_db_connection():
 # Nombres históricos: el JSON usa IS_SITTING; una carga vieja a SQLite
 # dejó SENTADO_SITTING. Aceptamos ambos para no romper ningún dataset.
 SITTING_COLUMNS = ("IS_SITTING", "SENTADO_SITTING")
+NO_LEGS_COLUMNS = ("NO_LEGS",)
 IMPACT_COLUMNS = ("LOW_IMPACT",)
 
 
@@ -67,11 +73,14 @@ def _es_verdadero_sql(columna):
 
 
 def _normalizar_ejercicio(row):
-    """Expone IS_SITTING y LOW_IMPACT como booleanos reales para el frontend."""
+    """Expone flags de inclusión como booleanos reales para el frontend."""
     item = dict(row)
     sentado = item.get("IS_SITTING", item.get("SENTADO_SITTING"))
+    sin_piernas = item.get("NO_LEGS")
     impacto = item.get("LOW_IMPACT")
     item["IS_SITTING"] = bool(sentado)
+    # Si el dataset aún no trae NO_LEGS, no inventamos inclusión.
+    item["NO_LEGS"] = bool(sin_piernas) if sin_piernas is not None else False
     item["LOW_IMPACT"] = bool(impacto)
     return item
 
@@ -102,7 +111,11 @@ def obtener_ejercicios(
     level: Optional[str] = None,
     is_sitting: Optional[bool] = Query(
         None,
-        description="Si es true, solo ejercicios en postura sentada (Safe-Green)",
+        description="Si es true, solo ejercicios en postura sentada (banco / máquina / silla)",
+    ),
+    no_legs: Optional[bool] = Query(
+        None,
+        description="Si es true, solo ejercicios cuyo motor no es el tren inferior (Safe-Green)",
     ),
     low_impact: Optional[bool] = Query(
         None,
@@ -118,6 +131,7 @@ def obtener_ejercicios(
     cursor = conn.cursor()
     columnas = _columnas_tabla(conn)
     col_sitting = _resolver_columna(columnas, SITTING_COLUMNS)
+    col_no_legs = _resolver_columna(columnas, NO_LEGS_COLUMNS)
     col_impact = _resolver_columna(columnas, IMPACT_COLUMNS)
 
     base_query = "FROM ejercicios WHERE 1=1"
@@ -154,6 +168,15 @@ def obtener_ejercicios(
                 detail="No existe columna IS_SITTING ni SENTADO_SITTING",
             )
         base_query += f" AND {_es_verdadero_sql(col_sitting)}"
+
+    if no_legs:
+        if not col_no_legs:
+            conn.close()
+            raise HTTPException(
+                status_code=500,
+                detail="No existe columna NO_LEGS",
+            )
+        base_query += f" AND {_es_verdadero_sql(col_no_legs)}"
 
     if low_impact:
         if not col_impact:
@@ -194,6 +217,41 @@ def obtener_ejercicios(
         "por_pagina": limit,
         "data": ejercicios,
     }
+
+
+class FeedbackIn(BaseModel):
+    nombre: str = Field(default="", max_length=80)
+    mensaje: str = Field(..., min_length=10, max_length=2000)
+    tipo: Literal["sugerencia", "error", "otro"] = "sugerencia"
+
+    @field_validator("nombre", "mensaje")
+    @classmethod
+    def recortar(cls, valor: str) -> str:
+        return valor.strip()
+
+
+@app.post("/api/feedback")
+def guardar_feedback(body: FeedbackIn):
+    """Guarda opiniones en backend/feedback.json (archivo local, no base de datos)."""
+    entrada = {
+        "fecha": datetime.now(timezone.utc).isoformat(),
+        "nombre": body.nombre or "anónimo",
+        "tipo": body.tipo,
+        "mensaje": body.mensaje,
+    }
+    historial = []
+    if os.path.exists(FEEDBACK_PATH):
+        with open(FEEDBACK_PATH, encoding="utf-8") as archivo:
+            try:
+                historial = json.load(archivo)
+            except json.JSONDecodeError:
+                historial = []
+    if not isinstance(historial, list):
+        historial = []
+    historial.append(entrada)
+    with open(FEEDBACK_PATH, "w", encoding="utf-8") as archivo:
+        json.dump(historial, archivo, ensure_ascii=False, indent=2)
+    return {"ok": True, "total": len(historial)}
 
 
 # El mount en "/" va AL FINAL: si va antes, tapa /api/*.

@@ -18,5 +18,8 @@ Thumbs.db
 # SQLite se regenera con data/cargar_db.py
 *.db
 
+# Opiniones del diálogo de sugerencias (datos locales)
+backend/feedback.json
+
 # Repos git anidados dentro de data/
 data/.git/

@@ -7,53 +7,219 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <a class="skip-link" href="#catalogo" data-i18n="skipCatalog">Saltar al catálogo</a>
+
     <header class="hud-header">
         <div class="hud-brand">
             <p class="hud-kicker">Fitness OS</p>
             <h1>Cyber-HUD</h1>
         </div>
-        <div id="lang-switch" class="lang-switch">
-            <button type="button" id="btn-es" class="lang-btn is-active">ES</button>
-            <button type="button" id="btn-en" class="lang-btn">EN</button>
+        <div
+            id="lang-switch"
+            class="lang-switch"
+            role="group"
+            data-i18n-aria="langGroup"
+            aria-label="Idioma"
+        >
+            <button type="button" id="btn-es" class="lang-btn is-active" aria-pressed="true">ES</button>
+            <button type="button" id="btn-en" class="lang-btn" aria-pressed="false">EN</button>
         </div>
     </header>
 
     <main class="hud-grid">
-        <aside class="hud-column">
-            <h4 data-i18n="biocineticaTitle">BIOCINÉTICA</h4>
-            <p class="hud-help" data-i18n="biocineticaDesc">Elige una zona muscular para filtrar el catálogo.</p>
-            <div id="muscle-map" class="muscle-map"></div>
+        <aside class="hud-column" aria-labelledby="biocinetica-title">
+            <h2 id="biocinetica-title" class="hud-heading" data-i18n="biocineticaTitle">BIOCINÉTICA</h2>
+            <p id="biocinetica-help" class="hud-help" data-i18n="biocineticaDesc">Pulsa una zona del cuerpo (frente o espalda) o un chip. Filtra el catálogo por MUSCLE_ID.</p>
+            <div id="body-board" class="body-board" role="group" aria-labelledby="biocinetica-title" aria-describedby="biocinetica-help">
+                <svg class="body-svg" viewBox="0 0 250 300" xmlns="http://www.w3.org/2000/svg">
+                    <text x="55" y="14" class="body-svg-label" data-i18n="bodyFront">Frente</text>
+                    <text x="180" y="14" class="body-svg-label" data-i18n="bodyBack">Espalda</text>
+
+                    <!-- Frente -->
+                    <ellipse cx="60" cy="28" rx="11" ry="13" class="body-head" />
+                    <g data-muscle="neck" class="body-part" tabindex="0" role="button">
+                        <rect x="54" y="40" width="12" height="10" rx="3" />
+                    </g>
+                    <g data-muscle="shoulders" class="body-part" tabindex="0" role="button">
+                        <ellipse cx="32" cy="58" rx="14" ry="9" />
+                        <ellipse cx="88" cy="58" rx="14" ry="9" />
+                    </g>
+                    <g data-muscle="chest_upper" class="body-part" tabindex="0" role="button">
+                        <ellipse cx="48" cy="74" rx="12" ry="11" />
+                        <ellipse cx="72" cy="74" rx="12" ry="11" />
+                    </g>
+                    <g data-muscle="abs_core" class="body-part" tabindex="0" role="button">
+                        <rect x="46" y="86" width="28" height="42" rx="8" />
+                    </g>
+                    <g data-muscle="biceps" class="body-part" tabindex="0" role="button">
+                        <rect x="16" y="66" width="12" height="28" rx="6" />
+                        <rect x="92" y="66" width="12" height="28" rx="6" />
+                    </g>
+                    <g data-muscle="forearms" class="body-part" tabindex="0" role="button">
+                        <rect x="12" y="96" width="11" height="30" rx="5" />
+                        <rect x="97" y="96" width="11" height="30" rx="5" />
+                    </g>
+                    <g data-muscle="hip_abductors" class="body-part" tabindex="0" role="button">
+                        <ellipse cx="36" cy="134" rx="8" ry="14" />
+                        <ellipse cx="84" cy="134" rx="8" ry="14" />
+                    </g>
+                    <g data-muscle="hip_adductors" class="body-part" tabindex="0" role="button">
+                        <rect x="48" y="128" width="10" height="22" rx="4" />
+                        <rect x="62" y="128" width="10" height="22" rx="4" />
+                    </g>
+                    <g data-muscle="quads" class="body-part" tabindex="0" role="button">
+                        <rect x="40" y="150" width="16" height="46" rx="8" />
+                        <rect x="64" y="150" width="16" height="46" rx="8" />
+                    </g>
+                    <g data-muscle="calves" class="body-part" tabindex="0" role="button">
+                        <rect x="42" y="200" width="14" height="36" rx="7" />
+                        <rect x="64" y="200" width="14" height="36" rx="7" />
+                    </g>
+
+                    <!-- Espalda -->
+                    <ellipse cx="185" cy="28" rx="11" ry="13" class="body-head" />
+                    <g data-muscle="neck" class="body-part" tabindex="0" role="button">
+                        <rect x="179" y="40" width="12" height="10" rx="3" />
+                    </g>
+                    <g data-muscle="traps" class="body-part" tabindex="0" role="button">
+                        <ellipse cx="185" cy="54" rx="22" ry="8" />
+                    </g>
+                    <g data-muscle="shoulders" class="body-part" tabindex="0" role="button">
+                        <ellipse cx="157" cy="58" rx="13" ry="8" />
+                        <ellipse cx="213" cy="58" rx="13" ry="8" />
+                    </g>
+                    <g data-muscle="triceps" class="body-part" tabindex="0" role="button">
+                        <rect x="142" y="66" width="12" height="30" rx="6" />
+                        <rect x="216" y="66" width="12" height="30" rx="6" />
+                    </g>
+                    <g data-muscle="lats_back" class="body-part" tabindex="0" role="button">
+                        <ellipse cx="166" cy="88" rx="11" ry="20" />
+                        <ellipse cx="204" cy="88" rx="11" ry="20" />
+                    </g>
+                    <g data-muscle="mid_back" class="body-part" tabindex="0" role="button">
+                        <rect x="174" y="74" width="22" height="26" rx="6" />
+                    </g>
+                    <g data-muscle="lower_back" class="body-part" tabindex="0" role="button">
+                        <rect x="176" y="102" width="18" height="20" rx="6" />
+                    </g>
+                    <g data-muscle="forearms" class="body-part" tabindex="0" role="button">
+                        <rect x="138" y="98" width="11" height="28" rx="5" />
+                        <rect x="221" y="98" width="11" height="28" rx="5" />
+                    </g>
+                    <g data-muscle="glutes" class="body-part" tabindex="0" role="button">
+                        <ellipse cx="176" cy="138" rx="12" ry="14" />
+                        <ellipse cx="194" cy="138" rx="12" ry="14" />
+                    </g>
+                    <g data-muscle="hamstrings" class="body-part" tabindex="0" role="button">
+                        <rect x="166" y="152" width="14" height="44" rx="7" />
+                        <rect x="190" y="152" width="14" height="44" rx="7" />
+                    </g>
+                    <g data-muscle="calves" class="body-part" tabindex="0" role="button">
+                        <rect x="168" y="200" width="13" height="36" rx="7" />
+                        <rect x="189" y="200" width="13" height="36" rx="7" />
+                    </g>
+                </svg>
+            </div>
+            <div
+                id="muscle-map"
+                class="muscle-map"
+                role="group"
+                aria-labelledby="biocinetica-title"
+            ></div>
         </aside>
 
-        <section class="hud-column hud-column--feed">
-            <h4 data-i18n="catalogoTitle">CATÁLOGO DE EJERCICIOS</h4>
+        <section id="catalogo" class="hud-column hud-column--feed" aria-labelledby="catalogo-title">
+            <h2 id="catalogo-title" class="hud-heading" data-i18n="catalogoTitle">CATÁLOGO DE EJERCICIOS</h2>
             <div class="search-container">
+                <label class="search-label" for="hud-search-input" data-i18n="lblBusqueda">Buscar ejercicios</label>
                 <input
                     type="search"
                     id="hud-search-input"
                     class="search-input"
                     placeholder="// BUSCAR EJERCICIO, ZONA O EQUIPO..."
                     autocomplete="off"
+                    aria-describedby="hud-status"
                 >
             </div>
-            <p id="hud-status" class="hud-status" hidden></p>
-            <div id="exercise-feed"></div>
-            <div id="hud-pagination" class="hud-pagination"></div>
+            <p id="hud-status" class="hud-status" role="status" aria-live="polite" hidden></p>
+            <div id="exercise-feed" class="exercise-feed"></div>
+            <nav id="hud-pagination" class="hud-pagination" data-i18n-aria="paginationNav" aria-label="Paginación"></nav>
         </section>
 
-        <aside class="hud-column">
-            <h4 data-i18n="safeGreenTitle">MODO SAFE-GREEN</h4>
-            <p class="hud-help" data-i18n="safeGreenDesc">Filtros de accesibilidad. Si marcas uno, solo ves esos ejercicios.</p>
-            <label class="accessibility-label">
-                <input type="checkbox" id="toggle-seated">
-                <span data-i18n="chkSentada">Solo postura sentada</span>
-            </label>
-            <label class="accessibility-label">
-                <input type="checkbox" id="toggle-impact">
-                <span data-i18n="chkImpacto">Bajo impacto articular</span>
-            </label>
+        <aside class="hud-column" aria-labelledby="safe-green-legend">
+            <fieldset class="safe-green" aria-describedby="safe-green-help">
+                <legend id="safe-green-legend" data-i18n="safeGreenTitle">MODO SAFE-GREEN</legend>
+                <p id="safe-green-help" class="hud-help" data-i18n="safeGreenDesc">Inclusión, no “modo fácil”. El primer filtro deja ejercicios cuyo motor no son las piernas (silla, silla de ruedas o tren superior sentado, incluidas poleas). Un press de gemelos sentado sigue siendo de piernas. No sustituye consejo médico. El segundo filtro reduce el golpe articular.</p>
+                <label class="accessibility-label" for="toggle-seated">
+                    <input type="checkbox" id="toggle-seated" aria-describedby="safe-green-help">
+                    <span data-i18n="chkSentada">Sin usar las piernas (silla / polea sentada)</span>
+                </label>
+                <label class="accessibility-label" for="toggle-impact">
+                    <input type="checkbox" id="toggle-impact">
+                    <span data-i18n="chkImpacto">Bajo impacto articular</span>
+                </label>
+            </fieldset>
+
+            <h2 id="detalle-title" class="hud-heading detail-heading" data-i18n="detalleTitle">FICHA</h2>
+            <div
+                id="exercise-detail"
+                class="exercise-detail"
+                role="region"
+                aria-labelledby="detalle-title"
+                aria-live="polite"
+            >
+                <p class="hud-help" data-i18n="detalleVacio">Elige un ejercicio del catálogo para ver la ficha completa.</p>
+            </div>
         </aside>
     </main>
+
+    <button
+        type="button"
+        id="btn-feedback"
+        class="fab-feedback"
+        aria-haspopup="dialog"
+        aria-controls="feedback-dialog"
+        data-i18n-aria="feedbackAbrir"
+        aria-label="Enviar sugerencia"
+    >
+        <span aria-hidden="true">+</span>
+        <span class="fab-feedback__text" data-i18n="feedbackAbrirCorto">Opinión</span>
+    </button>
+
+    <dialog id="feedback-dialog" class="feedback-dialog" aria-labelledby="feedback-title">
+        <form id="feedback-form" novalidate>
+            <h2 id="feedback-title" class="hud-heading" data-i18n="feedbackTitle">Sugerencias</h2>
+            <p class="hud-help" data-i18n="feedbackHelp">Cuéntanos un error o una idea. Se guarda en el servidor local.</p>
+
+            <label class="feedback-label" for="feedback-tipo" data-i18n="feedbackTipo">Tipo</label>
+            <select id="feedback-tipo" name="tipo" class="feedback-input">
+                <option value="sugerencia" data-i18n="feedbackTipoSugerencia">Sugerencia</option>
+                <option value="error" data-i18n="feedbackTipoError">Error</option>
+                <option value="otro" data-i18n="feedbackTipoOtro">Otro</option>
+            </select>
+
+            <label class="feedback-label" for="feedback-nombre" data-i18n="feedbackNombre">Nombre (opcional)</label>
+            <input id="feedback-nombre" name="nombre" class="feedback-input" type="text" maxlength="80" autocomplete="name">
+
+            <label class="feedback-label" for="feedback-mensaje" data-i18n="feedbackMensaje">Mensaje</label>
+            <textarea
+                id="feedback-mensaje"
+                name="mensaje"
+                class="feedback-input"
+                rows="5"
+                required
+                minlength="10"
+                maxlength="2000"
+            ></textarea>
+
+            <p id="feedback-status" class="hud-status" role="status" aria-live="polite" hidden></p>
+
+            <div class="feedback-actions">
+                <button type="submit" class="lang-btn is-active" data-i18n="feedbackEnviar">Enviar</button>
+                <button type="button" id="feedback-cancel" class="lang-btn" data-i18n="feedbackCerrar">Cerrar</button>
+            </div>
+        </form>
+    </dialog>
 
     <script src="app.js"></script>
 </body>
