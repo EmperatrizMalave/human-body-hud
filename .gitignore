@@ -14,3 +14,9 @@ Thumbs.db
 # Configuración local de IDEs
 .vscode/
 .idea/
+
+# SQLite se regenera con data/cargar_db.py
+*.db
+
+# Repos git anidados dentro de data/
+data/.git/

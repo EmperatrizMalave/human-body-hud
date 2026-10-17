@@ -3,6 +3,7 @@ import sqlite3
 from typing import Optional
 from fastapi import FastAPI, HTTPException, Query
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.staticfiles import StaticFiles
 
 # ==========================================
 # 1. INICIALIZACIÓN DE LA APLICACIÓN FASTAPI
@@ -29,6 +30,7 @@ app.add_middleware(
 # ==========================================
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 DB_PATH = os.path.abspath(os.path.join(BASE_DIR, "gym.db"))
+FRONTEND_DIR = os.path.abspath(os.path.join(BASE_DIR, "..", "frontend"))
 
 
 # ==========================================
@@ -75,10 +77,10 @@ def _normalizar_ejercicio(row):
 
 
 # ==========================================
-# 4. ENDPOINT DE BIENVENIDA / HEALTH CHECK
+# 4. HEALTH CHECK (no usamos "/" para dejar el HUD ahí)
 # ==========================================
-@app.get("/")
-def home():
+@app.get("/api/health")
+def health():
     return {
         "status": "online",
         "system": "Cyber-HUD Backend Engine",
@@ -192,3 +194,8 @@ def obtener_ejercicios(
         "por_pagina": limit,
         "data": ejercicios,
     }
+
+
+# El mount en "/" va AL FINAL: si va antes, tapa /api/*.
+# html=True sirve index.html cuando entras a http://127.0.0.1:8000/
+app.mount("/", StaticFiles(directory=FRONTEND_DIR, html=True), name="frontend")

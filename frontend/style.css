@@ -1,131 +1,260 @@
-/* ==========================================
-   ESTILOS GENERALES DEL CYBER-HUD
-   ========================================== */
-body {
-    background-color: #ff1a1a; /* El fondo rojo vibrante de la plantilla */
-    margin: 0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color: #ffffff;
+:root {
+    --bg: #070b14;
+    --panel: rgba(10, 15, 28, 0.96);
+    --cyan: #00f0ff;
+    --cyan-dim: rgba(0, 240, 255, 0.15);
+    --green: #39ff14;
+    --purple: #c084fc;
+    --text: #f8fafc;
+    --muted: #94a3b8;
+    --danger: #ff4d4d;
+    --border: rgba(0, 240, 255, 0.35);
 }
 
-/* ==========================================
-   LAYOUT DE 3 COLUMNAS (HUD-GRID)
-   ========================================== */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    background: var(--bg);
+    color: var(--text);
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.hud-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 20px 24px 0;
+}
+
+.hud-kicker {
+    margin: 0 0 4px;
+    color: var(--cyan);
+    font-family: monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+}
+
+.hud-header h1 {
+    margin: 0;
+    font-size: 1.4rem;
+    letter-spacing: 0.08em;
+}
+
+.lang-switch {
+    display: flex;
+    gap: 6px;
+}
+
+.lang-btn {
+    background: transparent;
+    color: var(--cyan);
+    border: 1px solid var(--cyan);
+    border-radius: 4px;
+    padding: 6px 12px;
+    font-family: monospace;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.lang-btn.is-active {
+    background: var(--cyan);
+    color: #0a0f1e;
+}
+
 .hud-grid {
     display: grid;
-    grid-template-columns: 1fr 2.5fr 1fr; /* Laterales delgados, centro amplio */
+    grid-template-columns: minmax(220px, 1fr) minmax(0, 2.4fr) minmax(220px, 1fr);
     gap: 20px;
     width: 95%;
     max-width: 1600px;
-    margin: 40px auto;
-    padding: 20px;
+    margin: 24px auto 40px;
 }
 
 .hud-column {
-    background: rgba(10, 10, 20, 0.9); /* Fondo oscuro translúcido estilo cristal */
-    border: 1px solid #00F0FF; /* Borde Neón Cian */
+    background: var(--panel);
+    border: 1px solid var(--border);
     border-radius: 12px;
     padding: 20px;
-    color: #ffffff;
-    box-shadow: 0 0 15px rgba(0, 240, 255, 0.15);
-    backdrop-filter: blur(10px);
 }
 
 .hud-column h4 {
-    color: #00F0FF;
+    color: var(--cyan);
     border-bottom: 1px solid rgba(0, 240, 255, 0.3);
     padding-bottom: 8px;
-    margin-top: 0;
-    margin-bottom: 15px;
+    margin: 0 0 12px;
+    font-size: 0.95rem;
+    letter-spacing: 0.06em;
 }
 
-/* ==========================================
-   BARRA DE BÚSQUEDA
-   ========================================== */
+.hud-help {
+    font-size: 0.85rem;
+    color: #a5f3fc;
+    line-height: 1.4;
+    margin: 0 0 16px;
+}
+
+.muscle-map {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.muscle-btn {
+    background: var(--cyan-dim);
+    color: var(--cyan);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 6px 10px;
+    font-family: monospace;
+    font-size: 0.72rem;
+    cursor: pointer;
+}
+
+.muscle-btn.is-active {
+    background: var(--cyan);
+    color: #0a0f1e;
+}
+
 .search-container {
     margin-bottom: 15px;
 }
 
 .search-input {
     width: 100%;
-    padding: 10px;
-    background: rgba(0, 0, 0, 0.6);
-    border: 1px solid #00F0FF;
+    padding: 12px 14px;
+    background: rgba(0, 0, 0, 0.55);
+    border: 1px solid var(--cyan);
     border-radius: 6px;
-    color: #fff;
+    color: var(--cyan);
     outline: none;
-    box-sizing: border-box; /* Evita que el padding expanda el input fuera del contenedor */
+    font-family: monospace;
+    font-size: 0.85rem;
 }
 
 .search-input:focus {
-    box-shadow: 0 0 8px rgba(0, 240, 255, 0.6);
+    box-shadow: 0 0 8px rgba(0, 240, 255, 0.45);
 }
 
-/* ==========================================
-   TARJETAS DE EJERCICIOS
-   ========================================== */
+.hud-status {
+    text-align: center;
+    color: var(--cyan);
+    font-family: monospace;
+    font-size: 0.85rem;
+}
+
+.hud-status.is-error {
+    color: var(--danger);
+}
+
 .exercise-card {
-    background: rgba(10, 10, 20, 0.9);
-    border: 1px solid #00F0FF;
+    background: rgba(8, 12, 22, 0.95);
+    border: 1px solid var(--border);
     border-radius: 8px;
-    padding: 15px;
-    margin-bottom: 15px;
-    color: #ffffff;
-    box-shadow: 0 0 10px rgba(0, 240, 255, 0.2);
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.exercise-card:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 0 15px rgba(0, 240, 255, 0.4);
-}
-
-.card-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 5px;
+    padding: 16px;
+    margin-bottom: 12px;
 }
 
 .card-title {
-    color: #00F0FF;
-    margin: 0;
-    font-size: 1.1rem;
-}
-
-.card-badge {
-    font-size: 0.75rem;
-    background: rgba(0, 240, 255, 0.2);
-    color: #00F0FF;
-    padding: 2px 6px;
-    border-radius: 4px;
+    color: var(--cyan);
+    margin: 0 0 8px;
+    font-size: 1.05rem;
 }
 
 .card-meta {
-    font-size: 0.85rem;
-    color: #a5f3fc;
-    margin-bottom: 8px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 10px;
+}
+
+.card-badge {
+    font-size: 0.7rem;
+    padding: 3px 8px;
+    border-radius: 4px;
+    font-family: monospace;
+    border: 1px solid transparent;
+}
+
+.card-badge--zone {
+    background: var(--cyan-dim);
+    color: var(--cyan);
+    border-color: rgba(0, 240, 255, 0.3);
+}
+
+.card-badge--equip {
+    background: rgba(168, 85, 247, 0.15);
+    color: var(--purple);
+    border-color: rgba(168, 85, 247, 0.3);
+}
+
+.card-badge--level {
+    background: rgba(57, 255, 20, 0.12);
+    color: var(--green);
+    border-color: rgba(57, 255, 20, 0.3);
+}
+
+.card-badge--safe {
+    background: rgba(57, 255, 20, 0.2);
+    color: var(--green);
+    border-color: rgba(57, 255, 20, 0.45);
 }
 
 .card-desc {
-    font-size: 0.8rem;
-    color: #cbd5e1;
-    line-height: 1.4;
+    font-size: 0.82rem;
+    color: var(--muted);
+    line-height: 1.45;
     margin: 0;
 }
 
-/* ==========================================
-   MODO SAFE-GREEN (ACCESIBILIDAD)
-   ========================================== */
 .accessibility-label {
-    display: block;
-    color: #39FF14; /* Verde neón distintivo para accesibilidad */
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--green);
     margin-bottom: 12px;
     cursor: pointer;
     font-size: 0.95rem;
 }
 
-.accessibility-label input {
-    margin-right: 8px;
+.hud-pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+}
+
+.page-btn {
+    background: rgba(10, 15, 30, 0.9);
+    color: var(--cyan);
+    border: 1px solid var(--cyan);
+    border-radius: 4px;
+    padding: 5px 10px;
+    font-family: monospace;
     cursor: pointer;
+}
+
+.page-btn.is-active {
+    background: var(--cyan);
+    color: #0a0f1e;
+}
+
+.page-ellipsis {
+    color: var(--cyan);
+    font-family: monospace;
+    padding: 0 5px;
+}
+
+@media (max-width: 960px) {
+    .hud-grid {
+        grid-template-columns: 1fr;
+    }
 }
