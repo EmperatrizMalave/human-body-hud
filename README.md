@@ -6,7 +6,7 @@ Un solo servidor: FastAPI sirve la API **y** el HTML.
 
 ## Arranque rápido
 
-Necesitas el entorno del repo (`.venv` o [uv](https://docs.astral.sh/uv/)).
+Necesitas Python **3.12 o superior** (el `.venv` del repo es 3.12) y el entorno (`.venv` o [uv](https://docs.astral.sh/uv/)). `pyproject.toml` declara `requires-python = ">=3.12"` para que `uv sync` no exija 3.14.
 
 ```powershell
 cd C:\Users\emper\Documents\dev\human-body-hud\backend
@@ -18,8 +18,12 @@ En PowerShell la ruta al Python es `..\.venv\Scripts\python.exe` (sin espacio de
 Cuando veas `Uvicorn running on http://127.0.0.1:8000`, abre:
 
 - HUD: http://127.0.0.1:8000/
+- Visor 3D, al elegir un ejercicio del catálogo: http://127.0.0.1:8000/visor.html?ejercicio=1  
+  También puedes abrirlo directo, sin ficha: http://127.0.0.1:8000/visor.html
 - Salud de la API: http://127.0.0.1:8000/api/health  
   Debe decir `"database_found": true`.
+
+En el visor el maniquí gira con el ratón o el dedo, el zoom tiene un tope, y los botones reproducen, pausan, reinician y cambian la sentadilla a 0.5×, 1× o 1.5×. Mujer y Hombre cargan `frontend/modelos/mujer/squat_bodyweight.glb` y `frontend/modelos/hombre/squat_bodyweight.glb`. Hace falta conexión a internet la primera vez: Three.js se carga desde jsDelivr.
 
 `--reload` recarga `main.py` al guardar. Los cambios de `frontend/` se ven con F5.
 

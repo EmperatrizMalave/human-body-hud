@@ -1,0 +1,47 @@
+{
+  "archivo": "C:\\Users\\emper\\Documents\\dev\\human-body-hud\\assets\\models\\personaje_squat_bodyweight.blend",
+  "malla": "Human",
+  "vertices": 19158,
+  "caras": 18486,
+  "capas_uv": [
+    {
+      "nombre": "UVMap",
+      "activa": true,
+      "bucles": 73944,
+      "min": [
+        0.00921,
+        0.00961
+      ],
+      "max": [
+        0.99352,
+        0.99222
+      ]
+    }
+  ],
+  "muslo_uv": {
+    "L": {
+      "caras": 540,
+      "min": [
+        0.41546,
+        0.27859
+      ],
+      "max": [
+        0.9706,
+        0.94636
+      ]
+    },
+    "R": {
+      "caras": 540,
+      "min": [
+        0.13235,
+        0.27859
+      ],
+      "max": [
+        0.9567,
+        0.94636
+      ]
+    }
+  },
+  "aristas_con_uv_distinto": 2569,
+  "nota": "La caja del muslo solo localiza las islas. No es el borde del cuádriceps."
+}

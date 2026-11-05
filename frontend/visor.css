@@ -1,0 +1,456 @@
+:root {
+    --bg: #070b14;
+    --panel: rgba(10, 15, 28, 0.96);
+    --cyan: #00f0ff;
+    --text: #f8fafc;
+    --muted: #94a3b8;
+    --border: rgba(0, 240, 255, 0.35);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    height: 100vh;
+    height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    background: var(--bg);
+    color: var(--text);
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.visor-cabecera {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    padding: 16px 20px 10px;
+}
+
+.marca {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+}
+
+.logo {
+    width: 52px;
+    height: 46px;
+    margin-top: 2px;
+    object-fit: contain;
+    display: block;
+}
+
+.visor-kicker {
+    margin: 0 0 4px;
+    color: var(--cyan);
+    font-family: monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+}
+
+h1 {
+    margin: 0;
+    font-size: 1.25rem;
+    letter-spacing: 0.04em;
+    line-height: 1.25;
+}
+
+.volver {
+    color: var(--cyan);
+    font-family: monospace;
+    font-size: 0.75rem;
+    letter-spacing: 0.08em;
+    text-decoration: none;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+.volver:hover {
+    color: var(--text);
+}
+
+.escena {
+    flex: 1;
+    min-width: 0;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+.sexos {
+    display: flex;
+    gap: 10px;
+    flex: 0 0 auto;
+}
+
+.sexos button {
+    min-height: 42px;
+    padding: 0 18px 0 14px;
+    border: 0;
+    border-radius: 999px;
+    background: #101826;
+    color: #f8fafc;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 600;
+}
+
+.sexos .simbolo {
+    font-size: 1.15rem;
+    line-height: 1;
+}
+
+.sexos button:hover {
+    background: #182233;
+    border-color: transparent;
+}
+
+.sexos button[aria-pressed="true"],
+.sexos button[aria-pressed="true"]:hover {
+    background: #1ec8d4;
+    color: #ffffff;
+    border-color: transparent;
+}
+
+.escenario {
+    position: relative;
+    flex: 1;
+    min-height: 0;
+    display: flex;
+    gap: 12px;
+    padding: 0 16px 8px;
+}
+
+.lateral {
+    width: 300px;
+    flex: 0 0 300px;
+    align-self: stretch;
+    min-height: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.instrucciones {
+    flex: 0 0 auto;
+    min-width: 0;
+    margin: 12px 0 0;
+    padding: 10px 14px;
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+}
+
+.instrucciones h2 {
+    margin: 0 0 6px;
+    font-size: 0.95rem;
+    font-weight: 600;
+}
+
+.instrucciones ol {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.instrucciones li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    line-height: 1.35;
+}
+
+.paso {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    flex: 0 0 22px;
+    display: grid;
+    place-items: center;
+    background: #1ec8d4;
+    color: #062028;
+    font-size: 0.78rem;
+    font-weight: 700;
+}
+
+#instrucciones-vacio {
+    margin: 0;
+    color: var(--muted);
+    font-size: 0.9rem;
+}
+
+.musculos {
+    width: auto;
+    flex: 1 1 auto;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 18px 16px 14px;
+    border-radius: 22px;
+    background: rgba(12, 22, 38, 0.94);
+    border: 1px solid rgba(120, 190, 210, 0.28);
+}
+
+.musculos h2 {
+    margin: 0 0 12px;
+    text-align: center;
+    font-size: 1.12rem;
+    font-weight: 600;
+}
+
+.musculos-marco {
+    flex: 1;
+    min-height: 160px;
+    display: grid;
+    place-items: center;
+    overflow: hidden;
+}
+
+.musculos-marco img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+#musculos-vacio {
+    margin: 0;
+    padding: 8px;
+    text-align: center;
+    color: var(--muted);
+    font-size: 0.88rem;
+    line-height: 1.4;
+}
+
+.musculos-leyenda {
+    list-style: none;
+    margin: 12px 0 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.musculos-leyenda li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.95rem;
+}
+
+.punto {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    flex: 0 0 12px;
+}
+
+.punto-principal {
+    background: #2ef2d2;
+    box-shadow: 0 0 8px rgba(46, 242, 210, 0.65);
+}
+
+.punto-secundario {
+    background: #8ef6ea;
+}
+
+#visor {
+    display: block;
+    width: 100%;
+    height: auto;
+    flex: 1 1 auto;
+    min-width: 0;
+    min-height: 0;
+}
+
+#estado {
+    display: inline-block;
+    margin: 8px 0 0;
+    max-width: 100%;
+    padding: 6px 10px;
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    color: var(--muted);
+    font-size: 0.92rem;
+}
+
+.controles {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 10px;
+    align-items: center;
+    align-self: flex-start;
+    flex: 0 0 auto;
+    width: min(380px, 100%);
+    min-width: 0;
+    margin-top: 8px;
+    padding: 4px 8px 4px 4px;
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+}
+
+.transporte {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex: 1 1 auto;
+    min-width: 0;
+}
+
+#play {
+    width: 36px;
+    min-height: 36px;
+    padding: 0;
+    border: 0;
+    border-radius: 50%;
+    background: transparent;
+    color: #f8fafc;
+}
+
+#play svg {
+    display: block;
+    width: 16px;
+    height: 16px;
+    margin: 0 auto;
+    fill: currentColor;
+}
+
+#play svg[hidden] {
+    display: none;
+}
+
+#play[aria-pressed="true"],
+#play[aria-pressed="true"]:hover {
+    background: transparent;
+    border: 0;
+    color: #f8fafc;
+}
+
+.tiempo {
+    flex: 0 0 auto;
+    font-family: monospace;
+    font-size: 0.82rem;
+    color: #f8fafc;
+    font-variant-numeric: tabular-nums;
+}
+
+#tiempo-total {
+    color: var(--muted);
+}
+
+#progreso {
+    flex: 1 1 auto;
+    min-width: 80px;
+    height: 4px;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    border-radius: 999px;
+    background: #243044;
+    appearance: none;
+    cursor: pointer;
+}
+
+#progreso::-webkit-slider-thumb {
+    appearance: none;
+    width: 12px;
+    height: 12px;
+    border: 0;
+    border-radius: 50%;
+    background: #e7fbff;
+}
+
+#progreso::-moz-range-thumb {
+    width: 12px;
+    height: 12px;
+    border: 0;
+    border-radius: 50%;
+    background: #e7fbff;
+}
+
+#velocidad {
+    min-width: 64px;
+    min-height: 36px;
+    padding: 0 12px;
+    border-radius: 999px;
+}
+
+button {
+    min-height: 44px;
+    padding: 0 16px;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    background: transparent;
+    color: var(--text);
+    font: inherit;
+    cursor: pointer;
+}
+
+button:hover {
+    border-color: var(--cyan);
+}
+
+button[aria-pressed="true"] {
+    background: rgba(0, 240, 255, 0.16);
+    border-color: var(--cyan);
+    color: var(--cyan);
+}
+
+button:disabled {
+    opacity: 0.45;
+    cursor: not-allowed;
+}
+
+@media (max-width: 640px) {
+    .visor-cabecera {
+        padding: 12px 14px 8px;
+    }
+
+    h1 {
+        font-size: 1.05rem;
+    }
+
+    .controles {
+        width: 100%;
+        border-radius: 12px;
+    }
+
+    .escenario {
+        flex-direction: column;
+        padding: 0 12px 8px;
+    }
+
+    #visor {
+        width: 100%;
+        height: auto;
+        min-height: 52vh;
+    }
+
+    .escena {
+        flex: 1 1 auto;
+        min-height: 0;
+    }
+
+    .lateral {
+        width: auto;
+        flex: 0 1 auto;
+        max-height: 46%;
+    }
+
+}

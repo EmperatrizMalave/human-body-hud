@@ -1,0 +1,50 @@
+{
+  "archivo_origen": "C:\\Users\\emper\\Documents\\dev\\human-body-hud\\assets\\models\\personaje_squat_bodyweight.blend",
+  "archivo_salida": "C:\\Users\\emper\\Documents\\dev\\human-body-hud\\assets\\models\\personaje_muscular_test.blend",
+  "armadura": "Human.rig",
+  "malla": "Human",
+  "accion_conservada": "squat_bodyweight",
+  "materiales": [
+    "BODY_BASE",
+    "MUSCLE_ACTIVE",
+    "MUSCLE_SECONDARY"
+  ],
+  "colores": {
+    "BODY_BASE": "#B7B9BE",
+    "MUSCLE_ACTIVE": "#13B8A6",
+    "MUSCLE_SECONDARY": "#2ECC71"
+  },
+  "caras_total": 18486,
+  "caras_cuadriceps": {
+    "L": 108,
+    "R": 108,
+    "total": 216
+  },
+  "vertices_mascara": {
+    "L": 132,
+    "R": 132
+  },
+  "radio_max_m": {
+    "L": 0.24694,
+    "R": 0.24694
+  },
+  "frente_local": [
+    0.0,
+    -1.0,
+    0.0
+  ],
+  "parametros": {
+    "t_min": 0.14,
+    "t_max": 0.93,
+    "angulo_max_grados": 80
+  },
+  "huesos_usados_como_regla": [
+    "upperleg01.L",
+    "upperleg01.R",
+    "lowerleg01.L",
+    "lowerleg01.R"
+  ],
+  "pesos_de_deformacion_modificados": false,
+  "mascara": "C:\\Users\\emper\\Documents\\dev\\human-body-hud\\scripts\\blender\\mascaras\\cuadriceps.json",
+  "revision": "La piel no tiene un borde de cuádriceps. Esta región es el frente del muslo entre la cadera y la rodilla. Conviene corregirla con guardar_mascara.py."
+}

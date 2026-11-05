@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>BIOCINÉTICA · Visor 3D</title>
+    <link rel="stylesheet" href="/visor.css?v=columnas">
+</head>
+<body>
+    <header class="visor-cabecera">
+        <div class="marca">
+            <img class="logo" src="/logo.png" alt="">
+            <div>
+                <p class="visor-kicker">Biocinética</p>
+                <h1>Visor 3D</h1>
+                <p id="estado" role="status">Cargando el maniquí…</p>
+            </div>
+        </div>
+        <a id="volver" class="volver" href="/">Volver al catálogo</a>
+    </header>
+    <main class="escenario">
+        <div class="escena">
+            <div class="sexos" role="group" aria-label="Personaje">
+                <button type="button" data-sexo="mujer" aria-pressed="true"><span class="simbolo" aria-hidden="true">♀</span>Mujer</button>
+                <button type="button" data-sexo="hombre"><span class="simbolo" aria-hidden="true">♂</span>Hombre</button>
+            </div>
+            <canvas id="visor"></canvas>
+            <div class="controles" role="toolbar" aria-label="Animación">
+                <div class="transporte">
+                    <button id="play" type="button" disabled aria-pressed="false" aria-label="Reproducir">
+                        <svg class="icono-play" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l10-5.5z"/></svg>
+                        <svg class="icono-pausa" viewBox="0 0 16 16" aria-hidden="true" hidden><path d="M4 2h3v12H4zm5 0h3v12H9z"/></svg>
+                    </button>
+                    <span class="tiempo"><span id="tiempo-actual">0:00</span> / <span id="tiempo-total">0:00</span></span>
+                    <input id="progreso" type="range" min="0" max="1" step="0.01" value="0" disabled aria-label="Progreso">
+                </div>
+                <button id="velocidad" type="button" disabled aria-label="Velocidad 1×">1×</button>
+            </div>
+        </div>
+        <div class="lateral">
+            <aside class="musculos" aria-labelledby="musculos-titulo">
+                <h2 id="musculos-titulo">Músculos trabajados</h2>
+                <div class="musculos-marco">
+                    <img id="musculos-imagen" alt="" hidden>
+                    <p id="musculos-vacio">Esta zona todavía no tiene imagen.</p>
+                </div>
+                <ul id="musculos-leyenda" class="musculos-leyenda"></ul>
+            </aside>
+            <section class="instrucciones" aria-labelledby="instrucciones-titulo">
+                <h2 id="instrucciones-titulo">Instrucciones</h2>
+                <ol id="instrucciones-lista"></ol>
+                <p id="instrucciones-vacio" hidden>Este ejercicio todavía no tiene instrucciones.</p>
+            </section>
+        </div>
+    </main>
+    <script type="importmap">
+        {
+            "imports": {
+                "three": "https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js",
+                "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/"
+            }
+        }
+    </script>
+    <script type="module" src="/visor.js?v=pausa2"></script>
+</body>
+</html>

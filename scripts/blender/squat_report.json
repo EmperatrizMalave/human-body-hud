@@ -1,0 +1,97 @@
+{
+  "archivo_origen": "C:\\Users\\emper\\OneDrive\\Documents\\personaje_base_woman.blend.blend",
+  "armadura": "Human.rig",
+  "accion": "squat_bodyweight",
+  "fotogramas": {
+    "inicio": 1,
+    "fondo": 24,
+    "regreso": 48
+  },
+  "descenso_pedido_m": 0.22,
+  "root_reposo": [
+    -0.03652,
+    0.10754,
+    1.35288
+  ],
+  "root_fotograma_24": [
+    -0.03652,
+    0.10754,
+    1.13288
+  ],
+  "pies": {
+    "foot.L": {
+      "reposo": [
+        0.14446,
+        0.02021,
+        0.5525
+      ],
+      "fotograma_24": [
+        0.14446,
+        0.02022,
+        0.55246
+      ],
+      "desplazamiento_m": [
+        0.0,
+        1e-05,
+        -4e-05
+      ],
+      "desplazamiento_total_m": 4e-05
+    },
+    "foot.R": {
+      "reposo": [
+        -0.21749,
+        0.02021,
+        0.5525
+      ],
+      "fotograma_24": [
+        -0.21749,
+        0.02022,
+        0.55246
+      ],
+      "desplazamiento_m": [
+        0.0,
+        1e-05,
+        -4e-05
+      ],
+      "desplazamiento_total_m": 4e-05
+    },
+    "left_foot_ik": {
+      "reposo": [
+        0.14446,
+        0.02021,
+        0.5525
+      ],
+      "fotograma_24": [
+        0.14446,
+        0.02021,
+        0.5525
+      ],
+      "desplazamiento_m": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "desplazamiento_total_m": 0.0
+    },
+    "right_foot_ik": {
+      "reposo": [
+        -0.21749,
+        0.02021,
+        0.5525
+      ],
+      "fotograma_24": [
+        -0.21749,
+        0.02021,
+        0.5525
+      ],
+      "desplazamiento_m": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "desplazamiento_total_m": 0.0
+    }
+  },
+  "pies_con_desplazamiento_mayor_a_2cm": [],
+  "nota": "Pose mecánica para revisión visual. No está validada como sentadilla anatómica. Los dedos del modelo apuntan hacia -Y; las rodillas se adelantan en esa dirección."
+}

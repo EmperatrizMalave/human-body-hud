@@ -1,0 +1,5433 @@
+{
+  "archivo": "C:\\Users\\emper\\OneDrive\\Documents\\personaje_base_woman.blend.blend",
+  "blender": "5.2.3 LTS",
+  "armaduras": [
+    {
+      "nombre": "Human.rig",
+      "huesos": 160,
+      "matriz_mundo": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          -0.03652
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.04266
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.48334
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "accion": null,
+      "controles_ik": [
+        {
+          "hueso_con_ik": "upperleg02.L",
+          "objetivo": "Human.rig",
+          "control": "left_knee_ik",
+          "eslabones": 2,
+          "polo": "",
+          "influencia": 1.0
+        },
+        {
+          "hueso_con_ik": "lowerleg02.L",
+          "objetivo": "Human.rig",
+          "control": "left_foot_ik",
+          "eslabones": 4,
+          "polo": "",
+          "influencia": 1.0
+        },
+        {
+          "hueso_con_ik": "upperleg02.R",
+          "objetivo": "Human.rig",
+          "control": "right_knee_ik",
+          "eslabones": 2,
+          "polo": "",
+          "influencia": 1.0
+        },
+        {
+          "hueso_con_ik": "lowerleg02.R",
+          "objetivo": "Human.rig",
+          "control": "right_foot_ik",
+          "eslabones": 4,
+          "polo": "",
+          "influencia": 1.0
+        },
+        {
+          "hueso_con_ik": "upperarm02.L",
+          "objetivo": "Human.rig",
+          "control": "left_elbow_ik",
+          "eslabones": 2,
+          "polo": "",
+          "influencia": 1.0
+        },
+        {
+          "hueso_con_ik": "lowerarm02.L",
+          "objetivo": "Human.rig",
+          "control": "left_hand_ik",
+          "eslabones": 4,
+          "polo": "",
+          "influencia": 1.0
+        },
+        {
+          "hueso_con_ik": "upperarm02.R",
+          "objetivo": "Human.rig",
+          "control": "right_elbow_ik",
+          "eslabones": 2,
+          "polo": "",
+          "influencia": 1.0
+        },
+        {
+          "hueso_con_ik": "lowerarm02.R",
+          "objetivo": "Human.rig",
+          "control": "right_hand_ik",
+          "eslabones": 4,
+          "polo": "",
+          "influencia": 1.0
+        },
+        {
+          "hueso_con_ik": "eye.L",
+          "objetivo": "Human.rig",
+          "control": "left_eye_ik",
+          "eslabones": 1,
+          "polo": "",
+          "influencia": 1.0
+        },
+        {
+          "hueso_con_ik": "eye.R",
+          "objetivo": "Human.rig",
+          "control": "right_eye_ik",
+          "eslabones": 1,
+          "polo": "",
+          "influencia": 1.0
+        }
+      ],
+      "lista_huesos": [
+        {
+          "nombre": "root",
+          "padre": null,
+          "deforma": true,
+          "conectado": false,
+          "cabeza_local": [
+            0.0,
+            0.06489,
+            0.86955
+          ],
+          "cola_local": [
+            0.0,
+            -0.01322,
+            0.87389
+          ],
+          "cabeza_mundo": [
+            -0.03652,
+            0.10754,
+            1.35288
+          ],
+          "cola_mundo": [
+            -0.03652,
+            0.02944,
+            1.35722
+          ],
+          "longitud": 0.07822,
+          "restricciones": []
+        },
+        {
+          "nombre": "pelvis.L",
+          "padre": "root",
+          "deforma": true,
+          "conectado": false,
+          "cabeza_local": [
+            0.0,
+            -0.01322,
+            0.87389
+          ],
+          "cola_local": [
+            0.10147,
+            -0.005,
+            0.86564
+          ],
+          "cabeza_mundo": [
+            -0.03652,
+            0.02944,
+            1.35722
+          ],
+          "cola_mundo": [
+            0.06496,
+            0.03765,
+            1.34898
+          ],
+          "longitud": 0.10214,
+          "restricciones": []
+        },
+        {
+          "nombre": "upperleg01.L",
+          "padre": "pelvis.L",
+          "deforma": true,
+          "conectado": false,
+          "cabeza_local": [
+            0.10147,
+            -0.005,
+            0.86564
+          ],
+          "cola_local": [
+            0.10406,
+            -0.03049,
+            0.78751
+          ],
+          "cabeza_mundo": [
+            0.06496,
+            0.03765,
+            1.34898
+          ],
+          "cola_mundo": [
+            0.06754,
+            0.01217,
+            1.27084
+          ],
+          "longitud": 0.08223,
+          "restricciones": []
+        },
+        {
+          "nombre": "upperleg02.L",
+          "padre": "upperleg01.L",
+          "deforma": true,
+          "conectado": false,
+          "cabeza_local": [
+            0.10406,
+            -0.03049,
+            0.78751
+          ],
+          "cola_local": [
+            0.14264,
+            -0.03733,
+            0.47442
+          ],
+          "cabeza_mundo": [
+            0.06754,
+            0.01217,
+            1.27084
+          ],
+          "cola_mundo": [
+            0.10612,
+            0.00533,
+            0.95775
+          ],
+          "longitud": 0.31553,
+          "restricciones": [
+            {
+              "nombre": "IK",
+              "tipo": "IK",
+              "activo": true,
+              "influencia": 1.0,
+              "objetivo": "Human.rig",
+              "subobjetivo": "left_knee_ik",
+              "eslabones": 2,
+              "usa_localizacion": true,
+              "usa_rotacion": false
+            }
+          ]
+        },
+        {
+          "nombre": "lowerleg01.L",
+          "padre": "upperleg02.L",
+          "deforma": true,
+          "conectado": false,
+          "cabeza_local": [
+            0.14264,
+            -0.03733,
+            0.47442
+          ],
+          "cola_local": [
+            0.16248,
+            -0.02896,
+            0.27322
+          ],
+          "cabeza_mundo": [
+            0.10612,
+            0.00533,
+            0.95775
+          ],
+          "cola_mundo": [
+            0.12597,
+            0.01369,
+            0.75656
+          ],
+          "longitud": 0.20235,
+          "restricciones": [
+            {
+              "nombre": "Copy Rotation",
+              "tipo": "COPY_ROTATION",
+              "activo": true,
+              "influencia": 0.2,
+              "objetivo": "Human.rig",
+              "subobjetivo": "left_foot_ik"
+            }
+          ]
+        },
+        {
+          "nombre": "lowerleg02.L",
+          "padre": "lowerleg01.L",
+          "deforma": true,
+          "conectado": false,
+          "cabeza_local": [
+            0.16248,
+            -0.02896,
+            0.27322
+          ],
+          "cola_local": [
+            0.18097,
+            -0.02244,
+            0.06917
+          ],
+          "cabeza_mundo": [
+            0.12597,
+            0.01369,
+            0.75656
+          ],
+          "cola_mundo": [
+            0.14446,
+            0.02021,
+            0.5525
+          ],
+          "longitud": 0.20499,
+          "restricciones": [
+            {
+              "nombre": "Copy Rotation",
+              "tipo": "COPY_ROTATION",
+              "activo": true,
+              "influencia": 0.2,
+              "objetivo": "Human.rig",
+              "subobjetivo": "left_foot_ik"
+            },
+            {
+              "nombre": "IK",
+              "tipo": "IK",
+              "activo": true,
+              "influencia": 1.0,
+              "objetivo": "Human.rig",
+              "subobjetivo": "left_foot_ik",
+              "eslabones": 4,
+              "usa_localizacion": true,
+              "usa_rotacion": false
+            }
+          ]
+        },
+        {
+          "nombre": "foot.L",
+          "padre": "lowerleg02.L",
+          "deforma": true,
+          "conectado": false,
+          "cabeza_local": [
+            0.18097,
+            -0.02244,
+            0.06917
+          ],
+          "cola_local": [
+            0.18639,
+            -0.13929,
+            0.00894
+          ],
+          "cabeza_mundo": [
+            0.14446,
+            0.02021,
+            0.5525
+          ],
+          "cola_mundo": [
+            0.14987,
+            -0.09664,
+            0.49227
+          ],
+          "longitud": 0.13157,
+          "restricciones": [
+            {
+              "nombre": "Copy Rotation",
+              "tipo": "COPY_ROTATION",
+              "activo": true,
+              "influencia": 1.0,
+              "objetivo": "Human.rig",
+              "subobjetivo": "left_foot_ik"
+            }
+          ]
+        },
+        {
+          "nombre": "toe1-1.L",
+          "padre": "foot.L",
+          "deforma": true,
+          "conectado": false,
+          "cabeza_local": [
+            0.18639,
+            -0.13929,
+            0.00894
+          ],
+          "cola_local": [
+            0.1886,
+            -0.21621,
+            0.01645
+          ],
+          "cabeza_mundo": [
+            0.14987,
+            -0.09664,
+            0.49227
+          ],
+          "cola_mundo": [
+            0.15209,
+            -0.17356,
+            0.49979
+          ],
+          "longitud": 0.07732,
+          "restricciones": []
+        },
+        {
+          "nombre": "pelvis.R",
+          "padre": "root",
+          "deforma": true,
+          "conectado": false,
+          "cabeza_local": [
+            0.0,
+            -0.01322,
+            0.87389
+          ],
+          "cola_local": [
+            -0.10147,
+            -0.005,
+            0.86564
+          ],
+          "cabeza_mundo": [
+            -0.03652,
+            0.02944,
+            1.35722
+          ],
+          "cola_mundo": [
+            -0.13799,
+            0.03765,
+            1.34898
+          ],
+          "longitud": 0.10214,
+          "restricciones": []
+        },
+        {
+          "nombre": "upperleg01.R",
+          "padre": "pelvis.R",
+          "deforma": true,
+          "conectado": false,
+          "cabeza_local": [
+            -0.10147,
+            -0.005,
+            0.86564
+          ],
+          "cola_local": [
+            -0.10406,
+            -0.03049,
+            0.78751
+          ],
+          "cabeza_mundo": [
+            -0.13799,
+            0.03765,
+            1.34898
+          ],
+          "cola_mundo": [
+            -0.14057,
+            0.01217,
+            1.27084
+          ],
+          "longitud": 0.08223,
+          "restricciones": []
+        },
+        {
+          "nombre": "upperleg02.R",
+          "padre": "upperleg01.R",
+          "deforma": true,
+          "conectado": false,
+          "cabeza_local": [
+            -0.10406,
+            -0.03049,
+            0.78751
+          ],
+          "cola_local": [
+            -0.14264,
+            -0.03733,
+            0.47442
+          ],
+          "cabeza_mundo": [
+            -0.14057,
+            0.01217,
+            1.27084
+          ],
+          "cola_mundo": [
+            -0.17916,
+            0.00533,
+            0.95775
+          ],
+          "longitud": 0.31553,
+          "restricciones": [
+            {
+              "nombre": "IK",
+              "tipo": "IK",
+              "activo": true,
+              "influencia": 1.0,
+              "objetivo": "Human.rig",
+              "subobjetivo": "right_knee_ik",
+              "eslabones": 2,
+              "usa_localizacion": true,
+              "usa_rotacion": false
+            }
+          ]
+        },
+        {
+          "nombre": "lowerleg01.R",
+          "padre": "upperleg02.R",
+          "deforma": true,
+          "conectado": false,
+          "cabeza_local": [
+            -0.14264,
+            -0.03733,
+            0.47442
+          ],
+          "cola_local": [
+            -0.16248,
+            -0.02896,
+            0.27322
+          ],
+          "cabeza_mundo": [
+            -0.17916,
+            0.00533,
+            0.95775
+          ],
+          "cola_mundo": [
+            -0.199,
+            0.01369,
+            0.75656
+          ],
+          "longitud": 0.20235,
+          "restricciones": [
+            {
+              "nombre": "Copy Rotation",
+              "tipo": "COPY_ROTATION",
+              "activo": true,
+              "influencia": 0.2,
+              "objetivo": "Human.rig",
+              "subobjetivo": "right_foot_ik"
+            }
+          ]
+        },
+        {
+          "nombre": "lowerleg02.R",
+          "padre": "lowerleg01.R",
+          "deforma": true,
+          "conectado": false,
+          "cabeza_local": [
+            -0.16248,
+            -0.02896,
+            0.27322
+          ],
+          "cola_local": [
+            -0.18097,
+            -0.02244,
+            0.06917
+          ],
+          "cabeza_mundo": [
+            -0.199,
+            0.01369,
+            0.75656
+          ],
+          "cola_mundo": [
+            -0.21749,
+            0.02021,
+            0.5525
+          ],
+          "longitud": 0.20499,
+          "restricciones": [
+            {
+              "nombre": "Copy Rotation",
+              "tipo": "COPY_ROTATION",
+              "activo": true,
+              "influencia": 0.2,
+              "objetivo": "Human.rig",
+              "subobjetivo": "right_foot_ik"
+            },
+            {
+              "nombre": "IK",
+              "tipo": "IK",
+              "activo": true,
+              "influencia": 1.0,
+              "objetivo": "Human.rig",
+              "subobjetivo": "right_foot_ik",
+              "eslabones": 4,
+              "usa_localizacion": true,
+              "usa_rotacion": false
+            }
+          ]
+        },
+        {
+          "nombre": "foot.R",
+          "padre": "lowerleg02.R",
+          "deforma": true,
+          "conectado": false,
+          "cabeza_local": [
+            -0.18097,
+            -0.02244,
+            0.06917
+          ],
+          "cola_local": [
+            -0.18639,
+            -0.13929,
+            0.00894
+          ],
+          "cabeza_mundo": [
+            -0.21749,
+            0.02021,
+            0.5525
+          ],
+          "cola_mundo": [
+            -0.2229,
+            -0.09664,
+            0.49227
+          ],
+          "longitud": 0.13157,
+          "restricciones": [
+            {
+              "nombre": "Copy Rotation",
+              "tipo": "COPY_ROTATION",
+              "activo": true,
+              "influencia": 1.0,
+              "objetivo": "Human.rig",
+              "subobjetivo": "right_foot_ik"
+            }
+          ]
+        },
+        {
+          "nombre": "toe1-1.R",
+          "padre": "foot.R",
+          "deforma": true,
+          "conectado": false,
+          "cabeza_local": [
+            -0.18639,
+            -0.13929,
+            0.00894
+          ],
+          "cola_local": [
+            -0.1886,
+            -0.21621,
+            0.01645
+          ],
+          "cabeza_mundo": [
+            -0.2229,
+            -0.09664,
+            0.49227
+          ],
+          "cola_mundo": [
+            -0.22512,
+            -0.17356,
+            0.49979
+          ],
+          "longitud": 0.07732,
+          "restricciones": []
+        },
+        {
+          "nombre": "spine05",
+          "padre": "root",
+          "deforma": true,
+          "conectado": false,
+          "cabeza_local": [
+            0.0,
+            -0.01322,
+            0.87389
+          ],
+          "cola_local": [
+            0.0,
+            0.02537,
+            0.95332
+          ],
+          "cabeza_mundo": [
+            -0.03652,
+            0.02944,
+            1.35722
+          ],
+          "cola_mundo": [
+            -0.03652,
+            0.06803,
+            1.43666
+          ],
+          "longitud": 0.08831,
+          "restricciones": []
+        },
+        {
+          "nombre": "spine04",
+          "padre": "spine05",
+          "deforma": true,
+          "conectado": false,
+          "cabeza_local": [
+            0.0,
+            0.02537,
+            0.95332
+          ],
+          "cola_local": [
+            0.0,
+            0.00986,
+            1.0196
+          ],
+          "cabeza_mundo": [
+            -0.03652,
+            0.06803,
+            1.43666
+          ],
+          "cola_mundo": [
+            -0.03652,
+            0.05252,
+            1.50293
+          ],
+          "longitud": 0.06807,
+          "restricciones": []
+        },
+        {
+          "nombre": "spine03",
+          "padre": "spine04",
+          "deforma": true,
+          "conectado": false,
+          "cabeza_local": [
+            0.0,
+            0.00986,
+            1.0196
+          ],
+          "cola_local": [
+            0.0,
+            0.00804,
+            1.09483
+          ],
+          "cabeza_mundo": [
+            -0.03652,
+            0.05252,
+            1.50293
+          ],
+          "cola_mundo": [
+            -0.03652,
+            0.05069,
+            1.57817
+          ],
+          "longitud": 0.07526,
+          "restricciones": []
+        },
+        {
+          "nombre": "spine02",
+          "padre": "spine03",
+          "deforma": true,
+          "conectado": false,
+          "cabeza_local": [
+            0.0,
+            0.00804,
+            1.09483
+          ],
+          "cola_local": [
+            0.0,
+            0.01858,
+            1.23884
+          ],
+          "cabeza_mundo": [
+            -0.03652,
+            0.05069,
+            1.57817
+          ],
+          "cola_mundo": [
+            -0.03652,
+            0.06124,
+            1.72218
+          ],
+          "longitud": 0.1444,
+          "restricciones": []
+        },
+        {
+          "nombre": "breast.L",
+          "padre": "spine02",
+          "deforma": true,
+          "conectado": false,
+          "cabeza_local": [
+            0.0,
+            0.01858,
+            1.23884
+          ],
+          "cola_local": [
+            0.10297,
+            -0.15249,
+            1.21105
+          ],
+          "cabeza_mundo": [
+            -0.03652,
+            0.06124,
+            1.72218
+          ],
+          "cola_mundo": [
+            0.06645,
+            -0.10983,
+            1.69438
+          ],
+          "longitud": 0.20159,
+          "restricciones": []
+        },
+        {
+          "nombre": "breast.R",
+          "padre": "spine02",
+          "deforma": true,
+          "conectado": false,
+          "cabeza_local": [
+            0.0,
+            0.01858,
+            1.23884
+          ],
+          "cola_local": [
+            -0.10297,
+            -0.15249,
+            1.21105
+          ],
+          "cabeza_mundo": [
+            -0.03652,
+            0.06124,
+            1.72218
+          ],
+          "cola_mundo": [
+            -0.13948,
+            -0.10983,
+            1.69438
+          ],
+          "longitud": 0.20159,
+          "restricciones": []
+        },
+        {
+          "nombre": "spine01",
+          "padre": "spine02",
+          "deforma": true,
+          "conectado": false,
+          "cabeza_local": [
+            0.0,
+            0.01858,
+            1.23884
+          ],
+          "cola_local": [
+            0.0,
+            -0.00513,
+            1.41363
+          ],
+          "cabeza_mundo": [
+            -0.03652,
+            0.06124,
+            1.72218
+          ],
+          "cola_mundo": [
+            -0.03652,
+            0.03753,
+            1.89697
+          ],
+          "longitud": 0.17639,
+          "restricciones": []
+        },
+        {
+          "nombre": "clavicle.L",
+          "padre": "spine01",
+          "deforma": true,
+          "conectado": false,
+          "cabeza_local": [
+            0.02277,
+            -0.0221,
+            1.34249
+          ],
+          "cola_local": [
+            0.09924,
+            -0.02196,
+            1.35874
+          ],
+          "cabeza_mundo": [
+            -0.01374,
+            0.02056,
+            1.82582
+          ],
+          "cola_mundo": [
+            0.06273,
+            0.0207,
+            1.84208
+          ],
+          "longitud": 0.07818,
+          "restricciones": []
+        },
+        {
+          "nombre": "shoulder01.L",
+          "padre": "clavicle.L",
+          "deforma": true,
+          "conectado": false,
+          "cabeza_local": [
+            0.09924,
+            -0.02196,
+            1.35874
+          ],
+          "cola_local": [
+            0.17002,
+            -0.01926,
+            1.3201
+          ],
+          "cabeza_mundo": [
+            0.06273,
+            0.0207,
+            1.84208
+          ],
+          "cola_mundo": [
+            0.1335,
+            0.02339,
+            1.80344
+          ],
+          "longitud": 0.08068,
+          "restricciones": []
+        },
+        {
+          "nombre": "upperarm01.L",
+          "padre": "shoulder01.L",
+          "deforma": true,
+          "conectado": false,
+          "cabeza_local": [
+            0.17002,
+            -0.01926,
+            1.3201
+          ],
+          "cola_local": [
+            0.2167,
+            -0.01878,
+            1.26598
+          ],
+          "cabeza_mundo": [
+            0.1335,
+            0.02339,
+            1.80344
+          ],
+          "cola_mundo": [
+            0.18019,
+            0.02387,
+            1.74931
+          ],
+          "longitud": 0.07148,
+          "restricciones": []
+        },
+        {
+          "nombre": "upperarm02.L",
+          "padre": "upperarm01.L",
+          "deforma": true,
+          "conectado": false,
+          "cabeza_local": [
+            0.2167,
+            -0.01878,
+            1.26598
+          ],
+          "cola_local": [
+            0.33117,
+            -0.02006,
+            1.13956
+          ],
+          "cabeza_mundo": [
+            0.18019,
+            0.02387,
+            1.74931
+          ],
+          "cola_mundo": [
+            0.29465,
+            0.0226,
+            1.6229
+          ],
+          "longitud": 0.17054,
+          "restricciones": [
+            {
+              "nombre": "IK",
+              "tipo": "IK",
+              "activo": true,
+              "influencia": 1.0,
+              "objetivo": "Human.rig",
+              "subobjetivo": "left_elbow_ik",
+              "eslabones": 2,
+              "usa_localizacion": true,
+              "usa_rotacion": false
+            }
+          ]
+        },
+        {
+          "nombre": "lowerarm01.L",
+          "padre": "upperarm02.L",
+          "deforma": true,
+          "conectado": false,
+          "cabeza_local": [
+            0.33117,
+            -0.02006,
+            1.13956
+          ],
+          "cola_local": [
+            0.39185,
+            -0.09981,
+            1.07683
+          ],
+          "cabeza_mundo": [
+            0.29465,
+            0.0226,
+            1.6229
+          ],
+          "cola_mundo": [
+            0.35533,
+            -0.05715,
+            1.56017
+          ],
+          "longitud": 0.11823,
+          "restricciones": [
+            {
+              "nombre": "Copy Rotation",
+              "tipo": "COPY_ROTATION",
+              "activo": true,
+              "influencia": 0.2,
+              "objetivo": "Human.rig",
+              "subobjetivo": "left_hand_ik"
+            }
+          ]
+        },
+        {
+          "nombre": "lowerarm02.L",
+          "padre": "lowerarm01.L",
+          "deforma": true,
+          "conectado": false,
+          "cabeza_local": [
+            0.39185,
+            -0.09981,
+            1.07683
+          ],
+          "cola_local": [
+            0.4531,
+            -0.18323,
+            1.01553
+          ],
+          "cabeza_mundo": [
+            0.35533,
+            -0.05715,
+            1.56017
+          ],
+          "cola_mundo": [
+            0.41658,
+            -0.14057,
+            1.49887
+          ],
+          "longitud": 0.12028,
+          "restricciones": [
+            {
+              "nombre": "Copy Rotation",
+              "tipo": "COPY_ROTATION",
+              "activo": true,
+              "influencia": 0.2,
+              "objetivo": "Human.rig",
+              "subobjetivo": "left_hand_ik"
+            },
+            {
+              "nombre": "IK",
+              "tipo": "IK",
+              "activo": true,
+              "influencia": 1.0,
+              "objetivo": "Human.rig",
+              "subobjetivo": "left_hand_ik",
+              "eslabones": 4,
+              "usa_localizacion": true,
+              "usa_rotacion": false
+            }
+          ]
+        },
+        {
+          "nombre": "wrist.L",
+          "padre": "lowerarm02.L",
+          "deforma": true,
+          "conectado": false,
+          "cabeza_local": [
+            0.4531,
+            -0.18323,
+            1.01553
+          ],
+          "cola_local": [
+            0.46368,
+            -0.20925,
+            0.99979
+          ],
+          "cabeza_mundo": [
+            0.41658,
+            -0.14057,
+            1.49887
+          ],
+          "cola_mundo": [
+            0.42716,
+            -0.16659,
+            1.48313
+          ],
+          "longitud": 0.0322,
+          "restricciones": [
+            {
+              "nombre": "Copy Rotation",
+              "tipo": "COPY_ROTATION",
+              "activo": true,
+              "influencia": 1.0,
+              "objetivo": "Human.rig",
+              "subobjetivo": "left_hand_ik"
+            }
+          ]
+        },
+        {
+          "nombre": "finger1-1.L",
+          "padre": "wrist.L",
+          "deforma": true,
+          "conectado": false,
+          "cabeza_local": [
+            0.45406,
+            -0.22703,
+            1.00793
+          ],
+          "cola_local": [
+            0.43327,
+            -0.24804,
+            0.99928
+          ],
+          "cabeza_mundo": [
+            0.41755,
+            -0.18438,
+            1.49126
+          ],
+          "cola_mundo": [
+            0.39676,
+            -0.20538,
+            1.48262
+          ],
+          "longitud": 0.03079,
+          "restricciones": [
+            {
+              "nombre": "Copy X rotation",
+              "tipo": "COPY_ROTATION",
+              "activo": true,
+              "influencia": 0.3333,
+              "objetivo": "Human.rig",
+              "subobjetivo": "left_finger1_grip"
+            },
+            {
+              "nombre": "Copy YZ rotation",
+              "tipo": "COPY_ROTATION",
+              "activo": true,
+              "influencia": 1.0,
+              "objetivo": "Human.rig",
+              "subobjetivo": "left_finger1_grip"
+            }
+          ]
+        },
+        {
+          "nombre": "finger1-2.L",
+          "padre": "finger1-1.L",
+          "deforma": true,
+          "conectado": false,
+          "cabeza_local": [
+            0.43327,
+            -0.24804,
+            0.99928
+          ],
+          "cola_local": [
+            0.4209,
+            -0.27907,
+            0.98533
+          ],
+          "cabeza_mundo": [
+            0.39676,
+            -0.20538,
+            1.48262
+          ],
+          "cola_mundo": [
+            0.38438,
+            -0.23642,
+            1.46866
+          ],
+          "longitud": 0.03621,
+          "restricciones": [
+            {
+              "nombre": "Copy X rotation",
+              "tipo": "COPY_ROTATION",
+              "activo": true,
+              "influencia": 0.3333,
+              "objetivo": "Human.rig",
+              "subobjetivo": "left_finger1_grip"
+            }
+          ]
+        },
+        {
+          "nombre": "finger1-3.L",
+          "padre": "finger1-2.L",
+          "deforma": true,
+          "conectado": false,
+          "cabeza_local": [
+            0.4209,
+            -0.27907,
+            0.98533
+          ],
+          "cola_local": [
+            0.41539,
+            -0.30035,
+            0.96799
+          ],
+          "cabeza_mundo": [
+            0.38438,
+            -0.23642,
+            1.46866
+          ],
+          "cola_mundo": [
+            0.37887,
+            -0.25769,
+            1.45133
+          ],
+          "longitud": 0.02799,
+          "restricciones": [
+            {
+              "nombre": "Copy X rotation",
+              "tipo": "COPY_ROTATION",
+              "activo": true,
+              "influencia": 0.3333,
+              "objetivo": "Human.rig",
+              "subobjetivo": "left_finger1_grip"
+            }
+          ]
+        },
+        {
+          "nombre": "metacarpal1.L",
+          "padre": "wrist.L",
+          "deforma": true,
+          "conectado": false,
+          "cabeza_local": [
+            0.46368,
+            -0.20925,
+            0.99979
+          ],
+          "cola_local": [
+            0.48077,
+            -0.27754,
+            0.97493
+          ],
+          "cabeza_mundo": [
+            0.42716,
+            -0.16659,
+            1.48313
+          ],
+          "cola_mundo": [
+            0.44426,
+            -0.23488,
+            1.45827
+          ],
+          "longitud": 0.07466,
+          "restricciones": []
+        },
+        {
+          "nombre": "finger2-1.L",
+          "padre": "metacarpal1.L",
+          "deforma": true,
+          "conectado": false,
+          "cabeza_local": [
+            0.48077,
+            -0.27754,
+            0.97493
+          ],
+          "cola_local": [
+            0.48412,
+            -0.29825,
+            0.95987
+          ],
+          "cabeza_mundo": [
+            0.44426,
+            -0.23488,
+            1.45827
+          ],
+          "cola_mundo": [
+            0.44761,
+            -0.2556,
+            1.44321
+          ],
+          "longitud": 0.02582,
+          "restricciones": [
+            {
+              "nombre": "Copy X rotation",
+              "tipo": "COPY_ROTATION",
+              "activo": true,
+              "influencia": 0.3333,
+              "objetivo": "Human.rig",
+              "subobjetivo": "left_finger2_grip"
+            },
+            {
+              "nombre": "Copy YZ rotation",
+              "tipo": "COPY_ROTATION",
+              "activo": true,
+              "influencia": 1.0,
+              "objetivo": "Human.rig",
+              "subobjetivo": "left_finger2_grip"
+            }
+          ]
+        },
+        {
+          "nombre": "finger2-2.L",
+          "padre": "finger2-1.L",
+          "deforma": true,
+          "conectado": false,
+          "cabeza_local": [
+            0.48412,
+            -0.29825,
+            0.95987
+          ],
+          "cola_local": [
+            0.48357,
+            -0.3146,
+            0.94359
+          ],
+          "cabeza_mundo": [
+            0.44761,
+            -0.2556,
+            1.44321
+          ],
+          "cola_mundo": [
+            0.44705,
+            -0.27194,
+            1.42693
+          ],
+          "longitud": 0.02308,
+          "restricciones": [
+            {
+              "nombre": "Copy X rotation",
+              "tipo": "COPY_ROTATION",
+              "activo": true,
+              "influencia": 0.3333,
+              "objetivo": "Human.rig",
+              "subobjetivo": "left_finger2_grip"
+            }
+          ]
+        },
+        {
+          "nombre": "finger2-3.L",
+          "padre": "finger2-2.L",
+          "deforma": true,
+          "conectado": false,
+          "cabeza_local": [
+            0.48357,
+            -0.3146,
+            0.94359
+          ],
+          "cola_local": [
+            0.47993,
+            -0.33217,
+            0.92348
+          ],
+          "cabeza_mundo": [
+            0.44705,
+            -0.27194,
+            1.42693
+          ],
+          "cola_mundo": [
+            0.44342,
+            -0.28951,
+            1.40682
+          ],
+          "longitud": 0.02695,
+          "restricciones": [
+            {
+              "nombre": "Copy X rotation",
+              "tipo": "COPY_ROTATION",
+              "activo": true,
+              "influencia": 0.3333,
+              "objetivo": "Human.rig",
+              "subobjetivo": "left_finger2_grip"
+            }
+          ]
+        },
+        {
+          "nombre": "left_finger2_grip",
+          "padre": "metacarpal1.L",
+          "deforma": true,
+          "conectado": false,
+          "cabeza_local": [
+            0.48077,
+            -0.27754,
+            0.97493
+          ],
+          "cola_local": [
+            0.47993,
+            -0.33217,
+            0.92348
+          ],
+          "cabeza_mundo": [
+            0.44426,
+            -0.23488,
+            1.45827
+          ],
+          "cola_mundo": [
+            0.44342,
+            -0.28951,
+            1.40682
+          ],
+          "longitud": 0.07504,
+          "restricciones": [
+            {
+              "nombre": "Add rotation",
+              "tipo": "COPY_ROTATION",
+              "activo": true,
+              "influencia": 1.0,
+              "objetivo": "Human.rig",
+              "subobjetivo": "left_master_grip"
+            }
+          ]
+        },
+        {
+          "nombre": "metacarpal2.L",
+          "padre": "wrist.L",
+          "deforma": true,
+          "conectado": false,
+          "cabeza_local": [
+            0.46368,
+            -0.20925,
+            0.99979
+          ],
+          "cola_local": [
+            0.49699,
+            -0.25973,
+            0.964
+          ],
+          "cabeza_mundo": [
+            0.42716,
+            -0.16659,
+            1.48313
+          ],
+          "cola_mundo": [
+            0.46047,
+            -0.21707,
+            1.44734
+          ],
+          "longitud": 0.07027,
+          "restricciones": []
+        },
+        {
+          "nombre": "finger3-1.L",
+          "padre": "metacarpal2.L",
+          "deforma": true,
+          "conectado": false,
+          "cabeza_local": [
+            0.49699,
+            -0.25973,
+            0.964
+          ],
+          "cola_local": [
+            0.50422,
+            -0.28019,
+            0.93809
+          ],
+          "cabeza_mundo": [
+            0.46047,
+            -0.21707,
+            1.44734
+          ],
+          "cola_mundo": [
+            0.46771,
+            -0.23753,
+            1.42142
+          ],
+          "longitud": 0.0338,
+          "restricciones": [
+            {
+              "nombre": "Copy X rotation",
+              "tipo": "COPY_ROTATION",
+              "activo": true,
+              "influencia": 0.3333,
+              "objetivo": "Human.rig",
+              "subobjetivo": "left_finger3_grip"
+            },
+            {
+              "nombre": "Copy YZ rotation",
+              "tipo": "COPY_ROTATION",
+              "activo": true,
+              "influencia": 1.0,
+              "objetivo": "Human.rig",
+              "subobjetivo": "left_finger3_grip"
+            }
+          ]
+        },
+        {
+          "nombre": "finger3-2.L",
+          "padre": "finger3-1.L",
+          "deforma": true,
+          "conectado": false,
+          "cabeza_local": [
+            0.50422,
+            -0.28019,
+            0.93809
+          ],
+          "cola_local": [
+            0.50689,
+            -0.29729,
+            0.91661
+          ],
+          "cabeza_mundo": [
+            0.46771,
+            -0.23753,
+            1.42142
+          ],
+          "cola_mundo": [
+            0.47038,
+            -0.25464,
+            1.39994
+          ],
+          "longitud": 0.02759,
+          "restricciones": [
+            {
+              "nombre": "Copy X rotation",
+              "tipo": "COPY_ROTATION",
+              "activo": true,
+              "influencia": 0.3333,
+              "objetivo": "Human.rig",
+              "subobjetivo": "left_finger3_grip"
+            }
+          ]
+        },
+        {
+          "nombre": "finger3-3.L",
+          "padre": "finger3-2.L",
+          "deforma": true,
+          "conectado": false,
+          "cabeza_local": [
+            0.50689,
+            -0.29729,
+            0.91661
+          ],
+          "cola_local": [
+            0.50673,
+            -0.31214,
+            0.89411
+          ],
+          "cabeza_mundo": [
+            0.47038,
+            -0.25464,
+            1.39994
+          ],
+          "cola_mundo": [
+            0.47022,
+            -0.26949,
+            1.37745
+          ],
+          "longitud": 0.02696,
+          "restricciones": [
+            {
+              "nombre": "Copy X rotation",
+              "tipo": "COPY_ROTATION",
+              "activo": true,
+              "influencia": 0.3333,
+              "objetivo": "Human.rig",
+              "subobjetivo": "left_finger3_grip"
+            }
+          ]
+        },
+        {
+          "nombre": "left_finger3_grip",
+          "padre": "metacarpal2.L",
+          "deforma": true,
+          "conectado": false,
+          "cabeza_local": [
+            0.49699,
+            -0.25973,
+            0.964
+          ],
+          "cola_local": [
+            0.50673,
+            -0.31214,
+            0.89411
+          ],
+          "cabeza_mundo": [
+            0.46047,
+            -0.21707,
+            1.44734
+          ],
+          "cola_mundo": [
+            0.47022,
+            -0.26949,
+            1.37745
+          ],
+          "longitud": 0.08791,
+          "restricciones": [
+            {
+              "nombre": "Add rotation",
+              "tipo": "COPY_ROTATION",
+              "activo": true,
+              "influencia": 1.0,
+              "objetivo": "Human.rig",
+              "subobjetivo": "left_master_grip"
+            }
+          ]
+        },
+        {
+          "nombre": "left_master_grip",
+          "padre": "metacarpal2.L",
+          "deforma": true,
+          "conectado": false,
+          "cabeza_local": [
+            0.50076,
+            -0.25118,
+            0.96019
+          ],
+          "cola_local": [
+            0.51365,
+            -0.2963,
+            0.8905
+          ],
+          "cabeza_mundo": [
+            0.46424,
+            -0.20853,
+            1.44352
+          ],
+          "cola_mundo": [
+            0.47713,
+            -0.25365,
+            1.37384
+          ],
+          "longitud": 0.08401,
+          "restricciones": []
+        },
+        {
+          "nombre": "metacarpal3.L",
+          "padre": "wrist.L",
+          "deforma": true,
+          "conectado": false,
+          "cabeza_local": [
+            0.47534,
+            -0.19883,
+            0.98459
+          ],
+          "cola_local": [
+            0.50453,
+            -0.24264,
+            0.95637
+          ],
+          "cabeza_mundo": [
+            0.43883,
+            -0.15617,
+            1.46793
+          ],
+          "cola_mundo": [
+            0.46802,
+            -0.19998,
+            1.4397
+          ],
+          "longitud": 0.05973,
+          "restricciones": []
+        },
+        {
+          "nombre": "finger4-1.L",
+          "padre": "metacarpal3.L",
+          "deforma": true,
+          "conectado": false,
+          "cabeza_local": [
+            0.50453,
+            -0.24264,
+            0.95637
+          ],
+          "cola_local": [
+            0.51384,
+            -0.25671,
+            0.93193
+          ],
+          "cabeza_mundo": [
+            0.46802,
+            -0.19998,
+            1.4397
+          ],
+          "cola_mundo": [
+            0.47732,
+            -0.21406,
+            1.41527
+          ],
+          "longitud": 0.02969,
+          "restricciones": [
+            {
+              "nombre": "Copy X rotation",
+              "tipo": "COPY_ROTATION",
+              "activo": true,
+              "influencia": 0.3333,
+              "objetivo": "Human.rig",
+              "subobjetivo": "left_finger4_grip"
+            },
+            {
+              "nombre": "Copy YZ rotation",
+              "tipo": "COPY_ROTATION",
+              "activo": true,
+              "influencia": 1.0,
+              "objetivo": "Human.rig",
+              "subobjetivo": "left_finger4_grip"
+            }
+          ]
+        },
+        {
+          "nombre": "finger4-2.L",
+          "padre": "finger4-1.L",
+          "deforma": true,
+          "conectado": false,
+          "cabeza_local": [
+            0.51384,
+            -0.25671,
+            0.93193
+          ],
+          "cola_local": [
+            0.51809,
+            -0.26924,
+            0.91097
+          ],
+          "cabeza_mundo": [
+            0.47732,
+            -0.21406,
+            1.41527
+          ],
+          "cola_mundo": [
+            0.48157,
+            -0.22659,
+            1.39431
+          ],
+          "longitud": 0.02479,
+          "restricciones": [
+            {
+              "nombre": "Copy X rotation",
+              "tipo": "COPY_ROTATION",
+              "activo": true,
+              "influencia": 0.3333,
+              "objetivo": "Human.rig",
+              "subobjetivo": "left_finger4_grip"
+            }
+          ]
+        },
+        {
+          "nombre": "finger4-3.L",
+          "padre": "finger4-2.L",
+          "deforma": true,
+          "conectado": false,
+          "cabeza_local": [
+            0.51809,
+            -0.26924,
+            0.91097
+          ],
+          "cola_local": [
+            0.52056,
+            -0.28046,
+            0.88689
+          ],
+          "cabeza_mundo": [
+            0.48157,
+            -0.22659,
+            1.39431
+          ],
+          "cola_mundo": [
+            0.48405,
+            -0.23781,
+            1.37023
+          ],
+          "longitud": 0.02668,
+          "restricciones": [
+            {
+              "nombre": "Copy X rotation",
+              "tipo": "COPY_ROTATION",
+              "activo": true,
+              "influencia": 0.3333,
+              "objetivo": "Human.rig",
+              "subobjetivo": "left_finger4_grip"
+            }
+          ]
+        },
+        {
+          "nombre": "left_finger4_grip",
+          "padre": "metacarpal3.L",
+          "deforma": true,
+          "conectado": false,
+          "cabeza_local": [
+            0.50453,
+            -0.24264,
+            0.95637
+          ],
+          "cola_local": [
+            0.52056,
+            -0.28046,
+            0.88689
+          ],
+          "cabeza_mundo": [
+            0.46802,
+            -0.19998,
+            1.4397
+          ],
+          "cola_mundo": [
+            0.48405,
+            -0.23781,
+            1.37023
+          ],
+          "longitud": 0.08071,
+          "restricciones": [
+            {
+              "nombre": "Add rotation",
+              "tipo": "COPY_ROTATION",
+              "activo": true,
+              "influencia": 1.0,
+              "objetivo": "Human.rig",
+              "subobjetivo": "left_master_grip"
+            }
+          ]
+        },
+        {
+          "nombre": "metacarpal4.L",
+          "padre": "wrist.L",
+          "deforma": true,
+          "conectado": false,
+          "cabeza_local": [
+            0.47534,
+            -0.19883,
+            0.98459
+          ],
+          "cola_local": [
+            0.50606,
+            -0.22329,
+            0.94774
+          ],
+          "cabeza_mundo": [
+            0.43883,
+            -0.15617,
+            1.46793
+          ],
+          "cola_mundo": [
+            0.46954,
+            -0.18063,
+            1.43107
+          ],
+          "longitud": 0.05385,
+          "restricciones": []
+        },
+        {
+          "nombre": "finger5-1.L",
+          "padre": "metacarpal4.L",
+          "deforma": true,
+          "conectado": false,
+          "cabeza_local": [
+            0.50606,
+            -0.22329,
+            0.94774
+          ],
+          "cola_local": [
+            0.51196,
+            -0.23075,
+            0.92868
+          ],
+          "cabeza_mundo": [
+            0.46954,
+            -0.18063,
+            1.43107
+          ],
+          "cola_mundo": [
+            0.47544,
+            -0.1881,
+            1.41201
+          ],
+          "longitud": 0.0213,
+          "restricciones": [
+            {
+              "nombre": "Copy X rotation",
+              "tipo": "COPY_ROTATION",
+              "activo": true,
+              "influencia": 0.3333,
+              "objetivo": "Human.rig",
+              "subobjetivo": "left_finger5_grip"
+            },
+            {
+              "nombre": "Copy YZ rotation",
+              "tipo": "COPY_ROTATION",
+              "activo": true,
+              "influencia": 1.0,
+              "objetivo": "Human.rig",
+              "subobjetivo": "left_finger5_grip"
+            }
+          ]
+        },
+        {
+          "nombre": "finger5-2.L",
+          "padre": "finger5-1.L",
+          "deforma": true,
+          "conectado": false,
+          "cabeza_local": [
+            0.51196,
+            -0.23075,
+            0.92868
+          ],
+          "cola_local": [
+            0.51369,
+            -0.23644,
+            0.91426
+          ],
+          "cabeza_mundo": [
+            0.47544,
+            -0.1881,
+            1.41201
+          ],
+          "cola_mundo": [
+            0.47717,
+            -0.19379,
+            1.3976
+          ],
+          "longitud": 0.0156,
+          "restricciones": [
+            {
+              "nombre": "Copy X rotation",
+              "tipo": "COPY_ROTATION",
+              "activo": true,
+              "influencia": 0.3333,
+              "objetivo": "Human.rig",
+              "subobjetivo": "left_finger5_grip"
+            }
+          ]
+        },
+        {
+          "nombre": "finger5-3.L",
+          "padre": "finger5-2.L",
+          "deforma": true,
+          "conectado": false,
+          "cabeza_local": [
+            0.51369,
+            -0.23644,
+            0.91426
+          ],
+          "cola_local": [
+            0.51634,
+            -0.24335,
+            0.89585
+          ],
+          "cabeza_mundo": [
+            0.47717,
+            -0.19379,
+            1.3976
+          ],
+          "cola_mundo": [
+            0.47983,
+            -0.2007,
+            1.37918
+          ],
+          "longitud": 0.01985,
+          "restricciones": [
+            {
+              "nombre": "Copy X rotation",
+              "tipo": "COPY_ROTATION",
+              "activo": true,
+              "influencia": 0.3333,
+              "objetivo": "Human.rig",
+              "subobjetivo": "left_finger5_grip"
+            }
+          ]
+        },
+        {
+          "nombre": "left_finger5_grip",
+          "padre": "metacarpal4.L",
+          "deforma": true,
+          "conectado": false,
+          "cabeza_local": [
+            0.50606,
+            -0.22329,
+            0.94774
+          ],
+          "cola_local": [
+            0.51634,
+            -0.24335,
+            0.89585
+          ],
+          "cabeza_mundo": [
+            0.46954,
+            -0.18063,
+            1.43107
+          ],
+          "cola_mundo": [
+            0.47983,
+            -0.2007,
+            1.37918
+          ],
+          "longitud": 0.05658,
+          "restricciones": [
+            {
+              "nombre": "Add rotation",
+              "tipo": "COPY_ROTATION",
+              "activo": true,
+              "influencia": 1.0,
+              "objetivo": "Human.rig",
+              "subobjetivo": "left_master_grip"
+            }
+          ]
+        },
+        {
+          "nombre": "left_finger1_grip",
+          "padre": "wrist.L",
+          "deforma": true,
+          "conectado": false,
+          "cabeza_local": [
+            0.45406,
+            -0.22703,
+            1.00793
+          ],
+          "cola_local": [
+            0.41539,
+            -0.30035,
+            0.96799
+          ],
+          "cabeza_mundo": [
+            0.41755,
+            -0.18438,
+            1.49126
+          ],
+          "cola_mundo": [
+            0.37887,
+            -0.25769,
+            1.45133
+          ],
+          "longitud": 0.09201,
+          "restricciones": [
+            {
+              "nombre": "Add rotation",
+              "tipo": "COPY_ROTATION",
+              "activo": true,
+              "influencia": 1.0,
+              "objetivo": "Human.rig",
+              "subobjetivo": "left_master_grip"
+            }
+          ]
+        },
+        {
+          "nombre": "clavicle.R",
+          "padre": "spine01",
+          "deforma": true,
+          "conectado": false,
+          "cabeza_local": [
+            -0.02277,
+            -0.0221,
+            1.34249
+          ],
+          "cola_local": [
+            -0.09924,
+            -0.02196,
+            1.35874
+          ],
+          "cabeza_mundo": [
+            -0.05929,
+            0.02056,
+            1.82582
+          ],
+          "cola_mundo": [
+            -0.13576,
+            0.0207,
+            1.84208
+          ],
+          "longitud": 0.07818,
+          "restricciones": []
+        },
+        {
+          "nombre": "shoulder01.R",
+          "padre": "clavicle.R",
+          "deforma": true,
+          "conectado": false,
+          "cabeza_local": [
+            -0.09924,
+            -0.02196,
+            1.35874
+          ],
+          "cola_local": [
+            -0.17002,
+            -0.01926,
+            1.3201
+          ],
+          "cabeza_mundo": [
+            -0.13576,
+            0.0207,
+            1.84208
+          ],
+          "cola_mundo": [
+            -0.20653,
+            0.02339,
+            1.80344
+          ],
+          "longitud": 0.08068,
+          "restricciones": []
+        },
+        {
+          "nombre": "upperarm01.R",
+          "padre": "shoulder01.R",
+          "deforma": true,
+          "conectado": false,
+          "cabeza_local": [
+            -0.17002,
+            -0.01926,
+            1.3201
+          ],
+          "cola_local": [
+            -0.2167,
+            -0.01878,
+            1.26598
+          ],
+          "cabeza_mundo": [
+            -0.20653,
+            0.02339,
+            1.80344
+          ],
+          "cola_mundo": [
+            -0.25322,
+            0.02387,
+            1.74931
+          ],
+          "longitud": 0.07148,
+          "restricciones": []
+        },
+        {
+          "nombre": "upperarm02.R",
+          "padre": "upperarm01.R",
+          "deforma": true,
+          "conectado": false,
+          "cabeza_local": [
+            -0.2167,
+            -0.01878,
+            1.26598
+          ],
+          "cola_local": [
+            -0.33117,
+            -0.02006,
+            1.13956
+          ],
+          "cabeza_mundo": [
+            -0.25322,
+            0.02387,
+            1.74931
+          ],
+          "cola_mundo": [
+            -0.36768,
+            0.0226,
+            1.6229
+          ],
+          "longitud": 0.17054,
+          "restricciones": [
+            {
+              "nombre": "IK",
+              "tipo": "IK",
+              "activo": true,
+              "influencia": 1.0,
+              "objetivo": "Human.rig",
+              "subobjetivo": "right_elbow_ik",
+              "eslabones": 2,
+              "usa_localizacion": true,
+              "usa_rotacion": false
+            }
+          ]
+        },
+        {
+          "nombre": "lowerarm01.R",
+          "padre": "upperarm02.R",
+          "deforma": true,
+          "conectado": false,
+          "cabeza_local": [
+            -0.33117,
+            -0.02006,
+            1.13956
+          ],
+          "cola_local": [
+            -0.39185,
+            -0.09981,
+            1.07683
+          ],
+          "cabeza_mundo": [
+            -0.36768,
+            0.0226,
+            1.6229
+          ],
+          "cola_mundo": [
+            -0.42836,
+            -0.05715,
+            1.56017
+          ],
+          "longitud": 0.11823,
+          "restricciones": [
+            {
+              "nombre": "Copy Rotation",
+              "tipo": "COPY_ROTATION",
+              "activo": true,
+              "influencia": 0.2,
+              "objetivo": "Human.rig",
+              "subobjetivo": "right_hand_ik"
+            }
+          ]
+        },
+        {
+          "nombre": "lowerarm02.R",
+          "padre": "lowerarm01.R",
+          "deforma": true,
+          "conectado": false,
+          "cabeza_local": [
+            -0.39185,
+            -0.09981,
+            1.07683
+          ],
+          "cola_local": [
+            -0.4531,
+            -0.18323,
+            1.01553
+          ],
+          "cabeza_mundo": [
+            -0.42836,
+            -0.05715,
+            1.56017
+          ],
+          "cola_mundo": [
+            -0.48961,
+            -0.14057,
+            1.49887
+          ],
+          "longitud": 0.12028,
+          "restricciones": [
+            {
+              "nombre": "Copy Rotation",
+              "tipo": "COPY_ROTATION",
+              "activo": true,
+              "influencia": 0.2,
+              "objetivo": "Human.rig",
+              "subobjetivo": "right_hand_ik"
+            },
+            {
+              "nombre": "IK",
+              "tipo": "IK",
+              "activo": true,
+              "influencia": 1.0,
+              "objetivo": "Human.rig",
+              "subobjetivo": "right_hand_ik",
+              "eslabones": 4,
+              "usa_localizacion": true,
+              "usa_rotacion": false
+            }
+          ]
+        },
+        {
+          "nombre": "wrist.R",
+          "padre": "lowerarm02.R",
+          "deforma": true,
+          "conectado": false,
+          "cabeza_local": [
+            -0.4531,
+            -0.18323,
+            1.01553
+          ],
+          "cola_local": [
+            -0.46368,
+            -0.20925,
+            0.99979
+          ],
+          "cabeza_mundo": [
+            -0.48961,
+            -0.14057,
+            1.49887
+          ],
+          "cola_mundo": [
+            -0.50019,
+            -0.16659,
+            1.48313
+          ],
+          "longitud": 0.0322,
+          "restricciones": [
+            {
+              "nombre": "Copy Rotation",
+              "tipo": "COPY_ROTATION",
+              "activo": true,
+              "influencia": 1.0,
+              "objetivo": "Human.rig",
+              "subobjetivo": "right_hand_ik"
+            }
+          ]
+        },
+        {
+          "nombre": "finger1-1.R",
+          "padre": "wrist.R",
+          "deforma": true,
+          "conectado": false,
+          "cabeza_local": [
+            -0.45406,
+            -0.22703,
+            1.00793
+          ],
+          "cola_local": [
+            -0.43327,
+            -0.24804,
+            0.99928
+          ],
+          "cabeza_mundo": [
+            -0.49058,
+            -0.18438,
+            1.49126
+          ],
+          "cola_mundo": [
+            -0.46979,
+            -0.20538,
+            1.48262
+          ],
+          "longitud": 0.03079,
+          "restricciones": [
+            {
+              "nombre": "Copy X rotation",
+              "tipo": "COPY_ROTATION",
+              "activo": true,
+              "influencia": 0.3333,
+              "objetivo": "Human.rig",
+              "subobjetivo": "right_finger1_grip"
+            },
+            {
+              "nombre": "Copy YZ rotation",
+              "tipo": "COPY_ROTATION",
+              "activo": true,
+              "influencia": 1.0,
+              "objetivo": "Human.rig",
+              "subobjetivo": "right_finger1_grip"
+            }
+          ]
+        },
+        {
+          "nombre": "finger1-2.R",
+          "padre": "finger1-1.R",
+          "deforma": true,
+          "conectado": false,
+          "cabeza_local": [
+            -0.43327,
+            -0.24804,
+            0.99928
+          ],
+          "cola_local": [
+            -0.4209,
+            -0.27907,
+            0.98533
+          ],
+          "cabeza_mundo": [
+            -0.46979,
+            -0.20538,
+            1.48262
+          ],
+          "cola_mundo": [
+            -0.45741,
+            -0.23642,
+            1.46866
+          ],
+          "longitud": 0.03621,
+          "restricciones": [
+            {
+              "nombre": "Copy X rotation",
+              "tipo": "COPY_ROTATION",
+              "activo": true,
+              "influencia": 0.3333,
+              "objetivo": "Human.rig",
+              "subobjetivo": "right_finger1_grip"
+            }
+          ]
+        },
+        {
+          "nombre": "finger1-3.R",
+          "padre": "finger1-2.R",
+          "deforma": true,
+          "conectado": false,
+          "cabeza_local": [
+            -0.4209,
+            -0.27907,
+            0.98533
+          ],
+          "cola_local": [
+            -0.41539,
+            -0.30035,
+            0.96799
+          ],
+          "cabeza_mundo": [
+            -0.45741,
+            -0.23642,
+            1.46866
+          ],
+          "cola_mundo": [
+            -0.4519,
+            -0.25769,
+            1.45133
+          ],
+          "longitud": 0.02799,
+          "restricciones": [
+            {
+              "nombre": "Copy X rotation",
+              "tipo": "COPY_ROTATION",
+              "activo": true,
+              "influencia": 0.3333,
+              "objetivo": "Human.rig",
+              "subobjetivo": "right_finger1_grip"
+            }
+          ]
+        },
+        {
+          "nombre": "metacarpal1.R",
+          "padre": "wrist.R",
+          "deforma": true,
+          "conectado": false,
+          "cabeza_local": [
+            -0.46368,
+            -0.20925,
+            0.99979
+          ],
+          "cola_local": [
+            -0.48077,
+            -0.27754,
+            0.97493
+          ],
+          "cabeza_mundo": [
+            -0.50019,
+            -0.16659,
+            1.48313
+          ],
+          "cola_mundo": [
+            -0.51729,
+            -0.23488,
+            1.45827
+          ],
+          "longitud": 0.07466,
+          "restricciones": []
+        },
+        {
+          "nombre": "finger2-1.R",
+          "padre": "metacarpal1.R",
+          "deforma": true,
+          "conectado": false,
+          "cabeza_local": [
+            -0.48077,
+            -0.27754,
+            0.97493
+          ],
+          "cola_local": [
+            -0.48412,
+            -0.29825,
+            0.95987
+          ],
+          "cabeza_mundo": [
+            -0.51729,
+            -0.23488,
+            1.45827
+          ],
+          "cola_mundo": [
+            -0.52064,
+            -0.2556,
+            1.44321
+          ],
+          "longitud": 0.02582,
+          "restricciones": [
+            {
+              "nombre": "Copy X rotation",
+              "tipo": "COPY_ROTATION",
+              "activo": true,
+              "influencia": 0.3333,
+              "objetivo": "Human.rig",
+              "subobjetivo": "right_finger2_grip"
+            },
+            {
+              "nombre": "Copy YZ rotation",
+              "tipo": "COPY_ROTATION",
+              "activo": true,
+              "influencia": 1.0,
+              "objetivo": "Human.rig",
+              "subobjetivo": "right_finger2_grip"
+            }
+          ]
+        },
+        {
+          "nombre": "finger2-2.R",
+          "padre": "finger2-1.R",
+          "deforma": true,
+          "conectado": false,
+          "cabeza_local": [
+            -0.48412,
+            -0.29825,
+            0.95987
+          ],
+          "cola_local": [
+            -0.48357,
+            -0.3146,
+            0.94359
+          ],
+          "cabeza_mundo": [
+            -0.52064,
+            -0.2556,
+            1.44321
+          ],
+          "cola_mundo": [
+            -0.52008,
+            -0.27194,
+            1.42693
+          ],
+          "longitud": 0.02308,
+          "restricciones": [
+            {
+              "nombre": "Copy X rotation",
+              "tipo": "COPY_ROTATION",
+              "activo": true,
+              "influencia": 0.3333,
+              "objetivo": "Human.rig",
+              "subobjetivo": "right_finger2_grip"
+            }
+          ]
+        },
+        {
+          "nombre": "finger2-3.R",
+          "padre": "finger2-2.R",
+          "deforma": true,
+          "conectado": false,
+          "cabeza_local": [
+            -0.48357,
+            -0.3146,
+            0.94359
+          ],
+          "cola_local": [
+            -0.47993,
+            -0.33217,
+            0.92348
+          ],
+          "cabeza_mundo": [
+            -0.52008,
+            -0.27194,
+            1.42693
+          ],
+          "cola_mundo": [
+            -0.51645,
+            -0.28951,
+            1.40682
+          ],
+          "longitud": 0.02695,
+          "restricciones": [
+            {
+              "nombre": "Copy X rotation",
+              "tipo": "COPY_ROTATION",
+              "activo": true,
+              "influencia": 0.3333,
+              "objetivo": "Human.rig",
+              "subobjetivo": "right_finger2_grip"
+            }
+          ]
+        },
+        {
+          "nombre": "right_finger2_grip",
+          "padre": "metacarpal1.R",
+          "deforma": true,
+          "conectado": false,
+          "cabeza_local": [
+            -0.48077,
+            -0.27754,
+            0.97493
+          ],
+          "cola_local": [
+            -0.47993,
+            -0.33217,
+            0.92348
+          ],
+          "cabeza_mundo": [
+            -0.51729,
+            -0.23488,
+            1.45827
+          ],
+          "cola_mundo": [
+            -0.51645,
+            -0.28951,
+            1.40682
+          ],
+          "longitud": 0.07504,
+          "restricciones": [
+            {
+              "nombre": "Add rotation",
+              "tipo": "COPY_ROTATION",
+              "activo": true,
+              "influencia": 1.0,
+              "objetivo": "Human.rig",
+              "subobjetivo": "right_master_grip"
+            }
+          ]
+        },
+        {
+          "nombre": "metacarpal2.R",
+          "padre": "wrist.R",
+          "deforma": true,
+          "conectado": false,
+          "cabeza_local": [
+            -0.46368,
+            -0.20925,
+            0.99979
+          ],
+          "cola_local": [
+            -0.49699,
+            -0.25973,
+            0.964
+          ],
+          "cabeza_mundo": [
+            -0.50019,
+            -0.16659,
+            1.48313
+          ],
+          "cola_mundo": [
+            -0.5335,
+            -0.21707,
+            1.44734
+          ],
+          "longitud": 0.07027,
+          "restricciones": []
+        },
+        {
+          "nombre": "finger3-1.R",
+          "padre": "metacarpal2.R",
+          "deforma": true,
+          "conectado": false,
+          "cabeza_local": [
+            -0.49699,
+            -0.25973,
+            0.964
+          ],
+          "cola_local": [
+            -0.50422,
+            -0.28019,
+            0.93809
+          ],
+          "cabeza_mundo": [
+            -0.5335,
+            -0.21707,
+            1.44734
+          ],
+          "cola_mundo": [
+            -0.54074,
+            -0.23753,
+            1.42142
+          ],
+          "longitud": 0.0338,
+          "restricciones": [
+            {
+              "nombre": "Copy X rotation",
+              "tipo": "COPY_ROTATION",
+              "activo": true,
+              "influencia": 0.3333,
+              "objetivo": "Human.rig",
+              "subobjetivo": "right_finger3_grip"
+            },
+            {
+              "nombre": "Copy YZ rotation",
+              "tipo": "COPY_ROTATION",
+              "activo": true,
+              "influencia": 1.0,
+              "objetivo": "Human.rig",
+              "subobjetivo": "right_finger3_grip"
+            }
+          ]
+        },
+        {
+          "nombre": "finger3-2.R",
+          "padre": "finger3-1.R",
+          "deforma": true,
+          "conectado": false,
+          "cabeza_local": [
+            -0.50422,
+            -0.28019,
+            0.93809
+          ],
+          "cola_local": [
+            -0.50689,
+            -0.29729,
+            0.91661
+          ],
+          "cabeza_mundo": [
+            -0.54074,
+            -0.23753,
+            1.42142
+          ],
+          "cola_mundo": [
+            -0.54341,
+            -0.25464,
+            1.39994
+          ],
+          "longitud": 0.02759,
+          "restricciones": [
+            {
+              "nombre": "Copy X rotation",
+              "tipo": "COPY_ROTATION",
+              "activo": true,
+              "influencia": 0.3333,
+              "objetivo": "Human.rig",
+              "subobjetivo": "right_finger3_grip"
+            }
+          ]
+        },
+        {
+          "nombre": "finger3-3.R",
+          "padre": "finger3-2.R",
+          "deforma": true,
+          "conectado": false,
+          "cabeza_local": [
+            -0.50689,
+            -0.29729,
+            0.91661
+          ],
+          "cola_local": [
+            -0.50673,
+            -0.31214,
+            0.89411
+          ],
+          "cabeza_mundo": [
+            -0.54341,
+            -0.25464,
+            1.39994
+          ],
+          "cola_mundo": [
+            -0.54325,
+            -0.26949,
+            1.37745
+          ],
+          "longitud": 0.02696,
+          "restricciones": [
+            {
+              "nombre": "Copy X rotation",
+              "tipo": "COPY_ROTATION",
+              "activo": true,
+              "influencia": 0.3333,
+              "objetivo": "Human.rig",
+              "subobjetivo": "right_finger3_grip"
+            }
+          ]
+        },
+        {
+          "nombre": "right_finger3_grip",
+          "padre": "metacarpal2.R",
+          "deforma": true,
+          "conectado": false,
+          "cabeza_local": [
+            -0.49699,
+            -0.25973,
+            0.964
+          ],
+          "cola_local": [
+            -0.50673,
+            -0.31214,
+            0.89411
+          ],
+          "cabeza_mundo": [
+            -0.5335,
+            -0.21707,
+            1.44734
+          ],
+          "cola_mundo": [
+            -0.54325,
+            -0.26949,
+            1.37745
+          ],
+          "longitud": 0.08791,
+          "restricciones": [
+            {
+              "nombre": "Add rotation",
+              "tipo": "COPY_ROTATION",
+              "activo": true,
+              "influencia": 1.0,
+              "objetivo": "Human.rig",
+              "subobjetivo": "right_master_grip"
+            }
+          ]
+        },
+        {
+          "nombre": "right_master_grip",
+          "padre": "metacarpal2.R",
+          "deforma": true,
+          "conectado": false,
+          "cabeza_local": [
+            -0.50076,
+            -0.25118,
+            0.96019
+          ],
+          "cola_local": [
+            -0.51365,
+            -0.2963,
+            0.8905
+          ],
+          "cabeza_mundo": [
+            -0.53727,
+            -0.20853,
+            1.44352
+          ],
+          "cola_mundo": [
+            -0.55016,
+            -0.25365,
+            1.37384
+          ],
+          "longitud": 0.08401,
+          "restricciones": []
+        },
+        {
+          "nombre": "metacarpal3.R",
+          "padre": "wrist.R",
+          "deforma": true,
+          "conectado": false,
+          "cabeza_local": [
+            -0.47534,
+            -0.19883,
+            0.98459
+          ],
+          "cola_local": [
+            -0.50453,
+            -0.24264,
+            0.95637
+          ],
+          "cabeza_mundo": [
+            -0.51186,
+            -0.15617,
+            1.46793
+          ],
+          "cola_mundo": [
+            -0.54105,
+            -0.19998,
+            1.4397
+          ],
+          "longitud": 0.05973,
+          "restricciones": []
+        },
+        {
+          "nombre": "finger4-1.R",
+          "padre": "metacarpal3.R",
+          "deforma": true,
+          "conectado": false,
+          "cabeza_local": [
+            -0.50453,
+            -0.24264,
+            0.95637
+          ],
+          "cola_local": [
+            -0.51384,
+            -0.25671,
+            0.93193
+          ],
+          "cabeza_mundo": [
+            -0.54105,
+            -0.19998,
+            1.4397
+          ],
+          "cola_mundo": [
+            -0.55035,
+            -0.21406,
+            1.41527
+          ],
+          "longitud": 0.02969,
+          "restricciones": [
+            {
+              "nombre": "Copy X rotation",
+              "tipo": "COPY_ROTATION",
+              "activo": true,
+              "influencia": 0.3333,
+              "objetivo": "Human.rig",
+              "subobjetivo": "right_finger4_grip"
+            },
+            {
+              "nombre": "Copy YZ rotation",
+              "tipo": "COPY_ROTATION",
+              "activo": true,
+              "influencia": 1.0,
+              "objetivo": "Human.rig",
+              "subobjetivo": "right_finger4_grip"
+            }
+          ]
+        },
+        {
+          "nombre": "finger4-2.R",
+          "padre": "finger4-1.R",
+          "deforma": true,
+          "conectado": false,
+          "cabeza_local": [
+            -0.51384,
+            -0.25671,
+            0.93193
+          ],
+          "cola_local": [
+            -0.51809,
+            -0.26924,
+            0.91097
+          ],
+          "cabeza_mundo": [
+            -0.55035,
+            -0.21406,
+            1.41527
+          ],
+          "cola_mundo": [
+            -0.5546,
+            -0.22659,
+            1.39431
+          ],
+          "longitud": 0.02479,
+          "restricciones": [
+            {
+              "nombre": "Copy X rotation",
+              "tipo": "COPY_ROTATION",
+              "activo": true,
+              "influencia": 0.3333,
+              "objetivo": "Human.rig",
+              "subobjetivo": "right_finger4_grip"
+            }
+          ]
+        },
+        {
+          "nombre": "finger4-3.R",
+          "padre": "finger4-2.R",
+          "deforma": true,
+          "conectado": false,
+          "cabeza_local": [
+            -0.51809,
+            -0.26924,
+            0.91097
+          ],
+          "cola_local": [
+            -0.52056,
+            -0.28046,
+            0.88689
+          ],
+          "cabeza_mundo": [
+            -0.5546,
+            -0.22659,
+            1.39431
+          ],
+          "cola_mundo": [
+            -0.55708,
+            -0.23781,
+            1.37023
+          ],
+          "longitud": 0.02668,
+          "restricciones": [
+            {
+              "nombre": "Copy X rotation",
+              "tipo": "COPY_ROTATION",
+              "activo": true,
+              "influencia": 0.3333,
+              "objetivo": "Human.rig",
+              "subobjetivo": "right_finger4_grip"
+            }
+          ]
+        },
+        {
+          "nombre": "right_finger4_grip",
+          "padre": "metacarpal3.R",
+          "deforma": true,
+          "conectado": false,
+          "cabeza_local": [
+            -0.50453,
+            -0.24264,
+            0.95637
+          ],
+          "cola_local": [
+            -0.52056,
+            -0.28046,
+            0.88689
+          ],
+          "cabeza_mundo": [
+            -0.54105,
+            -0.19998,
+            1.4397
+          ],
+          "cola_mundo": [
+            -0.55708,
+            -0.23781,
+            1.37023
+          ],
+          "longitud": 0.08071,
+          "restricciones": [
+            {
+              "nombre": "Add rotation",
+              "tipo": "COPY_ROTATION",
+              "activo": true,
+              "influencia": 1.0,
+              "objetivo": "Human.rig",
+              "subobjetivo": "right_master_grip"
+            }
+          ]
+        },
+        {
+          "nombre": "metacarpal4.R",
+          "padre": "wrist.R",
+          "deforma": true,
+          "conectado": false,
+          "cabeza_local": [
+            -0.47534,
+            -0.19883,
+            0.98459
+          ],
+          "cola_local": [
+            -0.50606,
+            -0.22329,
+            0.94774
+          ],
+          "cabeza_mundo": [
+            -0.51186,
+            -0.15617,
+            1.46793
+          ],
+          "cola_mundo": [
+            -0.54257,
+            -0.18063,
+            1.43107
+          ],
+          "longitud": 0.05385,
+          "restricciones": []
+        },
+        {
+          "nombre": "finger5-1.R",
+          "padre": "metacarpal4.R",
+          "deforma": true,
+          "conectado": false,
+          "cabeza_local": [
+            -0.50606,
+            -0.22329,
+            0.94774
+          ],
+          "cola_local": [
+            -0.51196,
+            -0.23075,
+            0.92868
+          ],
+          "cabeza_mundo": [
+            -0.54257,
+            -0.18063,
+            1.43107
+          ],
+          "cola_mundo": [
+            -0.54847,
+            -0.1881,
+            1.41201
+          ],
+          "longitud": 0.0213,
+          "restricciones": [
+            {
+              "nombre": "Copy X rotation",
+              "tipo": "COPY_ROTATION",
+              "activo": true,
+              "influencia": 0.3333,
+              "objetivo": "Human.rig",
+              "subobjetivo": "right_finger5_grip"
+            },
+            {
+              "nombre": "Copy YZ rotation",
+              "tipo": "COPY_ROTATION",
+              "activo": true,
+              "influencia": 1.0,
+              "objetivo": "Human.rig",
+              "subobjetivo": "right_finger5_grip"
+            }
+          ]
+        },
+        {
+          "nombre": "finger5-2.R",
+          "padre": "finger5-1.R",
+          "deforma": true,
+          "conectado": false,
+          "cabeza_local": [
+            -0.51196,
+            -0.23075,
+            0.92868
+          ],
+          "cola_local": [
+            -0.51369,
+            -0.23644,
+            0.91426
+          ],
+          "cabeza_mundo": [
+            -0.54847,
+            -0.1881,
+            1.41201
+          ],
+          "cola_mundo": [
+            -0.5502,
+            -0.19379,
+            1.3976
+          ],
+          "longitud": 0.0156,
+          "restricciones": [
+            {
+              "nombre": "Copy X rotation",
+              "tipo": "COPY_ROTATION",
+              "activo": true,
+              "influencia": 0.3333,
+              "objetivo": "Human.rig",
+              "subobjetivo": "right_finger5_grip"
+            }
+          ]
+        },
+        {
+          "nombre": "finger5-3.R",
+          "padre": "finger5-2.R",
+          "deforma": true,
+          "conectado": false,
+          "cabeza_local": [
+            -0.51369,
+            -0.23644,
+            0.91426
+          ],
+          "cola_local": [
+            -0.51634,
+            -0.24335,
+            0.89585
+          ],
+          "cabeza_mundo": [
+            -0.5502,
+            -0.19379,
+            1.3976
+          ],
+          "cola_mundo": [
+            -0.55286,
+            -0.2007,
+            1.37918
+          ],
+          "longitud": 0.01985,
+          "restricciones": [
+            {
+              "nombre": "Copy X rotation",
+              "tipo": "COPY_ROTATION",
+              "activo": true,
+              "influencia": 0.3333,
+              "objetivo": "Human.rig",
+              "subobjetivo": "right_finger5_grip"
+            }
+          ]
+        },
+        {
+          "nombre": "right_finger5_grip",
+          "padre": "metacarpal4.R",
+          "deforma": true,
+          "conectado": false,
+          "cabeza_local": [
+            -0.50606,
+            -0.22329,
+            0.94774
+          ],
+          "cola_local": [
+            -0.51634,
+            -0.24335,
+            0.89585
+          ],
+          "cabeza_mundo": [
+            -0.54257,
+            -0.18063,
+            1.43107
+          ],
+          "cola_mundo": [
+            -0.55286,
+            -0.2007,
+            1.37918
+          ],
+          "longitud": 0.05658,
+          "restricciones": [
+            {
+              "nombre": "Add rotation",
+              "tipo": "COPY_ROTATION",
+              "activo": true,
+              "influencia": 1.0,
+              "objetivo": "Human.rig",
+              "subobjetivo": "right_master_grip"
+            }
+          ]
+        },
+        {
+          "nombre": "right_finger1_grip",
+          "padre": "wrist.R",
+          "deforma": true,
+          "conectado": false,
+          "cabeza_local": [
+            -0.45406,
+            -0.22703,
+            1.00793
+          ],
+          "cola_local": [
+            -0.41539,
+            -0.30035,
+            0.96799
+          ],
+          "cabeza_mundo": [
+            -0.49058,
+            -0.18438,
+            1.49126
+          ],
+          "cola_mundo": [
+            -0.4519,
+            -0.25769,
+            1.45133
+          ],
+          "longitud": 0.09201,
+          "restricciones": [
+            {
+              "nombre": "Add rotation",
+              "tipo": "COPY_ROTATION",
+              "activo": true,
+              "influencia": 1.0,
+              "objetivo": "Human.rig",
+              "subobjetivo": "right_master_grip"
+            }
+          ]
+        },
+        {
+          "nombre": "neck01",
+          "padre": "spine01",
+          "deforma": true,
+          "conectado": false,
+          "cabeza_local": [
+            0.0,
+            -0.00513,
+            1.41363
+          ],
+          "cola_local": [
+            -0.00052,
+            -0.00896,
+            1.44886
+          ],
+          "cabeza_mundo": [
+            -0.03652,
+            0.03753,
+            1.89697
+          ],
+          "cola_mundo": [
+            -0.03703,
+            0.0337,
+            1.93219
+          ],
+          "longitud": 0.03544,
+          "restricciones": []
+        },
+        {
+          "nombre": "neck02",
+          "padre": "neck01",
+          "deforma": true,
+          "conectado": false,
+          "cabeza_local": [
+            -0.00052,
+            -0.00896,
+            1.44886
+          ],
+          "cola_local": [
+            -0.00087,
+            -0.00716,
+            1.49402
+          ],
+          "cabeza_mundo": [
+            -0.03703,
+            0.0337,
+            1.93219
+          ],
+          "cola_mundo": [
+            -0.03739,
+            0.03549,
+            1.97736
+          ],
+          "longitud": 0.0452,
+          "restricciones": []
+        },
+        {
+          "nombre": "neck03",
+          "padre": "neck02",
+          "deforma": true,
+          "conectado": false,
+          "cabeza_local": [
+            -0.00087,
+            -0.00716,
+            1.49402
+          ],
+          "cola_local": [
+            0.0,
+            -0.04401,
+            1.51458
+          ],
+          "cabeza_mundo": [
+            -0.03739,
+            0.03549,
+            1.97736
+          ],
+          "cola_mundo": [
+            -0.03652,
+            -0.00135,
+            1.99791
+          ],
+          "longitud": 0.0422,
+          "restricciones": []
+        },
+        {
+          "nombre": "head",
+          "padre": "neck03",
+          "deforma": true,
+          "conectado": false,
+          "cabeza_local": [
+            0.0,
+            -0.04401,
+            1.51458
+          ],
+          "cola_local": [
+            0.0,
+            -0.03706,
+            1.66251
+          ],
+          "cabeza_mundo": [
+            -0.03652,
+            -0.00135,
+            1.99791
+          ],
+          "cola_mundo": [
+            -0.03652,
+            0.00559,
+            2.14585
+          ],
+          "longitud": 0.1481,
+          "restricciones": []
+        },
+        {
+          "nombre": "jaw",
+          "padre": "head",
+          "deforma": true,
+          "conectado": false,
+          "cabeza_local": [
+            0.0,
+            -0.05651,
+            1.52085
+          ],
+          "cola_local": [
+            0.0,
+            -0.10709,
+            1.44319
+          ],
+          "cabeza_mundo": [
+            -0.03652,
+            -0.01385,
+            2.00418
+          ],
+          "cola_mundo": [
+            -0.03652,
+            -0.06443,
+            1.92653
+          ],
+          "longitud": 0.09268,
+          "restricciones": []
+        },
+        {
+          "nombre": "special04",
+          "padre": "jaw",
+          "deforma": true,
+          "conectado": false,
+          "cabeza_local": [
+            0.0,
+            -0.10709,
+            1.44319
+          ],
+          "cola_local": [
+            0.0,
+            -0.13242,
+            1.46092
+          ],
+          "cabeza_mundo": [
+            -0.03652,
+            -0.06443,
+            1.92653
+          ],
+          "cola_mundo": [
+            -0.03652,
+            -0.08976,
+            1.94426
+          ],
+          "longitud": 0.03092,
+          "restricciones": []
+        },
+        {
+          "nombre": "oris02",
+          "padre": "special04",
+          "deforma": true,
+          "conectado": false,
+          "cabeza_local": [
+            0.0,
+            -0.13242,
+            1.46092
+          ],
+          "cola_local": [
+            0.0,
+            -0.14283,
+            1.47073
+          ],
+          "cabeza_mundo": [
+            -0.03652,
+            -0.08976,
+            1.94426
+          ],
+          "cola_mundo": [
+            -0.03652,
+            -0.10017,
+            1.95407
+          ],
+          "longitud": 0.01431,
+          "restricciones": []
+        },
+        {
+          "nombre": "oris01",
+          "padre": "oris02",
+          "deforma": true,
+          "conectado": false,
+          "cabeza_local": [
+            0.0,
+            -0.14283,
+            1.47073
+          ],
+          "cola_local": [
+            0.0,
+            -0.14781,
+            1.48541
+          ],
+          "cabeza_mundo": [
+            -0.03652,
+            -0.10017,
+            1.95407
+          ],
+          "cola_mundo": [
+            -0.03652,
+            -0.10515,
+            1.96874
+          ],
+          "longitud": 0.01549,
+          "restricciones": []
+        },
+        {
+          "nombre": "oris06.L",
+          "padre": "special04",
+          "deforma": true,
+          "conectado": false,
+          "cabeza_local": [
+            0.0,
+            -0.13242,
+            1.46092
+          ],
+          "cola_local": [
+            0.0124,
+            -0.13964,
+            1.46559
+          ],
+          "cabeza_mundo": [
+            -0.03652,
+            -0.08976,
+            1.94426
+          ],
+          "cola_mundo": [
+            -0.02412,
+            -0.09699,
+            1.94893
+          ],
+          "longitud": 0.01509,
+          "restricciones": []
+        },
+        {
+          "nombre": "oris07.L",
+          "padre": "oris06.L",
+          "deforma": true,
+          "conectado": false,
+          "cabeza_local": [
+            0.0124,
+            -0.13964,
+            1.46559
+          ],
+          "cola_local": [
+            0.01718,
+            -0.14273,
+            1.47817
+          ],
+          "cabeza_mundo": [
+            -0.02412,
+            -0.09699,
+            1.94893
+          ],
+          "cola_mundo": [
+            -0.01933,
+            -0.10007,
+            1.96151
+          ],
+          "longitud": 0.01381,
+          "restricciones": []
+        },
+        {
+          "nombre": "oris06.R",
+          "padre": "special04",
+          "deforma": true,
+          "conectado": false,
+          "cabeza_local": [
+            0.0,
+            -0.13242,
+            1.46092
+          ],
+          "cola_local": [
+            -0.0124,
+            -0.13964,
+            1.46559
+          ],
+          "cabeza_mundo": [
+            -0.03652,
+            -0.08976,
+            1.94426
+          ],
+          "cola_mundo": [
+            -0.04891,
+            -0.09699,
+            1.94893
+          ],
+          "longitud": 0.01509,
+          "restricciones": []
+        },
+        {
+          "nombre": "oris07.R",
+          "padre": "oris06.R",
+          "deforma": true,
+          "conectado": false,
+          "cabeza_local": [
+            -0.0124,
+            -0.13964,
+            1.46559
+          ],
+          "cola_local": [
+            -0.01718,
+            -0.14273,
+            1.47817
+          ],
+          "cabeza_mundo": [
+            -0.04891,
+            -0.09699,
+            1.94893
+          ],
+          "cola_mundo": [
+            -0.0537,
+            -0.10007,
+            1.96151
+          ],
+          "longitud": 0.01381,
+          "restricciones": []
+        },
+        {
+          "nombre": "tongue00",
+          "padre": "jaw",
+          "deforma": true,
+          "conectado": false,
+          "cabeza_local": [
+            0.0,
+            -0.10709,
+            1.44319
+          ],
+          "cola_local": [
+            0.0,
+            -0.06895,
+            1.48683
+          ],
+          "cabeza_mundo": [
+            -0.03652,
+            -0.06443,
+            1.92653
+          ],
+          "cola_mundo": [
+            -0.03652,
+            -0.02629,
+            1.97017
+          ],
+          "longitud": 0.05796,
+          "restricciones": []
+        },
+        {
+          "nombre": "tongue01",
+          "padre": "tongue00",
+          "deforma": true,
+          "conectado": false,
+          "cabeza_local": [
+            0.0,
+            -0.06895,
+            1.48683
+          ],
+          "cola_local": [
+            0.0,
+            -0.09781,
+            1.49052
+          ],
+          "cabeza_mundo": [
+            -0.03652,
+            -0.02629,
+            1.97017
+          ],
+          "cola_mundo": [
+            -0.03652,
+            -0.05516,
+            1.97386
+          ],
+          "longitud": 0.0291,
+          "restricciones": []
+        },
+        {
+          "nombre": "tongue02",
+          "padre": "tongue01",
+          "deforma": true,
+          "conectado": false,
+          "cabeza_local": [
+            0.0,
+            -0.09781,
+            1.49052
+          ],
+          "cola_local": [
+            0.0,
+            -0.11806,
+            1.49034
+          ],
+          "cabeza_mundo": [
+            -0.03652,
+            -0.05516,
+            1.97386
+          ],
+          "cola_mundo": [
+            -0.03652,
+            -0.0754,
+            1.97368
+          ],
+          "longitud": 0.02024,
+          "restricciones": []
+        },
+        {
+          "nombre": "tongue03",
+          "padre": "tongue02",
+          "deforma": true,
+          "conectado": false,
+          "cabeza_local": [
+            0.0,
+            -0.11806,
+            1.49034
+          ],
+          "cola_local": [
+            -0.0005,
+            -0.12581,
+            1.48429
+          ],
+          "cabeza_mundo": [
+            -0.03652,
+            -0.0754,
+            1.97368
+          ],
+          "cola_mundo": [
+            -0.03701,
+            -0.08315,
+            1.96762
+          ],
+          "longitud": 0.00985,
+          "restricciones": []
+        },
+        {
+          "nombre": "tongue04",
+          "padre": "tongue03",
+          "deforma": true,
+          "conectado": false,
+          "cabeza_local": [
+            -0.0005,
+            -0.12581,
+            1.48429
+          ],
+          "cola_local": [
+            0.0,
+            -0.1344,
+            1.48136
+          ],
+          "cabeza_mundo": [
+            -0.03701,
+            -0.08315,
+            1.96762
+          ],
+          "cola_mundo": [
+            -0.03652,
+            -0.09174,
+            1.96469
+          ],
+          "longitud": 0.00909,
+          "restricciones": []
+        },
+        {
+          "nombre": "tongue07.L",
+          "padre": "tongue03",
+          "deforma": true,
+          "conectado": false,
+          "cabeza_local": [
+            -0.0005,
+            -0.12581,
+            1.48429
+          ],
+          "cola_local": [
+            0.01146,
+            -0.12652,
+            1.48241
+          ],
+          "cabeza_mundo": [
+            -0.03701,
+            -0.08315,
+            1.96762
+          ],
+          "cola_mundo": [
+            -0.02506,
+            -0.08386,
+            1.96575
+          ],
+          "longitud": 0.01212,
+          "restricciones": []
+        },
+        {
+          "nombre": "tongue07.R",
+          "padre": "tongue03",
+          "deforma": true,
+          "conectado": false,
+          "cabeza_local": [
+            -0.0005,
+            -0.12581,
+            1.48429
+          ],
+          "cola_local": [
+            -0.01146,
+            -0.12652,
+            1.48241
+          ],
+          "cabeza_mundo": [
+            -0.03701,
+            -0.08315,
+            1.96762
+          ],
+          "cola_mundo": [
+            -0.04797,
+            -0.08386,
+            1.96575
+          ],
+          "longitud": 0.01114,
+          "restricciones": []
+        },
+        {
+          "nombre": "tongue06.L",
+          "padre": "tongue02",
+          "deforma": true,
+          "conectado": false,
+          "cabeza_local": [
+            0.0,
+            -0.11806,
+            1.49034
+          ],
+          "cola_local": [
+            0.01621,
+            -0.11597,
+            1.48518
+          ],
+          "cabeza_mundo": [
+            -0.03652,
+            -0.0754,
+            1.97368
+          ],
+          "cola_mundo": [
+            -0.0203,
+            -0.07332,
+            1.96852
+          ],
+          "longitud": 0.01714,
+          "restricciones": []
+        },
+        {
+          "nombre": "tongue06.R",
+          "padre": "tongue02",
+          "deforma": true,
+          "conectado": false,
+          "cabeza_local": [
+            0.0,
+            -0.11806,
+            1.49034
+          ],
+          "cola_local": [
+            -0.01621,
+            -0.11597,
+            1.48518
+          ],
+          "cabeza_mundo": [
+            -0.03652,
+            -0.0754,
+            1.97368
+          ],
+          "cola_mundo": [
+            -0.05273,
+            -0.07332,
+            1.96852
+          ],
+          "longitud": 0.01714,
+          "restricciones": []
+        },
+        {
+          "nombre": "tongue05.L",
+          "padre": "tongue01",
+          "deforma": true,
+          "conectado": false,
+          "cabeza_local": [
+            0.0,
+            -0.09781,
+            1.49052
+          ],
+          "cola_local": [
+            0.01945,
+            -0.10007,
+            1.48659
+          ],
+          "cabeza_mundo": [
+            -0.03652,
+            -0.05516,
+            1.97386
+          ],
+          "cola_mundo": [
+            -0.01707,
+            -0.05742,
+            1.96992
+          ],
+          "longitud": 0.01997,
+          "restricciones": []
+        },
+        {
+          "nombre": "tongue05.R",
+          "padre": "tongue01",
+          "deforma": true,
+          "conectado": false,
+          "cabeza_local": [
+            0.0,
+            -0.09781,
+            1.49052
+          ],
+          "cola_local": [
+            -0.01945,
+            -0.10007,
+            1.48659
+          ],
+          "cabeza_mundo": [
+            -0.03652,
+            -0.05516,
+            1.97386
+          ],
+          "cola_mundo": [
+            -0.05596,
+            -0.05742,
+            1.96992
+          ],
+          "longitud": 0.01997,
+          "restricciones": []
+        },
+        {
+          "nombre": "levator02.L",
+          "padre": "head",
+          "deforma": true,
+          "conectado": false,
+          "cabeza_local": [
+            0.00311,
+            -0.14858,
+            1.53546
+          ],
+          "cola_local": [
+            0.01983,
+            -0.13669,
+            1.52356
+          ],
+          "cabeza_mundo": [
+            -0.03341,
+            -0.10593,
+            2.01879
+          ],
+          "cola_mundo": [
+            -0.01669,
+            -0.09404,
+            2.00689
+          ],
+          "longitud": 0.02372,
+          "restricciones": []
+        },
+        {
+          "nombre": "levator03.L",
+          "padre": "levator02.L",
+          "deforma": true,
+          "conectado": false,
+          "cabeza_local": [
+            0.01983,
+            -0.13669,
+            1.52356
+          ],
+          "cola_local": [
+            0.02592,
+            -0.13705,
+            1.50514
+          ],
+          "cabeza_mundo": [
+            -0.01669,
+            -0.09404,
+            2.00689
+          ],
+          "cola_mundo": [
+            -0.0106,
+            -0.09439,
+            1.98847
+          ],
+          "longitud": 0.01941,
+          "restricciones": []
+        },
+        {
+          "nombre": "levator04.L",
+          "padre": "levator03.L",
+          "deforma": true,
+          "conectado": false,
+          "cabeza_local": [
+            0.02592,
+            -0.13705,
+            1.50514
+          ],
+          "cola_local": [
+            0.02769,
+            -0.13715,
+            1.48774
+          ],
+          "cabeza_mundo": [
+            -0.0106,
+            -0.09439,
+            1.98847
+          ],
+          "cola_mundo": [
+            -0.00882,
+            -0.0945,
+            1.97107
+          ],
+          "longitud": 0.01749,
+          "restricciones": []
+        },
+        {
+          "nombre": "levator05.L",
+          "padre": "levator04.L",
+          "deforma": true,
+          "conectado": false,
+          "cabeza_local": [
+            0.02769,
+            -0.13715,
+            1.48774
+          ],
+          "cola_local": [
+            0.02486,
+            -0.13746,
+            1.47938
+          ],
+          "cabeza_mundo": [
+            -0.00882,
+            -0.0945,
+            1.97107
+          ],
+          "cola_mundo": [
+            -0.01165,
+            -0.09481,
+            1.96272
+          ],
+          "longitud": 0.00883,
+          "restricciones": []
+        },
+        {
+          "nombre": "levator02.R",
+          "padre": "head",
+          "deforma": true,
+          "conectado": false,
+          "cabeza_local": [
+            -0.00311,
+            -0.14858,
+            1.53546
+          ],
+          "cola_local": [
+            -0.01983,
+            -0.13669,
+            1.52356
+          ],
+          "cabeza_mundo": [
+            -0.03962,
+            -0.10593,
+            2.01879
+          ],
+          "cola_mundo": [
+            -0.05634,
+            -0.09404,
+            2.00689
+          ],
+          "longitud": 0.02372,
+          "restricciones": []
+        },
+        {
+          "nombre": "levator03.R",
+          "padre": "levator02.R",
+          "deforma": true,
+          "conectado": false,
+          "cabeza_local": [
+            -0.01983,
+            -0.13669,
+            1.52356
+          ],
+          "cola_local": [
+            -0.02592,
+            -0.13705,
+            1.50514
+          ],
+          "cabeza_mundo": [
+            -0.05634,
+            -0.09404,
+            2.00689
+          ],
+          "cola_mundo": [
+            -0.06243,
+            -0.09439,
+            1.98847
+          ],
+          "longitud": 0.01941,
+          "restricciones": []
+        },
+        {
+          "nombre": "levator04.R",
+          "padre": "levator03.R",
+          "deforma": true,
+          "conectado": false,
+          "cabeza_local": [
+            -0.02592,
+            -0.13705,
+            1.50514
+          ],
+          "cola_local": [
+            -0.02769,
+            -0.13715,
+            1.48774
+          ],
+          "cabeza_mundo": [
+            -0.06243,
+            -0.09439,
+            1.98847
+          ],
+          "cola_mundo": [
+            -0.06421,
+            -0.0945,
+            1.97107
+          ],
+          "longitud": 0.01749,
+          "restricciones": []
+        },
+        {
+          "nombre": "levator05.R",
+          "padre": "levator04.R",
+          "deforma": true,
+          "conectado": false,
+          "cabeza_local": [
+            -0.02769,
+            -0.13715,
+            1.48774
+          ],
+          "cola_local": [
+            -0.02486,
+            -0.13746,
+            1.47938
+          ],
+          "cabeza_mundo": [
+            -0.06421,
+            -0.0945,
+            1.97107
+          ],
+          "cola_mundo": [
+            -0.06138,
+            -0.09481,
+            1.96272
+          ],
+          "longitud": 0.00883,
+          "restricciones": []
+        },
+        {
+          "nombre": "special01",
+          "padre": "head",
+          "deforma": true,
+          "conectado": false,
+          "cabeza_local": [
+            0.0,
+            0.02557,
+            1.51376
+          ],
+          "cola_local": [
+            0.0,
+            -0.14937,
+            1.50502
+          ],
+          "cabeza_mundo": [
+            -0.03652,
+            0.06823,
+            1.9971
+          ],
+          "cola_mundo": [
+            -0.03652,
+            -0.10672,
+            1.98835
+          ],
+          "longitud": 0.17517,
+          "restricciones": []
+        },
+        {
+          "nombre": "oris04.L",
+          "padre": "special01",
+          "deforma": true,
+          "conectado": false,
+          "cabeza_local": [
+            0.0,
+            -0.14937,
+            1.50502
+          ],
+          "cola_local": [
+            0.01342,
+            -0.14705,
+            1.49865
+          ],
+          "cabeza_mundo": [
+            -0.03652,
+            -0.10672,
+            1.98835
+          ],
+          "cola_mundo": [
+            -0.02309,
+            -0.10439,
+            1.98199
+          ],
+          "longitud": 0.01503,
+          "restricciones": []
+        },
+        {
+          "nombre": "oris03.L",
+          "padre": "oris04.L",
+          "deforma": true,
+          "conectado": false,
+          "cabeza_local": [
+            0.01342,
+            -0.14705,
+            1.49865
+          ],
+          "cola_local": [
+            0.01643,
+            -0.14669,
+            1.4927
+          ],
+          "cabeza_mundo": [
+            -0.02309,
+            -0.10439,
+            1.98199
+          ],
+          "cola_mundo": [
+            -0.02008,
+            -0.10403,
+            1.97603
+          ],
+          "longitud": 0.00669,
+          "restricciones": []
+        },
+        {
+          "nombre": "oris04.R",
+          "padre": "special01",
+          "deforma": true,
+          "conectado": false,
+          "cabeza_local": [
+            0.0,
+            -0.14937,
+            1.50502
+          ],
+          "cola_local": [
+            -0.01342,
+            -0.14705,
+            1.49865
+          ],
+          "cabeza_mundo": [
+            -0.03652,
+            -0.10672,
+            1.98835
+          ],
+          "cola_mundo": [
+            -0.04994,
+            -0.10439,
+            1.98199
+          ],
+          "longitud": 0.01503,
+          "restricciones": []
+        },
+        {
+          "nombre": "oris03.R",
+          "padre": "oris04.R",
+          "deforma": true,
+          "conectado": false,
+          "cabeza_local": [
+            -0.01342,
+            -0.14705,
+            1.49865
+          ],
+          "cola_local": [
+            -0.01643,
+            -0.14669,
+            1.4927
+          ],
+          "cabeza_mundo": [
+            -0.04994,
+            -0.10439,
+            1.98199
+          ],
+          "cola_mundo": [
+            -0.05295,
+            -0.10403,
+            1.97603
+          ],
+          "longitud": 0.00669,
+          "restricciones": []
+        },
+        {
+          "nombre": "oris06",
+          "padre": "special01",
+          "deforma": true,
+          "conectado": false,
+          "cabeza_local": [
+            0.0,
+            -0.14937,
+            1.50502
+          ],
+          "cola_local": [
+            0.0,
+            -0.15006,
+            1.49989
+          ],
+          "cabeza_mundo": [
+            -0.03652,
+            -0.10672,
+            1.98835
+          ],
+          "cola_mundo": [
+            -0.03652,
+            -0.10741,
+            1.98323
+          ],
+          "longitud": 0.00517,
+          "restricciones": []
+        },
+        {
+          "nombre": "oris05",
+          "padre": "oris06",
+          "deforma": true,
+          "conectado": false,
+          "cabeza_local": [
+            0.0,
+            -0.15006,
+            1.49989
+          ],
+          "cola_local": [
+            0.0,
+            -0.15339,
+            1.49344
+          ],
+          "cabeza_mundo": [
+            -0.03652,
+            -0.10741,
+            1.98323
+          ],
+          "cola_mundo": [
+            -0.03652,
+            -0.11074,
+            1.97678
+          ],
+          "longitud": 0.00726,
+          "restricciones": []
+        },
+        {
+          "nombre": "special03",
+          "padre": "head",
+          "deforma": true,
+          "conectado": false,
+          "cabeza_local": [
+            0.0,
+            -0.05651,
+            1.52085
+          ],
+          "cola_local": [
+            0.0,
+            -0.15859,
+            1.52175
+          ],
+          "cabeza_mundo": [
+            -0.03652,
+            -0.01385,
+            2.00418
+          ],
+          "cola_mundo": [
+            -0.03652,
+            -0.11593,
+            2.00508
+          ],
+          "longitud": 0.10209,
+          "restricciones": []
+        },
+        {
+          "nombre": "levator06.L",
+          "padre": "special03",
+          "deforma": true,
+          "conectado": false,
+          "cabeza_local": [
+            0.00566,
+            -0.15784,
+            1.51553
+          ],
+          "cola_local": [
+            0.01692,
+            -0.13924,
+            1.5194
+          ],
+          "cabeza_mundo": [
+            -0.03086,
+            -0.11518,
+            1.99887
+          ],
+          "cola_mundo": [
+            -0.0196,
+            -0.09658,
+            2.00273
+          ],
+          "longitud": 0.02208,
+          "restricciones": []
+        },
+        {
+          "nombre": "levator06.R",
+          "padre": "special03",
+          "deforma": true,
+          "conectado": false,
+          "cabeza_local": [
+            -0.00566,
+            -0.15784,
+            1.51553
+          ],
+          "cola_local": [
+            -0.01692,
+            -0.13924,
+            1.5194
+          ],
+          "cabeza_mundo": [
+            -0.04217,
+            -0.11518,
+            1.99887
+          ],
+          "cola_mundo": [
+            -0.05343,
+            -0.09658,
+            2.00273
+          ],
+          "longitud": 0.02208,
+          "restricciones": []
+        },
+        {
+          "nombre": "special06.L",
+          "padre": "head",
+          "deforma": true,
+          "conectado": false,
+          "cabeza_local": [
+            0.0,
+            -0.03706,
+            1.66251
+          ],
+          "cola_local": [
+            0.01871,
+            -0.0936,
+            1.64756
+          ],
+          "cabeza_mundo": [
+            -0.03652,
+            0.00559,
+            2.14585
+          ],
+          "cola_mundo": [
+            -0.01781,
+            -0.05094,
+            2.13089
+          ],
+          "longitud": 0.0614,
+          "restricciones": []
+        },
+        {
+          "nombre": "special05.L",
+          "padre": "special06.L",
+          "deforma": true,
+          "conectado": false,
+          "cabeza_local": [
+            0.01871,
+            -0.0936,
+            1.64756
+          ],
+          "cola_local": [
+            0.02891,
+            -0.11814,
+            1.55318
+          ],
+          "cabeza_mundo": [
+            -0.01781,
+            -0.05094,
+            2.13089
+          ],
+          "cola_mundo": [
+            -0.0076,
+            -0.07549,
+            2.03652
+          ],
+          "longitud": 0.09804,
+          "restricciones": []
+        },
+        {
+          "nombre": "eye.L",
+          "padre": "special05.L",
+          "deforma": true,
+          "conectado": false,
+          "cabeza_local": [
+            0.02891,
+            -0.11814,
+            1.55318
+          ],
+          "cola_local": [
+            0.03068,
+            -0.15611,
+            1.55027
+          ],
+          "cabeza_mundo": [
+            -0.0076,
+            -0.07549,
+            2.03652
+          ],
+          "cola_mundo": [
+            -0.00583,
+            -0.11346,
+            2.03361
+          ],
+          "longitud": 0.03812,
+          "restricciones": [
+            {
+              "nombre": "IK",
+              "tipo": "IK",
+              "activo": true,
+              "influencia": 1.0,
+              "objetivo": "Human.rig",
+              "subobjetivo": "left_eye_ik",
+              "eslabones": 1,
+              "usa_localizacion": true,
+              "usa_rotacion": false
+            }
+          ]
+        },
+        {
+          "nombre": "orbicularis03.L",
+          "padre": "special05.L",
+          "deforma": true,
+          "conectado": false,
+          "cabeza_local": [
+            0.02891,
+            -0.11814,
+            1.55318
+          ],
+          "cola_local": [
+            0.03061,
+            -0.15408,
+            1.56206
+          ],
+          "cabeza_mundo": [
+            -0.0076,
+            -0.07549,
+            2.03652
+          ],
+          "cola_mundo": [
+            -0.00591,
+            -0.11143,
+            2.04539
+          ],
+          "longitud": 0.03706,
+          "restricciones": []
+        },
+        {
+          "nombre": "orbicularis04.L",
+          "padre": "special05.L",
+          "deforma": true,
+          "conectado": false,
+          "cabeza_local": [
+            0.02891,
+            -0.11814,
+            1.55318
+          ],
+          "cola_local": [
+            0.03071,
+            -0.15356,
+            1.53899
+          ],
+          "cabeza_mundo": [
+            -0.0076,
+            -0.07549,
+            2.03652
+          ],
+          "cola_mundo": [
+            -0.00581,
+            -0.11091,
+            2.02233
+          ],
+          "longitud": 0.0382,
+          "restricciones": []
+        },
+        {
+          "nombre": "special06.R",
+          "padre": "head",
+          "deforma": true,
+          "conectado": false,
+          "cabeza_local": [
+            0.0,
+            -0.03706,
+            1.66251
+          ],
+          "cola_local": [
+            -0.01871,
+            -0.0936,
+            1.64756
+          ],
+          "cabeza_mundo": [
+            -0.03652,
+            0.00559,
+            2.14585
+          ],
+          "cola_mundo": [
+            -0.05522,
+            -0.05094,
+            2.13089
+          ],
+          "longitud": 0.0614,
+          "restricciones": []
+        },
+        {
+          "nombre": "special05.R",
+          "padre": "special06.R",
+          "deforma": true,
+          "conectado": false,
+          "cabeza_local": [
+            -0.01871,
+            -0.0936,
+            1.64756
+          ],
+          "cola_local": [
+            -0.02891,
+            -0.11814,
+            1.55318
+          ],
+          "cabeza_mundo": [
+            -0.05522,
+            -0.05094,
+            2.13089
+          ],
+          "cola_mundo": [
+            -0.06543,
+            -0.07549,
+            2.03652
+          ],
+          "longitud": 0.09804,
+          "restricciones": []
+        },
+        {
+          "nombre": "eye.R",
+          "padre": "special05.R",
+          "deforma": true,
+          "conectado": false,
+          "cabeza_local": [
+            -0.02891,
+            -0.11814,
+            1.55318
+          ],
+          "cola_local": [
+            -0.03068,
+            -0.15611,
+            1.55027
+          ],
+          "cabeza_mundo": [
+            -0.06543,
+            -0.07549,
+            2.03652
+          ],
+          "cola_mundo": [
+            -0.0672,
+            -0.11346,
+            2.03361
+          ],
+          "longitud": 0.03812,
+          "restricciones": [
+            {
+              "nombre": "IK",
+              "tipo": "IK",
+              "activo": true,
+              "influencia": 1.0,
+              "objetivo": "Human.rig",
+              "subobjetivo": "right_eye_ik",
+              "eslabones": 1,
+              "usa_localizacion": true,
+              "usa_rotacion": false
+            }
+          ]
+        },
+        {
+          "nombre": "orbicularis03.R",
+          "padre": "special05.R",
+          "deforma": true,
+          "conectado": false,
+          "cabeza_local": [
+            -0.02891,
+            -0.11814,
+            1.55318
+          ],
+          "cola_local": [
+            -0.03061,
+            -0.15408,
+            1.56206
+          ],
+          "cabeza_mundo": [
+            -0.06543,
+            -0.07549,
+            2.03652
+          ],
+          "cola_mundo": [
+            -0.06712,
+            -0.11143,
+            2.04539
+          ],
+          "longitud": 0.03706,
+          "restricciones": []
+        },
+        {
+          "nombre": "orbicularis04.R",
+          "padre": "special05.R",
+          "deforma": true,
+          "conectado": false,
+          "cabeza_local": [
+            -0.02891,
+            -0.11814,
+            1.55318
+          ],
+          "cola_local": [
+            -0.03071,
+            -0.15356,
+            1.53899
+          ],
+          "cabeza_mundo": [
+            -0.06543,
+            -0.07549,
+            2.03652
+          ],
+          "cola_mundo": [
+            -0.06722,
+            -0.11091,
+            2.02233
+          ],
+          "longitud": 0.0382,
+          "restricciones": []
+        },
+        {
+          "nombre": "temporalis01.L",
+          "padre": "head",
+          "deforma": true,
+          "conectado": false,
+          "cabeza_local": [
+            0.06048,
+            -0.10372,
+            1.56018
+          ],
+          "cola_local": [
+            0.05229,
+            -0.12134,
+            1.55983
+          ],
+          "cabeza_mundo": [
+            0.02396,
+            -0.06107,
+            2.04352
+          ],
+          "cola_mundo": [
+            0.01577,
+            -0.07868,
+            2.04317
+          ],
+          "longitud": 0.01943,
+          "restricciones": []
+        },
+        {
+          "nombre": "oculi02.L",
+          "padre": "temporalis01.L",
+          "deforma": true,
+          "conectado": false,
+          "cabeza_local": [
+            0.05229,
+            -0.12134,
+            1.55983
+          ],
+          "cola_local": [
+            0.03203,
+            -0.13932,
+            1.57452
+          ],
+          "cabeza_mundo": [
+            0.01577,
+            -0.07868,
+            2.04317
+          ],
+          "cola_mundo": [
+            -0.00448,
+            -0.09666,
+            2.05785
+          ],
+          "longitud": 0.03081,
+          "restricciones": []
+        },
+        {
+          "nombre": "oculi01.L",
+          "padre": "oculi02.L",
+          "deforma": true,
+          "conectado": false,
+          "cabeza_local": [
+            0.03203,
+            -0.13932,
+            1.57452
+          ],
+          "cola_local": [
+            0.01525,
+            -0.14349,
+            1.57576
+          ],
+          "cabeza_mundo": [
+            -0.00448,
+            -0.09666,
+            2.05785
+          ],
+          "cola_mundo": [
+            -0.02126,
+            -0.10083,
+            2.0591
+          ],
+          "longitud": 0.01733,
+          "restricciones": []
+        },
+        {
+          "nombre": "temporalis01.R",
+          "padre": "head",
+          "deforma": true,
+          "conectado": false,
+          "cabeza_local": [
+            -0.06048,
+            -0.10372,
+            1.56018
+          ],
+          "cola_local": [
+            -0.05229,
+            -0.12134,
+            1.55983
+          ],
+          "cabeza_mundo": [
+            -0.09699,
+            -0.06107,
+            2.04352
+          ],
+          "cola_mundo": [
+            -0.0888,
+            -0.07868,
+            2.04317
+          ],
+          "longitud": 0.01943,
+          "restricciones": []
+        },
+        {
+          "nombre": "oculi02.R",
+          "padre": "temporalis01.R",
+          "deforma": true,
+          "conectado": false,
+          "cabeza_local": [
+            -0.05229,
+            -0.12134,
+            1.55983
+          ],
+          "cola_local": [
+            -0.03203,
+            -0.13932,
+            1.57452
+          ],
+          "cabeza_mundo": [
+            -0.0888,
+            -0.07868,
+            2.04317
+          ],
+          "cola_mundo": [
+            -0.06855,
+            -0.09666,
+            2.05785
+          ],
+          "longitud": 0.03081,
+          "restricciones": []
+        },
+        {
+          "nombre": "oculi01.R",
+          "padre": "oculi02.R",
+          "deforma": true,
+          "conectado": false,
+          "cabeza_local": [
+            -0.03203,
+            -0.13932,
+            1.57452
+          ],
+          "cola_local": [
+            -0.01525,
+            -0.14349,
+            1.57576
+          ],
+          "cabeza_mundo": [
+            -0.06855,
+            -0.09666,
+            2.05785
+          ],
+          "cola_mundo": [
+            -0.05177,
+            -0.10083,
+            2.0591
+          ],
+          "longitud": 0.01733,
+          "restricciones": []
+        },
+        {
+          "nombre": "temporalis02.L",
+          "padre": "head",
+          "deforma": true,
+          "conectado": false,
+          "cabeza_local": [
+            0.06234,
+            -0.10148,
+            1.53782
+          ],
+          "cola_local": [
+            0.05263,
+            -0.11922,
+            1.54279
+          ],
+          "cabeza_mundo": [
+            0.02582,
+            -0.05883,
+            2.02116
+          ],
+          "cola_mundo": [
+            0.01612,
+            -0.07656,
+            2.02613
+          ],
+          "longitud": 0.02082,
+          "restricciones": []
+        },
+        {
+          "nombre": "risorius02.L",
+          "padre": "temporalis02.L",
+          "deforma": true,
+          "conectado": false,
+          "cabeza_local": [
+            0.05263,
+            -0.11922,
+            1.54279
+          ],
+          "cola_local": [
+            0.04758,
+            -0.12526,
+            1.51512
+          ],
+          "cabeza_mundo": [
+            0.01612,
+            -0.07656,
+            2.02613
+          ],
+          "cola_mundo": [
+            0.01107,
+            -0.0826,
+            1.99845
+          ],
+          "longitud": 0.02877,
+          "restricciones": []
+        },
+        {
+          "nombre": "risorius03.L",
+          "padre": "risorius02.L",
+          "deforma": true,
+          "conectado": false,
+          "cabeza_local": [
+            0.04758,
+            -0.12526,
+            1.51512
+          ],
+          "cola_local": [
+            0.05221,
+            -0.10949,
+            1.4954
+          ],
+          "cabeza_mundo": [
+            0.01107,
+            -0.0826,
+            1.99845
+          ],
+          "cola_mundo": [
+            0.0157,
+            -0.06683,
+            1.97874
+          ],
+          "longitud": 0.02567,
+          "restricciones": []
+        },
+        {
+          "nombre": "temporalis02.R",
+          "padre": "head",
+          "deforma": true,
+          "conectado": false,
+          "cabeza_local": [
+            -0.06234,
+            -0.10148,
+            1.53782
+          ],
+          "cola_local": [
+            -0.05263,
+            -0.11922,
+            1.54279
+          ],
+          "cabeza_mundo": [
+            -0.09885,
+            -0.05883,
+            2.02116
+          ],
+          "cola_mundo": [
+            -0.08915,
+            -0.07656,
+            2.02613
+          ],
+          "longitud": 0.02082,
+          "restricciones": []
+        },
+        {
+          "nombre": "risorius02.R",
+          "padre": "temporalis02.R",
+          "deforma": true,
+          "conectado": false,
+          "cabeza_local": [
+            -0.05263,
+            -0.11922,
+            1.54279
+          ],
+          "cola_local": [
+            -0.04758,
+            -0.12526,
+            1.51512
+          ],
+          "cabeza_mundo": [
+            -0.08915,
+            -0.07656,
+            2.02613
+          ],
+          "cola_mundo": [
+            -0.0841,
+            -0.0826,
+            1.99845
+          ],
+          "longitud": 0.02877,
+          "restricciones": []
+        },
+        {
+          "nombre": "risorius03.R",
+          "padre": "risorius02.R",
+          "deforma": true,
+          "conectado": false,
+          "cabeza_local": [
+            -0.04758,
+            -0.12526,
+            1.51512
+          ],
+          "cola_local": [
+            -0.05221,
+            -0.10949,
+            1.4954
+          ],
+          "cabeza_mundo": [
+            -0.0841,
+            -0.0826,
+            1.99845
+          ],
+          "cola_mundo": [
+            -0.08873,
+            -0.06683,
+            1.97874
+          ],
+          "longitud": 0.02567,
+          "restricciones": []
+        },
+        {
+          "nombre": "eye_ik",
+          "padre": "head",
+          "deforma": true,
+          "conectado": false,
+          "cabeza_local": [
+            0.0,
+            -0.27003,
+            1.54153
+          ],
+          "cola_local": [
+            0.0,
+            -0.308,
+            1.53862
+          ],
+          "cabeza_mundo": [
+            -0.03652,
+            -0.22737,
+            2.02487
+          ],
+          "cola_mundo": [
+            -0.03652,
+            -0.26534,
+            2.02196
+          ],
+          "longitud": 0.03808,
+          "restricciones": []
+        },
+        {
+          "nombre": "left_eye_ik",
+          "padre": "eye_ik",
+          "deforma": true,
+          "conectado": false,
+          "cabeza_local": [
+            0.03599,
+            -0.27003,
+            1.54153
+          ],
+          "cola_local": [
+            0.03776,
+            -0.308,
+            1.53862
+          ],
+          "cabeza_mundo": [
+            -0.00053,
+            -0.22737,
+            2.02487
+          ],
+          "cola_mundo": [
+            0.00124,
+            -0.26534,
+            2.02196
+          ],
+          "longitud": 0.03812,
+          "restricciones": []
+        },
+        {
+          "nombre": "right_eye_ik",
+          "padre": "eye_ik",
+          "deforma": true,
+          "conectado": false,
+          "cabeza_local": [
+            -0.03599,
+            -0.27003,
+            1.54153
+          ],
+          "cola_local": [
+            -0.03776,
+            -0.308,
+            1.53862
+          ],
+          "cabeza_mundo": [
+            -0.0725,
+            -0.22737,
+            2.02487
+          ],
+          "cola_mundo": [
+            -0.07427,
+            -0.26534,
+            2.02196
+          ],
+          "longitud": 0.03812,
+          "restricciones": []
+        },
+        {
+          "nombre": "left_hand_ik",
+          "padre": "spine01",
+          "deforma": true,
+          "conectado": false,
+          "cabeza_local": [
+            0.45309,
+            -0.18323,
+            1.01553
+          ],
+          "cola_local": [
+            0.46368,
+            -0.20925,
+            0.99979
+          ],
+          "cabeza_mundo": [
+            0.41658,
+            -0.14057,
+            1.49887
+          ],
+          "cola_mundo": [
+            0.42716,
+            -0.16659,
+            1.48313
+          ],
+          "longitud": 0.0322,
+          "restricciones": []
+        },
+        {
+          "nombre": "left_elbow_ik",
+          "padre": "spine01",
+          "deforma": true,
+          "conectado": false,
+          "cabeza_local": [
+            0.33117,
+            -0.02006,
+            1.13956
+          ],
+          "cola_local": [
+            0.36932,
+            -0.02048,
+            1.09742
+          ],
+          "cabeza_mundo": [
+            0.29465,
+            0.0226,
+            1.6229
+          ],
+          "cola_mundo": [
+            0.33281,
+            0.02217,
+            1.58076
+          ],
+          "longitud": 0.05685,
+          "restricciones": []
+        },
+        {
+          "nombre": "right_hand_ik",
+          "padre": "spine01",
+          "deforma": true,
+          "conectado": false,
+          "cabeza_local": [
+            -0.45309,
+            -0.18323,
+            1.01553
+          ],
+          "cola_local": [
+            -0.46368,
+            -0.20925,
+            0.99979
+          ],
+          "cabeza_mundo": [
+            -0.48961,
+            -0.14057,
+            1.49887
+          ],
+          "cola_mundo": [
+            -0.50019,
+            -0.16659,
+            1.48313
+          ],
+          "longitud": 0.0322,
+          "restricciones": []
+        },
+        {
+          "nombre": "right_elbow_ik",
+          "padre": "spine01",
+          "deforma": true,
+          "conectado": false,
+          "cabeza_local": [
+            -0.33117,
+            -0.02006,
+            1.13956
+          ],
+          "cola_local": [
+            -0.36932,
+            -0.02048,
+            1.09742
+          ],
+          "cabeza_mundo": [
+            -0.36768,
+            0.0226,
+            1.6229
+          ],
+          "cola_mundo": [
+            -0.40584,
+            0.02217,
+            1.58076
+          ],
+          "longitud": 0.05685,
+          "restricciones": []
+        },
+        {
+          "nombre": "left_foot_ik",
+          "padre": null,
+          "deforma": true,
+          "conectado": false,
+          "cabeza_local": [
+            0.18097,
+            -0.02244,
+            0.06917
+          ],
+          "cola_local": [
+            0.18639,
+            -0.13929,
+            0.00894
+          ],
+          "cabeza_mundo": [
+            0.14446,
+            0.02021,
+            0.5525
+          ],
+          "cola_mundo": [
+            0.14987,
+            -0.09664,
+            0.49227
+          ],
+          "longitud": 0.13157,
+          "restricciones": []
+        },
+        {
+          "nombre": "left_knee_ik",
+          "padre": null,
+          "deforma": true,
+          "conectado": false,
+          "cabeza_local": [
+            0.14264,
+            -0.03733,
+            0.47442
+          ],
+          "cola_local": [
+            0.15036,
+            -0.03869,
+            0.4118
+          ],
+          "cabeza_mundo": [
+            0.10612,
+            0.00533,
+            0.95775
+          ],
+          "cola_mundo": [
+            0.11384,
+            0.00396,
+            0.89514
+          ],
+          "longitud": 0.06311,
+          "restricciones": []
+        },
+        {
+          "nombre": "right_foot_ik",
+          "padre": null,
+          "deforma": true,
+          "conectado": false,
+          "cabeza_local": [
+            -0.18097,
+            -0.02244,
+            0.06917
+          ],
+          "cola_local": [
+            -0.18639,
+            -0.13929,
+            0.00894
+          ],
+          "cabeza_mundo": [
+            -0.21749,
+            0.02021,
+            0.5525
+          ],
+          "cola_mundo": [
+            -0.2229,
+            -0.09664,
+            0.49227
+          ],
+          "longitud": 0.13157,
+          "restricciones": []
+        },
+        {
+          "nombre": "right_knee_ik",
+          "padre": null,
+          "deforma": true,
+          "conectado": false,
+          "cabeza_local": [
+            -0.14264,
+            -0.03733,
+            0.47442
+          ],
+          "cola_local": [
+            -0.15036,
+            -0.03869,
+            0.4118
+          ],
+          "cabeza_mundo": [
+            -0.17916,
+            0.00533,
+            0.95775
+          ],
+          "cola_mundo": [
+            -0.18687,
+            0.00396,
+            0.89514
+          ],
+          "longitud": 0.06311,
+          "restricciones": []
+        }
+      ],
+      "hijos": [
+        {
+          "nombre": "Human",
+          "tipo": "MESH"
+        },
+        {
+          "nombre": "Human.rig..bone_shape_arrow",
+          "tipo": "EMPTY"
+        },
+        {
+          "nombre": "Human.rig..bone_shape_circle",
+          "tipo": "EMPTY"
+        },
+        {
+          "nombre": "Human.rig..bone_shape_sphere",
+          "tipo": "EMPTY"
+        }
+      ]
+    }
+  ],
+  "acciones": [],
+  "objetos": [
+    {
+      "nombre": "Camera",
+      "tipo": "CAMERA",
+      "padre": null,
+      "localizacion": [
+        7.35889,
+        -6.92579,
+        4.95831
+      ],
+      "rotacion_grados": [
+        63.5593,
+        0.0,
+        46.69194
+      ],
+      "escala": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "oculto_render": false
+    },
+    {
+      "nombre": "Human",
+      "tipo": "MESH",
+      "padre": "Human.rig",
+      "localizacion": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotacion_grados": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "escala": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "oculto_render": false
+    },
+    {
+      "nombre": "Human.rig",
+      "tipo": "ARMATURE",
+      "padre": null,
+      "localizacion": [
+        -0.03652,
+        0.04266,
+        0.48334
+      ],
+      "rotacion_grados": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "escala": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "oculto_render": false
+    },
+    {
+      "nombre": "Human.rig..bone_shape_arrow",
+      "tipo": "EMPTY",
+      "padre": "Human.rig",
+      "localizacion": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotacion_grados": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "escala": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "oculto_render": true
+    },
+    {
+      "nombre": "Human.rig..bone_shape_circle",
+      "tipo": "EMPTY",
+      "padre": "Human.rig",
+      "localizacion": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotacion_grados": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "escala": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "oculto_render": true
+    },
+    {
+      "nombre": "Human.rig..bone_shape_sphere",
+      "tipo": "EMPTY",
+      "padre": "Human.rig",
+      "localizacion": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotacion_grados": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "escala": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "oculto_render": true
+    },
+    {
+      "nombre": "Light",
+      "tipo": "LIGHT",
+      "padre": null,
+      "localizacion": [
+        4.07625,
+        1.00545,
+        5.90386
+      ],
+      "rotacion_grados": [
+        37.26105,
+        3.16371,
+        106.93632
+      ],
+      "escala": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "oculto_render": false
+    }
+  ]
+}

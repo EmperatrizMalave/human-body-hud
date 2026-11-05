@@ -9,6 +9,9 @@
     --muted: #94a3b8;
     --danger: #ff4d4d;
     --border: rgba(0, 240, 255, 0.35);
+    --glow-pink: #f472b6;
+    --glow-purple: #a855f7;
+    --ring-neon: linear-gradient(135deg, #22d3ee, #a855f7 45%, #f472b6 78%, #22d3ee);
 }
 
 * {
@@ -60,6 +63,19 @@ body {
     padding: 20px 24px 0;
 }
 
+.hud-brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo {
+    width: 52px;
+    height: 46px;
+    object-fit: contain;
+    display: block;
+}
+
 .hud-kicker {
     margin: 0 0 4px;
     color: var(--cyan);
@@ -98,7 +114,7 @@ body {
 
 .hud-grid {
     display: grid;
-    grid-template-columns: minmax(220px, 1fr) minmax(0, 2.4fr) minmax(220px, 1fr);
+    grid-template-columns: minmax(280px, 1.2fr) minmax(0, 2.2fr) minmax(220px, 1fr);
     gap: 20px;
     width: 95%;
     max-width: 1600px;
@@ -124,6 +140,7 @@ body {
 }
 
 .safe-green {
+    position: relative;
     border: 0;
     margin: 0;
     padding: 0;
@@ -131,15 +148,20 @@ body {
 }
 
 .safe-green legend {
-    float: left;
+    float: none;
     width: 100%;
     padding: 0 0 8px;
 }
 
-.safe-green::after {
-    content: "";
-    display: table;
-    clear: both;
+.safe-green__help {
+    margin: 0 0 14px;
+    color: #a5f3fc;
+    font-size: 0.78rem;
+    line-height: 1.5;
+    text-align: justify;
+    text-justify: inter-word;
+    hyphens: auto;
+    white-space: pre-line;
 }
 
 .search-label {
@@ -154,8 +176,156 @@ body {
 .hud-help {
     font-size: 0.85rem;
     color: #a5f3fc;
-    line-height: 1.4;
+    line-height: 1.5;
     margin: 0 0 16px;
+    text-align: justify;
+    text-justify: inter-word;
+    hyphens: auto;
+}
+
+.muscle-picker__bar {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 10px;
+    margin: 0 0 10px;
+}
+
+.muscle-picker__heading {
+    margin: 0;
+    border-bottom: 0;
+    padding-bottom: 0;
+}
+
+.muscle-picker__links {
+    display: flex;
+    flex-shrink: 0;
+    gap: 12px;
+    padding-top: 2px;
+    white-space: nowrap;
+}
+
+.muscle-picker__link {
+    background: none;
+    border: 0;
+    padding: 0;
+    color: #67e8f9;
+    font-family: inherit;
+    font-size: 0.78rem;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    cursor: pointer;
+}
+
+.muscle-picker__lead {
+    margin: 0 0 4px;
+    color: var(--text);
+    font-size: 1.15rem;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    text-align: center;
+}
+
+.muscle-picker__sub {
+    margin: 0 0 14px;
+    color: var(--muted);
+    font-size: 0.82rem;
+    line-height: 1.4;
+    text-align: center;
+}
+
+.muscle-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 6px;
+}
+
+.muscle-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    min-height: 72px;
+    padding: 8px 4px 12px;
+    background: rgba(8, 14, 28, 0.9);
+    border: 1px solid rgba(148, 163, 184, 0.22);
+    border-radius: 10px;
+    color: var(--text);
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.muscle-card:hover {
+    border-color: rgba(244, 114, 182, 0.55);
+    background: rgba(10, 22, 42, 0.95);
+}
+
+.muscle-card.is-active {
+    border: 2px solid transparent;
+    background:
+        linear-gradient(rgba(8, 14, 28, 0.95), rgba(8, 14, 28, 0.95)) padding-box,
+        var(--ring-neon) border-box;
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+    box-shadow: 0 0 14px rgba(168, 85, 247, 0.4);
+}
+
+.muscle-card__svg {
+    width: 26px;
+    height: 26px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.9;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    color: #7dd3fc;
+}
+
+.muscle-card.is-active .muscle-card__svg {
+    color: var(--cyan);
+}
+
+.muscle-card__label {
+    font-size: 0.58rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    text-align: center;
+    line-height: 1.2;
+}
+
+.muscle-card__badge {
+    display: none;
+    position: absolute;
+    right: 5px;
+    bottom: 5px;
+    align-items: center;
+    gap: 3px;
+    padding: 1px 5px;
+    border-radius: 999px;
+    background: #22d3ee;
+    color: #071018;
+    font-size: 0.5rem;
+    font-weight: 700;
+}
+
+.muscle-card.is-active .muscle-card__badge {
+    display: inline-flex;
+}
+
+.muscle-picker__count {
+    margin: 12px 0 0;
+    color: var(--muted);
+    font-size: 0.72rem;
+    text-align: right;
+}
+
+@media (min-width: 1400px) {
+    .muscle-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
 }
 
 .body-board {
@@ -239,6 +409,253 @@ body {
 
 .search-container {
     margin-bottom: 15px;
+}
+
+.catalog-filter {
+    border: 0;
+    margin: 0 0 12px;
+    padding: 0;
+    min-width: 0;
+}
+
+.catalog-filter legend {
+    padding: 0;
+    float: none;
+}
+
+.equip-dial {
+    --ring: conic-gradient(from 185deg, #22d3ee, #67e8f9 22%, #a855f7 52%, #f472b6 78%, #22d3ee);
+    position: relative;
+    width: 360px;
+    height: 360px;
+    margin: 4px auto 26px;
+    overflow: visible;
+}
+
+.equip-dial__face {
+    position: absolute;
+    inset: 12%;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.equip-dial__tube {
+    position: absolute;
+    inset: 9%;
+    border-radius: 50%;
+    background: var(--ring);
+    -webkit-mask-image: radial-gradient(farthest-side, transparent calc(100% - 16px), #000 calc(100% - 15px), #000 calc(100% - 3px), transparent calc(100% - 2px));
+    mask-image: radial-gradient(farthest-side, transparent calc(100% - 16px), #000 calc(100% - 15px), #000 calc(100% - 3px), transparent calc(100% - 2px));
+}
+
+.equip-dial__tube--outer {
+    inset: 1%;
+    opacity: 0.55;
+    box-shadow: none;
+    background: conic-gradient(
+        from 30deg,
+        #67e8f9 0 70deg,
+        transparent 70deg 88deg,
+        #e879f9 88deg 175deg,
+        transparent 175deg 198deg,
+        #22d3ee 198deg 300deg,
+        transparent 300deg 322deg,
+        #f472b6 322deg 360deg
+    );
+    -webkit-mask-image: radial-gradient(farthest-side, transparent calc(100% - 6px), #000 calc(100% - 5px), #000 calc(100% - 1px), transparent 100%);
+    mask-image: radial-gradient(farthest-side, transparent calc(100% - 6px), #000 calc(100% - 5px), #000 calc(100% - 1px), transparent 100%);
+}
+
+.equip-dial__tube--inner {
+    inset: 18%;
+    opacity: 0.75;
+    box-shadow: none;
+    -webkit-mask-image: radial-gradient(farthest-side, transparent calc(100% - 6px), #000 calc(100% - 5px), #000 calc(100% - 1.5px), transparent 100%);
+    mask-image: radial-gradient(farthest-side, transparent calc(100% - 6px), #000 calc(100% - 5px), #000 calc(100% - 1.5px), transparent 100%);
+}
+
+.equip-dial__core {
+    position: absolute;
+    inset: 26%;
+    z-index: 2;
+    border-radius: 50%;
+    background: radial-gradient(circle at 50% 40%, #12182a 0%, #0b0f19 72%);
+    box-shadow: inset 0 0 28px rgba(3, 8, 18, 0.9);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    pointer-events: none;
+}
+
+.equip-dial__play-btn {
+    width: 64px;
+    height: 64px;
+    padding: 0;
+    border: 0;
+    background: none;
+    filter: drop-shadow(0 0 10px rgba(103, 232, 249, 0.7)) drop-shadow(0 0 16px rgba(232, 121, 249, 0.4));
+}
+
+.equip-dial__play-btn svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.equip-dial__labels {
+    position: absolute;
+    inset: 0;
+    z-index: 3;
+}
+
+.equip-dial__label {
+    --a: 0deg;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: max-content;
+    margin: 0;
+    padding: 7px 12px;
+    border: 1px solid rgba(148, 163, 184, 0.14);
+    border-radius: 9px;
+    background: rgba(11, 15, 25, 0.92);
+    color: #f8fafc;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 0.68rem;
+    font-weight: 800;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    cursor: pointer;
+    white-space: nowrap;
+    transform: translate(-50%, -50%) rotate(var(--a)) translateY(-176px) rotate(calc(var(--a) * -1));
+    transition: border-color 0.25s ease, background-color 0.25s ease, box-shadow 0.25s ease, color 0.25s ease;
+}
+
+.equip-dial__label:hover {
+    border-color: rgba(244, 114, 182, 0.7);
+    box-shadow: 0 0 12px rgba(168, 85, 247, 0.28);
+}
+
+.equip-dial__label.is-active {
+    color: #fff;
+    background: rgba(168, 85, 247, 0.22);
+    border: 2px solid #f472b6;
+    box-shadow: 0 0 16px rgba(244, 114, 182, 0.65), inset 0 0 10px rgba(192, 132, 252, 0.28);
+}
+
+.equip-dial__current {
+    margin: 0;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 1.05rem;
+    font-weight: 800;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    white-space: nowrap;
+    background: linear-gradient(90deg, #67e8f9 0%, #c4b5fd 46%, #f472b6 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    filter: drop-shadow(0 0 10px rgba(167, 139, 250, 0.4));
+    transition: opacity 0.2s ease;
+}
+
+.equip-dial__actions {
+    display: flex;
+    justify-content: center;
+    gap: 28px;
+    margin: 8px 0 10px;
+    position: relative;
+    z-index: 4;
+}
+
+.equip-dial__link {
+    background: none;
+    border: 0;
+    color: #67e8f9;
+    font-family: monospace;
+    font-size: 0.72rem;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    cursor: pointer;
+    padding: 0;
+}
+
+.equip-dial__icons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+}
+
+.equip-icon {
+    appearance: none;
+    position: relative;
+    width: 40px;
+    height: 40px;
+    display: grid;
+    place-items: center;
+    border: 1px solid rgba(0, 240, 255, 0.45);
+    border-radius: 8px;
+    background: #070b14;
+    color: var(--cyan);
+    cursor: pointer;
+    padding: 0;
+    flex: 0 0 40px;
+}
+
+.equip-icon:hover {
+    border-color: rgba(0, 240, 255, 0.8);
+}
+
+.equip-icon.is-active {
+    border: 2px solid transparent;
+    background:
+        linear-gradient(#070b14, #070b14) padding-box,
+        var(--ring-neon) border-box;
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+    color: var(--glow-pink);
+    box-shadow: 0 0 14px rgba(168, 85, 247, 0.5);
+}
+
+.equip-icon svg {
+    width: 22px;
+    height: 22px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.7;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.equip-icon::after {
+    content: attr(data-nombre);
+    position: absolute;
+    left: 50%;
+    bottom: calc(100% + 8px);
+    transform: translateX(-50%);
+    z-index: 8;
+    padding: 4px 8px;
+    background: #0a1224;
+    border: 1px solid var(--cyan);
+    border-radius: 4px;
+    color: #e0f7fa;
+    font-family: monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.equip-icon:hover::after,
+.equip-icon:focus-visible::after {
+    opacity: 1;
+    visibility: visible;
 }
 
 .search-input {

@@ -1,0 +1,105 @@
+{
+  "sexo": "hombre",
+  "formas_horneadas": 6,
+  "archivo_origen": "C:\\Users\\emper\\Documents\\dev\\human-body-hud\\assets\\models\\personaje_squat_bodyweight_hombre.blend",
+  "glb": "C:\\Users\\emper\\Documents\\dev\\human-body-hud\\frontend\\modelos\\hombre\\squat_bodyweight.glb",
+  "bytes": 1087400,
+  "accion": "squat_bodyweight",
+  "fotogramas": [
+    1.0,
+    48.0
+  ],
+  "huesos_deformacion": 160,
+  "restricciones_ik": [
+    {
+      "hueso": "upperleg02.L",
+      "objetivo": "left_knee_ik",
+      "eslabones": 2,
+      "influencia": 1.0
+    },
+    {
+      "hueso": "lowerleg02.L",
+      "objetivo": "left_foot_ik",
+      "eslabones": 4,
+      "influencia": 1.0
+    },
+    {
+      "hueso": "upperleg02.R",
+      "objetivo": "right_knee_ik",
+      "eslabones": 2,
+      "influencia": 1.0
+    },
+    {
+      "hueso": "lowerleg02.R",
+      "objetivo": "right_foot_ik",
+      "eslabones": 4,
+      "influencia": 1.0
+    },
+    {
+      "hueso": "upperarm02.L",
+      "objetivo": "left_elbow_ik",
+      "eslabones": 2,
+      "influencia": 1.0
+    },
+    {
+      "hueso": "lowerarm02.L",
+      "objetivo": "left_hand_ik",
+      "eslabones": 4,
+      "influencia": 1.0
+    },
+    {
+      "hueso": "upperarm02.R",
+      "objetivo": "right_elbow_ik",
+      "eslabones": 2,
+      "influencia": 1.0
+    },
+    {
+      "hueso": "lowerarm02.R",
+      "objetivo": "right_hand_ik",
+      "eslabones": 4,
+      "influencia": 1.0
+    },
+    {
+      "hueso": "eye.L",
+      "objetivo": "left_eye_ik",
+      "eslabones": 1,
+      "influencia": 1.0
+    },
+    {
+      "hueso": "eye.R",
+      "objetivo": "right_eye_ik",
+      "eslabones": 1,
+      "influencia": 1.0
+    }
+  ],
+  "origen_no_guardado": true,
+  "glb_contenido": {
+    "nodos": 162,
+    "mallas": 1,
+    "skins": 1,
+    "materiales": [
+      "CuerpoVisor"
+    ],
+    "animaciones": [
+      {
+        "nombre": "squat_bodyweight",
+        "canales": 480,
+        "objetivos": [
+          "breast.L:rotation",
+          "breast.L:scale",
+          "breast.L:translation",
+          "breast.R:rotation",
+          "breast.R:scale",
+          "breast.R:translation",
+          "clavicle.L:rotation",
+          "clavicle.L:scale",
+          "clavicle.L:translation",
+          "clavicle.R:rotation",
+          "clavicle.R:scale",
+          "clavicle.R:translation"
+        ]
+      }
+    ]
+  },
+  "nota": "El IK no viaja al navegador. export_bake_animation graba el movimiento ya resuelto en los huesos de deformación."
+}

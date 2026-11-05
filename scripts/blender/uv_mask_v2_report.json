@@ -1,0 +1,122 @@
+{
+  "archivo_origen": "C:\\Users\\emper\\Documents\\dev\\human-body-hud\\assets\\models\\personaje_squat_bodyweight.blend",
+  "archivo_salida": "C:\\Users\\emper\\Documents\\dev\\human-body-hud\\assets\\models\\personaje_muscular_uv_v2.blend",
+  "textura": "C:\\Users\\emper\\Documents\\dev\\human-body-hud\\assets\\textures\\mascara_cuadriceps_v2.png",
+  "imagen": "MascaraCuadricepsV2",
+  "material": "CuerpoMuscular",
+  "resolucion": [
+    2048,
+    2048
+  ],
+  "pixeles_con_musculo": 53439,
+  "antialiasing_mm": 3.2,
+  "accion_conservada": "squat_bodyweight",
+  "pesos_de_deformacion_modificados": false,
+  "musculos": {
+    "recto_femoral": {
+      "linea": [
+        [
+          0.16,
+          0.0
+        ],
+        [
+          0.3,
+          0.02
+        ],
+        [
+          0.46,
+          0.01
+        ],
+        [
+          0.62,
+          0.0
+        ],
+        [
+          0.76,
+          0.0
+        ],
+        [
+          0.88,
+          0.0
+        ]
+      ],
+      "radios": [
+        0.009,
+        0.018,
+        0.026,
+        0.018,
+        0.012,
+        0.007
+      ]
+    },
+    "vasto_lateral": {
+      "linea": [
+        [
+          0.14,
+          0.46
+        ],
+        [
+          0.28,
+          0.68
+        ],
+        [
+          0.46,
+          0.78
+        ],
+        [
+          0.64,
+          0.66
+        ],
+        [
+          0.8,
+          0.48
+        ],
+        [
+          0.9,
+          0.36
+        ]
+      ],
+      "radios": [
+        0.011,
+        0.02,
+        0.028,
+        0.022,
+        0.014,
+        0.009
+      ]
+    },
+    "vasto_medial": {
+      "linea": [
+        [
+          0.6,
+          -0.32
+        ],
+        [
+          0.72,
+          -0.52
+        ],
+        [
+          0.82,
+          -0.74
+        ],
+        [
+          0.9,
+          -0.9
+        ],
+        [
+          0.96,
+          -0.62
+        ]
+      ],
+      "radios": [
+        0.008,
+        0.015,
+        0.022,
+        0.026,
+        0.014
+      ]
+    }
+  },
+  "separacion": "Franja del gris del cuerpo entre formas. No hay línea negra.",
+  "limitacion": "Las siluetas están medidas sobre el eje del fémur, no sobre inserciones reales. Sirven como plantilla. Se corrigen una sola vez pintando MascaraCuadricepsV2."
+}

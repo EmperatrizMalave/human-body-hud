@@ -1,0 +1,21 @@
+{
+  "archivo_origen": "C:\\Users\\emper\\Documents\\dev\\human-body-hud\\assets\\models\\personaje_squat_bodyweight.blend",
+  "archivo_salida": "C:\\Users\\emper\\Documents\\dev\\human-body-hud\\assets\\models\\personaje_muscular_uv_test.blend",
+  "textura": "C:\\Users\\emper\\Documents\\dev\\human-body-hud\\assets\\textures\\mascara_cuadriceps.png",
+  "imagen": "MascaraCuadriceps",
+  "material": "CuerpoMuscular",
+  "uv": "UVMap",
+  "accion_conservada": "squat_bodyweight",
+  "pixeles_con_musculo": 199288,
+  "costuras_uv_en_el_muslo": 32,
+  "vertices_del_tubo": 534,
+  "simetria_diferencia_p95": 0.0,
+  "pesos_de_deformacion_modificados": false,
+  "delimitacion": "textura UV continua, no materiales por cara",
+  "cabezas_aproximadas": [
+    "recto femoral",
+    "vasto lateral",
+    "vasto medial"
+  ],
+  "limitacion": "La forma sale de un campo suave sobre el muslo. Los huesos solo orientan el eje. No marca inserciones reales ni separa las tres cabezas con colores distintos. El borde se corrige pintando MascaraCuadriceps, sin reconstruir el material."
+}

@@ -1,0 +1,2007 @@
+{
+  "archivo": "C:\\Users\\emper\\Documents\\dev\\human-body-hud\\assets\\models\\personaje_squat_bodyweight.blend",
+  "blender": "5.2.3 LTS",
+  "armadura": "Human.rig",
+  "huesos": 160,
+  "nombres_hueso": [
+    "breast.L",
+    "breast.R",
+    "clavicle.L",
+    "clavicle.R",
+    "eye.L",
+    "eye.R",
+    "eye_ik",
+    "finger1-1.L",
+    "finger1-1.R",
+    "finger1-2.L",
+    "finger1-2.R",
+    "finger1-3.L",
+    "finger1-3.R",
+    "finger2-1.L",
+    "finger2-1.R",
+    "finger2-2.L",
+    "finger2-2.R",
+    "finger2-3.L",
+    "finger2-3.R",
+    "finger3-1.L",
+    "finger3-1.R",
+    "finger3-2.L",
+    "finger3-2.R",
+    "finger3-3.L",
+    "finger3-3.R",
+    "finger4-1.L",
+    "finger4-1.R",
+    "finger4-2.L",
+    "finger4-2.R",
+    "finger4-3.L",
+    "finger4-3.R",
+    "finger5-1.L",
+    "finger5-1.R",
+    "finger5-2.L",
+    "finger5-2.R",
+    "finger5-3.L",
+    "finger5-3.R",
+    "foot.L",
+    "foot.R",
+    "head",
+    "jaw",
+    "left_elbow_ik",
+    "left_eye_ik",
+    "left_finger1_grip",
+    "left_finger2_grip",
+    "left_finger3_grip",
+    "left_finger4_grip",
+    "left_finger5_grip",
+    "left_foot_ik",
+    "left_hand_ik",
+    "left_knee_ik",
+    "left_master_grip",
+    "levator02.L",
+    "levator02.R",
+    "levator03.L",
+    "levator03.R",
+    "levator04.L",
+    "levator04.R",
+    "levator05.L",
+    "levator05.R",
+    "levator06.L",
+    "levator06.R",
+    "lowerarm01.L",
+    "lowerarm01.R",
+    "lowerarm02.L",
+    "lowerarm02.R",
+    "lowerleg01.L",
+    "lowerleg01.R",
+    "lowerleg02.L",
+    "lowerleg02.R",
+    "metacarpal1.L",
+    "metacarpal1.R",
+    "metacarpal2.L",
+    "metacarpal2.R",
+    "metacarpal3.L",
+    "metacarpal3.R",
+    "metacarpal4.L",
+    "metacarpal4.R",
+    "neck01",
+    "neck02",
+    "neck03",
+    "oculi01.L",
+    "oculi01.R",
+    "oculi02.L",
+    "oculi02.R",
+    "orbicularis03.L",
+    "orbicularis03.R",
+    "orbicularis04.L",
+    "orbicularis04.R",
+    "oris01",
+    "oris02",
+    "oris03.L",
+    "oris03.R",
+    "oris04.L",
+    "oris04.R",
+    "oris05",
+    "oris06",
+    "oris06.L",
+    "oris06.R",
+    "oris07.L",
+    "oris07.R",
+    "pelvis.L",
+    "pelvis.R",
+    "right_elbow_ik",
+    "right_eye_ik",
+    "right_finger1_grip",
+    "right_finger2_grip",
+    "right_finger3_grip",
+    "right_finger4_grip",
+    "right_finger5_grip",
+    "right_foot_ik",
+    "right_hand_ik",
+    "right_knee_ik",
+    "right_master_grip",
+    "risorius02.L",
+    "risorius02.R",
+    "risorius03.L",
+    "risorius03.R",
+    "root",
+    "shoulder01.L",
+    "shoulder01.R",
+    "special01",
+    "special03",
+    "special04",
+    "special05.L",
+    "special05.R",
+    "special06.L",
+    "special06.R",
+    "spine01",
+    "spine02",
+    "spine03",
+    "spine04",
+    "spine05",
+    "temporalis01.L",
+    "temporalis01.R",
+    "temporalis02.L",
+    "temporalis02.R",
+    "toe1-1.L",
+    "toe1-1.R",
+    "tongue00",
+    "tongue01",
+    "tongue02",
+    "tongue03",
+    "tongue04",
+    "tongue05.L",
+    "tongue05.R",
+    "tongue06.L",
+    "tongue06.R",
+    "tongue07.L",
+    "tongue07.R",
+    "upperarm01.L",
+    "upperarm01.R",
+    "upperarm02.L",
+    "upperarm02.R",
+    "upperleg01.L",
+    "upperleg01.R",
+    "upperleg02.L",
+    "upperleg02.R",
+    "wrist.L",
+    "wrist.R"
+  ],
+  "acciones": [
+    {
+      "nombre": "squat_bodyweight",
+      "fotogramas": [
+        1.0,
+        48.0
+      ]
+    }
+  ],
+  "accion_activa": "squat_bodyweight",
+  "mallas": [
+    {
+      "nombre": "Human",
+      "vertices": 19158,
+      "caras": 18486,
+      "padre": "Human.rig",
+      "modificadores": [
+        {
+          "nombre": "Armature",
+          "tipo": "ARMATURE",
+          "objetivo": "Human.rig"
+        },
+        {
+          "nombre": "Hide helpers",
+          "tipo": "MASK",
+          "objetivo": null
+        }
+      ],
+      "materiales": [],
+      "grupos_vertices": [
+        {
+          "nombre": "HelperGeometry",
+          "vertices_con_peso": 4778,
+          "coincide_con_hueso": false
+        },
+        {
+          "nombre": "JointCubes",
+          "vertices_con_peso": 1000,
+          "coincide_con_hueso": false
+        },
+        {
+          "nombre": "Left",
+          "vertices_con_peso": 8946,
+          "coincide_con_hueso": false
+        },
+        {
+          "nombre": "Mid",
+          "vertices_con_peso": 1266,
+          "coincide_con_hueso": false
+        },
+        {
+          "nombre": "Right",
+          "vertices_con_peso": 8946,
+          "coincide_con_hueso": false
+        },
+        {
+          "nombre": "body",
+          "vertices_con_peso": 13380,
+          "coincide_con_hueso": false
+        },
+        {
+          "nombre": "helper-genital",
+          "vertices_con_peso": 200,
+          "coincide_con_hueso": false
+        },
+        {
+          "nombre": "helper-hair",
+          "vertices_con_peso": 428,
+          "coincide_con_hueso": false
+        },
+        {
+          "nombre": "helper-l-eye",
+          "vertices_con_peso": 72,
+          "coincide_con_hueso": false
+        },
+        {
+          "nombre": "helper-l-eyelashes-1",
+          "vertices_con_peso": 60,
+          "coincide_con_hueso": false
+        },
+        {
+          "nombre": "helper-l-eyelashes-2",
+          "vertices_con_peso": 65,
+          "coincide_con_hueso": false
+        },
+        {
+          "nombre": "helper-lower-teeth",
+          "vertices_con_peso": 68,
+          "coincide_con_hueso": false
+        },
+        {
+          "nombre": "helper-r-eye",
+          "vertices_con_peso": 72,
+          "coincide_con_hueso": false
+        },
+        {
+          "nombre": "helper-r-eyelashes-1",
+          "vertices_con_peso": 60,
+          "coincide_con_hueso": false
+        },
+        {
+          "nombre": "helper-r-eyelashes-2",
+          "vertices_con_peso": 65,
+          "coincide_con_hueso": false
+        },
+        {
+          "nombre": "helper-skirt",
+          "vertices_con_peso": 720,
+          "coincide_con_hueso": false
+        },
+        {
+          "nombre": "helper-tights",
+          "vertices_con_peso": 2674,
+          "coincide_con_hueso": false
+        },
+        {
+          "nombre": "helper-tongue",
+          "vertices_con_peso": 226,
+          "coincide_con_hueso": false
+        },
+        {
+          "nombre": "helper-upper-teeth",
+          "vertices_con_peso": 68,
+          "coincide_con_hueso": false
+        },
+        {
+          "nombre": "joint-ground",
+          "vertices_con_peso": 8,
+          "coincide_con_hueso": false
+        },
+        {
+          "nombre": "joint-head",
+          "vertices_con_peso": 8,
+          "coincide_con_hueso": false
+        },
+        {
+          "nombre": "joint-head-2",
+          "vertices_con_peso": 8,
+          "coincide_con_hueso": false
+        },
+        {
+          "nombre": "joint-jaw",
+          "vertices_con_peso": 8,
+          "coincide_con_hueso": false
+        },
+        {
+          "nombre": "joint-l-ankle",
+          "vertices_con_peso": 8,
+          "coincide_con_hueso": false
+        },
+        {
+          "nombre": "joint-l-clavicle",
+          "vertices_con_peso": 8,
+          "coincide_con_hueso": false
+        },
+        {
+          "nombre": "joint-l-elbow",
+          "vertices_con_peso": 8,
+          "coincide_con_hueso": false
+        },
+        {
+          "nombre": "joint-l-eye",
+          "vertices_con_peso": 8,
+          "coincide_con_hueso": false
+        },
+        {
+          "nombre": "joint-l-eye-target",
+          "vertices_con_peso": 8,
+          "coincide_con_hueso": false
+        },
+        {
+          "nombre": "joint-l-finger-1-1",
+          "vertices_con_peso": 8,
+          "coincide_con_hueso": false
+        },
+        {
+          "nombre": "joint-l-finger-1-2",
+          "vertices_con_peso": 8,
+          "coincide_con_hueso": false
+        },
+        {
+          "nombre": "joint-l-finger-1-3",
+          "vertices_con_peso": 8,
+          "coincide_con_hueso": false
+        },
+        {
+          "nombre": "joint-l-finger-1-4",
+          "vertices_con_peso": 8,
+          "coincide_con_hueso": false
+        },
+        {
+          "nombre": "joint-l-finger-2-1",
+          "vertices_con_peso": 8,
+          "coincide_con_hueso": false
+        },
+        {
+          "nombre": "joint-l-finger-2-2",
+          "vertices_con_peso": 8,
+          "coincide_con_hueso": false
+        },
+        {
+          "nombre": "joint-l-finger-2-3",
+          "vertices_con_peso": 8,
+          "coincide_con_hueso": false
+        },
+        {
+          "nombre": "joint-l-finger-2-4",
+          "vertices_con_peso": 8,
+          "coincide_con_hueso": false
+        },
+        {
+          "nombre": "joint-l-finger-3-1",
+          "vertices_con_peso": 8,
+          "coincide_con_hueso": false
+        },
+        {
+          "nombre": "joint-l-finger-3-2",
+          "vertices_con_peso": 8,
+          "coincide_con_hueso": false
+        },
+        {
+          "nombre": "joint-l-finger-3-3",
+          "vertices_con_peso": 8,
+          "coincide_con_hueso": false
+        },
+        {
+          "nombre": "joint-l-finger-3-4",
+          "vertices_con_peso": 8,
+          "coincide_con_hueso": false
+        },
+        {
+          "nombre": "joint-l-finger-4-1",
+          "vertices_con_peso": 8,
+          "coincide_con_hueso": false
+        },
+        {
+          "nombre": "joint-l-finger-4-2",
+          "vertices_con_peso": 8,
+          "coincide_con_hueso": false
+        },
+        {
+          "nombre": "joint-l-finger-4-3",
+          "vertices_con_peso": 8,
+          "coincide_con_hueso": false
+        },
+        {
+          "nombre": "joint-l-finger-4-4",
+          "vertices_con_peso": 8,
+          "coincide_con_hueso": false
+        },
+        {
+          "nombre": "joint-l-finger-5-1",
+          "vertices_con_peso": 8,
+          "coincide_con_hueso": false
+        },
+        {
+          "nombre": "joint-l-finger-5-2",
+          "vertices_con_peso": 8,
+          "coincide_con_hueso": false
+        },
+        {
+          "nombre": "joint-l-finger-5-3",
+          "vertices_con_peso": 8,
+          "coincide_con_hueso": false
+        },
+        {
+          "nombre": "joint-l-finger-5-4",
+          "vertices_con_peso": 8,
+          "coincide_con_hueso": false
+        },
+        {
+          "nombre": "joint-l-foot-1",
+          "vertices_con_peso": 8,
+          "coincide_con_hueso": false
+        },
+        {
+          "nombre": "joint-l-foot-2",
+          "vertices_con_peso": 8,
+          "coincide_con_hueso": false
+        },
+        {
+          "nombre": "joint-l-hand",
+          "vertices_con_peso": 8,
+          "coincide_con_hueso": false
+        },
+        {
+          "nombre": "joint-l-hand-2",
+          "vertices_con_peso": 8,
+          "coincide_con_hueso": false
+        },
+        {
+          "nombre": "joint-l-hand-3",
+          "vertices_con_peso": 8,
+          "coincide_con_hueso": false
+        },
+        {
+          "nombre": "joint-l-knee",
+          "vertices_con_peso": 8,
+          "coincide_con_hueso": false
+        },
+        {
+          "nombre": "joint-l-lowerlid",
+          "vertices_con_peso": 8,
+          "coincide_con_hueso": false
+        },
+        {
+          "nombre": "joint-l-scapula",
+          "vertices_con_peso": 8,
+          "coincide_con_hueso": false
+        },
+        {
+          "nombre": "joint-l-shoulder",
+          "vertices_con_peso": 8,
+          "coincide_con_hueso": false
+        },
+        {
+          "nombre": "joint-l-toe-1-1",
+          "vertices_con_peso": 8,
+          "coincide_con_hueso": false
+        },
+        {
+          "nombre": "joint-l-toe-1-2",
+          "vertices_con_peso": 8,
+          "coincide_con_hueso": false
+        },
+        {
+          "nombre": "joint-l-toe-1-3",
+          "vertices_con_peso": 8,
+          "coincide_con_hueso": false
+        },
+        {
+          "nombre": "joint-l-toe-2-1",
+          "vertices_con_peso": 8,
+          "coincide_con_hueso": false
+        },
+        {
+          "nombre": "joint-l-toe-2-2",
+          "vertices_con_peso": 8,
+          "coincide_con_hueso": false
+        },
+        {
+          "nombre": "joint-l-toe-2-3",
+          "vertices_con_peso": 8,
+          "coincide_con_hueso": false
+        },
+        {
+          "nombre": "joint-l-toe-2-4",
+          "vertices_con_peso": 8,
+          "coincide_con_hueso": false
+        },
+        {
+          "nombre": "joint-l-toe-3-1",
+          "vertices_con_peso": 8,
+          "coincide_con_hueso": false
+        },
+        {
+          "nombre": "joint-l-toe-3-2",
+          "vertices_con_peso": 8,
+          "coincide_con_hueso": false
+        },
+        {
+          "nombre": "joint-l-toe-3-3",
+          "vertices_con_peso": 8,
+          "coincide_con_hueso": false
+        },
+        {
+          "nombre": "joint-l-toe-3-4",
+          "vertices_con_peso": 8,
+          "coincide_con_hueso": false
+        },
+        {
+          "nombre": "joint-l-toe-4-1",
+          "vertices_con_peso": 8,
+          "coincide_con_hueso": false
+        },
+        {
+          "nombre": "joint-l-toe-4-2",
+          "vertices_con_peso": 8,
+          "coincide_con_hueso": false
+        },
+        {
+          "nombre": "joint-l-toe-4-3",
+          "vertices_con_peso": 8,
+          "coincide_con_hueso": false
+        },
+        {
+          "nombre": "joint-l-toe-4-4",
+          "vertices_con_peso": 8,
+          "coincide_con_hueso": false
+        },
+        {
+          "nombre": "joint-l-toe-5-1",
+          "vertices_con_peso": 8,
+          "coincide_con_hueso": false
+        },
+        {
+          "nombre": "joint-l-toe-5-2",
+          "vertices_con_peso": 8,
+          "coincide_con_hueso": false
+        },
+        {
+          "nombre": "joint-l-toe-5-3",
+          "vertices_con_peso": 8,
+          "coincide_con_hueso": false
+        },
+        {
+          "nombre": "joint-l-toe-5-4",
+          "vertices_con_peso": 8,
+          "coincide_con_hueso": false
+        },
+        {
+          "nombre": "joint-l-upper-leg",
+          "vertices_con_peso": 8,
+          "coincide_con_hueso": false
+        },
+        {
+          "nombre": "joint-l-upperlid",
+          "vertices_con_peso": 8,
+          "coincide_con_hueso": false
+        },
+        {
+          "nombre": "joint-mouth",
+          "vertices_con_peso": 8,
+          "coincide_con_hueso": false
+        },
+        {
+          "nombre": "joint-neck",
+          "vertices_con_peso": 8,
+          "coincide_con_hueso": false
+        },
+        {
+          "nombre": "joint-pelvis",
+          "vertices_con_peso": 8,
+          "coincide_con_hueso": false
+        },
+        {
+          "nombre": "joint-r-ankle",
+          "vertices_con_peso": 8,
+          "coincide_con_hueso": false
+        },
+        {
+          "nombre": "joint-r-clavicle",
+          "vertices_con_peso": 8,
+          "coincide_con_hueso": false
+        },
+        {
+          "nombre": "joint-r-elbow",
+          "vertices_con_peso": 8,
+          "coincide_con_hueso": false
+        },
+        {
+          "nombre": "joint-r-eye",
+          "vertices_con_peso": 8,
+          "coincide_con_hueso": false
+        },
+        {
+          "nombre": "joint-r-eye-target",
+          "vertices_con_peso": 8,
+          "coincide_con_hueso": false
+        },
+        {
+          "nombre": "joint-r-finger-1-1",
+          "vertices_con_peso": 8,
+          "coincide_con_hueso": false
+        },
+        {
+          "nombre": "joint-r-finger-1-2",
+          "vertices_con_peso": 8,
+          "coincide_con_hueso": false
+        },
+        {
+          "nombre": "joint-r-finger-1-3",
+          "vertices_con_peso": 8,
+          "coincide_con_hueso": false
+        },
+        {
+          "nombre": "joint-r-finger-1-4",
+          "vertices_con_peso": 8,
+          "coincide_con_hueso": false
+        },
+        {
+          "nombre": "joint-r-finger-2-1",
+          "vertices_con_peso": 8,
+          "coincide_con_hueso": false
+        },
+        {
+          "nombre": "joint-r-finger-2-2",
+          "vertices_con_peso": 8,
+          "coincide_con_hueso": false
+        },
+        {
+          "nombre": "joint-r-finger-2-3",
+          "vertices_con_peso": 8,
+          "coincide_con_hueso": false
+        },
+        {
+          "nombre": "joint-r-finger-2-4",
+          "vertices_con_peso": 8,
+          "coincide_con_hueso": false
+        },
+        {
+          "nombre": "joint-r-finger-3-1",
+          "vertices_con_peso": 8,
+          "coincide_con_hueso": false
+        },
+        {
+          "nombre": "joint-r-finger-3-2",
+          "vertices_con_peso": 8,
+          "coincide_con_hueso": false
+        },
+        {
+          "nombre": "joint-r-finger-3-3",
+          "vertices_con_peso": 8,
+          "coincide_con_hueso": false
+        },
+        {
+          "nombre": "joint-r-finger-3-4",
+          "vertices_con_peso": 8,
+          "coincide_con_hueso": false
+        },
+        {
+          "nombre": "joint-r-finger-4-1",
+          "vertices_con_peso": 8,
+          "coincide_con_hueso": false
+        },
+        {
+          "nombre": "joint-r-finger-4-2",
+          "vertices_con_peso": 8,
+          "coincide_con_hueso": false
+        },
+        {
+          "nombre": "joint-r-finger-4-3",
+          "vertices_con_peso": 8,
+          "coincide_con_hueso": false
+        },
+        {
+          "nombre": "joint-r-finger-4-4",
+          "vertices_con_peso": 8,
+          "coincide_con_hueso": false
+        },
+        {
+          "nombre": "joint-r-finger-5-1",
+          "vertices_con_peso": 8,
+          "coincide_con_hueso": false
+        },
+        {
+          "nombre": "joint-r-finger-5-2",
+          "vertices_con_peso": 8,
+          "coincide_con_hueso": false
+        },
+        {
+          "nombre": "joint-r-finger-5-3",
+          "vertices_con_peso": 8,
+          "coincide_con_hueso": false
+        },
+        {
+          "nombre": "joint-r-finger-5-4",
+          "vertices_con_peso": 8,
+          "coincide_con_hueso": false
+        },
+        {
+          "nombre": "joint-r-foot-1",
+          "vertices_con_peso": 8,
+          "coincide_con_hueso": false
+        },
+        {
+          "nombre": "joint-r-foot-2",
+          "vertices_con_peso": 8,
+          "coincide_con_hueso": false
+        },
+        {
+          "nombre": "joint-r-hand",
+          "vertices_con_peso": 8,
+          "coincide_con_hueso": false
+        },
+        {
+          "nombre": "joint-r-hand-2",
+          "vertices_con_peso": 8,
+          "coincide_con_hueso": false
+        },
+        {
+          "nombre": "joint-r-hand-3",
+          "vertices_con_peso": 8,
+          "coincide_con_hueso": false
+        },
+        {
+          "nombre": "joint-r-knee",
+          "vertices_con_peso": 8,
+          "coincide_con_hueso": false
+        },
+        {
+          "nombre": "joint-r-lowerlid",
+          "vertices_con_peso": 8,
+          "coincide_con_hueso": false
+        },
+        {
+          "nombre": "joint-r-scapula",
+          "vertices_con_peso": 8,
+          "coincide_con_hueso": false
+        },
+        {
+          "nombre": "joint-r-shoulder",
+          "vertices_con_peso": 8,
+          "coincide_con_hueso": false
+        },
+        {
+          "nombre": "joint-r-toe-1-1",
+          "vertices_con_peso": 8,
+          "coincide_con_hueso": false
+        },
+        {
+          "nombre": "joint-r-toe-1-2",
+          "vertices_con_peso": 8,
+          "coincide_con_hueso": false
+        },
+        {
+          "nombre": "joint-r-toe-1-3",
+          "vertices_con_peso": 8,
+          "coincide_con_hueso": false
+        },
+        {
+          "nombre": "joint-r-toe-2-1",
+          "vertices_con_peso": 8,
+          "coincide_con_hueso": false
+        },
+        {
+          "nombre": "joint-r-toe-2-2",
+          "vertices_con_peso": 8,
+          "coincide_con_hueso": false
+        },
+        {
+          "nombre": "joint-r-toe-2-3",
+          "vertices_con_peso": 8,
+          "coincide_con_hueso": false
+        },
+        {
+          "nombre": "joint-r-toe-2-4",
+          "vertices_con_peso": 8,
+          "coincide_con_hueso": false
+        },
+        {
+          "nombre": "joint-r-toe-3-1",
+          "vertices_con_peso": 8,
+          "coincide_con_hueso": false
+        },
+        {
+          "nombre": "joint-r-toe-3-2",
+          "vertices_con_peso": 8,
+          "coincide_con_hueso": false
+        },
+        {
+          "nombre": "joint-r-toe-3-3",
+          "vertices_con_peso": 8,
+          "coincide_con_hueso": false
+        },
+        {
+          "nombre": "joint-r-toe-3-4",
+          "vertices_con_peso": 8,
+          "coincide_con_hueso": false
+        },
+        {
+          "nombre": "joint-r-toe-4-1",
+          "vertices_con_peso": 8,
+          "coincide_con_hueso": false
+        },
+        {
+          "nombre": "joint-r-toe-4-2",
+          "vertices_con_peso": 8,
+          "coincide_con_hueso": false
+        },
+        {
+          "nombre": "joint-r-toe-4-3",
+          "vertices_con_peso": 8,
+          "coincide_con_hueso": false
+        },
+        {
+          "nombre": "joint-r-toe-4-4",
+          "vertices_con_peso": 8,
+          "coincide_con_hueso": false
+        },
+        {
+          "nombre": "joint-r-toe-5-1",
+          "vertices_con_peso": 8,
+          "coincide_con_hueso": false
+        },
+        {
+          "nombre": "joint-r-toe-5-2",
+          "vertices_con_peso": 8,
+          "coincide_con_hueso": false
+        },
+        {
+          "nombre": "joint-r-toe-5-3",
+          "vertices_con_peso": 8,
+          "coincide_con_hueso": false
+        },
+        {
+          "nombre": "joint-r-toe-5-4",
+          "vertices_con_peso": 8,
+          "coincide_con_hueso": false
+        },
+        {
+          "nombre": "joint-r-upper-leg",
+          "vertices_con_peso": 8,
+          "coincide_con_hueso": false
+        },
+        {
+          "nombre": "joint-r-upperlid",
+          "vertices_con_peso": 8,
+          "coincide_con_hueso": false
+        },
+        {
+          "nombre": "joint-spine-1",
+          "vertices_con_peso": 8,
+          "coincide_con_hueso": false
+        },
+        {
+          "nombre": "joint-spine-2",
+          "vertices_con_peso": 8,
+          "coincide_con_hueso": false
+        },
+        {
+          "nombre": "joint-spine-3",
+          "vertices_con_peso": 8,
+          "coincide_con_hueso": false
+        },
+        {
+          "nombre": "joint-spine-4",
+          "vertices_con_peso": 8,
+          "coincide_con_hueso": false
+        },
+        {
+          "nombre": "joint-tongue-1",
+          "vertices_con_peso": 8,
+          "coincide_con_hueso": false
+        },
+        {
+          "nombre": "joint-tongue-2",
+          "vertices_con_peso": 8,
+          "coincide_con_hueso": false
+        },
+        {
+          "nombre": "joint-tongue-3",
+          "vertices_con_peso": 8,
+          "coincide_con_hueso": false
+        },
+        {
+          "nombre": "joint-tongue-4",
+          "vertices_con_peso": 8,
+          "coincide_con_hueso": false
+        },
+        {
+          "nombre": "nippleTip",
+          "vertices_con_peso": 32,
+          "coincide_con_hueso": false
+        },
+        {
+          "nombre": "nipple",
+          "vertices_con_peso": 96,
+          "coincide_con_hueso": false
+        },
+        {
+          "nombre": "lips",
+          "vertices_con_peso": 418,
+          "coincide_con_hueso": false
+        },
+        {
+          "nombre": "fingernails",
+          "vertices_con_peso": 168,
+          "coincide_con_hueso": false
+        },
+        {
+          "nombre": "toenails",
+          "vertices_con_peso": 270,
+          "coincide_con_hueso": false
+        },
+        {
+          "nombre": "ears",
+          "vertices_con_peso": 626,
+          "coincide_con_hueso": false
+        },
+        {
+          "nombre": "scalp",
+          "vertices_con_peso": 376,
+          "coincide_con_hueso": false
+        },
+        {
+          "nombre": "genitals",
+          "vertices_con_peso": 0,
+          "coincide_con_hueso": false
+        },
+        {
+          "nombre": "root",
+          "vertices_con_peso": 16,
+          "coincide_con_hueso": true
+        },
+        {
+          "nombre": "pelvis.L",
+          "vertices_con_peso": 861,
+          "coincide_con_hueso": true
+        },
+        {
+          "nombre": "upperleg01.L",
+          "vertices_con_peso": 1090,
+          "coincide_con_hueso": true
+        },
+        {
+          "nombre": "upperleg02.L",
+          "vertices_con_peso": 1026,
+          "coincide_con_hueso": true
+        },
+        {
+          "nombre": "lowerleg01.L",
+          "vertices_con_peso": 931,
+          "coincide_con_hueso": true
+        },
+        {
+          "nombre": "lowerleg02.L",
+          "vertices_con_peso": 670,
+          "coincide_con_hueso": true
+        },
+        {
+          "nombre": "foot.L",
+          "vertices_con_peso": 835,
+          "coincide_con_hueso": true
+        },
+        {
+          "nombre": "toe1-1.L",
+          "vertices_con_peso": 1058,
+          "coincide_con_hueso": true
+        },
+        {
+          "nombre": "pelvis.R",
+          "vertices_con_peso": 866,
+          "coincide_con_hueso": true
+        },
+        {
+          "nombre": "upperleg01.R",
+          "vertices_con_peso": 1121,
+          "coincide_con_hueso": true
+        },
+        {
+          "nombre": "upperleg02.R",
+          "vertices_con_peso": 1020,
+          "coincide_con_hueso": true
+        },
+        {
+          "nombre": "lowerleg01.R",
+          "vertices_con_peso": 956,
+          "coincide_con_hueso": true
+        },
+        {
+          "nombre": "lowerleg02.R",
+          "vertices_con_peso": 596,
+          "coincide_con_hueso": true
+        },
+        {
+          "nombre": "foot.R",
+          "vertices_con_peso": 705,
+          "coincide_con_hueso": true
+        },
+        {
+          "nombre": "toe1-1.R",
+          "vertices_con_peso": 1058,
+          "coincide_con_hueso": true
+        },
+        {
+          "nombre": "spine05",
+          "vertices_con_peso": 1882,
+          "coincide_con_hueso": true
+        },
+        {
+          "nombre": "spine04",
+          "vertices_con_peso": 1637,
+          "coincide_con_hueso": true
+        },
+        {
+          "nombre": "spine03",
+          "vertices_con_peso": 1702,
+          "coincide_con_hueso": true
+        },
+        {
+          "nombre": "spine02",
+          "vertices_con_peso": 1876,
+          "coincide_con_hueso": true
+        },
+        {
+          "nombre": "breast.L",
+          "vertices_con_peso": 433,
+          "coincide_con_hueso": true
+        },
+        {
+          "nombre": "breast.R",
+          "vertices_con_peso": 417,
+          "coincide_con_hueso": true
+        },
+        {
+          "nombre": "spine01",
+          "vertices_con_peso": 2331,
+          "coincide_con_hueso": true
+        },
+        {
+          "nombre": "clavicle.L",
+          "vertices_con_peso": 650,
+          "coincide_con_hueso": true
+        },
+        {
+          "nombre": "shoulder01.L",
+          "vertices_con_peso": 576,
+          "coincide_con_hueso": true
+        },
+        {
+          "nombre": "upperarm01.L",
+          "vertices_con_peso": 906,
+          "coincide_con_hueso": true
+        },
+        {
+          "nombre": "upperarm02.L",
+          "vertices_con_peso": 688,
+          "coincide_con_hueso": true
+        },
+        {
+          "nombre": "lowerarm01.L",
+          "vertices_con_peso": 542,
+          "coincide_con_hueso": true
+        },
+        {
+          "nombre": "lowerarm02.L",
+          "vertices_con_peso": 310,
+          "coincide_con_hueso": true
+        },
+        {
+          "nombre": "wrist.L",
+          "vertices_con_peso": 249,
+          "coincide_con_hueso": true
+        },
+        {
+          "nombre": "finger1-1.L",
+          "vertices_con_peso": 115,
+          "coincide_con_hueso": true
+        },
+        {
+          "nombre": "finger1-2.L",
+          "vertices_con_peso": 193,
+          "coincide_con_hueso": true
+        },
+        {
+          "nombre": "finger1-3.L",
+          "vertices_con_peso": 144,
+          "coincide_con_hueso": true
+        },
+        {
+          "nombre": "metacarpal1.L",
+          "vertices_con_peso": 248,
+          "coincide_con_hueso": true
+        },
+        {
+          "nombre": "finger2-1.L",
+          "vertices_con_peso": 210,
+          "coincide_con_hueso": true
+        },
+        {
+          "nombre": "finger2-2.L",
+          "vertices_con_peso": 218,
+          "coincide_con_hueso": true
+        },
+        {
+          "nombre": "finger2-3.L",
+          "vertices_con_peso": 165,
+          "coincide_con_hueso": true
+        },
+        {
+          "nombre": "metacarpal2.L",
+          "vertices_con_peso": 204,
+          "coincide_con_hueso": true
+        },
+        {
+          "nombre": "finger3-1.L",
+          "vertices_con_peso": 245,
+          "coincide_con_hueso": true
+        },
+        {
+          "nombre": "finger3-2.L",
+          "vertices_con_peso": 213,
+          "coincide_con_hueso": true
+        },
+        {
+          "nombre": "finger3-3.L",
+          "vertices_con_peso": 166,
+          "coincide_con_hueso": true
+        },
+        {
+          "nombre": "metacarpal3.L",
+          "vertices_con_peso": 208,
+          "coincide_con_hueso": true
+        },
+        {
+          "nombre": "finger4-1.L",
+          "vertices_con_peso": 244,
+          "coincide_con_hueso": true
+        },
+        {
+          "nombre": "finger4-2.L",
+          "vertices_con_peso": 194,
+          "coincide_con_hueso": true
+        },
+        {
+          "nombre": "finger4-3.L",
+          "vertices_con_peso": 161,
+          "coincide_con_hueso": true
+        },
+        {
+          "nombre": "metacarpal4.L",
+          "vertices_con_peso": 192,
+          "coincide_con_hueso": true
+        },
+        {
+          "nombre": "finger5-1.L",
+          "vertices_con_peso": 251,
+          "coincide_con_hueso": true
+        },
+        {
+          "nombre": "finger5-2.L",
+          "vertices_con_peso": 209,
+          "coincide_con_hueso": true
+        },
+        {
+          "nombre": "finger5-3.L",
+          "vertices_con_peso": 214,
+          "coincide_con_hueso": true
+        },
+        {
+          "nombre": "clavicle.R",
+          "vertices_con_peso": 619,
+          "coincide_con_hueso": true
+        },
+        {
+          "nombre": "shoulder01.R",
+          "vertices_con_peso": 550,
+          "coincide_con_hueso": true
+        },
+        {
+          "nombre": "upperarm01.R",
+          "vertices_con_peso": 882,
+          "coincide_con_hueso": true
+        },
+        {
+          "nombre": "upperarm02.R",
+          "vertices_con_peso": 679,
+          "coincide_con_hueso": true
+        },
+        {
+          "nombre": "lowerarm01.R",
+          "vertices_con_peso": 546,
+          "coincide_con_hueso": true
+        },
+        {
+          "nombre": "lowerarm02.R",
+          "vertices_con_peso": 311,
+          "coincide_con_hueso": true
+        },
+        {
+          "nombre": "wrist.R",
+          "vertices_con_peso": 252,
+          "coincide_con_hueso": true
+        },
+        {
+          "nombre": "finger1-1.R",
+          "vertices_con_peso": 115,
+          "coincide_con_hueso": true
+        },
+        {
+          "nombre": "finger1-2.R",
+          "vertices_con_peso": 193,
+          "coincide_con_hueso": true
+        },
+        {
+          "nombre": "finger1-3.R",
+          "vertices_con_peso": 144,
+          "coincide_con_hueso": true
+        },
+        {
+          "nombre": "metacarpal1.R",
+          "vertices_con_peso": 248,
+          "coincide_con_hueso": true
+        },
+        {
+          "nombre": "finger2-1.R",
+          "vertices_con_peso": 210,
+          "coincide_con_hueso": true
+        },
+        {
+          "nombre": "finger2-2.R",
+          "vertices_con_peso": 218,
+          "coincide_con_hueso": true
+        },
+        {
+          "nombre": "finger2-3.R",
+          "vertices_con_peso": 164,
+          "coincide_con_hueso": true
+        },
+        {
+          "nombre": "metacarpal2.R",
+          "vertices_con_peso": 197,
+          "coincide_con_hueso": true
+        },
+        {
+          "nombre": "finger3-1.R",
+          "vertices_con_peso": 240,
+          "coincide_con_hueso": true
+        },
+        {
+          "nombre": "finger3-2.R",
+          "vertices_con_peso": 213,
+          "coincide_con_hueso": true
+        },
+        {
+          "nombre": "finger3-3.R",
+          "vertices_con_peso": 166,
+          "coincide_con_hueso": true
+        },
+        {
+          "nombre": "metacarpal3.R",
+          "vertices_con_peso": 208,
+          "coincide_con_hueso": true
+        },
+        {
+          "nombre": "finger4-1.R",
+          "vertices_con_peso": 244,
+          "coincide_con_hueso": true
+        },
+        {
+          "nombre": "finger4-2.R",
+          "vertices_con_peso": 194,
+          "coincide_con_hueso": true
+        },
+        {
+          "nombre": "finger4-3.R",
+          "vertices_con_peso": 161,
+          "coincide_con_hueso": true
+        },
+        {
+          "nombre": "metacarpal4.R",
+          "vertices_con_peso": 192,
+          "coincide_con_hueso": true
+        },
+        {
+          "nombre": "finger5-1.R",
+          "vertices_con_peso": 251,
+          "coincide_con_hueso": true
+        },
+        {
+          "nombre": "finger5-2.R",
+          "vertices_con_peso": 209,
+          "coincide_con_hueso": true
+        },
+        {
+          "nombre": "finger5-3.R",
+          "vertices_con_peso": 214,
+          "coincide_con_hueso": true
+        },
+        {
+          "nombre": "neck01",
+          "vertices_con_peso": 1074,
+          "coincide_con_hueso": true
+        },
+        {
+          "nombre": "neck02",
+          "vertices_con_peso": 915,
+          "coincide_con_hueso": true
+        },
+        {
+          "nombre": "neck03",
+          "vertices_con_peso": 341,
+          "coincide_con_hueso": true
+        },
+        {
+          "nombre": "head",
+          "vertices_con_peso": 4874,
+          "coincide_con_hueso": true
+        },
+        {
+          "nombre": "jaw",
+          "vertices_con_peso": 887,
+          "coincide_con_hueso": true
+        },
+        {
+          "nombre": "special04",
+          "vertices_con_peso": 8,
+          "coincide_con_hueso": true
+        },
+        {
+          "nombre": "oris01",
+          "vertices_con_peso": 301,
+          "coincide_con_hueso": true
+        },
+        {
+          "nombre": "oris07.L",
+          "vertices_con_peso": 330,
+          "coincide_con_hueso": true
+        },
+        {
+          "nombre": "oris07.R",
+          "vertices_con_peso": 330,
+          "coincide_con_hueso": true
+        },
+        {
+          "nombre": "tongue00",
+          "vertices_con_peso": 8,
+          "coincide_con_hueso": true
+        },
+        {
+          "nombre": "tongue01",
+          "vertices_con_peso": 164,
+          "coincide_con_hueso": true
+        },
+        {
+          "nombre": "tongue02",
+          "vertices_con_peso": 134,
+          "coincide_con_hueso": true
+        },
+        {
+          "nombre": "tongue03",
+          "vertices_con_peso": 117,
+          "coincide_con_hueso": true
+        },
+        {
+          "nombre": "tongue04",
+          "vertices_con_peso": 154,
+          "coincide_con_hueso": true
+        },
+        {
+          "nombre": "tongue07.L",
+          "vertices_con_peso": 108,
+          "coincide_con_hueso": true
+        },
+        {
+          "nombre": "tongue07.R",
+          "vertices_con_peso": 99,
+          "coincide_con_hueso": true
+        },
+        {
+          "nombre": "tongue06.L",
+          "vertices_con_peso": 92,
+          "coincide_con_hueso": true
+        },
+        {
+          "nombre": "tongue06.R",
+          "vertices_con_peso": 92,
+          "coincide_con_hueso": true
+        },
+        {
+          "nombre": "tongue05.L",
+          "vertices_con_peso": 93,
+          "coincide_con_hueso": true
+        },
+        {
+          "nombre": "tongue05.R",
+          "vertices_con_peso": 82,
+          "coincide_con_hueso": true
+        },
+        {
+          "nombre": "levator05.L",
+          "vertices_con_peso": 421,
+          "coincide_con_hueso": true
+        },
+        {
+          "nombre": "levator05.R",
+          "vertices_con_peso": 421,
+          "coincide_con_hueso": true
+        },
+        {
+          "nombre": "oris03.L",
+          "vertices_con_peso": 367,
+          "coincide_con_hueso": true
+        },
+        {
+          "nombre": "oris03.R",
+          "vertices_con_peso": 367,
+          "coincide_con_hueso": true
+        },
+        {
+          "nombre": "oris05",
+          "vertices_con_peso": 512,
+          "coincide_con_hueso": true
+        },
+        {
+          "nombre": "levator06.L",
+          "vertices_con_peso": 315,
+          "coincide_con_hueso": true
+        },
+        {
+          "nombre": "levator06.R",
+          "vertices_con_peso": 264,
+          "coincide_con_hueso": true
+        },
+        {
+          "nombre": "special05.L",
+          "vertices_con_peso": 8,
+          "coincide_con_hueso": true
+        },
+        {
+          "nombre": "eye.L",
+          "vertices_con_peso": 141,
+          "coincide_con_hueso": true
+        },
+        {
+          "nombre": "orbicularis03.L",
+          "vertices_con_peso": 259,
+          "coincide_con_hueso": true
+        },
+        {
+          "nombre": "orbicularis04.L",
+          "vertices_con_peso": 282,
+          "coincide_con_hueso": true
+        },
+        {
+          "nombre": "special05.R",
+          "vertices_con_peso": 8,
+          "coincide_con_hueso": true
+        },
+        {
+          "nombre": "eye.R",
+          "vertices_con_peso": 141,
+          "coincide_con_hueso": true
+        },
+        {
+          "nombre": "orbicularis03.R",
+          "vertices_con_peso": 253,
+          "coincide_con_hueso": true
+        },
+        {
+          "nombre": "orbicularis04.R",
+          "vertices_con_peso": 281,
+          "coincide_con_hueso": true
+        },
+        {
+          "nombre": "oculi01.L",
+          "vertices_con_peso": 275,
+          "coincide_con_hueso": true
+        },
+        {
+          "nombre": "oculi01.R",
+          "vertices_con_peso": 258,
+          "coincide_con_hueso": true
+        },
+        {
+          "nombre": "risorius03.L",
+          "vertices_con_peso": 465,
+          "coincide_con_hueso": true
+        },
+        {
+          "nombre": "risorius03.R",
+          "vertices_con_peso": 464,
+          "coincide_con_hueso": true
+        }
+      ],
+      "grupos_que_no_son_hueso": [
+        "HelperGeometry",
+        "JointCubes",
+        "Left",
+        "Mid",
+        "Right",
+        "body",
+        "helper-genital",
+        "helper-hair",
+        "helper-l-eye",
+        "helper-l-eyelashes-1",
+        "helper-l-eyelashes-2",
+        "helper-lower-teeth",
+        "helper-r-eye",
+        "helper-r-eyelashes-1",
+        "helper-r-eyelashes-2",
+        "helper-skirt",
+        "helper-tights",
+        "helper-tongue",
+        "helper-upper-teeth",
+        "joint-ground",
+        "joint-head",
+        "joint-head-2",
+        "joint-jaw",
+        "joint-l-ankle",
+        "joint-l-clavicle",
+        "joint-l-elbow",
+        "joint-l-eye",
+        "joint-l-eye-target",
+        "joint-l-finger-1-1",
+        "joint-l-finger-1-2",
+        "joint-l-finger-1-3",
+        "joint-l-finger-1-4",
+        "joint-l-finger-2-1",
+        "joint-l-finger-2-2",
+        "joint-l-finger-2-3",
+        "joint-l-finger-2-4",
+        "joint-l-finger-3-1",
+        "joint-l-finger-3-2",
+        "joint-l-finger-3-3",
+        "joint-l-finger-3-4",
+        "joint-l-finger-4-1",
+        "joint-l-finger-4-2",
+        "joint-l-finger-4-3",
+        "joint-l-finger-4-4",
+        "joint-l-finger-5-1",
+        "joint-l-finger-5-2",
+        "joint-l-finger-5-3",
+        "joint-l-finger-5-4",
+        "joint-l-foot-1",
+        "joint-l-foot-2",
+        "joint-l-hand",
+        "joint-l-hand-2",
+        "joint-l-hand-3",
+        "joint-l-knee",
+        "joint-l-lowerlid",
+        "joint-l-scapula",
+        "joint-l-shoulder",
+        "joint-l-toe-1-1",
+        "joint-l-toe-1-2",
+        "joint-l-toe-1-3",
+        "joint-l-toe-2-1",
+        "joint-l-toe-2-2",
+        "joint-l-toe-2-3",
+        "joint-l-toe-2-4",
+        "joint-l-toe-3-1",
+        "joint-l-toe-3-2",
+        "joint-l-toe-3-3",
+        "joint-l-toe-3-4",
+        "joint-l-toe-4-1",
+        "joint-l-toe-4-2",
+        "joint-l-toe-4-3",
+        "joint-l-toe-4-4",
+        "joint-l-toe-5-1",
+        "joint-l-toe-5-2",
+        "joint-l-toe-5-3",
+        "joint-l-toe-5-4",
+        "joint-l-upper-leg",
+        "joint-l-upperlid",
+        "joint-mouth",
+        "joint-neck",
+        "joint-pelvis",
+        "joint-r-ankle",
+        "joint-r-clavicle",
+        "joint-r-elbow",
+        "joint-r-eye",
+        "joint-r-eye-target",
+        "joint-r-finger-1-1",
+        "joint-r-finger-1-2",
+        "joint-r-finger-1-3",
+        "joint-r-finger-1-4",
+        "joint-r-finger-2-1",
+        "joint-r-finger-2-2",
+        "joint-r-finger-2-3",
+        "joint-r-finger-2-4",
+        "joint-r-finger-3-1",
+        "joint-r-finger-3-2",
+        "joint-r-finger-3-3",
+        "joint-r-finger-3-4",
+        "joint-r-finger-4-1",
+        "joint-r-finger-4-2",
+        "joint-r-finger-4-3",
+        "joint-r-finger-4-4",
+        "joint-r-finger-5-1",
+        "joint-r-finger-5-2",
+        "joint-r-finger-5-3",
+        "joint-r-finger-5-4",
+        "joint-r-foot-1",
+        "joint-r-foot-2",
+        "joint-r-hand",
+        "joint-r-hand-2",
+        "joint-r-hand-3",
+        "joint-r-knee",
+        "joint-r-lowerlid",
+        "joint-r-scapula",
+        "joint-r-shoulder",
+        "joint-r-toe-1-1",
+        "joint-r-toe-1-2",
+        "joint-r-toe-1-3",
+        "joint-r-toe-2-1",
+        "joint-r-toe-2-2",
+        "joint-r-toe-2-3",
+        "joint-r-toe-2-4",
+        "joint-r-toe-3-1",
+        "joint-r-toe-3-2",
+        "joint-r-toe-3-3",
+        "joint-r-toe-3-4",
+        "joint-r-toe-4-1",
+        "joint-r-toe-4-2",
+        "joint-r-toe-4-3",
+        "joint-r-toe-4-4",
+        "joint-r-toe-5-1",
+        "joint-r-toe-5-2",
+        "joint-r-toe-5-3",
+        "joint-r-toe-5-4",
+        "joint-r-upper-leg",
+        "joint-r-upperlid",
+        "joint-spine-1",
+        "joint-spine-2",
+        "joint-spine-3",
+        "joint-spine-4",
+        "joint-tongue-1",
+        "joint-tongue-2",
+        "joint-tongue-3",
+        "joint-tongue-4",
+        "nippleTip",
+        "nipple",
+        "lips",
+        "fingernails",
+        "toenails",
+        "ears",
+        "scalp",
+        "genitals"
+      ],
+      "caja_local": {
+        "min": [
+          -0.49732,
+          -0.32564,
+          -0.02714
+        ],
+        "max": [
+          0.49732,
+          0.11034,
+          1.66741
+        ]
+      }
+    }
+  ],
+  "referencias_reposo": [
+    {
+      "nombre": "root",
+      "padre": null,
+      "cabeza_mundo": [
+        -0.03652,
+        0.10754,
+        1.35288
+      ],
+      "cola_mundo": [
+        -0.03652,
+        0.02944,
+        1.35722
+      ],
+      "cabeza_malla_local": [
+        0.0,
+        0.06489,
+        0.86955
+      ],
+      "cola_malla_local": [
+        0.0,
+        -0.01322,
+        0.87389
+      ]
+    },
+    {
+      "nombre": "pelvis.L",
+      "padre": "root",
+      "cabeza_mundo": [
+        -0.03652,
+        0.02944,
+        1.35722
+      ],
+      "cola_mundo": [
+        0.06496,
+        0.03765,
+        1.34898
+      ],
+      "cabeza_malla_local": [
+        0.0,
+        -0.01322,
+        0.87389
+      ],
+      "cola_malla_local": [
+        0.10147,
+        -0.005,
+        0.86564
+      ]
+    },
+    {
+      "nombre": "pelvis.R",
+      "padre": "root",
+      "cabeza_mundo": [
+        -0.03652,
+        0.02944,
+        1.35722
+      ],
+      "cola_mundo": [
+        -0.13799,
+        0.03765,
+        1.34898
+      ],
+      "cabeza_malla_local": [
+        0.0,
+        -0.01322,
+        0.87389
+      ],
+      "cola_malla_local": [
+        -0.10147,
+        -0.005,
+        0.86564
+      ]
+    },
+    {
+      "nombre": "upperleg01.L",
+      "padre": "pelvis.L",
+      "cabeza_mundo": [
+        0.06496,
+        0.03765,
+        1.34898
+      ],
+      "cola_mundo": [
+        0.06754,
+        0.01217,
+        1.27084
+      ],
+      "cabeza_malla_local": [
+        0.10147,
+        -0.005,
+        0.86564
+      ],
+      "cola_malla_local": [
+        0.10406,
+        -0.03049,
+        0.78751
+      ]
+    },
+    {
+      "nombre": "upperleg01.R",
+      "padre": "pelvis.R",
+      "cabeza_mundo": [
+        -0.13799,
+        0.03765,
+        1.34898
+      ],
+      "cola_mundo": [
+        -0.14057,
+        0.01217,
+        1.27084
+      ],
+      "cabeza_malla_local": [
+        -0.10147,
+        -0.005,
+        0.86564
+      ],
+      "cola_malla_local": [
+        -0.10406,
+        -0.03049,
+        0.78751
+      ]
+    },
+    {
+      "nombre": "upperleg02.L",
+      "padre": "upperleg01.L",
+      "cabeza_mundo": [
+        0.06754,
+        0.01217,
+        1.27084
+      ],
+      "cola_mundo": [
+        0.10612,
+        0.00533,
+        0.95775
+      ],
+      "cabeza_malla_local": [
+        0.10406,
+        -0.03049,
+        0.78751
+      ],
+      "cola_malla_local": [
+        0.14264,
+        -0.03733,
+        0.47442
+      ]
+    },
+    {
+      "nombre": "upperleg02.R",
+      "padre": "upperleg01.R",
+      "cabeza_mundo": [
+        -0.14057,
+        0.01217,
+        1.27084
+      ],
+      "cola_mundo": [
+        -0.17916,
+        0.00533,
+        0.95775
+      ],
+      "cabeza_malla_local": [
+        -0.10406,
+        -0.03049,
+        0.78751
+      ],
+      "cola_malla_local": [
+        -0.14264,
+        -0.03733,
+        0.47442
+      ]
+    },
+    {
+      "nombre": "lowerleg01.L",
+      "padre": "upperleg02.L",
+      "cabeza_mundo": [
+        0.10612,
+        0.00533,
+        0.95775
+      ],
+      "cola_mundo": [
+        0.12597,
+        0.01369,
+        0.75656
+      ],
+      "cabeza_malla_local": [
+        0.14264,
+        -0.03733,
+        0.47442
+      ],
+      "cola_malla_local": [
+        0.16248,
+        -0.02896,
+        0.27322
+      ]
+    },
+    {
+      "nombre": "lowerleg01.R",
+      "padre": "upperleg02.R",
+      "cabeza_mundo": [
+        -0.17916,
+        0.00533,
+        0.95775
+      ],
+      "cola_mundo": [
+        -0.199,
+        0.01369,
+        0.75656
+      ],
+      "cabeza_malla_local": [
+        -0.14264,
+        -0.03733,
+        0.47442
+      ],
+      "cola_malla_local": [
+        -0.16248,
+        -0.02896,
+        0.27322
+      ]
+    },
+    {
+      "nombre": "foot.L",
+      "padre": "lowerleg02.L",
+      "cabeza_mundo": [
+        0.14446,
+        0.02021,
+        0.5525
+      ],
+      "cola_mundo": [
+        0.14987,
+        -0.09664,
+        0.49227
+      ],
+      "cabeza_malla_local": [
+        0.18097,
+        -0.02244,
+        0.06917
+      ],
+      "cola_malla_local": [
+        0.18639,
+        -0.13929,
+        0.00894
+      ]
+    },
+    {
+      "nombre": "foot.R",
+      "padre": "lowerleg02.R",
+      "cabeza_mundo": [
+        -0.21749,
+        0.02021,
+        0.5525
+      ],
+      "cola_mundo": [
+        -0.2229,
+        -0.09664,
+        0.49227
+      ],
+      "cabeza_malla_local": [
+        -0.18097,
+        -0.02244,
+        0.06917
+      ],
+      "cola_malla_local": [
+        -0.18639,
+        -0.13929,
+        0.00894
+      ]
+    },
+    {
+      "nombre": "toe1-1.L",
+      "padre": "foot.L",
+      "cabeza_mundo": [
+        0.14987,
+        -0.09664,
+        0.49227
+      ],
+      "cola_mundo": [
+        0.15209,
+        -0.17356,
+        0.49979
+      ],
+      "cabeza_malla_local": [
+        0.18639,
+        -0.13929,
+        0.00894
+      ],
+      "cola_malla_local": [
+        0.1886,
+        -0.21621,
+        0.01645
+      ]
+    },
+    {
+      "nombre": "toe1-1.R",
+      "padre": "foot.R",
+      "cabeza_mundo": [
+        -0.2229,
+        -0.09664,
+        0.49227
+      ],
+      "cola_mundo": [
+        -0.22512,
+        -0.17356,
+        0.49979
+      ],
+      "cabeza_malla_local": [
+        -0.18639,
+        -0.13929,
+        0.00894
+      ],
+      "cola_malla_local": [
+        -0.1886,
+        -0.21621,
+        0.01645
+      ]
+    }
+  ],
+  "nota": "Un grupo de vértices que coincide con un hueso es un peso de deformación. No es el límite anatómico de un músculo."
+}

@@ -4,15 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cyber-HUD</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css?v=logo">
 </head>
 <body>
     <a class="skip-link" href="#catalogo" data-i18n="skipCatalog">Saltar al catálogo</a>
 
     <header class="hud-header">
         <div class="hud-brand">
-            <p class="hud-kicker">Fitness OS</p>
-            <h1>Cyber-HUD</h1>
+            <img class="logo" src="logo.png" alt="">
+            <div>
+                <p class="hud-kicker">Fitness OS</p>
+                <h1>Cyber-HUD</h1>
+            </div>
         </div>
         <div
             id="lang-switch"
@@ -27,9 +30,16 @@
     </header>
 
     <main class="hud-grid">
-        <aside class="hud-column" aria-labelledby="biocinetica-title">
-            <h2 id="biocinetica-title" class="hud-heading" data-i18n="biocineticaTitle">BIOCINÉTICA</h2>
-            <p id="biocinetica-help" class="hud-help" data-i18n="biocineticaDesc">Pulsa una zona del cuerpo (frente o espalda) o un chip. Filtra el catálogo por MUSCLE_ID.</p>
+        <aside class="hud-column hud-column--bio" aria-labelledby="biocinetica-title">
+            <div class="muscle-picker__bar">
+                <h2 id="biocinetica-title" class="hud-heading muscle-picker__heading" data-i18n="biocineticaTitle">BIOCINÉTICA</h2>
+                <div class="muscle-picker__links">
+                    <button type="button" id="muscle-select-all" class="muscle-picker__link" data-i18n="equipTodos">Seleccionar todo</button>
+                    <button type="button" id="muscle-reset" class="muscle-picker__link" data-i18n="equipReset">Restablecer</button>
+                </div>
+            </div>
+            <p class="muscle-picker__lead" data-i18n="biocineticaPick">Selecciona tu grupo muscular</p>
+            <p id="biocinetica-help" class="muscle-picker__sub" data-i18n="biocineticaDesc">Elige un grupo para filtrar el catálogo. El mapa y las tarjetas van al mismo filtro.</p>
             <div id="body-board" class="body-board" role="group" aria-labelledby="biocinetica-title" aria-describedby="biocinetica-help">
                 <svg class="body-svg" viewBox="0 0 250 300" xmlns="http://www.w3.org/2000/svg">
                     <text x="55" y="14" class="body-svg-label" data-i18n="bodyFront">Frente</text>
@@ -122,10 +132,12 @@
             </div>
             <div
                 id="muscle-map"
-                class="muscle-map"
+                class="muscle-grid"
                 role="group"
                 aria-labelledby="biocinetica-title"
+                aria-describedby="biocinetica-help"
             ></div>
+            <p id="muscle-count" class="muscle-picker__count"></p>
         </aside>
 
         <section id="catalogo" class="hud-column hud-column--feed" aria-labelledby="catalogo-title">
@@ -141,6 +153,59 @@
                     aria-describedby="hud-status"
                 >
             </div>
+            <fieldset class="catalog-filter">
+                <legend class="search-label" data-i18n="lblEquipo">EQUIPO</legend>
+                <div class="equip-dial" id="equip-dial" role="group" aria-labelledby="equip-current">
+                    <div class="equip-dial__face" aria-hidden="true">
+                        <span class="equip-dial__tube equip-dial__tube--outer"></span>
+                        <span class="equip-dial__tube"></span>
+                        <span class="equip-dial__tube equip-dial__tube--inner"></span>
+                    </div>
+                    <div class="equip-dial__core">
+                        <button type="button" class="equip-dial__play-btn" tabindex="-1" aria-hidden="true">
+                            <svg viewBox="0 0 72 72">
+                                <defs>
+                                    <linearGradient id="play-a" x1="0" y1="0" x2="1" y2="1">
+                                        <stop offset="0%" stop-color="#f0fdff" />
+                                        <stop offset="55%" stop-color="#67e8f9" />
+                                        <stop offset="100%" stop-color="#22d3ee" />
+                                    </linearGradient>
+                                    <linearGradient id="play-b" x1="0" y1="0" x2="0" y2="1">
+                                        <stop offset="0%" stop-color="#67e8f9" />
+                                        <stop offset="100%" stop-color="#7c3aed" />
+                                    </linearGradient>
+                                    <linearGradient id="play-c" x1="1" y1="0" x2="0" y2="1">
+                                        <stop offset="0%" stop-color="#a5f3fc" />
+                                        <stop offset="100%" stop-color="#db2777" />
+                                    </linearGradient>
+                                </defs>
+                                <path d="M16 8 62 36 16 64Z" fill="#67e8f9" opacity="0.16" />
+                                <path d="M18 12 58 36 24 36Z" fill="url(#play-a)" />
+                                <path d="M18 60 58 36 24 36Z" fill="url(#play-c)" />
+                                <path d="M18 12 18 60 24 36Z" fill="url(#play-b)" />
+                                <path d="M26 24 48 36 26 48Z" fill="none" stroke="#f8fbff" stroke-width="2.2" stroke-linejoin="round" />
+                            </svg>
+                        </button>
+                        <p id="equip-current" class="equip-dial__current" aria-live="polite">Todos</p>
+                    </div>
+                    <div
+                        id="equip-map"
+                        class="equip-dial__labels"
+                        role="listbox"
+                        data-i18n-aria="lblEquipo"
+                        aria-label="EQUIPO"
+                    ></div>
+                </div>
+                <div class="equip-dial__actions">
+                    <button type="button" id="equip-select-all" class="equip-dial__link" data-i18n="equipTodos">Seleccionar todo</button>
+                    <button type="button" id="equip-reset" class="equip-dial__link" data-i18n="equipReset">Restablecer</button>
+                </div>
+                <div id="equip-icons" class="equip-dial__icons" role="group" data-i18n-aria="lblEquipo"></div>
+            </fieldset>
+            <fieldset class="catalog-filter">
+                <legend class="search-label" data-i18n="lblNivel">NIVEL</legend>
+                <div id="nivel-map" class="muscle-map"></div>
+            </fieldset>
             <p id="hud-status" class="hud-status" role="status" aria-live="polite" hidden></p>
             <div id="exercise-feed" class="exercise-feed"></div>
             <nav id="hud-pagination" class="hud-pagination" data-i18n-aria="paginationNav" aria-label="Paginación"></nav>
@@ -149,14 +214,15 @@
         <aside class="hud-column" aria-labelledby="safe-green-legend">
             <fieldset class="safe-green" aria-describedby="safe-green-help">
                 <legend id="safe-green-legend" data-i18n="safeGreenTitle">MODO SAFE-GREEN</legend>
-                <p id="safe-green-help" class="hud-help" data-i18n="safeGreenDesc">Inclusión, no “modo fácil”. El primer filtro deja ejercicios cuyo motor no son las piernas (silla, silla de ruedas o tren superior sentado, incluidas poleas). Un press de gemelos sentado sigue siendo de piernas. No sustituye consejo médico. El segundo filtro reduce el golpe articular.</p>
+                <p id="safe-green-help" class="safe-green__help" data-i18n="safeGreenDesc">Inclusión real, no “modo fácil”. El primer filtro está diseñado para personas con movilidad reducida en el tren inferior: aísla 80 ejercicios donde el motor no son las piernas (ideales para silla de ruedas o poleas), eliminando falsos positivos como el press de gemelos sentado. El segundo filtro muestra exclusivamente estiramientos.
+Nota: Esta herramienta clasifica datos técnicos y no sustituye el consejo médico profesional.</p>
                 <label class="accessibility-label" for="toggle-seated">
                     <input type="checkbox" id="toggle-seated" aria-describedby="safe-green-help">
                     <span data-i18n="chkSentada">Sin usar las piernas (silla / polea sentada)</span>
                 </label>
                 <label class="accessibility-label" for="toggle-impact">
                     <input type="checkbox" id="toggle-impact">
-                    <span data-i18n="chkImpacto">Bajo impacto articular</span>
+                    <span data-i18n="chkImpacto">Solo estiramientos</span>
                 </label>
             </fieldset>
 
@@ -221,6 +287,6 @@
         </form>
     </dialog>
 
-    <script src="app.js"></script>
+    <script src="app.js?v=visor-ficha"></script>
 </body>
 </html>

@@ -20,6 +20,8 @@ Thumbs.db
 
 # Opiniones del diálogo de sugerencias (datos locales)
 backend/feedback.json
+backend/feedback.json.lock
+backend/feedback.json.tmp
 
 # Repos git anidados dentro de data/
 data/.git/
