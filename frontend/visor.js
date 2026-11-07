@@ -3,11 +3,127 @@ import { OrbitControls } from "three/addons/controls/OrbitControls.js";
 import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
 import { catalogoVisor } from "./visor-catalogo.js?v=zapatos";
 import { zonaMuscular } from "./visor-musculos.js?v=senales";
-import { colocarSenales } from "./visor-senales.js?v=fichas2";
-import { instruccionesDe } from "./visor-instrucciones.js?v=fichas1";
+import { colocarSenales, tieneMascara } from "./visor-senales.js?v=seleccion3";
+import { instruccionesDe } from "./visor-instrucciones.js?v=idioma1";
+import { familiaDe, prepararClips } from "./visor-poses.js?v=poses9";
 
 const ejercicioMuestra = catalogoVisor.ejercicios[0];
 const idFicha = leerIdFicha();
+const CLAVE_IDIOMA = "biocinetica-idioma";
+const idioma = (() => {
+    try {
+        return localStorage.getItem(CLAVE_IDIOMA) === "EN" ? "EN" : "ES";
+    } catch {
+        return "ES";
+    }
+})();
+
+const textos = {
+    ES: {
+        cargar: "Cargando el maniquí…",
+        volver: "Volver al catálogo",
+        mujer: "Mujer",
+        hombre: "Hombre",
+        restablecer: "Restablecer vista",
+        reproducir: "Reproducir",
+        pausa: "Pausa",
+        progreso: "Progreso",
+        velocidad: "Velocidad",
+        musculos: "Músculos trabajados",
+        verMusculos: "Ver músculos",
+        frente: "Frente",
+        espalda: "Espalda",
+        instrucciones: "Instrucciones",
+        sinInstrucciones: "Este ejercicio todavía no tiene instrucciones.",
+        panelMusculos: "Músculos del ejercicio",
+        cerrar: "Cerrar",
+        mostrarTodos: "Mostrar todos",
+        sinResaltado: "Sin resaltado",
+        verFrente: "Ver frente",
+        verEspalda: "Ver espalda",
+        sinMusculos: "Este ejercicio no tiene músculos asociados.",
+        sinMarca: "sin marca en el avatar",
+        noEjercicio: "No se encontró ese ejercicio.",
+        noFicha: "No se pudo leer la ficha. Revisa que FastAPI esté en el puerto 8000.",
+        noPersonaje: "El catálogo del visor no tiene ese personaje.",
+        sinClips: "Este modelo no trae animaciones.",
+        sinPista: "No está la animación {pista}.",
+        sinAnimacion: "{nombre} todavía no tiene animación.",
+        noModelo: "No se pudo cargar el modelo. Abre esta página desde FastAPI, en el puerto 8000.",
+        visor: "Visor 3D",
+        personaje: "Personaje",
+        animacion: "Animación",
+        principal: "principal",
+        secundario: "secundario",
+        muestra: "Sentadilla con peso corporal",
+    },
+    EN: {
+        cargar: "Loading the mannequin…",
+        volver: "Back to catalog",
+        mujer: "Woman",
+        hombre: "Man",
+        restablecer: "Reset view",
+        reproducir: "Play",
+        pausa: "Pause",
+        progreso: "Progress",
+        velocidad: "Speed",
+        musculos: "Muscles worked",
+        verMusculos: "View muscles",
+        frente: "Front",
+        espalda: "Back",
+        instrucciones: "Instructions",
+        sinInstrucciones: "This exercise does not have instructions yet.",
+        panelMusculos: "Exercise muscles",
+        cerrar: "Close",
+        mostrarTodos: "Show all",
+        sinResaltado: "No highlight",
+        verFrente: "View front",
+        verEspalda: "View back",
+        sinMusculos: "This exercise has no linked muscles.",
+        sinMarca: "no mark on the avatar",
+        noEjercicio: "That exercise was not found.",
+        noFicha: "Could not read the exercise. Check that FastAPI is running on port 8000.",
+        noPersonaje: "The viewer catalog does not include that character.",
+        sinClips: "This model has no animations.",
+        sinPista: "Animation {pista} is missing.",
+        sinAnimacion: "{nombre} does not have an animation yet.",
+        noModelo: "Could not load the model. Open this page from FastAPI, on port 8000.",
+        visor: "3D viewer",
+        personaje: "Character",
+        animacion: "Animation",
+        principal: "primary",
+        secundario: "secondary",
+        muestra: "Bodyweight squat",
+    },
+};
+
+const MUSCULO_EN = {
+    cuadriceps: "Quadriceps",
+    gluteos: "Glutes",
+    isquiotibiales: "Hamstrings",
+    abductores: "Abductors",
+    aductores: "Adductors",
+    gemelos: "Calves",
+    abdominales: "Abs",
+    pectorales: "Pectorals",
+    deltoides: "Deltoids",
+    biceps: "Biceps",
+    triceps: "Triceps",
+    dorsales: "Lats",
+    espalda_media: "Mid back",
+    lumbar: "Lower back",
+    trapecios: "Traps",
+    antebrazos: "Forearms",
+    cuello: "Neck",
+};
+
+function tx(clave) {
+    return textos[idioma][clave];
+}
+
+function frase(clave, datos) {
+    return tx(clave).replace(/\{(\w+)\}/g, (_, campo) => datos[campo] ?? "");
+}
 
 const canvas = document.querySelector("#visor");
 const estado = document.querySelector("#estado");
@@ -63,6 +179,7 @@ let arrastrando = false;
 let tiempoPendiente = 0;
 let senal = null;
 let musculosActivos = [];
+let seleccionMarca = "todos";
 let tiempoSenales = 0;
 let vistaFrontal = null;
 const reloj = new THREE.Clock();
@@ -98,12 +215,12 @@ function aplicarVelocidad(valor) {
     if (action) action.timeScale = valor;
     const texto = `${valor}×`;
     botonVelocidad.textContent = texto;
-    botonVelocidad.setAttribute("aria-label", `Velocidad ${texto}`);
+    botonVelocidad.setAttribute("aria-label", `${tx("velocidad")} ${texto}`);
 }
 
 function actualizarPlay() {
     botonPlay.setAttribute("aria-pressed", reproduciendo ? "true" : "false");
-    botonPlay.setAttribute("aria-label", reproduciendo ? "Pausa" : "Reproducir");
+    botonPlay.setAttribute("aria-label", reproduciendo ? tx("pausa") : tx("reproducir"));
     iconoPlay.style.display = reproduciendo ? "block" : "none";
     iconoPausa.style.display = reproduciendo ? "none" : "block";
 }
@@ -180,6 +297,7 @@ function aplicarEncuadre(objetivo, caja, referencia) {
         objetivo: controls.target.clone(),
     };
     botonVista.disabled = false;
+    orientarMarca();
 }
 
 function encuadrar(objeto) {
@@ -224,8 +342,9 @@ function leerIdFicha() {
 }
 
 function tituloDe(ficha) {
-    if (!ficha) return ejercicioMuestra.nombre;
-    return ficha.TITLE_ES || ficha.TITLE_EN || ejercicioMuestra.nombre;
+    if (!ficha) return tx("muestra");
+    if (idioma === "EN") return ficha.TITLE_EN || ficha.TITLE_ES || tx("muestra");
+    return ficha.TITLE_ES || ficha.TITLE_EN || tx("muestra");
 }
 
 function tieneSentadilla(ficha) {
@@ -292,7 +411,7 @@ botonesSexo.forEach((boton) => {
         sexo = boton.dataset.sexo;
         marcarSexo();
         pintarVistas();
-        cargarModelo(nombreFicha, puedeReproducir);
+        cargarModelo(nombreFicha, puedeReproducir, familiaActiva);
     });
 });
 
@@ -300,12 +419,54 @@ window.addEventListener("resize", ajustar);
 ajustar();
 cuadro();
 
-let nombreFicha = ejercicioMuestra.nombre;
+let nombreFicha = tx("muestra");
 let puedeReproducir = true;
+let familiaActiva = "sentadilla";
 let fichaLista = false;
+
+function ponerTexto(selector, clave) {
+    const el = document.querySelector(selector);
+    if (el) el.textContent = tx(clave);
+}
+
+function ponerTextoFinal(selector, clave) {
+    const el = document.querySelector(selector);
+    if (!el) return;
+    const nodo = [...el.childNodes].reverse().find((item) => item.nodeType === Node.TEXT_NODE && item.textContent.trim());
+    if (nodo) nodo.textContent = ` ${tx(clave)}`;
+}
+
+function aplicarInterfaz() {
+    document.documentElement.lang = idioma === "EN" ? "en" : "es";
+    ponerTexto("#estado", "cargar");
+    ponerTexto("#volver", "volver");
+    ponerTexto("#restablecer-vista", "restablecer");
+    ponerTexto("#musculos-titulo", "musculos");
+    ponerTexto("#instrucciones-titulo", "instrucciones");
+    ponerTexto("#instrucciones-vacio", "sinInstrucciones");
+    ponerTexto("#musculos-panel-titulo", "panelMusculos");
+    ponerTexto("#musculos-todos", "mostrarTodos");
+    ponerTexto("#musculos-ninguno", "sinResaltado");
+    ponerTexto("#mirar-frente", "verFrente");
+    ponerTexto("#mirar-espalda", "verEspalda");
+    ponerTexto("#musculos-vacio", "sinMusculos");
+    document.querySelectorAll(".musculos-vistas figcaption").forEach((el, indice) => {
+        el.textContent = tx(indice === 0 ? "frente" : "espalda");
+    });
+    ponerTextoFinal("[data-sexo='mujer']", "mujer");
+    ponerTextoFinal("[data-sexo='hombre']", "hombre");
+    ponerTextoFinal("#ver-musculos", "verMusculos");
+    document.querySelector(".sexos")?.setAttribute("aria-label", tx("personaje"));
+    document.querySelector(".controles")?.setAttribute("aria-label", tx("animacion"));
+    progreso.setAttribute("aria-label", tx("progreso"));
+    document.querySelector("#cerrar-musculos")?.setAttribute("aria-label", tx("cerrar"));
+    aplicarVelocidad(velocidad);
+    actualizarPlay();
+}
 
 bloquearControles(true);
 marcarSexo();
+aplicarInterfaz();
 if (idFicha != null) volver.href = `/#ejercicio=${idFicha}`;
 abrirFicha();
 
@@ -315,29 +476,30 @@ async function abrirFicha() {
         try {
             const respuesta = await fetch(`/api/ejercicios/${idFicha}`);
             if (!respuesta.ok) {
-                decir("No se encontró ese ejercicio.");
+                decir(tx("noEjercicio"));
                 return;
             }
             ficha = await respuesta.json();
         } catch (error) {
-            decir("No se pudo leer la ficha. Revisa que FastAPI esté en el puerto 8000.");
+            decir(tx("noFicha"));
             return;
         }
     }
 
     nombreFicha = tituloDe(ficha);
     titulo.textContent = nombreFicha;
-    document.title = `${nombreFicha} · Visor 3D`;
-    puedeReproducir = ficha == null || tieneSentadilla(ficha);
+    document.title = `${nombreFicha} · ${tx("visor")}`;
+    familiaActiva = familiaDe(ficha);
+    puedeReproducir = familiaActiva != null;
     fichaLista = true;
     const esSentadilla = ficha == null || tieneSentadilla(ficha);
     pintarMusculos(ficha, esSentadilla);
-    pintarInstrucciones(ficha, esSentadilla);
-    cargarModelo(nombreFicha, puedeReproducir);
+    pintarInstrucciones(ficha);
+    cargarModelo(nombreFicha, puedeReproducir, familiaActiva);
 }
 
-function pintarInstrucciones(ficha, esSentadilla) {
-    const pasos = instruccionesDe(ficha, esSentadilla);
+function pintarInstrucciones(ficha) {
+    const pasos = instruccionesDe(ficha, idioma);
     const lista = document.querySelector("#instrucciones-lista");
     const vacio = document.querySelector("#instrucciones-vacio");
     lista.replaceChildren();
@@ -371,24 +533,90 @@ function pintarVistas() {
     const par = vistasFigura[sexo] || vistasFigura.mujer;
     const frente = document.querySelector("#vista-frente");
     const espalda = document.querySelector("#vista-espalda");
-    const etiqueta = sexo === "hombre" ? "Hombre" : "Mujer";
+    const etiqueta = tx(sexo === "hombre" ? "hombre" : "mujer");
     frente.src = par.frente;
-    frente.alt = `${etiqueta} de frente`;
+    frente.alt = idioma === "EN" ? `${etiqueta}, front view` : `${etiqueta} de frente`;
     espalda.src = par.espalda;
-    espalda.alt = `${etiqueta} de espalda`;
+    espalda.alt = idioma === "EN" ? `${etiqueta}, back view` : `${etiqueta} de espalda`;
 }
 
 pintarVistas();
 
+function musculosMarcados() {
+    if (seleccionMarca === "ninguno") return [];
+    if (seleccionMarca === "todos") return musculosActivos;
+    return musculosActivos.filter((musculo) => musculo.id === seleccionMarca);
+}
+
+function pintarSeleccion() {
+    const todos = document.querySelector("#musculos-todos");
+    const ninguno = document.querySelector("#musculos-ninguno");
+    if (todos) todos.setAttribute("aria-pressed", String(seleccionMarca === "todos"));
+    if (ninguno) ninguno.setAttribute("aria-pressed", String(seleccionMarca === "ninguno"));
+    document.querySelectorAll("[data-musculo]").forEach((boton) => {
+        boton.setAttribute("aria-pressed", String(boton.dataset.musculo === seleccionMarca));
+    });
+}
+
+function refrescarMarca() {
+    if (!modeloActual) return;
+    if (senal) senal.quitar();
+    senal = colocarSenales(modeloActual, musculosMarcados(), sexo);
+    window.__visorAvisos = senal.avisos;
+}
+
+const MUSCULOS_ESPALDA = new Set([
+    "gluteos",
+    "isquiotibiales",
+    "gemelos",
+    "triceps",
+    "dorsales",
+    "espalda_media",
+    "lumbar",
+    "trapecios",
+]);
+
+function ladoDeMarca() {
+    const grupo = seleccionMarca === "todos" || seleccionMarca === "ninguno";
+    const ids = grupo ? musculosActivos.map((musculo) => musculo.id) : [seleccionMarca];
+    if (!ids.length) return null;
+    if (ids.every((id) => MUSCULOS_ESPALDA.has(id))) return "espalda";
+    if (!grupo && ids.every((id) => !MUSCULOS_ESPALDA.has(id))) return "frente";
+    return null;
+}
+
+function orientarMarca() {
+    const lado = ladoDeMarca();
+    if (lado) mirarLado(lado);
+}
+
+function elegirMarca(valor) {
+    seleccionMarca = valor;
+    pintarSeleccion();
+    refrescarMarca();
+    orientarMarca();
+}
+
+function mirarLado(lado) {
+    if (!vistaFrontal) return;
+    const delta = vistaFrontal.posicion.clone().sub(vistaFrontal.objetivo);
+    if (lado === "espalda") delta.multiplyScalar(-1);
+    camera.position.copy(vistaFrontal.objetivo).add(delta);
+    controls.target.copy(vistaFrontal.objetivo);
+    controls.update();
+}
+
 function pintarMusculos(ficha, esSentadilla) {
     const zona = zonaMuscular(ficha, esSentadilla);
     musculosActivos = zona ? zona.musculos : [];
+    seleccionMarca = "todos";
     const leyenda = document.querySelector("#musculos-leyenda");
     const vacio = document.querySelector("#musculos-vacio");
     leyenda.replaceChildren();
     if (!zona || !zona.musculos.length) {
         leyenda.hidden = true;
         vacio.hidden = false;
+        pintarSeleccion();
         return;
     }
     vacio.hidden = true;
@@ -396,12 +624,25 @@ function pintarMusculos(ficha, esSentadilla) {
 
     zona.musculos.forEach((musculo) => {
         const item = document.createElement("li");
+        const boton = document.createElement("button");
+        boton.type = "button";
+        boton.className = "musculo-opcion";
+        boton.dataset.musculo = musculo.id;
         const punto = document.createElement("span");
         punto.className = `punto punto-${musculo.papel}`;
         punto.setAttribute("aria-hidden", "true");
-        item.append(punto, document.createTextNode(`${musculo.nombre} (${musculo.papel})`));
+        const texto = document.createElement("span");
+        const nombre = idioma === "EN" ? (MUSCULO_EN[musculo.id] || musculo.nombre) : musculo.nombre;
+        const papel = tx(musculo.papel === "secundario" ? "secundario" : "principal");
+        texto.textContent = tieneMascara(musculo.id)
+            ? `${nombre} (${papel})`
+            : `${nombre} (${papel}) · ${tx("sinMarca")}`;
+        if (!tieneMascara(musculo.id)) boton.disabled = true;
+        boton.append(punto, texto);
+        item.append(boton);
         leyenda.append(item);
     });
+    pintarSeleccion();
 }
 
 function iniciarPanelMusculos() {
@@ -467,6 +708,15 @@ function iniciarPanelMusculos() {
     }
 
     boton.addEventListener("click", alternar);
+    document.querySelector("#musculos-todos").addEventListener("click", () => elegirMarca("todos"));
+    document.querySelector("#musculos-ninguno").addEventListener("click", () => elegirMarca("ninguno"));
+    document.querySelector("#mirar-frente").addEventListener("click", () => mirarLado("frente"));
+    document.querySelector("#mirar-espalda").addEventListener("click", () => mirarLado("espalda"));
+    document.querySelector("#musculos-leyenda").addEventListener("click", (evento) => {
+        const opcion = evento.target.closest("[data-musculo]");
+        if (!opcion || opcion.disabled) return;
+        elegirMarca(opcion.dataset.musculo);
+    });
     cerrar.addEventListener("click", () => ocultar(true));
     fondo.addEventListener("click", () => ocultar(true));
     document.addEventListener("pointerdown", (evento) => {
@@ -540,10 +790,10 @@ function aplicarColoresAvatar(raiz, sexoAvatar) {
     });
 }
 
-function cargarModelo(nombre, reproducir) {
+function cargarModelo(nombre, reproducir, familia) {
     const personaje = personajeActual();
     if (!personaje) {
-        decir("El catálogo del visor no tiene ese personaje.");
+        decir(tx("noPersonaje"));
         return;
     }
     const cargador = new GLTFLoader();
@@ -564,7 +814,7 @@ function cargarModelo(nombre, reproducir) {
             modeloActual = modelo;
             scene.add(modelo);
             aplicarColoresAvatar(modelo, pedido);
-            senal = colocarSenales(modelo, musculosActivos, pedido);
+            senal = colocarSenales(modelo, musculosMarcados(), pedido);
             if (senal.avisos.length) window.__visorAvisos = senal.avisos;
             encuadrar(modelo);
             reloj.getDelta();
@@ -573,16 +823,18 @@ function cargarModelo(nombre, reproducir) {
             const clip = THREE.AnimationClip.findByName(clips, ejercicioMuestra.clips[0].pista);
             window.__visor = { modelo, clips: clips.map((item) => item.name) };
             if (!clips.length) {
-                decir("Este modelo no trae animaciones.");
+                decir(tx("sinClips"));
                 return;
             }
             if (!clip) {
-                decir(`No está la animación ${ejercicioMuestra.clips[0].pista}.`);
+                decir(frase("sinPista", { pista: ejercicioMuestra.clips[0].pista }));
                 return;
             }
 
+            const preparados = prepararClips(modelo, clip);
+            const elegido = (familia && preparados[familia]) || preparados.sentadilla;
             mixer = new THREE.AnimationMixer(modelo);
-            action = mixer.clipAction(clip);
+            action = mixer.clipAction(elegido);
             action.setLoop(THREE.LoopRepeat, Infinity);
             action.timeScale = velocidad;
             action.clampWhenFinished = false;
@@ -593,25 +845,25 @@ function cargarModelo(nombre, reproducir) {
             mixer.update(0);
             encuadrarEjercicio(modelo, action);
             if (senal) senal.actualizar(tiempoSenales);
+            window.__visor.mixer = mixer;
+            window.__visor.action = action;
+            window.__visor.controls = controls;
+            window.__visor.familia = familia || null;
+            window.__visor.clipsPreparados = preparados;
             if (!reproducir) {
                 action.paused = true;
                 reproduciendo = false;
                 actualizarPlay();
-                decir(`${nombre} todavía no tiene animación.`);
-                window.__visor.action = action;
-                window.__visor.controls = controls;
+                decir(frase("sinAnimacion", { nombre }));
                 return;
             }
             bloquearControles(false);
             actualizarPlay();
             decir(nombre);
-            window.__visor.mixer = mixer;
-            window.__visor.action = action;
-            window.__visor.controls = controls;
         },
         undefined,
         () => {
-            decir("No se pudo cargar el modelo. Abre esta página desde FastAPI, en el puerto 8000.");
+            decir(tx("noModelo"));
         },
     );
 }

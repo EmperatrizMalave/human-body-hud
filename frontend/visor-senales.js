@@ -10,6 +10,7 @@ import * as THREE from "three";
 
 const colorTurquesa = new THREE.Color("#13B8A6");
 const colorCian = new THREE.Color("#28F0E7");
+const colorMenta = new THREE.Color("#8ee6b4");
 const colorChispa = new THREE.Color(0.02, 0.62, 0.5);
 
 // Las chispas nacen en la máscara calibrada y se quedan en la piel.
@@ -202,7 +203,7 @@ function pesoEnHueso(geometry, indice, hueso) {
     return suma;
 }
 
-function dobladillo(raiz) {
+function dobladillo(raiz, soloAtras) {
     let falda = null;
     raiz.traverse((obj) => {
         if (obj.isSkinnedMesh && /skirt/i.test(obj.name)) falda = obj;
@@ -210,7 +211,10 @@ function dobladillo(raiz) {
     if (!falda) return Infinity;
     const pos = falda.geometry.attributes.position;
     let minimo = Infinity;
-    for (let i = 0; i < pos.count; i += 1) minimo = Math.min(minimo, pos.getY(i));
+    for (let i = 0; i < pos.count; i += 1) {
+        if (soloAtras && pos.getZ(i) > -0.01) continue;
+        minimo = Math.min(minimo, pos.getY(i));
+    }
     return minimo;
 }
 
@@ -334,11 +338,19 @@ function mascaraPorHuesos(mesh, grupos, avisos, etiqueta) {
     return salida;
 }
 
-function mascaraGluteos(mesh, avisos) {
-    return mascaraPorHuesos(mesh, [
+function mascaraGluteos(mesh, raiz, avisos) {
+    const pesos = mascaraPorHuesos(mesh, [
         { nombres: LADOS_PELVIS, semilla: semillaGluteoPelvis },
         { nombres: LADOS_CADERA, semilla: semillaGluteoPierna },
     ], avisos, "gluteos");
+    if (!pesos || /skirt/i.test(mesh.name)) return pesos;
+    const bajo = dobladillo(raiz, true);
+    if (!Number.isFinite(bajo)) return pesos;
+    const pos = mesh.geometry.attributes.position;
+    for (let i = 0; i < pesos.length; i += 1) {
+        if (pos.getY(i) < bajo + 0.012) pesos[i] = 0;
+    }
+    return pesos;
 }
 
 function mascaraIsquios(mesh, avisos) {
@@ -441,6 +453,12 @@ const ZONAS_SUPERFICIE = {
         ],
     },
 };
+
+const IDS_CON_MASCARA = new Set(["cuadriceps", "gluteos", "isquiotibiales", ...Object.keys(ZONAS_SUPERFICIE)]);
+
+export function tieneMascara(id) {
+    return IDS_CON_MASCARA.has(id);
+}
 
 function mallaPrenda(raiz, patron) {
     let prenda = null;
@@ -556,7 +574,26 @@ function pesosCuadriceps(mesh, raiz, sexoAvatar, avisos) {
     return pesos && mascaraValida(pesos) ? pesos : null;
 }
 
-function aplicarMarca(mesh, raiz, pesos, avisos, yaDegradada) {
+function papelesDe(largo, valor) {
+    const salida = new Float32Array(largo);
+    salida.fill(valor);
+    return salida;
+}
+
+function combinarConPapel(partes) {
+    const pesos = new Float32Array(partes[0].pesos.length);
+    const papeles = new Float32Array(pesos.length);
+    partes.forEach((parte) => {
+        for (let i = 0; i < pesos.length; i += 1) {
+            if (parte.pesos[i] < pesos[i]) continue;
+            pesos[i] = parte.pesos[i];
+            papeles[i] = parte.papel;
+        }
+    });
+    return { pesos, papeles };
+}
+
+function aplicarMarca(mesh, raiz, pesos, avisos, yaDegradada, papeles) {
     const piel = materialPiel(mesh, raiz);
     if (!piel) {
         avisos.push("El material de la piel no admite la marca muscular.");
@@ -568,7 +605,9 @@ function aplicarMarca(mesh, raiz, pesos, avisos, yaDegradada) {
     }
     if (!yaDegradada) pesos = degradarMascara(pesos, mesh.geometry);
     const atributo = new THREE.BufferAttribute(pesos, 1);
+    const papelAtributo = new THREE.BufferAttribute(papeles && papeles.length === pesos.length ? papeles : papelesDe(pesos.length, 1), 1);
     mesh.geometry.setAttribute("aCuadriceps", atributo);
+    mesh.geometry.setAttribute("aPapel", papelAtributo);
     const { destino, propio } = piel;
     const compilarAntes = destino.onBeforeCompile;
     const claveAntes = destino.customProgramCacheKey;
@@ -576,32 +615,36 @@ function aplicarMarca(mesh, raiz, pesos, avisos, yaDegradada) {
         if (compilarAntes) compilarAntes(shader);
         shader.uniforms.uTurquesa = { value: colorTurquesa };
         shader.uniforms.uCian = { value: colorCian };
+        shader.uniforms.uMenta = { value: colorMenta };
         shader.vertexShader = shader.vertexShader
-            .replace("#include <common>", "#include <common>\nattribute float aCuadriceps;\nvarying float vCuadriceps;")
-            .replace("#include <begin_vertex>", "#include <begin_vertex>\nvCuadriceps = aCuadriceps;");
+            .replace("#include <common>", "#include <common>\nattribute float aCuadriceps;\nattribute float aPapel;\nvarying float vCuadriceps;\nvarying float vPapel;")
+            .replace("#include <begin_vertex>", "#include <begin_vertex>\nvCuadriceps = aCuadriceps;\nvPapel = aPapel;");
         shader.fragmentShader = shader.fragmentShader
-            .replace("#include <common>", "#include <common>\nvarying float vCuadriceps;\nuniform vec3 uTurquesa;\nuniform vec3 uCian;")
+            .replace("#include <common>", "#include <common>\nvarying float vCuadriceps;\nvarying float vPapel;\nuniform vec3 uTurquesa;\nuniform vec3 uCian;\nuniform vec3 uMenta;")
             .replace(
                 "#include <color_fragment>",
                 `#include <color_fragment>
                 float t = smoothstep(0.12, 0.92, vCuadriceps);
                 t = t * t;
-                diffuseColor.rgb = mix(diffuseColor.rgb, uTurquesa, t * 0.42);`,
+                vec3 tono = mix(uMenta, uTurquesa, vPapel);
+                diffuseColor.rgb = mix(diffuseColor.rgb, tono, t * 0.42);`,
             )
             .replace(
                 "#include <emissivemap_fragment>",
                 `#include <emissivemap_fragment>
-                totalEmissiveRadiance += uTurquesa * t * 0.05 + uCian * t * t * 0.03;`,
+                vec3 brilloMarca = mix(uMenta, uTurquesa, vPapel);
+                totalEmissiveRadiance += brilloMarca * t * 0.05 + mix(brilloMarca, uCian, vPapel) * t * t * 0.03;`,
             );
     };
     destino.customProgramCacheKey = function claveCuadriceps() {
-        return "cuadriceps-degradado";
+        return "marca-papel";
     };
     destino.needsUpdate = true;
     return {
         atributo,
         quitar() {
             mesh.geometry.deleteAttribute("aCuadriceps");
+            mesh.geometry.deleteAttribute("aPapel");
             destino.onBeforeCompile = compilarAntes;
             destino.customProgramCacheKey = claveAntes;
             destino.needsUpdate = true;
@@ -928,38 +971,56 @@ export function colocarSenales(raiz, musculos, sexoAvatar) {
     let limpiarCalibracion = () => {};
     let chispas = null;
     const pedidos = musculos || [];
-    const conMascara = new Set(["cuadriceps", "gluteos", "isquiotibiales", ...Object.keys(ZONAS_SUPERFICIE)]);
+    const conMascara = IDS_CON_MASCARA;
     pedidos.forEach((musculo) => {
         if (!musculo || conMascara.has(musculo.id)) return;
         avisos.push(`${musculo.id} no tiene máscara de superficie. El ejercicio lo lista y el avatar no marca esa zona.`);
     });
     const quiere = (id) => pedidos.some((musculo) => musculo && musculo.id === id);
+    const papelDe = (id) => (pedidos.some((musculo) => musculo && musculo.id === id && musculo.papel === "secundario") ? 0 : 1);
 
     if (!mesh || typeof mesh.getVertexPosition !== "function") {
         avisos.push("Este modelo no tiene una malla con piel deformable.");
     } else if (mostrarChispas && pedidos.some((musculo) => musculo && conMascara.has(musculo.id))) {
         const partes = [];
+        const sumarPierna = (id, pesos) => {
+            if (!pesos) return;
+            partes.push({ pesos: degradarMascara(pesos, mesh.geometry), papel: papelDe(id) });
+        };
         if (quiere("cuadriceps")) {
             const pesos = pesosCuadriceps(mesh, raiz, sexoAvatar, avisos);
-            if (pesos) partes.push(pesos);
+            if (pesos) sumarPierna("cuadriceps", pesos);
             else avisos.push("No hay máscara válida de cuadriceps.");
         }
-        if (quiere("gluteos")) {
-            const pesos = mascaraGluteos(mesh, avisos);
-            if (pesos) partes.push(pesos);
-        }
-        if (quiere("isquiotibiales")) {
-            const pesos = mascaraIsquios(mesh, avisos);
-            if (pesos) partes.push(pesos);
-        }
-        const degradadas = partes.map((pesos) => degradarMascara(pesos, mesh.geometry));
-        const luz = degradadas.length ? aplicarMarca(mesh, raiz, degradadas.length === 1 ? degradadas[0] : combinarMascaras(degradadas), avisos, true) : null;
+        if (quiere("gluteos")) sumarPierna("gluteos", mascaraGluteos(mesh, raiz, avisos));
+        if (quiere("isquiotibiales")) sumarPierna("isquiotibiales", mascaraIsquios(mesh, avisos));
+        const junto = partes.length === 1 ? { pesos: partes[0].pesos, papeles: papelesDe(partes[0].pesos.length, partes[0].papel) } : partes.length ? combinarConPapel(partes) : null;
+        const luz = junto ? aplicarMarca(mesh, raiz, junto.pesos, avisos, true, junto.papeles) : null;
         if (luz) {
             limpiarLuz = luz.quitar;
             if (quiere("cuadriceps")) {
                 limpiarCalibracion = instalarCalibracion(mesh, sexoAvatar, luz.atributo, () => mascaraAutomatica(mesh, raiz, avisos));
             }
             chispas = instalarChispas(mesh, raiz, luz.atributo, avisos);
+        }
+        const falda = quiere("gluteos") ? mallaPrenda(raiz, /skirt/i) : null;
+        if (falda) {
+            const pesosFalda = mascaraGluteos(falda, raiz, avisos);
+            if (pesosFalda) {
+                const degradada = degradarMascara(pesosFalda, falda.geometry);
+                const luzFalda = aplicarMarca(falda, raiz, degradada, avisos, true, papelesDe(degradada.length, papelDe("gluteos")));
+                if (luzFalda) {
+                    const quitarCuerpo = limpiarLuz;
+                    limpiarLuz = () => {
+                        quitarCuerpo();
+                        luzFalda.quitar();
+                    };
+                    if (!quiere("cuadriceps") && !quiere("isquiotibiales")) {
+                        if (chispas) chispas.quitar();
+                        chispas = instalarChispas(falda, raiz, luzFalda.atributo, avisos);
+                    }
+                }
+            }
         }
         const lucesZona = [];
         let visible = null;
@@ -971,7 +1032,8 @@ export function colocarSenales(raiz, musculos, sexoAvatar) {
             superficies.forEach((superficie) => {
                 const pesos = mascaraPorHuesos(superficie, zona.grupos, avisos, id);
                 if (!pesos) return;
-                const luzZona = aplicarMarca(superficie, raiz, degradarMascara(pesos, superficie.geometry), avisos, true);
+                const degradada = degradarMascara(pesos, superficie.geometry);
+                const luzZona = aplicarMarca(superficie, raiz, degradada, avisos, true, papelesDe(degradada.length, papelDe(id)));
                 if (!luzZona) return;
                 lucesZona.push(luzZona);
                 const esVisible = prenda && superficie === prenda;

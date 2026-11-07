@@ -8,7 +8,25 @@ const HASH_FICHA = "#ejercicio=";
 
 let paginaActual = 1;
 let terminoBusqueda = "";
-let idiomaActual = "ES";
+const CLAVE_IDIOMA = "biocinetica-idioma";
+
+function leerIdiomaGuardado() {
+    try {
+        return localStorage.getItem(CLAVE_IDIOMA) === "EN" ? "EN" : "ES";
+    } catch {
+        return "ES";
+    }
+}
+
+function guardarIdioma(valor) {
+    try {
+        localStorage.setItem(CLAVE_IDIOMA, valor);
+    } catch {
+        /* el visor vuelve a español si el navegador bloquea el almacenamiento */
+    }
+}
+
+let idiomaActual = leerIdiomaGuardado();
 let zonaActiva = "";
 let equipoActivo = "";
 let nivelActivo = "";
@@ -205,6 +223,10 @@ function inicializarHUD() {
     document.getElementById("btn-en").addEventListener("click", () => cambiarIdioma("EN"));
     inicializarFeedback();
 
+    document.getElementById("btn-es").classList.toggle("is-active", idiomaActual === "ES");
+    document.getElementById("btn-en").classList.toggle("is-active", idiomaActual === "EN");
+    document.getElementById("btn-es").setAttribute("aria-pressed", String(idiomaActual === "ES"));
+    document.getElementById("btn-en").setAttribute("aria-pressed", String(idiomaActual === "EN"));
     actualizarTextosInterfaz();
 }
 
@@ -524,6 +546,7 @@ function mostrarEstado(texto, esError) {
 
 function cambiarIdioma(nuevoIdioma) {
     idiomaActual = nuevoIdioma;
+    guardarIdioma(nuevoIdioma);
     const btnEs = document.getElementById("btn-es");
     const btnEn = document.getElementById("btn-en");
     btnEs.classList.toggle("is-active", nuevoIdioma === "ES");

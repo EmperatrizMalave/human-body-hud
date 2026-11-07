@@ -1,5 +1,5 @@
-// Pasos numerados del visor. Cada ejercicio puede traer su propia lista.
-// La sentadilla usa los pasos de la ficha visual.
+// Pasos numerados del visor. Cada ficha trae su texto.
+// Sin ficha, el visor abre la sentadilla de muestra con estos pasos.
 
 const sentadilla = [
     "Pies al ancho de los hombros.",
@@ -7,6 +7,14 @@ const sentadilla = [
     "Desciende controlando el movimiento.",
     "Mantén las rodillas alineadas.",
     "Sube de forma controlada.",
+];
+
+const sentadillaEn = [
+    "Stand with your feet shoulder-width apart.",
+    "Keep your back straight and your core engaged.",
+    "Lower yourself while controlling the movement.",
+    "Keep your knees aligned over your feet.",
+    "Stand back up in a controlled motion.",
 ];
 
 function pasosDeTexto(texto) {
@@ -20,7 +28,10 @@ function pasosDeTexto(texto) {
     return frases.slice(0, 5);
 }
 
-export function instruccionesDe(ficha, esSentadilla) {
-    if (!ficha || esSentadilla) return sentadilla;
-    return pasosDeTexto(ficha.DESC_ES);
+export function instruccionesDe(ficha, idioma) {
+    if (!ficha) return idioma === "EN" ? sentadillaEn : sentadilla;
+    const texto = idioma === "EN"
+        ? (ficha.DESC_EN || ficha.DESC_ES)
+        : (ficha.DESC_ES || ficha.DESC_EN);
+    return pasosDeTexto(texto);
 }

@@ -23,20 +23,23 @@ def carpeta_proyecto():
     return os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
 
 
-def sexo_pedido():
+def pedido():
     if "--" not in sys.argv:
-        return None
+        return None, None
     resto = sys.argv[sys.argv.index("--") + 1:]
     if not resto or resto[0] not in ("mujer", "hombre"):
         raise RuntimeError("Después de -- indica mujer u hombre.")
-    return resto[0]
+    nombre = resto[1] if len(resto) > 1 else None
+    if nombre and not nombre.endswith(".glb"):
+        nombre = f"{nombre}.glb"
+    return resto[0], nombre
 
 
-def ruta_glb(sexo):
+def ruta_glb(sexo, nombre=None):
     carpeta = os.path.join(carpeta_proyecto(), "frontend", "modelos")
     if sexo:
         carpeta = os.path.join(carpeta, sexo)
-    return os.path.join(carpeta, "squat_bodyweight.glb")
+    return os.path.join(carpeta, nombre or "squat_bodyweight.glb")
 
 
 def hornear_formas(cuerpo):
@@ -112,6 +115,27 @@ def animacion_se_mueve(ruta):
     return False
 
 
+def aplanar_tinte(obj):
+    if obj.type != "MESH" or not obj.material_slots:
+        return
+    mat = obj.material_slots[0].material
+    if mat is None or not mat.use_nodes or mat.node_tree is None:
+        return
+    bsdf = next((nodo for nodo in mat.node_tree.nodes if nodo.type == "BSDF_PRINCIPLED"), None)
+    if bsdf is None:
+        return
+    base = bsdf.inputs.get("Base Color")
+    if base is None or not base.is_linked:
+        return
+    origen = base.links[0].from_node
+    if origen.type != "MIX_RGB":
+        return
+    color = origen.inputs["Color1"].default_value[:]
+    for enlace in list(base.links):
+        mat.node_tree.links.remove(enlace)
+    base.default_value = color
+
+
 def main():
     if not bpy.data.filepath:
         raise RuntimeError("Abre el .blend del maniquí antes de exportar.")
@@ -143,7 +167,7 @@ def main():
     if not deformacion or not ik:
         raise RuntimeError("Diagnóstico: no hay huesos de deformación o restricciones IK. No se exportó.")
 
-    sexo = sexo_pedido()
+    sexo, nombre_glb = pedido()
     formas = hornear_formas(cuerpo) if sexo == "hombre" else 0
 
     if not cuerpo.data.materials:
@@ -162,10 +186,19 @@ def main():
         prenda = bpy.data.objects.get(extra)
         if prenda is not None and prenda.type == "MESH":
             prenda.select_set(True)
+    for hijo in arm.children:
+        if hijo.type != "MESH" or hijo == cuerpo:
+            continue
+        if "low-poly" in hijo.name.lower():
+            continue
+        hijo.select_set(True)
     arm.select_set(True)
     bpy.context.view_layer.objects.active = arm
+    if nombre_glb and "colores" in nombre_glb:
+        for obj in bpy.context.view_layer.objects.selected:
+            aplanar_tinte(obj)
 
-    destino = ruta_glb(sexo)
+    destino = ruta_glb(sexo, nombre_glb)
     os.makedirs(os.path.dirname(destino), exist_ok=True)
     bpy.ops.export_scene.gltf(
         filepath=destino,

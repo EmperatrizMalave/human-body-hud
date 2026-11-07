@@ -1,9 +1,9 @@
 {
   "sexo": "mujer",
   "formas_horneadas": 0,
-  "archivo_origen": "C:\\Users\\emper\\Documents\\dev\\human-body-hud\\assets\\models\\personaje_squat_bodyweight_mujer.blend",
-  "glb": "C:\\Users\\emper\\Documents\\dev\\human-body-hud\\frontend\\modelos\\mujer\\squat_bodyweight.glb",
-  "bytes": 1086988,
+  "archivo_origen": "C:\\Users\\emper\\Documents\\dev\\human-body-hud\\assets\\models\\personaje_fitness_mujer_colores.blend1",
+  "glb": "C:\\Users\\emper\\Documents\\dev\\human-body-hud\\frontend\\modelos\\mujer\\squat_bodyweight_colores.glb",
+  "bytes": 3251512,
   "accion": "squat_bodyweight",
   "fotogramas": [
     1.0,
@@ -74,11 +74,17 @@
   ],
   "origen_no_guardado": true,
   "glb_contenido": {
-    "nodos": 162,
-    "mallas": 1,
+    "nodos": 168,
+    "mallas": 7,
     "skins": 1,
     "materiales": [
-      "CuerpoVisor"
+      "Piel_maniqui",
+      "Human.culturalibre_sneakers",
+      "Human.elvs_male_muscle_shirt1",
+      "Human.eyebrow001",
+      "Human.eyelashes03",
+      "Human.frankyaye_mini_skirt_01",
+      "Human.ponytail01.001"
     ],
     "animaciones": [
       {

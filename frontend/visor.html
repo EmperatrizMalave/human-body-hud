@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>BIOCINÉTICA · Visor 3D</title>
-    <link rel="stylesheet" href="/visor.css?v=camara">
+    <link rel="stylesheet" href="/visor.css?v=seleccion">
 </head>
 <body>
     <header class="visor-cabecera">
@@ -79,6 +79,14 @@
                 <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 4l8 8M12 4l-8 8" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
             </button>
         </div>
+        <div class="musculos-modos">
+            <button type="button" id="musculos-todos" aria-pressed="true">Mostrar todos</button>
+            <button type="button" id="musculos-ninguno" aria-pressed="false">Sin resaltado</button>
+        </div>
+        <div class="musculos-modos">
+            <button type="button" id="mirar-frente">Ver frente</button>
+            <button type="button" id="mirar-espalda">Ver espalda</button>
+        </div>
         <ul id="musculos-leyenda" class="musculos-leyenda"></ul>
         <p id="musculos-vacio" hidden>Este ejercicio no tiene músculos asociados.</p>
     </div>
@@ -90,6 +98,6 @@
             }
         }
     </script>
-    <script type="module" src="/visor.js?v=fichas3"></script>
+    <script type="module" src="/visor.js?v=idioma1"></script>
 </body>
 </html>

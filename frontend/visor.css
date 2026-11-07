@@ -401,11 +401,32 @@ h1 {
     gap: 8px;
 }
 
-.musculos-leyenda li {
+.musculos-modos {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    margin-bottom: 10px;
+}
+
+.musculos-modos button,
+.musculo-opcion {
+    min-height: 40px;
+    padding: 8px 10px;
+    border-radius: 10px;
+    font-size: 0.82rem;
+    text-align: left;
+}
+
+.musculo-opcion {
+    width: 100%;
     display: flex;
     align-items: center;
     gap: 10px;
     font-size: 0.95rem;
+}
+
+.musculos-leyenda li {
+    display: block;
 }
 
 .punto {
