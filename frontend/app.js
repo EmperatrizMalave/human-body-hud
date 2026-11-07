@@ -1,6 +1,6 @@
-// Si abres el HUD con Live Server (puerto 3000), hay que llamar a FastAPI en 8000.
-// Si FastAPI sirve el HTML (puerto 8000), basta una ruta relativa.
-const API_ORIGIN = window.location.port === "8000" ? "" : "http://127.0.0.1:8000";
+// Live Server (puerto 3000) no tiene la API: se llama a FastAPI en esta computadora.
+// En el puerto 8000 y en Render la página y la API salen del mismo sitio.
+const API_ORIGIN = window.location.port === "3000" ? "http://127.0.0.1:8000" : "";
 const API_URL = `${API_ORIGIN}/api/ejercicios`;
 const FEEDBACK_URL = `${API_ORIGIN}/api/feedback`;
 const HASH_FICHA = "#ejercicio=";
