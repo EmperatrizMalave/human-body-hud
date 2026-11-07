@@ -200,45 +200,201 @@ h1 {
     display: flex;
     flex-direction: column;
     margin: 0;
-    padding: 18px 16px 14px;
+    padding: 12px 10px 8px;
     border-radius: 22px;
     background: rgba(12, 22, 38, 0.94);
     border: 1px solid rgba(120, 190, 210, 0.28);
 }
 
+.musculos-cabecera {
+    position: relative;
+    z-index: 1;
+    flex: 0 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    margin-bottom: 4px;
+}
+
 .musculos h2 {
-    margin: 0 0 12px;
-    text-align: center;
-    font-size: 1.12rem;
+    margin: 0;
+    flex: 1 1 auto;
+    min-width: 0;
+    text-align: start;
+    font-size: 1.02rem;
     font-weight: 600;
+    line-height: 1.2;
 }
 
-.musculos-marco {
-    flex: 1;
-    min-height: 160px;
+.ver-musculos {
+    flex: 0 0 auto;
+    min-height: 32px;
+    padding: 4px 10px 4px 8px;
+    border: 1px solid rgba(30, 200, 212, 0.55);
+    border-radius: 999px;
+    background: #101826;
+    color: #d7fbff;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    line-height: 1;
+}
+
+.ver-musculos svg {
+    width: 14px;
+    height: 14px;
+    display: block;
+}
+
+.ver-musculos:hover,
+.ver-musculos[aria-expanded="true"] {
+    background: rgba(30, 200, 212, 0.16);
+    border-color: #1ec8d4;
+    color: #1ec8d4;
+}
+
+.ver-musculos:focus-visible,
+.musculos-cerrar:focus-visible {
+    outline: 2px solid #1ec8d4;
+    outline-offset: 2px;
+}
+
+.musculos-vistas {
+    flex: 1 1 auto;
+    min-height: 0;
     display: grid;
-    place-items: center;
-    overflow: hidden;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: minmax(0, 1fr);
+    align-content: stretch;
+    gap: 8px;
 }
 
-.musculos-marco img {
+.musculos-vistas figure {
+    margin: 0;
+    min-width: 0;
+    min-height: 0;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 4px;
+}
+
+.musculos-vistas .recorte {
+    flex: 1 1 auto;
+    min-height: 0;
+    width: 100%;
+    overflow: hidden;
+    border-radius: 12px;
+    background: #071018;
+    border: 1px solid rgba(120, 190, 210, 0.18);
+}
+
+.musculos-vistas img {
+    display: block;
     width: 100%;
     height: 100%;
     object-fit: contain;
+    object-position: center center;
+    object-view-box: inset(0.5% 22% 0.5% 22%);
+    background: transparent;
 }
 
-#musculos-vacio {
+.musculos-vistas figcaption {
     margin: 0;
-    padding: 8px;
-    text-align: center;
     color: var(--muted);
-    font-size: 0.88rem;
-    line-height: 1.4;
+    font-size: 0.75rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+}
+
+.musculos-fondo {
+    position: fixed;
+    inset: 0;
+    z-index: 30;
+    background: rgba(4, 8, 16, 0.55);
+}
+
+.musculos-fondo[hidden],
+.musculos-panel[hidden],
+.musculos-leyenda[hidden],
+#musculos-vacio[hidden] {
+    display: none;
+}
+
+.musculos-panel {
+    position: fixed;
+    z-index: 40;
+    width: min(280px, calc(100vw - 24px));
+    max-height: min(360px, calc(100dvh - 24px));
+    display: flex;
+    flex-direction: column;
+    padding: 12px 14px 14px;
+    border-radius: 16px;
+    background: rgba(12, 22, 38, 0.98);
+    border: 1px solid rgba(120, 190, 210, 0.35);
+    box-shadow: 0 18px 44px rgba(0, 0, 0, 0.48);
+    overflow: auto;
+}
+
+.musculos-panel.es-hoja {
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: auto;
+    width: auto;
+    max-height: min(70dvh, 420px);
+    border-radius: 18px 18px 0 0;
+    padding-bottom: calc(16px + env(safe-area-inset-bottom));
+}
+
+.musculos-panel-cabeza {
+    position: sticky;
+    top: -12px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    margin: -12px -14px 10px;
+    padding: 12px 10px 8px 14px;
+    background: rgba(12, 22, 38, 0.98);
+}
+
+.musculos-panel h3 {
+    margin: 0;
+    font-size: 0.95rem;
+    font-weight: 600;
+}
+
+.musculos-cerrar {
+    width: 32px;
+    min-height: 32px;
+    padding: 0;
+    border: 0;
+    border-radius: 999px;
+    background: transparent;
+    color: #d7fbff;
+    display: grid;
+    place-items: center;
+}
+
+.musculos-cerrar svg {
+    width: 14px;
+    height: 14px;
+    display: block;
+}
+
+.musculos-cerrar:hover {
+    background: rgba(30, 200, 212, 0.16);
+    color: #1ec8d4;
 }
 
 .musculos-leyenda {
     list-style: none;
-    margin: 12px 0 0;
+    margin: 0;
     padding: 0;
     display: flex;
     flex-direction: column;
@@ -265,7 +421,14 @@ h1 {
 }
 
 .punto-secundario {
-    background: #8ef6ea;
+    background: #8ee6b4;
+    box-shadow: 0 0 8px rgba(142, 230, 180, 0.45);
+}
+
+#musculos-vacio {
+    margin: 0;
+    color: var(--muted);
+    font-size: 0.9rem;
 }
 
 #visor {
@@ -287,6 +450,21 @@ h1 {
     border-radius: 6px;
     color: var(--muted);
     font-size: 0.92rem;
+}
+
+.vista-barra {
+    display: flex;
+    flex: 0 0 auto;
+    margin-top: 8px;
+}
+
+#restablecer-vista {
+    min-height: 32px;
+    padding: 0 14px;
+    border-radius: 999px;
+    background: rgba(12, 22, 38, 0.94);
+    font-size: 0.82rem;
+    font-weight: 600;
 }
 
 .controles {
@@ -439,18 +617,41 @@ button:disabled {
     #visor {
         width: 100%;
         height: auto;
-        min-height: 52vh;
+        flex: 1 1 auto;
+        min-height: 0;
     }
 
     .escena {
-        flex: 1 1 auto;
+        flex: 1 1 0;
         min-height: 0;
+        overflow: hidden;
     }
 
     .lateral {
         width: auto;
         flex: 0 1 auto;
-        max-height: 46%;
+        max-height: 52%;
+        overflow: auto;
+    }
+
+    .musculos {
+        flex: 0 0 auto;
+    }
+
+    .musculos-vistas {
+        flex: 0 0 auto;
+        grid-template-rows: auto;
+    }
+
+    .musculos-vistas figure {
+        height: auto;
+    }
+
+    .musculos-vistas .recorte {
+        flex: 0 0 auto;
+        width: 100%;
+        aspect-ratio: 0.46;
+        max-height: 36vh;
     }
 
 }

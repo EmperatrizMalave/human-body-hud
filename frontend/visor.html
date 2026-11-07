@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>BIOCINÉTICA · Visor 3D</title>
-    <link rel="stylesheet" href="/visor.css?v=columnas">
+    <link rel="stylesheet" href="/visor.css?v=camara">
 </head>
 <body>
     <header class="visor-cabecera">
@@ -25,6 +25,9 @@
                 <button type="button" data-sexo="hombre"><span class="simbolo" aria-hidden="true">♂</span>Hombre</button>
             </div>
             <canvas id="visor"></canvas>
+            <div class="vista-barra">
+                <button id="restablecer-vista" type="button" disabled>Restablecer vista</button>
+            </div>
             <div class="controles" role="toolbar" aria-label="Animación">
                 <div class="transporte">
                     <button id="play" type="button" disabled aria-pressed="false" aria-label="Reproducir">
@@ -39,12 +42,27 @@
         </div>
         <div class="lateral">
             <aside class="musculos" aria-labelledby="musculos-titulo">
-                <h2 id="musculos-titulo">Músculos trabajados</h2>
-                <div class="musculos-marco">
-                    <img id="musculos-imagen" alt="" hidden>
-                    <p id="musculos-vacio">Esta zona todavía no tiene imagen.</p>
+                <div class="musculos-cabecera">
+                    <h2 id="musculos-titulo">Músculos trabajados</h2>
+                    <button type="button" id="ver-musculos" class="ver-musculos" aria-expanded="false" aria-controls="musculos-panel" aria-haspopup="dialog">
+                        <svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6.25" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M8 7.15v4.1" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/><circle cx="8" cy="4.55" r="0.8" fill="currentColor"/></svg>
+                        Ver músculos
+                    </button>
                 </div>
-                <ul id="musculos-leyenda" class="musculos-leyenda"></ul>
+                <div class="musculos-vistas">
+                    <figure>
+                        <div class="recorte">
+                            <img id="vista-frente" alt="Figura de frente" src="/musculos/mujer-frente.jpg">
+                        </div>
+                        <figcaption>Frente</figcaption>
+                    </figure>
+                    <figure>
+                        <div class="recorte">
+                            <img id="vista-espalda" alt="Figura de espalda" src="/musculos/mujer-espalda.jpg">
+                        </div>
+                        <figcaption>Espalda</figcaption>
+                    </figure>
+                </div>
             </aside>
             <section class="instrucciones" aria-labelledby="instrucciones-titulo">
                 <h2 id="instrucciones-titulo">Instrucciones</h2>
@@ -53,6 +71,17 @@
             </section>
         </div>
     </main>
+    <div id="musculos-fondo" class="musculos-fondo" hidden></div>
+    <div id="musculos-panel" class="musculos-panel" role="dialog" aria-modal="false" aria-labelledby="musculos-panel-titulo" hidden>
+        <div class="musculos-panel-cabeza">
+            <h3 id="musculos-panel-titulo">Músculos del ejercicio</h3>
+            <button type="button" id="cerrar-musculos" class="musculos-cerrar" aria-label="Cerrar">
+                <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 4l8 8M12 4l-8 8" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+            </button>
+        </div>
+        <ul id="musculos-leyenda" class="musculos-leyenda"></ul>
+        <p id="musculos-vacio" hidden>Este ejercicio no tiene músculos asociados.</p>
+    </div>
     <script type="importmap">
         {
             "imports": {
@@ -61,6 +90,6 @@
             }
         }
     </script>
-    <script type="module" src="/visor.js?v=pausa2"></script>
+    <script type="module" src="/visor.js?v=fichas3"></script>
 </body>
 </html>

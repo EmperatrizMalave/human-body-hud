@@ -9,7 +9,7 @@ export const catalogoVisor = {
       id: "mpfb-mujer",
       etiqueta: "Mujer",
       sexo: "mujer",
-      modelo: "/modelos/mujer/squat_bodyweight.glb?v=base",
+      modelo: "/modelos/mujer/squat_bodyweight_colores.glb?v=zapatos",
     },
     {
       id: "mpfb-hombre",

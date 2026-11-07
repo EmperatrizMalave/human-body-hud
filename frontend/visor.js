@@ -1,9 +1,10 @@
 import * as THREE from "three";
 import { OrbitControls } from "three/addons/controls/OrbitControls.js";
 import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
-import { catalogoVisor } from "./visor-catalogo.js?v=base";
-import { zonaMuscular } from "./visor-musculos.js";
-import { instruccionesDe } from "./visor-instrucciones.js";
+import { catalogoVisor } from "./visor-catalogo.js?v=zapatos";
+import { zonaMuscular } from "./visor-musculos.js?v=senales";
+import { colocarSenales } from "./visor-senales.js?v=fichas2";
+import { instruccionesDe } from "./visor-instrucciones.js?v=fichas1";
 
 const ejercicioMuestra = catalogoVisor.ejercicios[0];
 const idFicha = leerIdFicha();
@@ -19,6 +20,7 @@ const tiempoActual = document.querySelector("#tiempo-actual");
 const tiempoTotal = document.querySelector("#tiempo-total");
 const progreso = document.querySelector("#progreso");
 const botonVelocidad = document.querySelector("#velocidad");
+const botonVista = document.querySelector("#restablecer-vista");
 const botonesSexo = [...document.querySelectorAll("[data-sexo]")];
 const velocidades = [0.5, 1, 1.5];
 
@@ -36,6 +38,8 @@ const controls = new OrbitControls(camera, canvas);
 controls.enableDamping = true;
 controls.dampingFactor = 0.08;
 controls.enablePan = false;
+controls.minPolarAngle = THREE.MathUtils.degToRad(60);
+controls.maxPolarAngle = THREE.MathUtils.degToRad(105);
 
 scene.add(new THREE.HemisphereLight(0xe8eef8, 0x162033, 0.9));
 const clave = new THREE.DirectionalLight(0xffffff, 2.3);
@@ -57,6 +61,10 @@ let velocidad = 1;
 let indiceVelocidad = 1;
 let arrastrando = false;
 let tiempoPendiente = 0;
+let senal = null;
+let musculosActivos = [];
+let tiempoSenales = 0;
+let vistaFrontal = null;
 const reloj = new THREE.Clock();
 
 function ajustar() {
@@ -129,31 +137,83 @@ function bloquearControles(bloqueado) {
     botonPlay.disabled = bloqueado;
     progreso.disabled = bloqueado;
     botonVelocidad.disabled = bloqueado;
+    botonVista.disabled = bloqueado || !vistaFrontal;
+}
+
+function distanciaPara(caja, objetivo) {
+    const fovVertical = THREE.MathUtils.degToRad(camera.fov);
+    const aspecto = Math.max(camera.aspect, 0.2);
+    const fovHorizontal = 2 * Math.atan(Math.tan(fovVertical / 2) * aspecto);
+    const tanVertical = Math.tan(fovVertical / 2);
+    const tanHorizontal = Math.tan(fovHorizontal / 2);
+    const xs = [caja.min.x, caja.max.x];
+    const ys = [caja.min.y, caja.max.y];
+    const zs = [caja.min.z, caja.max.z];
+    let distancia = 0.4;
+    xs.forEach((x) => {
+        ys.forEach((y) => {
+            zs.forEach((z) => {
+                const necesaria = Math.max(
+                    Math.abs(y - objetivo.y) / tanVertical,
+                    Math.abs(x - objetivo.x) / tanHorizontal,
+                ) + (z - objetivo.z);
+                distancia = Math.max(distancia, necesaria);
+            });
+        });
+    });
+    return distancia;
+}
+
+function aplicarEncuadre(objetivo, caja, referencia) {
+    const distancia = Math.max(distanciaPara(caja, objetivo) * 1.12, 0.4);
+    const ancho = Math.max(referencia.x, referencia.z, 0.4);
+    controls.target.copy(objetivo);
+    controls.minDistance = Math.min(Math.max(ancho * 0.72, 1.05), distancia * 0.82);
+    controls.maxDistance = Math.max(distancia * 2.2, controls.minDistance + 1);
+    camera.near = Math.max(distancia / 80, 0.02);
+    camera.far = distancia * 24;
+    camera.position.set(objetivo.x, objetivo.y, objetivo.z + distancia);
+    camera.updateProjectionMatrix();
+    controls.update();
+    vistaFrontal = {
+        posicion: camera.position.clone(),
+        objetivo: controls.target.clone(),
+    };
+    botonVista.disabled = false;
 }
 
 function encuadrar(objeto) {
     const caja = new THREE.Box3().setFromObject(objeto);
-    const centro = caja.getCenter(new THREE.Vector3());
     const tamano = caja.getSize(new THREE.Vector3());
-    const fovVertical = THREE.MathUtils.degToRad(camera.fov);
-    const aspecto = Math.max(camera.aspect, 0.2);
-    const fovHorizontal = 2 * Math.atan(Math.tan(fovVertical / 2) * aspecto);
-    const margen = 1.08;
-    const distanciaVertical = (tamano.y / 2) / Math.tan(fovVertical / 2);
-    const distanciaHorizontal = (tamano.x / 2) / Math.tan(fovHorizontal / 2);
-    const distancia = Math.max(distanciaVertical, distanciaHorizontal, 0.4) * margen;
-    const mediaVista = distancia * Math.tan(fovVertical / 2);
-    const huecoBajo = mediaVista - tamano.y / 2;
-    const airePies = tamano.y * 0.03;
-    if (huecoBajo > airePies) centro.y += huecoBajo - airePies;
-    controls.target.copy(centro);
-    controls.minDistance = distancia * 0.55;
-    controls.maxDistance = distancia * 2.6;
-    camera.near = Math.max(distancia / 100, 0.01);
-    camera.far = distancia * 20;
-    camera.position.set(centro.x, centro.y, centro.z + distancia);
-    camera.updateProjectionMatrix();
-    controls.update();
+    const centro = caja.getCenter(new THREE.Vector3());
+    centro.y = caja.min.y + tamano.y * 0.58;
+    aplicarEncuadre(centro, caja, tamano);
+}
+
+function encuadrarEjercicio(modelo, clipAction) {
+    const duracion = clipAction.getClip().duration || 0;
+    const previo = clipAction.time;
+    const pausa = clipAction.paused;
+    clipAction.paused = false;
+    const momentos = duracion ? [0, 0.25, 0.5, 0.75, 1].map((parte) => parte * duracion) : [0];
+    let quieto = null;
+    const union = new THREE.Box3();
+    momentos.forEach((tiempo) => {
+        clipAction.time = tiempo;
+        mixer.update(0);
+        modelo.updateMatrixWorld(true);
+        const caja = new THREE.Box3().setFromObject(modelo);
+        if (!quieto) quieto = caja.clone();
+        union.union(caja);
+    });
+    clipAction.time = previo;
+    mixer.update(0);
+    clipAction.paused = pausa;
+    modelo.updateMatrixWorld(true);
+    const tamano = quieto.getSize(new THREE.Vector3());
+    const centro = quieto.getCenter(new THREE.Vector3());
+    const objetivo = new THREE.Vector3(centro.x, quieto.min.y + tamano.y * 0.58, centro.z);
+    aplicarEncuadre(objetivo, union, tamano);
 }
 
 function leerIdFicha() {
@@ -185,7 +245,9 @@ function marcarSexo() {
 
 function cuadro() {
     const delta = reloj.getDelta();
+    tiempoSenales += delta;
     if (mixer) mixer.update(delta);
+    if (senal) senal.actualizar(tiempoSenales);
     if (action) pintarProgreso();
     controls.update();
     renderer.render(scene, camera);
@@ -216,12 +278,20 @@ botonVelocidad.addEventListener("click", () => {
     aplicarVelocidad(velocidades[indiceVelocidad]);
 });
 
+botonVista.addEventListener("click", () => {
+    if (!vistaFrontal) return;
+    camera.position.copy(vistaFrontal.posicion);
+    controls.target.copy(vistaFrontal.objetivo);
+    controls.update();
+});
+
 botonesSexo.forEach((boton) => {
     boton.addEventListener("click", () => {
         if (boton.dataset.sexo === sexo || !fichaLista) return;
         tiempoPendiente = action ? action.time : 0;
         sexo = boton.dataset.sexo;
         marcarSexo();
+        pintarVistas();
         cargarModelo(nombreFicha, puedeReproducir);
     });
 });
@@ -286,20 +356,43 @@ function pintarInstrucciones(ficha, esSentadilla) {
     });
 }
 
+const vistasFigura = {
+    mujer: {
+        frente: "/musculos/mujer-frente.jpg",
+        espalda: "/musculos/mujer-espalda.jpg",
+    },
+    hombre: {
+        frente: "/musculos/hombre-frente.jpg",
+        espalda: "/musculos/hombre-espalda.jpg",
+    },
+};
+
+function pintarVistas() {
+    const par = vistasFigura[sexo] || vistasFigura.mujer;
+    const frente = document.querySelector("#vista-frente");
+    const espalda = document.querySelector("#vista-espalda");
+    const etiqueta = sexo === "hombre" ? "Hombre" : "Mujer";
+    frente.src = par.frente;
+    frente.alt = `${etiqueta} de frente`;
+    espalda.src = par.espalda;
+    espalda.alt = `${etiqueta} de espalda`;
+}
+
+pintarVistas();
+
 function pintarMusculos(ficha, esSentadilla) {
     const zona = zonaMuscular(ficha, esSentadilla);
-    const imagen = document.querySelector("#musculos-imagen");
-    const vacio = document.querySelector("#musculos-vacio");
+    musculosActivos = zona ? zona.musculos : [];
     const leyenda = document.querySelector("#musculos-leyenda");
+    const vacio = document.querySelector("#musculos-vacio");
     leyenda.replaceChildren();
-
-    if (!zona) {
-        imagen.hidden = true;
-        imagen.removeAttribute("src");
+    if (!zona || !zona.musculos.length) {
+        leyenda.hidden = true;
         vacio.hidden = false;
-        vacio.textContent = "Esta zona todavía no tiene imagen.";
         return;
     }
+    vacio.hidden = true;
+    leyenda.hidden = false;
 
     zona.musculos.forEach((musculo) => {
         const item = document.createElement("li");
@@ -309,16 +402,142 @@ function pintarMusculos(ficha, esSentadilla) {
         item.append(punto, document.createTextNode(`${musculo.nombre} (${musculo.papel})`));
         leyenda.append(item);
     });
+}
 
-    vacio.hidden = true;
-    imagen.hidden = false;
-    imagen.alt = "Músculos trabajados, vista frontal y posterior";
-    imagen.onerror = () => {
-        imagen.hidden = true;
-        vacio.hidden = false;
-        vacio.textContent = "Imagen pendiente para esta zona.";
-    };
-    imagen.src = zona.imagen;
+function iniciarPanelMusculos() {
+    const boton = document.querySelector("#ver-musculos");
+    const panel = document.querySelector("#musculos-panel");
+    const fondo = document.querySelector("#musculos-fondo");
+    const cerrar = document.querySelector("#cerrar-musculos");
+    let focoPrevio = null;
+
+    function abierto() {
+        return !panel.hidden;
+    }
+
+    function focosDelPanel() {
+        return [...panel.querySelectorAll("button, a, [href], input, [tabindex]")].filter((el) => !el.disabled && el.tabIndex !== -1);
+    }
+
+    function colocarPanel() {
+        panel.classList.remove("es-hoja");
+        panel.style.top = "";
+        panel.style.left = "";
+        fondo.hidden = true;
+        const margen = 8;
+        const ancho = panel.offsetWidth;
+        const alto = panel.offsetHeight;
+        const rect = boton.getBoundingClientRect();
+        const abajo = window.innerHeight - rect.bottom - margen;
+        const arriba = rect.top - margen;
+        const estrecho = window.innerWidth <= 640;
+        if (estrecho || (abajo < alto && arriba < alto)) {
+            panel.classList.add("es-hoja");
+            fondo.hidden = false;
+            return;
+        }
+        const top = abajo >= alto || abajo >= arriba ? rect.bottom + margen : rect.top - alto - margen;
+        let left = rect.right - ancho;
+        left = Math.max(margen, Math.min(left, window.innerWidth - ancho - margen));
+        panel.style.top = `${Math.max(margen, top)}px`;
+        panel.style.left = `${left}px`;
+    }
+
+    function abrir() {
+        if (abierto()) return;
+        focoPrevio = document.activeElement;
+        panel.hidden = false;
+        boton.setAttribute("aria-expanded", "true");
+        colocarPanel();
+        cerrar.focus();
+    }
+
+    function ocultar(devolverFoco) {
+        if (!abierto()) return;
+        panel.hidden = true;
+        fondo.hidden = true;
+        panel.classList.remove("es-hoja");
+        boton.setAttribute("aria-expanded", "false");
+        if (devolverFoco && focoPrevio && document.contains(focoPrevio)) focoPrevio.focus();
+    }
+
+    function alternar() {
+        if (abierto()) ocultar();
+        else abrir();
+    }
+
+    boton.addEventListener("click", alternar);
+    cerrar.addEventListener("click", () => ocultar(true));
+    fondo.addEventListener("click", () => ocultar(true));
+    document.addEventListener("pointerdown", (evento) => {
+        if (!abierto()) return;
+        if (panel.contains(evento.target) || boton.contains(evento.target) || fondo.contains(evento.target)) return;
+        ocultar(false);
+    });
+    document.addEventListener("keydown", (evento) => {
+        if (!abierto()) return;
+        if (evento.key === "Escape") {
+            evento.preventDefault();
+            ocultar(true);
+            return;
+        }
+        if (evento.key !== "Tab") return;
+        const focos = focosDelPanel();
+        if (!focos.length) return;
+        const primero = focos[0];
+        const ultimo = focos[focos.length - 1];
+        if (evento.shiftKey && document.activeElement === primero) {
+            evento.preventDefault();
+            ultimo.focus();
+        } else if (!evento.shiftKey && document.activeElement === ultimo) {
+            evento.preventDefault();
+            primero.focus();
+        }
+    });
+    window.addEventListener("resize", () => {
+        if (abierto()) colocarPanel();
+    });
+}
+
+iniciarPanelMusculos();
+
+const coloresAvatar = {
+    mujer: {
+        Piel_maniqui: { color: "#F1F3F6", rugosidad: 0.62 },
+        "Human.elvs_male_muscle_shirt1": { color: "#6E7785", rugosidad: 0.72 },
+        "Human.frankyaye_mini_skirt_01": { color: "#858E9A", rugosidad: 0.74 },
+        "Human.culturalibre_sneakers": { color: "#D9E1E9", rugosidad: 0.48 },
+    },
+    hombre: {},
+};
+
+function aplicarColoresAvatar(raiz, sexoAvatar) {
+    const tabla = coloresAvatar[sexoAvatar];
+    if (!tabla) return;
+    const usos = new Map();
+    raiz.traverse((obj) => {
+        if (!obj.isMesh || !obj.material) return;
+        const lista = Array.isArray(obj.material) ? obj.material : [obj.material];
+        lista.forEach((mat) => usos.set(mat.uuid, (usos.get(mat.uuid) || 0) + 1));
+    });
+    raiz.traverse((obj) => {
+        if (!obj.isMesh || !obj.material) return;
+        const lista = Array.isArray(obj.material) ? obj.material : [obj.material];
+        const siguientes = lista.map((mat) => {
+            const ajuste = tabla[mat.name];
+            if (!ajuste) return mat;
+            const destino = usos.get(mat.uuid) > 1 ? mat.clone() : mat;
+            destino.color.set(ajuste.color);
+            destino.metalness = 0;
+            if ("roughness" in destino) destino.roughness = ajuste.rugosidad;
+            destino.map = null;
+            destino.transparent = false;
+            destino.depthWrite = true;
+            destino.needsUpdate = true;
+            return destino;
+        });
+        obj.material = Array.isArray(obj.material) ? siguientes : siguientes[0];
+    });
 }
 
 function cargarModelo(nombre, reproducir) {
@@ -333,6 +552,10 @@ function cargarModelo(nombre, reproducir) {
         personaje.modelo,
         (gltf) => {
             if (pedido !== sexo) return;
+            if (senal) {
+                senal.quitar();
+                senal = null;
+            }
             if (modeloActual) {
                 scene.remove(modeloActual);
                 modeloActual = null;
@@ -340,6 +563,9 @@ function cargarModelo(nombre, reproducir) {
             const modelo = gltf.scene;
             modeloActual = modelo;
             scene.add(modelo);
+            aplicarColoresAvatar(modelo, pedido);
+            senal = colocarSenales(modelo, musculosActivos, pedido);
+            if (senal.avisos.length) window.__visorAvisos = senal.avisos;
             encuadrar(modelo);
             reloj.getDelta();
 
@@ -365,12 +591,15 @@ function cargarModelo(nombre, reproducir) {
             tiempoPendiente = 0;
             action.paused = !reproduciendo;
             mixer.update(0);
+            encuadrarEjercicio(modelo, action);
+            if (senal) senal.actualizar(tiempoSenales);
             if (!reproducir) {
                 action.paused = true;
                 reproduciendo = false;
                 actualizarPlay();
                 decir(`${nombre} todavía no tiene animación.`);
                 window.__visor.action = action;
+                window.__visor.controls = controls;
                 return;
             }
             bloquearControles(false);
