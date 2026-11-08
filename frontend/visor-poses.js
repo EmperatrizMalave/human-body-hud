@@ -84,6 +84,10 @@ function crearApi(modelo, suelo) {
         brazos() {
             bajarBrazos(modelo);
         },
+        alzar(radianes) {
+            flexionarHombro(modelo, "upperarm01L", radianes);
+            flexionarHombro(modelo, "upperarm01R", radianes);
+        },
         suelo(nombres = PIES) {
             apoyarSuelo(modelo, suelo, nombres);
         },
@@ -124,9 +128,8 @@ function gestoPeso(api) {
 }
 
 function gestoPress(api) {
-    api.apuntar("upperarm01L", [0.28, 0.9, 0.34]);
-    api.apuntar("upperarm01R", [-0.28, 0.9, 0.34]);
-    RECTOS.forEach((nombre) => api.recto(nombre));
+    // Abrirlos a los lados, o subirlos más, rompe la sisa. Este giro los lleva al frente.
+    api.alzar(-1.2);
 }
 
 function gestoRemo(api) {

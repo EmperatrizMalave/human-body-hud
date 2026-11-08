@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cyber-HUD</title>
-    <link rel="stylesheet" href="style.css?v=logo">
+    <link rel="stylesheet" href="style.css?v=dial3">
 </head>
 <body>
     <a class="skip-link" href="#catalogo" data-i18n="skipCatalog">Saltar al catálogo</a>
@@ -142,17 +142,6 @@
 
         <section id="catalogo" class="hud-column hud-column--feed" aria-labelledby="catalogo-title">
             <h2 id="catalogo-title" class="hud-heading" data-i18n="catalogoTitle">CATÁLOGO DE EJERCICIOS</h2>
-            <div class="search-container">
-                <label class="search-label" for="hud-search-input" data-i18n="lblBusqueda">Buscar ejercicios</label>
-                <input
-                    type="search"
-                    id="hud-search-input"
-                    class="search-input"
-                    placeholder="// BUSCAR EJERCICIO, ZONA O EQUIPO..."
-                    autocomplete="off"
-                    aria-describedby="hud-status"
-                >
-            </div>
             <fieldset class="catalog-filter">
                 <legend class="search-label" data-i18n="lblEquipo">EQUIPO</legend>
                 <div class="equip-dial" id="equip-dial" role="group" aria-labelledby="equip-current">
@@ -162,8 +151,8 @@
                         <span class="equip-dial__tube equip-dial__tube--inner"></span>
                     </div>
                     <div class="equip-dial__core">
-                        <button type="button" class="equip-dial__play-btn" tabindex="-1" aria-hidden="true">
-                            <svg viewBox="0 0 72 72">
+                        <button type="button" id="equip-todos" class="equip-dial__play-btn" data-i18n-aria="equipTodosCentro" aria-label="Todos los equipos">
+                            <svg viewBox="0 0 72 72" aria-hidden="true">
                                 <defs>
                                     <linearGradient id="play-a" x1="0" y1="0" x2="1" y2="1">
                                         <stop offset="0%" stop-color="#f0fdff" />
@@ -185,8 +174,8 @@
                                 <path d="M18 12 18 60 24 36Z" fill="url(#play-b)" />
                                 <path d="M26 24 48 36 26 48Z" fill="none" stroke="#f8fbff" stroke-width="2.2" stroke-linejoin="round" />
                             </svg>
+                            <span id="equip-current" class="equip-dial__current" aria-hidden="true">Todos</span>
                         </button>
-                        <p id="equip-current" class="equip-dial__current" aria-live="polite">Todos</p>
                     </div>
                     <div
                         id="equip-map"
@@ -202,6 +191,17 @@
                 </div>
                 <div id="equip-icons" class="equip-dial__icons" role="group" data-i18n-aria="lblEquipo"></div>
             </fieldset>
+            <div class="search-container">
+                <label class="search-label" for="hud-search-input" data-i18n="lblBusqueda">Buscar ejercicios</label>
+                <input
+                    type="search"
+                    id="hud-search-input"
+                    class="search-input"
+                    placeholder="// BUSCAR EJERCICIO, ZONA O EQUIPO..."
+                    autocomplete="off"
+                    aria-describedby="hud-status"
+                >
+            </div>
             <fieldset class="catalog-filter">
                 <legend class="search-label" data-i18n="lblNivel">NIVEL</legend>
                 <div id="nivel-map" class="muscle-map"></div>
@@ -226,16 +226,6 @@ Nota: Esta herramienta clasifica datos técnicos y no sustituye el consejo médi
                 </label>
             </fieldset>
 
-            <h2 id="detalle-title" class="hud-heading detail-heading" data-i18n="detalleTitle">FICHA</h2>
-            <div
-                id="exercise-detail"
-                class="exercise-detail"
-                role="region"
-                aria-labelledby="detalle-title"
-                aria-live="polite"
-            >
-                <p class="hud-help" data-i18n="detalleVacio">Elige un ejercicio del catálogo para ver la ficha completa.</p>
-            </div>
         </aside>
     </main>
 
@@ -287,6 +277,6 @@ Nota: Esta herramienta clasifica datos técnicos y no sustituye el consejo médi
         </form>
     </dialog>
 
-    <script src="app.js?v=idioma1"></script>
+    <script src="app.js?v=equipotodos"></script>
 </body>
 </html>

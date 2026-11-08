@@ -616,63 +616,102 @@ button:disabled {
     cursor: not-allowed;
 }
 
-@media (max-width: 640px) {
+@media (max-width: 860px) {
     .visor-cabecera {
-        padding: 12px 14px 8px;
+        padding: 8px 12px 4px;
+    }
+
+    .logo {
+        width: 36px;
+        height: 32px;
     }
 
     h1 {
         font-size: 1.05rem;
     }
 
-    .controles {
-        width: 100%;
-        border-radius: 12px;
+    #estado {
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        margin-top: 4px;
+        font-size: 0.82rem;
     }
 
     .escenario {
         flex-direction: column;
-        padding: 0 12px 8px;
-    }
-
-    #visor {
-        width: 100%;
-        height: auto;
-        flex: 1 1 auto;
-        min-height: 0;
+        gap: 8px;
+        padding: 0 10px 8px;
     }
 
     .escena {
-        flex: 1 1 0;
+        position: relative;
+        flex: 1 1 auto;
         min-height: 0;
         overflow: hidden;
+    }
+
+    #visor {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 0;
+        width: 100%;
+        height: calc(100% - 64px);
+        flex: none;
+    }
+
+    .sexos,
+    .vista-barra,
+    .controles {
+        position: absolute;
+        z-index: 2;
+        margin: 0;
+    }
+
+    .sexos {
+        top: 8px;
+        left: 8px;
+        max-width: calc(100% - 120px);
+    }
+
+    .sexos button {
+        min-height: 36px;
+        padding: 0 10px 0 8px;
+        font-size: 0.85rem;
+    }
+
+    .vista-barra {
+        top: 8px;
+        right: 8px;
+    }
+
+    .controles {
+        left: 8px;
+        right: 8px;
+        bottom: 8px;
+        width: auto;
+        border-radius: 12px;
     }
 
     .lateral {
         width: auto;
         flex: 0 1 auto;
-        max-height: 52%;
+        max-height: 96px;
         overflow: auto;
     }
 
     .musculos {
         flex: 0 0 auto;
+        padding: 8px 8px 6px;
+    }
+
+    .instrucciones {
+        margin-top: 8px;
     }
 
     .musculos-vistas {
-        flex: 0 0 auto;
-        grid-template-rows: auto;
+        display: none;
     }
-
-    .musculos-vistas figure {
-        height: auto;
-    }
-
-    .musculos-vistas .recorte {
-        flex: 0 0 auto;
-        width: 100%;
-        aspect-ratio: 0.46;
-        max-height: 36vh;
-    }
-
 }

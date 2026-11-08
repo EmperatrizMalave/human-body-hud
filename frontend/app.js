@@ -99,16 +99,13 @@ const traduccionesUI = {
         lblZona: "ZONA",
         lblEquipo: "EQUIPO",
         equipTodos: "Seleccionar todo",
+        equipTodosCentro: "Todos los equipos",
         equipReset: "Restablecer",
         lblNivel: "NIVEL",
         badgeBajoImpacto: "BAJO IMPACTO",
         sinResultados: "No se encontraron ejercicios con esos filtros.",
         cargando: "Consultando catálogo…",
         errorConexion: "No hay conexión con la API. Arranca el backend y recarga.",
-        detalleTitle: "FICHA",
-        detalleVacio: "Elige un ejercicio del catálogo para ver la ficha completa.",
-        lblTipo: "TIPO",
-        lblRating: "RATING",
         skipCatalog: "Saltar al catálogo",
         langGroup: "Idioma",
         lblBusqueda: "Buscar ejercicios",
@@ -152,16 +149,13 @@ const traduccionesUI = {
         lblZona: "ZONE",
         lblEquipo: "EQUIPMENT",
         equipTodos: "Select All",
+        equipTodosCentro: "All equipment",
         equipReset: "Reset",
         lblNivel: "LEVEL",
         badgeBajoImpacto: "LOW IMPACT",
         sinResultados: "No exercises matched those filters.",
         cargando: "Loading catalog…",
         errorConexion: "API is offline. Start the backend and reload.",
-        detalleTitle: "DETAIL",
-        detalleVacio: "Pick an exercise from the catalog to open its full card.",
-        lblTipo: "TYPE",
-        lblRating: "RATING",
         skipCatalog: "Skip to catalog",
         langGroup: "Language",
         lblBusqueda: "Search exercises",
@@ -217,6 +211,7 @@ function inicializarHUD() {
     document.getElementById("toggle-impact").addEventListener("change", () => cargarEjercicios(1));
     document.getElementById("equip-select-all").addEventListener("click", () => seleccionarEquipo(""));
     document.getElementById("equip-reset").addEventListener("click", () => seleccionarEquipo(""));
+    document.getElementById("equip-todos").addEventListener("click", () => seleccionarEquipo(""));
     document.getElementById("muscle-select-all").addEventListener("click", () => seleccionarZona(""));
     document.getElementById("muscle-reset").addEventListener("click", () => seleccionarZona(""));
     document.getElementById("btn-es").addEventListener("click", () => cambiarIdioma("ES"));
@@ -521,7 +516,6 @@ async function cargarEjercicios(pagina = 1) {
         }
         renderizarEjercicios(listaEjerciciosActuales);
         renderizarPaginacion(resultado.pagina_actual || 1, resultado.total_paginas || 1);
-        pintarDetalle();
     } catch (error) {
         if (error.name === "AbortError") return;
         console.error(error);
@@ -558,7 +552,6 @@ function cambiarIdioma(nuevoIdioma) {
     pintarEquipos();
     pintarNiveles();
     renderizarEjercicios(listaEjerciciosActuales);
-    pintarDetalle();
 }
 
 function actualizarTextosInterfaz() {
@@ -638,7 +631,6 @@ function renderizarEjercicios(lista) {
                 return;
             }
             renderizarEjercicios(listaEjerciciosActuales);
-            pintarDetalle();
         });
         contenedor.appendChild(tarjeta);
     });
@@ -678,62 +670,7 @@ async function restaurarFichaDesdeHash() {
     if (enPagina) {
         ejercicioSeleccionado = enPagina;
         renderizarEjercicios(listaEjerciciosActuales);
-        pintarDetalle();
-        return;
     }
-    try {
-        const respuesta = await fetch(`${API_URL}/${id}`);
-        if (!respuesta.ok) return;
-        ejercicioSeleccionado = await respuesta.json();
-        pintarDetalle();
-    } catch (error) {
-        console.error(error);
-    }
-}
-
-function pintarDetalle() {
-    const panel = document.getElementById("exercise-detail");
-    const t = traduccionesUI[idiomaActual];
-    panel.replaceChildren();
-
-    if (!ejercicioSeleccionado) {
-        const vacio = document.createElement("p");
-        vacio.className = "hud-help";
-        vacio.textContent = t.detalleVacio;
-        panel.appendChild(vacio);
-        return;
-    }
-
-    const ej = ejercicioSeleccionado;
-    const titulo = document.createElement("h5");
-    titulo.className = "card-title";
-    titulo.textContent = pick(ej, "TITLE") || "Ejercicio";
-
-    const meta = document.createElement("div");
-    meta.className = "card-meta";
-    meta.append(
-        badge(`${t.lblZona}: ${pick(ej, "BODYPART") || "N/A"}`, "card-badge--zone"),
-        badge(`${t.lblEquipo}: ${pick(ej, "EQUIPMENT") || "N/A"}`, "card-badge--equip"),
-        badge(`${t.lblNivel}: ${pick(ej, "LEVEL") || "N/A"}`, "card-badge--level"),
-        badge(`${t.lblTipo}: ${pick(ej, "TYPE") || "N/A"}`, "card-badge--equip"),
-    );
-    if (ej.NO_LEGS) meta.append(badge(t.badgeSinPiernas, "card-badge--safe"));
-    else if (ej.IS_SITTING || ej.SENTADO_SITTING) meta.append(badge(t.badgeSentado, "card-badge--safe"));
-    if (ej.LOW_IMPACT) meta.append(badge(t.badgeBajoImpacto, "card-badge--safe"));
-
-    const rating = document.createElement("p");
-    rating.className = "detail-rating";
-    const nota = ej.RATING != null ? ej.RATING : "—";
-    const notaTxt = pick(ej, "RATINGDESC");
-    rating.textContent = `${t.lblRating}: ${nota}${notaTxt ? ` · ${notaTxt}` : ""}`;
-
-    const desc = document.createElement("p");
-    desc.className = "detail-desc";
-    desc.textContent = pick(ej, "DESC") || (idiomaActual === "ES"
-        ? "Sin descripción disponible."
-        : "No description available.");
-
-    panel.append(titulo, meta, rating, desc);
 }
 
 function pick(ej, campo) {

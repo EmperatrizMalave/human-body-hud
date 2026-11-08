@@ -408,7 +408,7 @@ body {
 }
 
 .search-container {
-    margin-bottom: 15px;
+    margin: 14px 0 15px;
 }
 
 .catalog-filter {
@@ -425,6 +425,8 @@ body {
 
 .equip-dial {
     --ring: conic-gradient(from 185deg, #22d3ee, #67e8f9 22%, #a855f7 52%, #f472b6 78%, #22d3ee);
+    --orbita: 176px;
+    --aro: 16px;
     position: relative;
     width: 360px;
     height: 360px;
@@ -444,8 +446,8 @@ body {
     inset: 9%;
     border-radius: 50%;
     background: var(--ring);
-    -webkit-mask-image: radial-gradient(farthest-side, transparent calc(100% - 16px), #000 calc(100% - 15px), #000 calc(100% - 3px), transparent calc(100% - 2px));
-    mask-image: radial-gradient(farthest-side, transparent calc(100% - 16px), #000 calc(100% - 15px), #000 calc(100% - 3px), transparent calc(100% - 2px));
+    -webkit-mask-image: radial-gradient(farthest-side, transparent calc(100% - var(--aro)), #000 calc(100% - var(--aro) + 1px), #000 calc(100% - 3px), transparent calc(100% - 2px));
+    mask-image: radial-gradient(farthest-side, transparent calc(100% - var(--aro)), #000 calc(100% - var(--aro) + 1px), #000 calc(100% - 3px), transparent calc(100% - 2px));
 }
 
 .equip-dial__tube--outer {
@@ -477,7 +479,7 @@ body {
 .equip-dial__core {
     position: absolute;
     inset: 26%;
-    z-index: 2;
+    z-index: 4;
     border-radius: 50%;
     background: radial-gradient(circle at 50% 40%, #12182a 0%, #0b0f19 72%);
     box-shadow: inset 0 0 28px rgba(3, 8, 18, 0.9);
@@ -490,18 +492,26 @@ body {
 }
 
 .equip-dial__play-btn {
-    width: 64px;
-    height: 64px;
+    width: auto;
+    height: auto;
+    max-width: 92%;
     padding: 0;
     border: 0;
     background: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2px;
+    pointer-events: auto;
+    cursor: pointer;
     filter: drop-shadow(0 0 10px rgba(103, 232, 249, 0.7)) drop-shadow(0 0 16px rgba(232, 121, 249, 0.4));
 }
 
 .equip-dial__play-btn svg {
     display: block;
-    width: 100%;
-    height: 100%;
+    width: 64px;
+    height: 64px;
 }
 
 .equip-dial__labels {
@@ -529,7 +539,7 @@ body {
     text-transform: uppercase;
     cursor: pointer;
     white-space: nowrap;
-    transform: translate(-50%, -50%) rotate(var(--a)) translateY(-176px) rotate(calc(var(--a) * -1));
+    transform: translate(-50%, -50%) rotate(var(--a)) translateY(calc(var(--orbita) * -1)) rotate(calc(var(--a) * -1));
     transition: border-color 0.25s ease, background-color 0.25s ease, box-shadow 0.25s ease, color 0.25s ease;
 }
 
@@ -714,28 +724,6 @@ body {
     margin: 0;
 }
 
-.detail-heading {
-    margin-top: 28px;
-}
-
-.exercise-detail .card-title {
-    font-size: 1.15rem;
-}
-
-.detail-rating {
-    font-family: monospace;
-    color: var(--cyan);
-    margin: 0 0 12px;
-    font-size: 0.85rem;
-}
-
-.detail-desc {
-    font-size: 0.88rem;
-    color: var(--muted);
-    line-height: 1.5;
-    margin: 0;
-}
-
 .card-title {
     display: block;
     color: var(--cyan);
@@ -885,5 +873,63 @@ body {
 @media (max-width: 960px) {
     .hud-grid {
         grid-template-columns: 1fr;
+    }
+
+    .muscle-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 4px;
+    }
+
+    .muscle-card {
+        min-height: 48px;
+        padding: 4px 3px 6px;
+        gap: 2px;
+        border-radius: 8px;
+    }
+
+    .muscle-card__svg {
+        width: 16px;
+        height: 16px;
+    }
+
+    .muscle-card__label {
+        font-size: 0.5rem;
+        letter-spacing: 0.03em;
+    }
+
+    .muscle-card__badge {
+        right: 3px;
+        bottom: 2px;
+        padding: 0 4px;
+        font-size: 0.42rem;
+    }
+
+    .equip-dial {
+        --orbita: 86px;
+        --aro: 7px;
+        width: 180px;
+        height: 180px;
+        margin: 2px auto 6px;
+    }
+
+    .equip-dial__label {
+        padding: 3px 6px;
+        border-radius: 7px;
+        font-size: 0.48rem;
+        letter-spacing: 0.04em;
+    }
+
+    .equip-dial__play-btn svg {
+        width: 34px;
+        height: 34px;
+    }
+
+    .equip-dial__current {
+        font-size: 0.55rem;
+        letter-spacing: 0.08em;
+    }
+
+    .equip-dial__core {
+        gap: 2px;
     }
 }

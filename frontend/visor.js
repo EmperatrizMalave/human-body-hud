@@ -5,7 +5,7 @@ import { catalogoVisor } from "./visor-catalogo.js?v=zapatos";
 import { zonaMuscular } from "./visor-musculos.js?v=senales";
 import { colocarSenales, tieneMascara } from "./visor-senales.js?v=seleccion3";
 import { instruccionesDe } from "./visor-instrucciones.js?v=idioma1";
-import { familiaDe, prepararClips } from "./visor-poses.js?v=poses9";
+import { familiaDe, prepararClips } from "./visor-poses.js?v=brazos2";
 
 const ejercicioMuestra = catalogoVisor.ejercicios[0];
 const idFicha = leerIdFicha();
